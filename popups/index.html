@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Popups - py_cui Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Popups";
+    var mkdocs_page_input_path = "popups.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> py_cui Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../usage/">Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../functions/">Functions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../widgets/">Widgets</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Popups</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#popups">Popups</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#messagewarningerror-popup">Message/Warning/Error Popup</a></li>
+        
+            <li><a class="toctree-l3" href="#yesno-popup">Yes/No Popup</a></li>
+        
+            <li><a class="toctree-l3" href="#loading-iconbar-popup">Loading Icon/Bar Popup</a></li>
+        
+            <li><a class="toctree-l3" href="#textbox-popup">TextBox Popup</a></li>
+        
+            <li><a class="toctree-l3" href="#menu-popup">Menu Popup</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../keybindings/">Keys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../writing/">Writing a PyCUI step-by-step</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../developers/">For py_cui developers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">py_cui Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Popups</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="popups">Popups</h1>
+<p>This page contains information regarding all popups supported by <code>py_cui</code>. Please see the <code>popups_example.py</code> in the <code>examples/</code> directory in the repository.</p>
+<h3 id="messagewarningerror-popup">Message/Warning/Error Popup</h3>
+<p><strong>Spawn Command</strong></p>
+<pre><code>show_message_popup(title, text)
+show_warning_popup(title, text)
+show_error_popup(title, text)
+</code></pre>
+
+<p><strong>Usage</strong></p>
+<p>Used to show a simple message, with a different color depending on warning level.</p>
+<p><strong>Keys</strong></p>
+<p>Exit from the popup with <code>KEY_ENTER</code>, <code>KEY_ESCAPE</code>, or <code>KEY_SPACE</code>.</p>
+<h3 id="yesno-popup">Yes/No Popup</h3>
+<p><strong>Spawn Command</strong></p>
+<pre><code>show_yes_no_popup(self, title, command)
+</code></pre>
+
+<p><strong>Usage</strong></p>
+<p>Ask user yes/no question. The <code>command</code> parameter passed to the spawn function must be a function that takes a single boolean parameter.
+<strong>Keys</strong>
+If <code>KEY_Y_LOWER</code> is pressed, the command will be run with <code>True</code> passed in, otherwise <code>False</code> is passed in.</p>
+<h3 id="loading-iconbar-popup">Loading Icon/Bar Popup</h3>
+<p><strong>Spawn Command</strong></p>
+<pre><code>show_loading_icon_popup(title, message)
+show_loading_bar_popup(title, num_items)
+</code></pre>
+
+<p><strong>Usage</strong>
+The loading popups must be used in conjunction with some sort of async/threading. First, spawn the popup and then start a thread performing the long operation. At the end of the long operation, call:</p>
+<pre><code>stop_loading_popup()
+</code></pre>
+
+<p>Which will escape the loading popup.
+When using the loading bar popup, increment yout item counter with:</p>
+<pre><code>increment_loading_bar()
+</code></pre>
+
+<p><strong>Keys</strong></p>
+<p>None</p>
+<h3 id="textbox-popup">TextBox Popup</h3>
+<p><strong>Spawn Command</strong></p>
+<pre><code>show_text_box_popup(title, command)
+</code></pre>
+
+<p><strong>Usage</strong></p>
+<p>Spawn a text box, and on <code>KEY_ENTER</code> pressed, the command function is triggered with the text from the popup as the parameter.</p>
+<p><strong>Keys</strong></p>
+<p>The letter keys will write the text, and <code>KEY_ENTER</code> submits.</p>
+<h3 id="menu-popup">Menu Popup</h3>
+<p><strong>Spawn Command</strong></p>
+<pre><code>show_menu_popup(title, menu_items, command, run_command_if_none=False)
+</code></pre>
+
+<p><strong>Usage</strong></p>
+<p>Use as an overall menu system for your application. Gives user option to select from list. Fires the command with the selected menu item as a parameter on <code>KEY_ENTER</code></p>
+<p><strong>Keys</strong></p>
+<p>Arrow keys scroll up and down, enter key submits.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../keybindings/" class="btn btn-neutral float-right" title="Keys">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../widgets/" class="btn btn-neutral" title="Widgets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../widgets/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../keybindings/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

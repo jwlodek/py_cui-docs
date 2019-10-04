@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Home - py_cui Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> py_cui Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#py_cui">py_cui</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#what-is-py_cui">What is py_cui?</a></li>
+        
+            <li><a class="toctree-l3" href="#writing-a-pycui">Writing a PyCUI</a></li>
+        
+            <li><a class="toctree-l3" href="#using-a-pycui">Using a PyCUI</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="usage/">Usage</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="functions/">Functions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="widgets/">Widgets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="popups/">Popups</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="keybindings/">Keys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="writing/">Writing a PyCUI step-by-step</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="developers/">For py_cui developers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">py_cui Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p align="center">
+    <img src="https://github.com/jwlodek/py_cui/blob/master/docs/assets/Logo_Draft1.png">
+</p>
+
+<h1 id="py_cui">py_cui <img alt="" src="https://travis-ci.org/jwlodek/py_cui.svg?branch=master" /></h1>
+<p>A <strong>py</strong>thon library for creating <strong>c</strong>ommand line <strong>u</strong>ser <strong>i</strong>nterfaces.</p>
+<h3 id="what-is-py_cui">What is py_cui?</h3>
+<p><code>py_cui</code> is a python library meant to simplify writing command line user interfaces in python. It relies on the <code>curses</code> module, which is traditionally a unix-specific python module, however, I was able to use the <a href="https://github.com/zephyrproject-rtos/windows-curses">windows-curses</a> module to run <code>py_cui</code> on windows.</p>
+<p>The main advantage <code>py_cui</code> has over traditional command line user interfaces is that it relies on widgets and a grid layout manager like most traditional Graphical User Interfaces. You may define a grid size, and then drop predefined widgets onto it into specific grid locations. Widgets can also be stretched accross multiple grid rows and columns. If you've ever made a Tkinter GUI, you will feel right at home.</p>
+<h3 id="writing-a-pycui">Writing a PyCUI</h3>
+<p>Basic usage of <code>py_cui</code> starts with creating a PyCUI object, and specifiying it's grid size. Keep in mind that grid cell height and width will be measured in terminal characters, not pixels, so there is a lower limit on legal grid size, and heights will be smaller values than widths. Create this object with:</p>
+<pre><code>root = py_cui.PyCUI(7, 9)
+</code></pre>
+
+<p>The above line will create a UI with 7 rows and 9 columns. Then, add widgets with the different add commands:</p>
+<pre><code>label = root.add_label('Label Text', 0, 0)
+button = root.add_button('Button Text', 1, 2, column_span=2, command=my_function)
+...
+</code></pre>
+
+<p>Finally, start the CUI with</p>
+<pre><code>root.start()
+</code></pre>
+
+<p><code>py_cui</code> has support for custom key bindings for both the overview mode and focused mode, popup windows and prompts, color rendering rules, and several useful widgets. For more details on writing <code>py_cui</code> based interfaces, be sure to check on the examples and the documentation <a href="https://jwlodek.github.io/py_cui-docs">here</a>.</p>
+<h3 id="using-a-pycui">Using a PyCUI</h3>
+<p>There are some basic rules that apply to all <code>py_cui</code> based interfaces. There are three key operating modes - overview mode, focus mode, and popup mode. </p>
+<p><strong>Overview Mode</strong></p>
+<p>Overview mode is the main control view of the interface. In this mode you use the arrow keys to move between widgets, and you may select widgets with the <code>Enter</code> key. By default, you may also press buttons in this mode, unless <code>auto_focus_buttons</code> is set to false when the CUI was created.</p>
+<p><strong>Focus Mode</strong></p>
+<p>When in focus mode, you enter into a particular widget (For example a text box.). Each widget has some predefined basic controls, such as arrow keys to scroll in a <code>ScrollMenu</code>. You may also add keybindings to functions for each particular widget. These keybindings will only apply to a widget if it is in focus mode. Enter focus mode by navigating to a widget in overview mode and hitting the <code>Enter</code> key. Return to overview mode from focus mode by pressing <code>Escape</code>.</p>
+<p><strong>Popup Mode</strong></p>
+<p>Popup mode simply displays a popup over the rest of the UI. Each popup type behaves slightly differently. For example, you may exit an info popup mode by pressing <code>Space</code>, <code>Enter</code>, or <code>Escape</code>, while a loading popup will remain onscreen until whatever operation is being run is terminated.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="install/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-10-04 19:45:23
+-->
