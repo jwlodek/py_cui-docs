@@ -65,18 +65,24 @@
             
     <li class="toctree-l2"><a href="#usage">Usage</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#py_cui-operation-modes">py_cui Operation Modes</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../functions/">Functions</a>
+    <a class="" href="../widgets/">Widgets</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../widgets/">Widgets</a>
+    <a class="" href="../colors/">Colors</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -87,6 +93,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../keybindings/">Keys</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../functions/">Functions</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -143,6 +154,14 @@
               
                 <h1 id="usage">Usage</h1>
 <p>In this section we discuss some universal usage rules common to all <code>py_cui</code> based interfaces.</p>
+<h3 id="py_cui-operation-modes">py_cui Operation Modes</h3>
+<p>Each <code>py_cui</code> based interface has three operation modes: overview mode, focus mode, and popup mode.</p>
+<p><strong>Overview Mode</strong></p>
+<p>In overview mode, you use your arrow keys to navigate between widgets. Note that making a <code>py_cui</code> with a gap between widgets will not work, as they will be unreachable. Please use row_span/column_span instead. While in overview mode you may also press buttons by hovering over them and pressing Enter, or you may enter focus mode on a widget by hovering over it and pressing Enter. In addition, any keybindings you add to the root <code>PyCUI</code> object will be accessible while in overview mode. Also while in overview mode, by default the <code>q</code> key is used to quit.</p>
+<p><strong>Focus mode</strong></p>
+<p>Once you enter focus mode on a particular widget, different keybindings apply. These vary from widget to widget, but the Esc key always returns to overview mode. Also, any keybindings assigned to the in-focus widget will be honored here.</p>
+<p><strong>Popup Mode</strong></p>
+<p>During popup mode, no keybindings are accepted by default. Certain popups allow for certain keys to close or interact with them however. When in popup mode no CUI widgets or overview are accessible. If a widget was in focus when popup mode is initiated, focus is lost.</p>
               
             </div>
           </div>
@@ -150,7 +169,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../functions/" class="btn btn-neutral float-right" title="Functions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../widgets/" class="btn btn-neutral float-right" title="Widgets">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../install/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -182,7 +201,7 @@
         <span><a href="../install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../functions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../widgets/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

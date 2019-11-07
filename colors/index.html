@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Popups - py_cui Documentation</title>
+  <title>Colors - py_cui Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Popups";
-    var mkdocs_page_input_path = "popups.md";
+    var mkdocs_page_name = "Colors";
+    var mkdocs_page_input_path = "colors.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -68,34 +68,28 @@
     <a class="" href="../widgets/">Widgets</a>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../colors/">Colors</a>
-	    </li>
-          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Popups</a>
+    <a class="current" href="./">Colors</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#popups">Popups</a></li>
+    <li class="toctree-l2"><a href="#using-colors-in-a-py_cui">Using colors in a py_cui</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#messagewarningerror-popup">Message/Warning/Error Popup</a></li>
+            <li><a class="toctree-l3" href="#supported-colors">Supported Colors</a></li>
         
-            <li><a class="toctree-l3" href="#yesno-popup">Yes/No Popup</a></li>
-        
-            <li><a class="toctree-l3" href="#loading-iconbar-popup">Loading Icon/Bar Popup</a></li>
-        
-            <li><a class="toctree-l3" href="#textbox-popup">TextBox Popup</a></li>
-        
-            <li><a class="toctree-l3" href="#menu-popup">Menu Popup</a></li>
+            <li><a class="toctree-l3" href="#using-color-rules">Using Color Rules</a></li>
         
         </ul>
     
 
     </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../popups/">Popups</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -150,7 +144,7 @@
     
       
     
-    <li>Popups</li>
+    <li>Colors</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -160,64 +154,142 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="popups">Popups</h1>
-<p>This page contains information regarding all popups supported by <code>py_cui</code>. Please see the <code>popups_example.py</code> in the <code>examples/</code> directory in the repository.</p>
-<h3 id="messagewarningerror-popup">Message/Warning/Error Popup</h3>
-<p><strong>Spawn Command</strong></p>
-<pre><code>show_message_popup(title, text)
-show_warning_popup(title, text)
-show_error_popup(title, text)
+                <h1 id="using-colors-in-a-py_cui">Using colors in a py_cui</h1>
+<p>Colors in <code>py_cui</code> based interfaces are handled wither by widget level color choices, or by text color rules. In the case of widget coloring, you may set the <code>Widget.color</code> attribute to one of the supported color pairs. Color rules on the other hand are assigned to widgets, and relate to the text drawn within the widget. </p>
+<h3 id="supported-colors">Supported Colors</h3>
+<p>All colors in the <code>py_cui</code> library are represented as pairs, a foreground and background color. Below is a list of supported color pairs:</p>
+<table>
+<thead>
+<tr>
+<th>Color Pair</th>
+<th>Foreground (Text) Color</th>
+<th>Background Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WHITE_ON_BLACK</td>
+<td>WHITE</td>
+<td>BLACK</td>
+</tr>
+<tr>
+<td>BLACK_ON_GREEN</td>
+<td>BLACK</td>
+<td>GREEN</td>
+</tr>
+<tr>
+<td>BLACK_ON_WHITE</td>
+<td>BLACK</td>
+<td>WHITE</td>
+</tr>
+<tr>
+<td>WHITE_ON_RED</td>
+<td>WHITE</td>
+<td>RED</td>
+</tr>
+<tr>
+<td>YELLOW_ON_BLACK</td>
+<td>YELLOW</td>
+<td>BLACK</td>
+</tr>
+<tr>
+<td>RED_ON_BLACK</td>
+<td>RED</td>
+<td>BLACK</td>
+</tr>
+<tr>
+<td>CYAN_ON_BLACK</td>
+<td>CYAN</td>
+<td>BLACK</td>
+</tr>
+<tr>
+<td>MAGENTA_ON_BLACK</td>
+<td>MAGENTA</td>
+<td>BLACK</td>
+</tr>
+<tr>
+<td>GREEN_ON_BLACK</td>
+<td>GREEN</td>
+<td>BLACK</td>
+</tr>
+<tr>
+<td>BLUE_ON_BLACK</td>
+<td>BLUE</td>
+<td>BLACK</td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-color-rules">Using Color Rules</h3>
+<p>There are severl possible color rules that can be added to a py_cui widget, and these are classified under:
+* Rule Type - How we attempt to match a text line with a given regular expression
+* Match Type - How the resulting matched text is rendered</p>
+<p><strong>Rule Types</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>startswith</td>
+<td>check if string starts with regex</td>
+</tr>
+<tr>
+<td>endswith</td>
+<td>check if string ends with regex</td>
+</tr>
+<tr>
+<td>notstartswith</td>
+<td>check if string doesn't start with regex</td>
+</tr>
+<tr>
+<td>notendswith</td>
+<td>check if string doesn't end with regex</td>
+</tr>
+<tr>
+<td>contains</td>
+<td>check if regex is contained within line</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Match Type</strong></p>
+<table>
+<thead>
+<tr>
+<th>Match Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>line</td>
+<td>Color the entire line given color if matched</td>
+</tr>
+<tr>
+<td>region</td>
+<td>Color specified region if matched. For example a region of (0,3) would color the first 3 characters</td>
+</tr>
+<tr>
+<td>regex</td>
+<td>Color the matched regex only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<pre><code>self.text_block.add_text_color_rule('+', py_cui.GREEN_ON_BLACK, 'startswith')
 </code></pre>
 
-<p><strong>Usage</strong></p>
-<p>Used to show a simple message, with a different color depending on warning level.</p>
-<p><strong>Keys</strong></p>
-<p>Exit from the popup with <code>KEY_ENTER</code>, <code>KEY_ESCAPE</code>, or <code>KEY_SPACE</code>.</p>
-<h3 id="yesno-popup">Yes/No Popup</h3>
-<p><strong>Spawn Command</strong></p>
-<pre><code>show_yes_no_popup(self, title, command)
+<p>In the above example, all lines that start with a '+' symbol will be green. The default match type is line, meaning that the entire line will be colored in the event of a rule match.</p>
+<pre><code>self.menu.add_text_color_rule('?', py_cui.GREEN_ON_BLACK, 'notstartswith', match_type='region', region=[0,3], include_whitespace=True)
 </code></pre>
 
-<p><strong>Usage</strong></p>
-<p>Ask user yes/no question. The <code>command</code> parameter passed to the spawn function must be a function that takes a single boolean parameter.</p>
-<p><strong>Keys</strong></p>
-<p>If <code>KEY_Y_LOWER</code> is pressed, the command will be run with <code>True</code> passed in, otherwise <code>False</code> is passed in.</p>
-<h3 id="loading-iconbar-popup">Loading Icon/Bar Popup</h3>
-<p><strong>Spawn Command</strong></p>
-<pre><code>show_loading_icon_popup(title, message)
-show_loading_bar_popup(title, num_items)
+<p>For this color rule, all lines that don't start with a <code>?</code> will have their first three characters colored green.</p>
+<pre><code>self.text_block.add_text_color_rule('@.*@', py_cui.CYAN_ON_BLACK, 'contains', match_type='regex')
 </code></pre>
 
-<p><strong>Usage</strong>
-The loading popups must be used in conjunction with some sort of async/threading. First, spawn the popup and then start a thread performing the long operation. At the end of the long operation, call:</p>
-<pre><code>stop_loading_popup()
-</code></pre>
-
-<p>Which will escape the loading popup.
-When using the loading bar popup, increment yout item counter with:</p>
-<pre><code>increment_loading_bar()
-</code></pre>
-
-<p><strong>Keys</strong></p>
-<p>None</p>
-<h3 id="textbox-popup">TextBox Popup</h3>
-<p><strong>Spawn Command</strong></p>
-<pre><code>show_text_box_popup(title, command)
-</code></pre>
-
-<p><strong>Usage</strong></p>
-<p>Spawn a text box, and on <code>KEY_ENTER</code> pressed, the command function is triggered with the text from the popup as the parameter.</p>
-<p><strong>Keys</strong></p>
-<p>The letter keys will write the text, and <code>KEY_ENTER</code> submits.</p>
-<h3 id="menu-popup">Menu Popup</h3>
-<p><strong>Spawn Command</strong></p>
-<pre><code>show_menu_popup(title, menu_items, command, run_command_if_none=False)
-</code></pre>
-
-<p><strong>Usage</strong></p>
-<p>Use as an overall menu system for your application. Gives user option to select from list. Fires the command with the selected menu item as a parameter on <code>KEY_ENTER</code></p>
-<p><strong>Keys</strong></p>
-<p>Arrow keys scroll up and down, enter key submits.</p>
+<p>The above color rule will color all matches of @ ... @ cyan in the text of the textblock.</p>
               
             </div>
           </div>
@@ -225,10 +297,10 @@ When using the loading bar popup, increment yout item counter with:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../keybindings/" class="btn btn-neutral float-right" title="Keys">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../popups/" class="btn btn-neutral float-right" title="Popups">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../colors/" class="btn btn-neutral" title="Colors"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../widgets/" class="btn btn-neutral" title="Widgets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -254,10 +326,10 @@ When using the loading bar popup, increment yout item counter with:</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../colors/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../widgets/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../keybindings/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../popups/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
