@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Widget Sets - py_cui Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Widget Sets";
+    var mkdocs_page_input_path = "DocstringGenerated\\WidgetSet.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> py_cui Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using and Writing PyCUIs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../usage/">Basic Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../keybindings/">Keys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../writing/">Writing a PyCUI step-by-step</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Classes / Functions</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../PyCUI/">PyCUI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Grid/">Grid</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Colors/">Colors</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Widget Sets</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#file-containing-class-that-abstracts-a-collection-of-widgets">File containing class that abstracts a collection of widgets.</a></li>
+    
+
+    <li class="toctree-l3"><a href="#widgetset">WidgetSet</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#methods">Methods</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Renderer/">Renderer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Keys/">Keys</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../developers/">For py_cui developers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">py_cui Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Classes / Functions &raquo;</li>
+        
+      
+    
+    <li>Widget Sets</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/WidgetSet.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="file-containing-class-that-abstracts-a-collection-of-widgets">File containing class that abstracts a collection of widgets.</h1>
+<p>It can be used to swap between collections of widgets in a py_cui</p>
+<p>@Author: Jakub Wlodek
+@Created 05-Oct-2019</p>
+<h1 id="widgetset">WidgetSet</h1>
+<pre><code class="python"> class WidgetSet 
+</code></pre>
+
+<p>Class that represents a collection of widgets..</p>
+<p>Use PyCUI.apply_widget_set() to set a given widget set for display</p>
+<table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">grid</td>
+<td align="left">py_cui.grid.Grid</td>
+<td align="left">The main layout manager for the CUI</td>
+</tr>
+<tr>
+<td align="left">widgets</td>
+<td align="left">dict of str - py_cui.widgets.Widget</td>
+<td align="left">dict of widget in the grid</td>
+</tr>
+<tr>
+<td align="left">keybindings</td>
+<td align="left">list of py_cui.keybinding.KeyBinding</td>
+<td align="left">list of keybindings to check against in the main CUI loop</td>
+</tr>
+<tr>
+<td align="left">height, width</td>
+<td align="left">int</td>
+<td align="left">height of the terminal in characters, width of terminal in characters</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th align="left">method</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">add_key_command</td>
+<td align="left">Function that adds a keybinding to the CUI when in overview mod.</td>
+</tr>
+<tr>
+<td align="left">add_scroll_menu</td>
+<td align="left">Function that adds a new scroll menu to the CUI gri.</td>
+</tr>
+<tr>
+<td align="left">add_checkbox_menu</td>
+<td align="left">Function that adds a new checkbox menu to the CUI gri.</td>
+</tr>
+<tr>
+<td align="left">add_text_box</td>
+<td align="left">Function that adds a new text box to the CUI gri.</td>
+</tr>
+<tr>
+<td align="left">add_text_block</td>
+<td align="left">Function that adds a new text block to the CUI gri.</td>
+</tr>
+<tr>
+<td align="left">add_label</td>
+<td align="left">Function that adds a new label to the CUI gri.</td>
+</tr>
+<tr>
+<td align="left">add_block_label</td>
+<td align="left">Function that adds a new block label to the CUI gri.</td>
+</tr>
+<tr>
+<td align="left">add_button</td>
+<td align="left">Function that adds a new button to the CUI gri.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_key_command">add_key_command</h3>
+<pre><code class="python">    add_key_command(key, command) 
+</code></pre>
+
+<p>Function that adds a keybinding to the CUI when in overview mod.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">key</td>
+<td align="left">py_cui.keys.KEY_*</td>
+<td align="left">The key bound to the command</td>
+</tr>
+<tr>
+<td align="left">command</td>
+<td align="left">Function</td>
+<td align="left">A no-arg or lambda function to fire on keypress</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_scroll_menu">add_scroll_menu</h3>
+<pre><code class="python">    add_scroll_menu(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) 
+</code></pre>
+
+<p>Function that adds a new scroll menu to the CUI gri.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">str</td>
+<td align="left">The title of the scroll menu</td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left">int</td>
+<td align="left">The row value, from the top down</td>
+</tr>
+<tr>
+<td align="left">column</td>
+<td align="left">int</td>
+<td align="left">The column value from the top down</td>
+</tr>
+<tr>
+<td align="left">row_span=1</td>
+<td align="left">int</td>
+<td align="left">The number of rows to span accross</td>
+</tr>
+<tr>
+<td align="left">column_span=1</td>
+<td align="left">int</td>
+<td align="left">the number of columns to span accross</td>
+</tr>
+<tr>
+<td align="left">padx=1</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td align="left">pady=0</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the y direction</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_checkbox_menu">add_checkbox_menu</h3>
+<pre><code class="python">    add_checkbox_menu(title, row, column, row_span=1, column_span=1, padx=1, pady=0, checked_char='X') 
+</code></pre>
+
+<p>Function that adds a new checkbox menu to the CUI gri.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">str</td>
+<td align="left">The title of the checkbox</td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left">int</td>
+<td align="left">The row value, from the top down</td>
+</tr>
+<tr>
+<td align="left">column</td>
+<td align="left">int</td>
+<td align="left">The column value from the top down</td>
+</tr>
+<tr>
+<td align="left">row_span=1</td>
+<td align="left">int</td>
+<td align="left">The number of rows to span accross</td>
+</tr>
+<tr>
+<td align="left">column_span=1</td>
+<td align="left">int</td>
+<td align="left">the number of columns to span accross</td>
+</tr>
+<tr>
+<td align="left">padx=1</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td align="left">pady=0</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td align="left">checked_char='X'</td>
+<td align="left">char</td>
+<td align="left">The character used to mark 'Checked' items</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">new_checkbox_menu</td>
+<td align="left">CheckBoxMenu</td>
+<td align="left">A reference to the created checkbox object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_text_box">add_text_box</h3>
+<pre><code class="python">    add_text_box(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '') 
+</code></pre>
+
+<p>Function that adds a new text box to the CUI gri.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">str</td>
+<td align="left">The title of the textbox</td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left">int</td>
+<td align="left">The row value, from the top down</td>
+</tr>
+<tr>
+<td align="left">column</td>
+<td align="left">int</td>
+<td align="left">The column value from the top down</td>
+</tr>
+<tr>
+<td align="left">row_span=1</td>
+<td align="left">int</td>
+<td align="left">The number of rows to span accross</td>
+</tr>
+<tr>
+<td align="left">column_span=1</td>
+<td align="left">int</td>
+<td align="left">the number of columns to span accross</td>
+</tr>
+<tr>
+<td align="left">padx=1</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td align="left">pady=0</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td align="left">initial_text=''</td>
+<td align="left">str</td>
+<td align="left">Initial text for the textbox</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">new_text_box</td>
+<td align="left">TextBox</td>
+<td align="left">A reference to the created textbox object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_text_block">add_text_block</h3>
+<pre><code class="python">    add_text_block(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '') 
+</code></pre>
+
+<p>Function that adds a new text block to the CUI gri.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">str</td>
+<td align="left">The title of the text block</td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left">int</td>
+<td align="left">The row value, from the top down</td>
+</tr>
+<tr>
+<td align="left">column</td>
+<td align="left">int</td>
+<td align="left">The column value from the top down</td>
+</tr>
+<tr>
+<td align="left">row_span=1</td>
+<td align="left">int</td>
+<td align="left">The number of rows to span accross</td>
+</tr>
+<tr>
+<td align="left">column_span=1</td>
+<td align="left">int</td>
+<td align="left">the number of columns to span accross</td>
+</tr>
+<tr>
+<td align="left">padx=1</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td align="left">pady=0</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td align="left">initial_text=''</td>
+<td align="left">str</td>
+<td align="left">Initial text for the text block</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">new_text_block</td>
+<td align="left">ScrollTextBlock</td>
+<td align="left">A reference to the created textblock object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_label">add_label</h3>
+<pre><code class="python">    add_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) 
+</code></pre>
+
+<p>Function that adds a new label to the CUI gri.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">str</td>
+<td align="left">The title of the label</td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left">int</td>
+<td align="left">The row value, from the top down</td>
+</tr>
+<tr>
+<td align="left">column</td>
+<td align="left">int</td>
+<td align="left">The column value from the top down</td>
+</tr>
+<tr>
+<td align="left">row_span=1</td>
+<td align="left">int</td>
+<td align="left">The number of rows to span accross</td>
+</tr>
+<tr>
+<td align="left">column_span=1</td>
+<td align="left">int</td>
+<td align="left">the number of columns to span accross</td>
+</tr>
+<tr>
+<td align="left">padx=1</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td align="left">pady=0</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the y direction</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">new_label</td>
+<td align="left">Label</td>
+<td align="left">A reference to the created label object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_block_label">add_block_label</h3>
+<pre><code class="python">    add_block_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) 
+</code></pre>
+
+<p>Function that adds a new block label to the CUI gri.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">str</td>
+<td align="left">The title of the block label</td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left">int</td>
+<td align="left">The row value, from the top down</td>
+</tr>
+<tr>
+<td align="left">column</td>
+<td align="left">int</td>
+<td align="left">The column value from the top down</td>
+</tr>
+<tr>
+<td align="left">row_span=1</td>
+<td align="left">int</td>
+<td align="left">The number of rows to span accross</td>
+</tr>
+<tr>
+<td align="left">column_span=1</td>
+<td align="left">int</td>
+<td align="left">the number of columns to span accross</td>
+</tr>
+<tr>
+<td align="left">padx=1</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td align="left">pady=0</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the y direction</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">new_label</td>
+<td align="left">BlockLabel</td>
+<td align="left">A reference to the created block label object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_button">add_button</h3>
+<pre><code class="python">    add_button(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, command=None) 
+</code></pre>
+
+<p>Function that adds a new button to the CUI gri.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">str</td>
+<td align="left">The title of the button</td>
+</tr>
+<tr>
+<td align="left">row</td>
+<td align="left">int</td>
+<td align="left">The row value, from the top down</td>
+</tr>
+<tr>
+<td align="left">column</td>
+<td align="left">int</td>
+<td align="left">The column value from the top down</td>
+</tr>
+<tr>
+<td align="left">row_span=1</td>
+<td align="left">int</td>
+<td align="left">The number of rows to span accross</td>
+</tr>
+<tr>
+<td align="left">column_span=1</td>
+<td align="left">int</td>
+<td align="left">the number of columns to span accross</td>
+</tr>
+<tr>
+<td align="left">padx=1</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td align="left">pady=0</td>
+<td align="left">int</td>
+<td align="left">number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td align="left">command=None</td>
+<td align="left">Function</td>
+<td align="left">A no-argument or lambda function to fire on button press.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">new_button</td>
+<td align="left">Button</td>
+<td align="left">A reference to the created button object.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Renderer/" class="btn btn-neutral float-right" title="Renderer">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Colors/" class="btn btn-neutral" title="Colors"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2019 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Colors/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Renderer/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

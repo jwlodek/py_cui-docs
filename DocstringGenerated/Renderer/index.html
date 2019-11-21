@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Renderer - py_cui Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Renderer";
+    var mkdocs_page_input_path = "DocstringGenerated\\Renderer.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> py_cui Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using and Writing PyCUIs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../usage/">Basic Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../keybindings/">Keys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../writing/">Writing a PyCUI step-by-step</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Classes / Functions</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../PyCUI/">PyCUI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Grid/">Grid</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../WidgetSet/">Widget Sets</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Renderer</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#renderer">Renderer</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#methods">Methods</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Keys/">Keys</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../developers/">For py_cui developers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">py_cui Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Classes / Functions &raquo;</li>
+        
+      
+    
+    <li>Renderer</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Renderer.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1"></h1>
+<p>Module containing the py_cui renderer. It is used to draw all of the onscreen widgets and items.</p>
+<p>@author:Jakub Wlodek
+@created: 12-Aug-2019</p>
+<h1 id="renderer">Renderer</h1>
+<pre><code class="python"> class Renderer 
+</code></pre>
+
+<p>Main renderer class used for drawing widgets to the terminal.</p>
+<p>Has helper functions for drawing the borders, cursor,
+and text required for the cui. All of the functions supplied by the renderer class should only be used internally.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">root</td>
+<td align="left">py_cui.PyCUI</td>
+<td align="left">The parent window</td>
+</tr>
+<tr>
+<td align="left">stdscr</td>
+<td align="left">standard cursor</td>
+<td align="left">The cursor with which renderer draws text</td>
+</tr>
+<tr>
+<td align="left">color_rules</td>
+<td align="left">list of py_cui.colors.ColorRule</td>
+<td align="left">List of currently loaded rules to apply during drawing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th align="left">method</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">set_bold</td>
+<td align="left">Sets bold draw mod.</td>
+</tr>
+<tr>
+<td align="left">unset_bold</td>
+<td align="left">Unsets bold draw mod.</td>
+</tr>
+<tr>
+<td align="left">set_color_rules</td>
+<td align="left">Sets current color rule.</td>
+</tr>
+<tr>
+<td align="left">set_color_mode</td>
+<td align="left">Sets the output color mod.</td>
+</tr>
+<tr>
+<td align="left">unset_color_mode</td>
+<td align="left">Unsets the output color mod.</td>
+</tr>
+<tr>
+<td align="left">reset_cursor</td>
+<td align="left">Positions the cursor at the bottom right of the selected widge.</td>
+</tr>
+<tr>
+<td align="left">draw_cursor</td>
+<td align="left">Draws the cursor at a particular locatio.</td>
+</tr>
+<tr>
+<td align="left">draw_border</td>
+<td align="left">Draws border around widge.</td>
+</tr>
+<tr>
+<td align="left">draw_border_top</td>
+<td align="left">Internal function for drawing top of borde.</td>
+</tr>
+<tr>
+<td align="left">draw_border_bottom</td>
+<td align="left">Internal function for drawing bottom of borde.</td>
+</tr>
+<tr>
+<td align="left">draw_blank_row</td>
+<td align="left">Internal function for drawing a blank ro.</td>
+</tr>
+<tr>
+<td align="left">get_render_text</td>
+<td align="left">Internal function that computes the scope of the text that should be draw.</td>
+</tr>
+<tr>
+<td align="left">generate_text_color_fragments</td>
+<td align="left">Function that applies color rules to text, dividing them if match is foun.</td>
+</tr>
+<tr>
+<td align="left">draw_text</td>
+<td align="left">Function that draws widget text.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_bold">set_bold</h3>
+<pre><code class="python">    set_bold() 
+</code></pre>
+
+<p>Sets bold draw mod.</p>
+<h3 id="unset_bold">unset_bold</h3>
+<pre><code class="python">    unset_bold() 
+</code></pre>
+
+<p>Unsets bold draw mod.</p>
+<h3 id="set_color_rules">set_color_rules</h3>
+<pre><code class="python">    set_color_rules(color_rules) 
+</code></pre>
+
+<p>Sets current color rule.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">color_rules</td>
+<td align="left">list of py_cui.colors.ColorRule</td>
+<td align="left">List of currently loaded rules to apply during drawing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_color_mode">set_color_mode</h3>
+<pre><code class="python">    set_color_mode(color_mode) 
+</code></pre>
+
+<p>Sets the output color mod.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">color_mode</td>
+<td align="left">int</td>
+<td align="left">Color code to apply during drawing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="unset_color_mode">unset_color_mode</h3>
+<pre><code class="python">    unset_color_mode(color_mode) 
+</code></pre>
+
+<p>Unsets the output color mod.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">color_mode</td>
+<td align="left">int</td>
+<td align="left">Color code to unapply during drawing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reset_cursor">reset_cursor</h3>
+<pre><code class="python">    reset_cursor(widget, fill=True) 
+</code></pre>
+
+<p>Positions the cursor at the bottom right of the selected widge.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">widget for which to reset cursor</td>
+</tr>
+<tr>
+<td align="left">fill</td>
+<td align="left">bool</td>
+<td align="left">a flag that tells the renderer if the widget is filling its grid space, or not (ex. Textbox vs textblock)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="draw_cursor">draw_cursor</h3>
+<pre><code class="python">    draw_cursor(cursor_y, cursor_x) 
+</code></pre>
+
+<p>Draws the cursor at a particular locatio.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cursor_x, cursor_y</td>
+<td align="left">int</td>
+<td align="left">x, y coordinates where to draw the cursor</td>
+</tr>
+</tbody>
+</table>
+<h3 id="draw_border">draw_border</h3>
+<pre><code class="python">    draw_border(widget, fill=True, with_title=True) 
+</code></pre>
+
+<p>Draws border around widge.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">The widget being drawn</td>
+</tr>
+<tr>
+<td align="left">fill</td>
+<td align="left">bool</td>
+<td align="left">a flag that tells the renderer if the widget is filling its grid space, or not (ex. Textbox vs textblock)</td>
+</tr>
+<tr>
+<td align="left">with_title</td>
+<td align="left">bool</td>
+<td align="left">flag that tells whether or not to draw widget title</td>
+</tr>
+</tbody>
+</table>
+<h3 id="draw_border_top">draw_border_top</h3>
+<pre><code class="python">    draw_border_top(widget, y, with_title) 
+</code></pre>
+
+<p>Internal function for drawing top of borde.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">The widget being drawn</td>
+</tr>
+<tr>
+<td align="left">y</td>
+<td align="left">int</td>
+<td align="left">the terminal row (top down) on which to draw the text</td>
+</tr>
+<tr>
+<td align="left">with_title</td>
+<td align="left">bool</td>
+<td align="left">Flag that tells renderer if title should be superimposed into border.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="draw_border_bottom">draw_border_bottom</h3>
+<pre><code class="python">    draw_border_bottom(widget, y) 
+</code></pre>
+
+<p>Internal function for drawing bottom of borde.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">The widget being drawn</td>
+</tr>
+<tr>
+<td align="left">y</td>
+<td align="left">int</td>
+<td align="left">the terminal row (top down) on which to draw the text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="draw_blank_row">draw_blank_row</h3>
+<pre><code class="python">    draw_blank_row(widget, y) 
+</code></pre>
+
+<p>Internal function for drawing a blank ro.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">The widget being drawn</td>
+</tr>
+<tr>
+<td align="left">y</td>
+<td align="left">int</td>
+<td align="left">the terminal row (top down) on which to draw the text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_render_text">get_render_text</h3>
+<pre><code class="python">    get_render_text(widget, line, centered, bordered, start_pos) 
+</code></pre>
+
+<p>Internal function that computes the scope of the text that should be draw.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">The widget being drawn</td>
+</tr>
+<tr>
+<td align="left">line</td>
+<td align="left">str</td>
+<td align="left">the line of text being drawn</td>
+</tr>
+<tr>
+<td align="left">centered</td>
+<td align="left">bool</td>
+<td align="left">flag to set if the text should be centered</td>
+</tr>
+<tr>
+<td align="left">bordered</td>
+<td align="left">bool</td>
+<td align="left">a flag to set if the text should be bordered</td>
+</tr>
+<tr>
+<td align="left">start_pos</td>
+<td align="left">int</td>
+<td align="left">position to start rendering the text from.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">render_text</td>
+<td align="left">str</td>
+<td align="left">The text shortened to fit within given space</td>
+</tr>
+</tbody>
+</table>
+<h3 id="generate_text_color_fragments">generate_text_color_fragments</h3>
+<pre><code class="python">    generate_text_color_fragments(widget, line, render_text) 
+</code></pre>
+
+<p>Function that applies color rules to text, dividing them if match is foun.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">The widget being drawn</td>
+</tr>
+<tr>
+<td align="left">line</td>
+<td align="left">str</td>
+<td align="left">the line of text being drawn</td>
+</tr>
+<tr>
+<td align="left">render_text</td>
+<td align="left">str</td>
+<td align="left">The text shortened to fit within given space</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fragments</td>
+<td align="left">list of [int, str]</td>
+<td align="left">list of text - color code combinations to write</td>
+</tr>
+</tbody>
+</table>
+<h3 id="draw_text">draw_text</h3>
+<pre><code class="python">    draw_text(widget, line, y, centered = False, bordered = True, selected = False, start_pos = 0) 
+</code></pre>
+
+<p>Function that draws widget text.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.widgets.Widget</td>
+<td align="left">The widget being drawn</td>
+</tr>
+<tr>
+<td align="left">line</td>
+<td align="left">str</td>
+<td align="left">the line of text being drawn</td>
+</tr>
+<tr>
+<td align="left">y</td>
+<td align="left">int</td>
+<td align="left">the terminal row (top down) on which to draw the text</td>
+</tr>
+<tr>
+<td align="left">centered</td>
+<td align="left">bool</td>
+<td align="left">flag to set if the text should be centered</td>
+</tr>
+<tr>
+<td align="left">bordered</td>
+<td align="left">bool</td>
+<td align="left">a flag to set if the text should be bordered</td>
+</tr>
+<tr>
+<td align="left">selected</td>
+<td align="left">bool</td>
+<td align="left">Flag that tells renderer if widget is selected.</td>
+</tr>
+<tr>
+<td align="left">start_pos</td>
+<td align="left">int</td>
+<td align="left">position to start rendering the text from.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Keys/" class="btn btn-neutral float-right" title="Keys">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../WidgetSet/" class="btn btn-neutral" title="Widget Sets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2019 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../WidgetSet/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Keys/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

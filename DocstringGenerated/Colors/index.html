@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Colors - py_cui Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Colors";
+    var mkdocs_page_input_path = "DocstringGenerated\\Colors.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> py_cui Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using and Writing PyCUIs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../usage/">Basic Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../keybindings/">Keys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../writing/">Writing a PyCUI step-by-step</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Classes / Functions</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../PyCUI/">PyCUI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Grid/">Grid</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Popups/">Popups</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Colors</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#file-containing-color-rule-class-and-any-color-rendering-related-function">File containing color rule class and any color-rendering related function</a></li>
+    
+
+    <li class="toctree-l3"><a href="#colorrule">ColorRule</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#methods">Methods</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../WidgetSet/">Widget Sets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Renderer/">Renderer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Keys/">Keys</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../developers/">For py_cui developers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">py_cui Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Classes / Functions &raquo;</li>
+        
+      
+    
+    <li>Colors</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Colors.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="file-containing-color-rule-class-and-any-color-rendering-related-function">File containing color rule class and any color-rendering related function</h1>
+<p>@author:Jakub Wlodek
+@created: 12-Aug-2019</p>
+<h1 id="colorrule">ColorRule</h1>
+<pre><code class="python"> class ColorRule 
+</code></pre>
+
+<p>Class representing a text color rendering rul.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">regex</td>
+<td align="left">str</td>
+<td align="left">A python 're' module string</td>
+</tr>
+<tr>
+<td align="left">color</td>
+<td align="left">int</td>
+<td align="left">A valid color value. Ex. py_cui.WHITE_ON_BLACK</td>
+</tr>
+<tr>
+<td align="left">rule_type</td>
+<td align="left">str</td>
+<td align="left">String representing rule type. ['startswith', 'endswith', 'notstartswith', 'notendswith', 'contains']</td>
+</tr>
+<tr>
+<td align="left">match_type</td>
+<td align="left">str</td>
+<td align="left">String representing the match type. ['line', 'regex', 'region']</td>
+</tr>
+<tr>
+<td align="left">region</td>
+<td align="left">[int, int]</td>
+<td align="left">Start and end positions for the coloring, None if match_type != 'region'</td>
+</tr>
+<tr>
+<td align="left">include_whitespace</td>
+<td align="left">bool</td>
+<td align="left">Flag to determine whether to strip whitespace before matching.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th align="left">method</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">check_match</td>
+<td align="left">Checks if the color rule matches a lin.</td>
+</tr>
+<tr>
+<td align="left">generate_fragments_regex</td>
+<td align="left">Splits text into fragments based on regular expressio.</td>
+</tr>
+<tr>
+<td align="left">split_text_on_region</td>
+<td align="left">Splits text into fragments based on regio.</td>
+</tr>
+<tr>
+<td align="left">generate_fragments</td>
+<td align="left">Splits text into fragments if matched line to rege.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="check_match">check_match</h3>
+<pre><code class="python">    check_match(line) 
+</code></pre>
+
+<p>Checks if the color rule matches a lin.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">line</td>
+<td align="left">str</td>
+<td align="left">The input line of text to try to match the rule against</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">matched</td>
+<td align="left">bool</td>
+<td align="left">True if a match was found, false otherwise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="generate_fragments_regex">generate_fragments_regex</h3>
+<pre><code class="python">    generate_fragments_regex(widget, render_text) 
+</code></pre>
+
+<p>Splits text into fragments based on regular expressio.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.Widget</td>
+<td align="left">Widget containing the render text</td>
+</tr>
+<tr>
+<td align="left">render_text</td>
+<td align="left">str</td>
+<td align="left">text being rendered</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fragments</td>
+<td align="left">list of lists of [str, color]</td>
+<td align="left">the render text split into fragments of strings paired with colors</td>
+</tr>
+</tbody>
+</table>
+<h3 id="split_text_on_region">split_text_on_region</h3>
+<pre><code class="python">    split_text_on_region(widget, render_text) 
+</code></pre>
+
+<p>Splits text into fragments based on regio.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.Widget</td>
+<td align="left">Widget containing the render text</td>
+</tr>
+<tr>
+<td align="left">render_text</td>
+<td align="left">str</td>
+<td align="left">text being rendered</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fragments</td>
+<td align="left">list of lists of [str, color]</td>
+<td align="left">the render text split into fragments of strings paired with colors</td>
+</tr>
+</tbody>
+</table>
+<h3 id="generate_fragments">generate_fragments</h3>
+<pre><code class="python">    generate_fragments(widget, line, render_text) 
+</code></pre>
+
+<p>Splits text into fragments if matched line to rege.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">widget</td>
+<td align="left">py_cui.Widget</td>
+<td align="left">Widget containing the render text</td>
+</tr>
+<tr>
+<td align="left">line</td>
+<td align="left">str</td>
+<td align="left">the line to match</td>
+</tr>
+<tr>
+<td align="left">render_text</td>
+<td align="left">str</td>
+<td align="left">text being rendered</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fragments</td>
+<td align="left">list of lists of [str, color]</td>
+<td align="left">the render text split into fragments of strings paired with colors</td>
+</tr>
+<tr>
+<td align="left">matched</td>
+<td align="left">bool</td>
+<td align="left">Boolean output saying if a match was found in the line.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../WidgetSet/" class="btn btn-neutral float-right" title="Widget Sets">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Popups/" class="btn btn-neutral" title="Popups"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2019 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Popups/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../WidgetSet/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
