@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Widgets";
-    var mkdocs_page_input_path = "DocstringGenerated\\Widgets.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Widgets.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -208,7 +208,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../developers/">For py_cui developers</a>
+    <a class="" href="../../developers/">For PyCUI Developers</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -764,11 +764,20 @@ as this is required for user defined key command support</p>
 </thead>
 <tbody>
 <tr>
+<td align="left">toggle_border</td>
+<td align="left">Function that gives option to draw border around labe.</td>
+</tr>
+<tr>
 <td align="left">draw</td>
 <td align="left">Override base draw class.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="toggle_border">toggle_border</h3>
+<pre><code class="python">    toggle_border() 
+</code></pre>
+
+<p>Function that gives option to draw border around labe.</p>
 <h3 id="draw_1">draw</h3>
 <pre><code class="python">    draw() 
 </code></pre>
@@ -794,6 +803,11 @@ as this is required for user defined key command support</p>
 <td align="left">list of str</td>
 <td align="left">list of lines that make up block text</td>
 </tr>
+<tr>
+<td align="left">center</td>
+<td align="left">bool</td>
+<td align="left">Decides whether or not label should be centered</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -807,11 +821,16 @@ as this is required for user defined key command support</p>
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td align="left">draw</td>
+<td align="left">Override base draw class.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="draw_2">draw</h3>
+<pre><code class="python">    draw() 
+</code></pre>
+
+<p>Override base draw class.</p>
 <h1 id="scrollmenu">ScrollMenu</h1>
 <pre><code class="python"> class ScrollMenu(Widget) 
 </code></pre>
@@ -1023,7 +1042,7 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_2">draw</h3>
+<h3 id="draw_3">draw</h3>
 <pre><code class="python">    draw() 
 </code></pre>
 
@@ -1206,7 +1225,7 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_3">draw</h3>
+<h3 id="draw_4">draw</h3>
 <pre><code class="python">    draw() 
 </code></pre>
 
@@ -1423,7 +1442,7 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_4">draw</h3>
+<h3 id="draw_5">draw</h3>
 <pre><code class="python">    draw() 
 </code></pre>
 
@@ -1762,7 +1781,7 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_5">draw</h3>
+<h3 id="draw_6">draw</h3>
 <pre><code class="python">    draw() 
 </code></pre>
 

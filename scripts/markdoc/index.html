@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="description" content="None">
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Grid - py_cui Documentation</title>
+  <title>MarkDoc - py_cui Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Grid";
-    var mkdocs_page_input_path = "DocstringGenerated/Grid.md";
+    var mkdocs_page_name = "MarkDoc";
+    var mkdocs_page_input_path = "scripts/markdoc/README.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -95,50 +95,35 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../PyCUI/">PyCUI</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Grid</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#file-containing-the-grid-class">File containing the Grid Class.</a></li>
-    
-
-    <li class="toctree-l3"><a href="#grid">Grid</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#methods">Methods</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../DocstringGenerated/PyCUI/">PyCUI</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Widgets/">Widgets</a>
+    <a class="" href="../../DocstringGenerated/Grid/">Grid</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Popups/">Popups</a>
+    <a class="" href="../../DocstringGenerated/Widgets/">Widgets</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Colors/">Colors</a>
+    <a class="" href="../../DocstringGenerated/Popups/">Popups</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../WidgetSet/">Widget Sets</a>
+    <a class="" href="../../DocstringGenerated/Colors/">Colors</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Renderer/">Renderer</a>
+    <a class="" href="../../DocstringGenerated/WidgetSet/">Widget Sets</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../Keys/">Keys</a>
+    <a class="" href="../../DocstringGenerated/Renderer/">Renderer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../DocstringGenerated/Keys/">Keys</a>
                 </li>
     </ul>
 	    </li>
@@ -179,15 +164,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Classes / Functions &raquo;</li>
-        
-      
     
-    <li>Grid</li>
+    <li>MarkDoc</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Grid.md"
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/scripts/markdoc/README.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -197,171 +178,89 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="file-containing-the-grid-class">File containing the Grid Class.</h1>
-<p>The grid is currently the only supported layout manager for py_cui</p>
-<p>@author:Jakub Wlodek
-@created: 12-Aug-2019</p>
-<h1 id="grid">Grid</h1>
-<pre><code class="python"> class Grid 
+                <h1 id="markdoc">MarkDoc</h1>
+<p>This piece of code can be used to convert
+<a href="https://sphinxcontrib-napoleon.readthedocs.org/en/latest/example_numpy.html">NumPy-styled</a> Python docstrings (<a href="https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/neural_network/multilayer_perceptron.py#L134">example</a>),
+such as those used in <a href="https://www.scikit-learn.org/">scikit-learn</a>, to
+Markdown with minimum dependencies. In this way, only the code-contained
+documentation needs to be editted, and your documentation on for example
+<a href="http://www.readthedocs.org/">readthedocs</a> can be automatically updated
+thereafter with some configuration.</p>
+<h2 id="example">Example</h2>
+<p>The converted documentation for this particular code can be found
+<a href="https://github.com/cmry/markdoc/blob/master/markdoc.md">here</a>.</p>
+<h2 id="before-use">Before Use</h2>
+<p>The format assumes that your code (or at least your docstring documentation) is
+in line with the styleguides of <em>both</em> PEP8 and PEP257. There are two ways to
+go about making sure this is the case:</p>
+<h4 id="fast">Fast</h4>
+<p>Just check the example
+<a href="https://github.com/cmry/markdoc/blob/master/markdoc.py#L304">here</a> to get a
+quick overview of how the docstrings would have to look in order for them
+to parse correctly.</p>
+<h4 id="better">Better</h4>
+<p>The styleguides are incorporated into two libraries that can be used to check
+the Python files for style errors in terminal, like so:</p>
+<pre><code class="shell">pip install pep8
+pip install pep257
+
+pep8 yourpythonfile.py
+pep257 yourpythonfile.py
 </code></pre>
 
-<p>Class representing the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Attributes</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">num_rows</td>
-<td align="left">int</td>
-<td align="left">Number of grid rows</td>
-</tr>
-<tr>
-<td align="left">num_columns</td>
-<td align="left">int</td>
-<td align="left">Number of grid columns</td>
-</tr>
-<tr>
-<td align="left">height</td>
-<td align="left">int</td>
-<td align="left">The height in characters of the terminal window</td>
-</tr>
-<tr>
-<td align="left">width</td>
-<td align="left">int</td>
-<td align="left">The width in characters of the terminal window</td>
-</tr>
-<tr>
-<td align="left">offset_y</td>
-<td align="left">int</td>
-<td align="left">The number of additional characters found by height mod rows</td>
-</tr>
-<tr>
-<td align="left">offset_x</td>
-<td align="left">int</td>
-<td align="left">The number of additional characters found by width mod columns</td>
-</tr>
-<tr>
-<td align="left">row_height</td>
-<td align="left">int</td>
-<td align="left">The number of characters in a single grid row</td>
-</tr>
-<tr>
-<td align="left">column_width</td>
-<td align="left">int</td>
-<td align="left">The number of characters in a single grid column</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="methods">Methods</h2>
-<table>
-<thead>
-<tr>
-<th align="left">method</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">set_num_rows</td>
-<td align="left">Sets the grid row siz.</td>
-</tr>
-<tr>
-<td align="left">set_num_cols</td>
-<td align="left">Sets the grid column siz.</td>
-</tr>
-<tr>
-<td align="left">update_grid_height_width</td>
-<td align="left">Update grid height and width. Allows for on-the-fly size editin.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="set_num_rows">set_num_rows</h3>
-<pre><code class="python">    set_num_rows(num_rows) 
+<p>These are more conveniently implemented in linter plugins such as <code>linter-pep8</code>
+and <code>linter-pep257</code> for the <a href="https://atom.io/users/AtomLinter/packages">linter</a>
+package in <a href="http://www.atom.io/">Atom</a>, and
+<a href="https://github.com/dreadatour/Flake8Lint">Flake8Lint</a> for
+<a href="https://www.sublimetext.com/">Sublime Text</a> (and pretty much every other IDE).</p>
+<h2 id="usage">Usage</h2>
+<p>First clone from GitHub:</p>
+<pre><code class="shell">git clone https://www.github.com/cmry/markdoc
 </code></pre>
 
-<p>Sets the grid row siz.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">num_rows</td>
-<td align="left">int</td>
-<td align="left">New number of grid rows</td>
-</tr>
-</tbody>
-</table>
-<h3 id="set_num_cols">set_num_cols</h3>
-<pre><code class="python">    set_num_cols(num_columns) 
+<p>To use the script within terminal, simply type:</p>
+<pre><code class="shell">python3 markdoc.py /dir/to/somefile.py /dir/to/somedoc.md
 </code></pre>
 
-<p>Sets the grid column siz.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">num_columns</td>
-<td align="left">int</td>
-<td align="left">New number of grid columns</td>
-</tr>
-</tbody>
-</table>
-<h3 id="update_grid_height_width">update_grid_height_width</h3>
-<pre><code class="python">    update_grid_height_width(height, width) 
+<p>If you want to automatically generate a bunch of documentation and are not
+comfortable with writing <code>.sh</code> scripts, you can use the code in Python as well:</p>
+<pre><code class="python">from markdoc import MarkDoc
+md = MarkDoc('/dir/to/somefile.py', '/dir/to/somedoc.md')
 </code></pre>
 
-<p>Update grid height and width. Allows for on-the-fly size editin.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">height</td>
-<td align="left">int</td>
-<td align="left">The height in characters of the terminal window</td>
-</tr>
-<tr>
-<td align="left">width</td>
-<td align="left">int</td>
-<td align="left">The width in characters of the terminal window</td>
-</tr>
-</tbody>
-</table>
+<p>You can access the converted markdown string in:</p>
+<pre><code class="python"># print markdown from class attribute
+print(md.markdown)
+</code></pre>
+
+<p>The class runs itself on initialization (calls <code>self.read</code>). If you do not
+want this, you can add <code>cold=True</code> to the class initialization, like so:</p>
+<pre><code class="python">md = MarkDoc('file.py', 'doc.md', cold=True)
+</code></pre>
+
+<h2 id="planned-fixes">Planned Fixes</h2>
+<ul>
+<li>Handle consecutive classes within the same file.</li>
+<li>Fix inherrited classes being handled correctly (no <code>__init__</code>, no <code>object</code>).</li>
+<li>Link class methods from table to their documentation.</li>
+<li>Might not handle decorators neatly.</li>
+</ul>
+<h2 id="docstring-issues">Docstring Issues</h2>
+<p>Some caveats:</p>
+<ul>
+<li>Do not use <code>"""</code> for anything other than docstrings.</li>
+<li>First line of any docstring has to contain the first short title
+  (<a href="https://github.com/cmry/markdoc/blob/master/markdoc.py#L162">example</a>).</li>
+<li>Classes have to be structured new-style: <code>class SomeClass(object):</code>.</li>
+<li>Codeblocks in examples have to be vanilla Python (<code>&gt;&gt;&gt;</code> and <code>...</code>).</li>
+<li>Please do not use <code>class</code> as a parameter name!</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>Script has only been tested with Python 3.4 on Ubuntu.</p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../Widgets/" class="btn btn-neutral float-right" title="Widgets">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../PyCUI/" class="btn btn-neutral" title="PyCUI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -389,10 +288,6 @@
           <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../PyCUI/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../Widgets/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -402,3 +297,8 @@
 
 </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2020-01-27 18:09:05
+-->

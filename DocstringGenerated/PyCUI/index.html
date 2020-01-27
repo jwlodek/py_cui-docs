@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "PyCUI";
-    var mkdocs_page_input_path = "DocstringGenerated\\PyCUI.md";
+    var mkdocs_page_input_path = "DocstringGenerated/PyCUI.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -145,7 +145,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../developers/">For py_cui developers</a>
+    <a class="" href="../../developers/">For PyCUI Developers</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -426,7 +426,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 <tr>
 <td align="left"><strong>format</strong></td>
-<td align="left">Override of base format function. Prints list of current widhets.</td>
+<td align="left">Override of base format function. Prints list of current widgets.</td>
 </tr>
 </tbody>
 </table>
@@ -435,6 +435,22 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Gets widget set object from current widgets.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Returns</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">new_widget_set</td>
+<td align="left">py_cui.widget_set.WidgetSet</td>
+<td align="left">Widget set collected from widgets currently added to the py_cui</td>
+</tr>
+</tbody>
+</table>
 <h3 id="apply_widget_set">apply_widget_set</h3>
 <pre><code class="python">    apply_widget_set(new_widget_set) 
 </code></pre>
@@ -891,7 +907,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="add_block_label">add_block_label</h3>
-<pre><code class="python">    add_block_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) 
+<pre><code class="python">    add_block_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True) 
 </code></pre>
 
 <p>Function that adds a new block label to the CUI gri.</p>
@@ -938,6 +954,11 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td align="left">pady=0</td>
 <td align="left">int</td>
 <td align="left">number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td align="left">center</td>
+<td align="left">bool</td>
+<td align="left">flag to tell label to be centered or left-aligned.</td>
 </tr>
 </tbody>
 </table>
@@ -1585,7 +1606,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <pre><code class="python">    __format__(fmt) 
 </code></pre>
 
-<p>Override of base format function. Prints list of current widhets.</p>
+<p>Override of base format function. Prints list of current widgets.</p>
 <table>
 <thead>
 <tr>

@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Widget Sets";
-    var mkdocs_page_input_path = "DocstringGenerated\\WidgetSet.md";
+    var mkdocs_page_input_path = "DocstringGenerated/WidgetSet.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -145,7 +145,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../developers/">For py_cui developers</a>
+    <a class="" href="../../developers/">For PyCUI Developers</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -198,7 +198,7 @@
             <div class="section">
               
                 <h1 id="file-containing-class-that-abstracts-a-collection-of-widgets">File containing class that abstracts a collection of widgets.</h1>
-<p>It can be used to swap between collections of widgets in a py_cui</p>
+<p>It can be used to swap between collections of widgets (screens) in a py_cui</p>
 <p>@Author: Jakub Wlodek
 @Created 05-Oct-2019</p>
 <h1 id="widgetset">WidgetSet</h1>
@@ -249,6 +249,10 @@
 </thead>
 <tbody>
 <tr>
+<td align="left">set_selected_widget</td>
+<td align="left">Function that sets the selected cell for the CU.</td>
+</tr>
+<tr>
 <td align="left">add_key_command</td>
 <td align="left">Function that adds a keybinding to the CUI when in overview mod.</td>
 </tr>
@@ -279,6 +283,27 @@
 <tr>
 <td align="left">add_button</td>
 <td align="left">Function that adds a new button to the CUI gri.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_selected_widget">set_selected_widget</h3>
+<pre><code class="python">    set_selected_widget(widget_id) 
+</code></pre>
+
+<p>Function that sets the selected cell for the CU.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameters</th>
+<th align="left">Type</th>
+<th align="left">Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cell_title</td>
+<td align="left">str</td>
+<td align="left">the title of the cell</td>
 </tr>
 </tbody>
 </table>
@@ -659,7 +684,7 @@
 </tbody>
 </table>
 <h3 id="add_block_label">add_block_label</h3>
-<pre><code class="python">    add_block_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) 
+<pre><code class="python">    add_block_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True) 
 </code></pre>
 
 <p>Function that adds a new block label to the CUI gri.</p>
@@ -706,6 +731,11 @@
 <td align="left">pady=0</td>
 <td align="left">int</td>
 <td align="left">number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td align="left">center</td>
+<td align="left">bool</td>
+<td align="left">flag to tell label to be centered or left-aligned.</td>
 </tr>
 </tbody>
 </table>
