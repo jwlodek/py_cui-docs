@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Keys";
-    var mkdocs_page_input_path = "DocstringGenerated/Keys.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\Keys.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -95,7 +95,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../PyCUI/">PyCUI</a>
+    <a class="" href="../PyCUI.md">PyCUI</a>
                 </li>
                 <li class="">
                     
@@ -126,7 +126,15 @@
     <a class="current" href="./">Keys</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#module-containing-constants-and-helper-functions-for-dealing-with-keys">Module containing constants and helper functions for dealing with keys</a></li>
+    <li class="toctree-l3"><a href="#keys">keys</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#get_ascii_from_char">get_ascii_from_char</a></li>
+        
+            <li><a class="toctree-l4" href="#get_char_from_ascii">get_char_from_ascii</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -188,9 +196,36 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="module-containing-constants-and-helper-functions-for-dealing-with-keys">Module containing constants and helper functions for dealing with keys</h1>
-<p>@author:Jakub Wlodek
-@created: 12-Aug-2019</p>
+                <h1 id="keys">keys</h1>
+<p>Module containing constants and helper functions for dealing with keys.</p>
+<p>@author:    Jakub Wlodek<br />
+@created:   12-Aug-2019</p>
+<h3 id="get_ascii_from_char">get_ascii_from_char</h3>
+<pre><code class="python">def get_ascii_from_char(char)
+</code></pre>
+
+<p>Function that converts ascii code to character</p>
+<h4 id="parameters">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ char  |  character | character to convert to ascii</p>
+<h4 id="returns">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ ascii_code  |  int | Ascii code of character</p>
+<h3 id="get_char_from_ascii">get_char_from_ascii</h3>
+<pre><code class="python">def get_char_from_ascii(key_num)
+</code></pre>
+
+<p>Function that converts a character to an ascii code</p>
+<h4 id="parameters_1">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ ascii_code  |  int | Ascii code of character</p>
+<h4 id="returns_1">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ char  |  character | character converted from ascii</p>
               
             </div>
           </div>

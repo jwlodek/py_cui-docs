@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>PyCUI - py_cui Documentation</title>
+  <title>py_cui - py_cui Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "PyCUI";
-    var mkdocs_page_input_path = "DocstringGenerated/PyCUI.md";
+    var mkdocs_page_name = "py_cui";
+    var mkdocs_page_input_path = "DocstringGenerated\\PyCui.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -93,24 +93,9 @@
 		
     <span class="caption-text">Classes / Functions</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">PyCUI</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#a-python-library-for-creating-command-line-based-user-interfaces">A python library for creating command line based user interfaces</a></li>
-    
-
-    <li class="toctree-l3"><a href="#pycui">PyCUI</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#methods">Methods</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../PyCUI.md">PyCUI</a>
                 </li>
                 <li class="">
                     
@@ -179,15 +164,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Classes / Functions &raquo;</li>
-        
-      
     
-    <li>PyCUI</li>
+    <li>py_cui</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/PyCUI.md"
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/PyCui.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -197,1445 +178,536 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="a-python-library-for-creating-command-line-based-user-interfaces">A python library for creating command line based user interfaces</h1>
-<p>@author:Jakub Wlodek
-@created: 12-Aug-2019</p>
-<h1 id="pycui">PyCUI</h1>
-<pre><code class="python"> class PyCUI 
+                <h1 id="py_cui">py_cui</h1>
+<p>A python library for creating command line based user interfaces.</p>
+<p>@author:    Jakub Wlodek<br />
+@created:   12-Aug-2019</p>
+<h3 id="fit_text">fit_text</h3>
+<pre><code class="python">def fit_text(width, text, center=False)
 </code></pre>
 
-<p>Base CUI clas.</p>
+<p>Fits text to screen size</p>
+<p>Helper function to fit text within a given width. Used to fix issue with status/title bar text
+being too long</p>
+<h4 id="parameters">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ width  |  int | width of window in characters
+ text  |  str | input text
+ center  |  Boolean | flag to center text</p>
+<h4 id="returns">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ fitted_text  |  str | text fixed depending on width</p>
+<h2 id="pycui">PyCUI</h2>
+<pre><code class="python">class PyCUI
+</code></pre>
+
+<p>Base CUI class</p>
 <p>Main user interface class for py_cui. To create a user interface, you must first
 create an instance of this class, and then add cells + widgets to it.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Attributes</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">cursor_x, cursor_y</td>
-<td align="left">int</td>
-<td align="left">absolute position of the cursor in the CUI</td>
-</tr>
-<tr>
-<td align="left">grid</td>
-<td align="left">py_cui.grid.Grid</td>
-<td align="left">The main layout manager for the CUI</td>
-</tr>
-<tr>
-<td align="left">widgets</td>
-<td align="left">dict of str - py_cui.widgets.Widget</td>
-<td align="left">dict of widget in the grid</td>
-</tr>
-<tr>
-<td align="left">title_bar</td>
-<td align="left">py_cui.statusbar.StatusBar</td>
-<td align="left">a status bar object that gets drawn at the top of the CUI</td>
-</tr>
-<tr>
-<td align="left">status_bar</td>
-<td align="left">py_cui.statusbar.StatusBar</td>
-<td align="left">a status bar object that gets drawn at the bottom of the CUI</td>
-</tr>
-<tr>
-<td align="left">keybindings</td>
-<td align="left">list of py_cui.keybinding.KeyBinding</td>
-<td align="left">list of keybindings to check against in the main CUI loop</td>
-</tr>
-<tr>
-<td align="left">height, width</td>
-<td align="left">int</td>
-<td align="left">height of the terminal in characters, width of terminal in characters</td>
-</tr>
-<tr>
-<td align="left">exit_key</td>
-<td align="left">key_code</td>
-<td align="left">a key code for a key that exits the CUI</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="methods">Methods</h2>
-<table>
-<thead>
-<tr>
-<th align="left">method</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">get_widget_set</td>
-<td align="left">Gets widget set object from current widgets.</td>
-</tr>
-<tr>
-<td align="left">apply_widget_set</td>
-<td align="left">Function that replaces all widgets in a py_cui with those of a different widget se.</td>
-</tr>
-<tr>
-<td align="left">start</td>
-<td align="left">Function that starts the CU.</td>
-</tr>
-<tr>
-<td align="left">stop</td>
-<td align="left">Function that stops the CUI, and fires the callback function..</td>
-</tr>
-<tr>
-<td align="left">run_on_exit</td>
-<td align="left">Sets callback function on CUI exit. Must be a no-argument function or lambda functio.</td>
-</tr>
-<tr>
-<td align="left">set_title</td>
-<td align="left">Sets the title bar tex.</td>
-</tr>
-<tr>
-<td align="left">set_status_bar_text</td>
-<td align="left">Sets the status bar text when in overview mod.</td>
-</tr>
-<tr>
-<td align="left">initialize_colors</td>
-<td align="left">Function for initialzing curses colors. Called when CUI is first created.</td>
-</tr>
-<tr>
-<td align="left">initialize_widget_renderer</td>
-<td align="left">Function that creates the renderer object that will draw each widge.</td>
-</tr>
-<tr>
-<td align="left">add_scroll_menu</td>
-<td align="left">Function that adds a new scroll menu to the CUI gri.</td>
-</tr>
-<tr>
-<td align="left">add_checkbox_menu</td>
-<td align="left">Function that adds a new checkbox menu to the CUI gri.</td>
-</tr>
-<tr>
-<td align="left">add_text_box</td>
-<td align="left">Function that adds a new text box to the CUI gri.</td>
-</tr>
-<tr>
-<td align="left">add_text_block</td>
-<td align="left">Function that adds a new text block to the CUI gri.</td>
-</tr>
-<tr>
-<td align="left">add_label</td>
-<td align="left">Function that adds a new label to the CUI gri.</td>
-</tr>
-<tr>
-<td align="left">add_block_label</td>
-<td align="left">Function that adds a new block label to the CUI gri.</td>
-</tr>
-<tr>
-<td align="left">add_button</td>
-<td align="left">Function that adds a new button to the CUI gri.</td>
-</tr>
-<tr>
-<td align="left">check_if_neighbor_exists</td>
-<td align="left">Function that checks if widget has neighbor in specified cell..</td>
-</tr>
-<tr>
-<td align="left">set_selected_widget</td>
-<td align="left">Function that sets the selected cell for the CU.</td>
-</tr>
-<tr>
-<td align="left">get_widget_id</td>
-<td align="left">Function for grabbing widget I.</td>
-</tr>
-<tr>
-<td align="left">lose_focus</td>
-<td align="left">Function that forces py_cui out of focus mode.</td>
-</tr>
-<tr>
-<td align="left">move_focus</td>
-<td align="left">Moves focus mode to different widge.</td>
-</tr>
-<tr>
-<td align="left">add_key_command</td>
-<td align="left">Function that adds a keybinding to the CUI when in overview mod.</td>
-</tr>
-<tr>
-<td align="left">show_message_popup</td>
-<td align="left">Shows a message popu.</td>
-</tr>
-<tr>
-<td align="left">show_warning_popup</td>
-<td align="left">Shows a warning popu.</td>
-</tr>
-<tr>
-<td align="left">show_error_popup</td>
-<td align="left">Shows an error popu.</td>
-</tr>
-<tr>
-<td align="left">show_yes_no_popup</td>
-<td align="left">Shows a yes/no popup.</td>
-</tr>
-<tr>
-<td align="left">show_text_box_popup</td>
-<td align="left">Shows a textbox popup.</td>
-</tr>
-<tr>
-<td align="left">show_menu_popup</td>
-<td align="left">Shows a menu popup.</td>
-</tr>
-<tr>
-<td align="left">show_loading_icon_popup</td>
-<td align="left">Shows a loading icon popu.</td>
-</tr>
-<tr>
-<td align="left">show_loading_bar_popup</td>
-<td align="left">Shows loading bar popup.</td>
-</tr>
-<tr>
-<td align="left">increment_loading_bar</td>
-<td align="left">Increments progress bar if loading bar popup is ope.</td>
-</tr>
-<tr>
-<td align="left">stop_loading_popup</td>
-<td align="left">Leaves loading state, and closes popup.</td>
-</tr>
-<tr>
-<td align="left">close_popup</td>
-<td align="left">Closes the popup, and resets focu.</td>
-</tr>
-<tr>
-<td align="left">refresh_height_width</td>
-<td align="left">Function that updates the height and width of the CUI based on terminal window siz.</td>
-</tr>
-<tr>
-<td align="left">draw_widgets</td>
-<td align="left">Function that draws all of the widgets to the scree.</td>
-</tr>
-<tr>
-<td align="left">draw_status_bars</td>
-<td align="left">Draws status bar and title ba.</td>
-</tr>
-<tr>
-<td align="left">display_window_warning</td>
-<td align="left">Function that prints some basic error info if there is an error with the CU.</td>
-</tr>
-<tr>
-<td align="left">handle_key_presses</td>
-<td align="left">Function that handles all main loop key presses.</td>
-</tr>
-<tr>
-<td align="left">draw</td>
-<td align="left">Main CUI draw loop called by start(.</td>
-</tr>
-<tr>
-<td align="left"><strong>format</strong></td>
-<td align="left">Override of base format function. Prints list of current widgets.</td>
-</tr>
-</tbody>
-</table>
+<h4 id="attributes">Attributes</h4>
+<p>Attribute  | Type  | Doc
+-----|----------|----------|-----
+ cursor_x, cursor_y  |  int | absolute position of the cursor in the CUI
+ grid  |  py_cui.grid.Grid | The main layout manager for the CUI
+ widgets  |  dict of str - py_cui.widgets.Widget | dict of widget in the grid
+ title_bar  |  py_cui.statusbar.StatusBar | a status bar object that gets drawn at the top of the CUI
+ status_bar  |  py_cui.statusbar.StatusBar | a status bar object that gets drawn at the bottom of the CUI
+ keybindings  |  list of py_cui.keybinding.KeyBinding | list of keybindings to check against in the main CUI loop
+ height, width  |  int | height of the terminal in characters, width of terminal in characters
+ exit_key  |  key_code | a key code for a key that exits the CUI</p>
+<h4 id="methods">Methods</h4>
+<p>Method  | Doc
+-----|----------|-----
+ get_widget_set | Gets widget set object from current widgets.
+ apply_widget_set | Function that replaces all widgets in a py_cui with those of a different widget set
+ start | starts the CUI once all of the widgets have been added
+ stop | Function that stops CUI and runs the run_on_exit function if set.
+ run_on_exit | Sets callback function on CUI exit. Must be a no-argument function or lambda function
+ add_scroll_menu | Function that adds a new scroll menu to the CUI grid
+ add_checkbox_menu | Function that adds a new checkbox menu to the CUI grid
+ add_text_box | Function that adds a new text box to the CUI grid
+ add_text_block | Function that adds a new text block to the CUI grid
+ add_label | Function that adds a new label to the CUI grid
+ add_block_label | Function that adds a new block label to the CUI grid
+ add_button | Function that adds a new button to the CUI grid
+ add_key_command | Function that adds a keybinding to the CUI when in overview mode
+ show_message_popup | Shows a message popup
+ show_warning_popup | Shows a warning popup
+ show_error_popup | Shows an error popup
+ show_yes_no_popup | Shows a yes/no popup.
+ show_text_box_popup | Shows a textbox popup.
+ show_menu_popup | Shows a menu popup.
+ show_loading_icon_popup | Shows a loading icon popup
+ show_loading_bar_popup | Shows loading bar popup.
+ increment_loading_bar | Increments progress bar if loading bar popup is open
+ stop_loading_popup | Leaves loading state, and closes popup.
+ close_popup | Closes the popup, and resets focus
+ refresh_height_width | Function that updates the height and width of the CUI based on terminal window size
+ draw_widgets | Function that draws all of the widgets to the screen
+ draw_status_bars | Draws status bar and title bar
+ display_window_warning | Function that prints some basic error info if there is an error with the CUI
+ handle_key_presses | Function that handles all main loop key presses.
+ draw | Main CUI draw loop called by start()
+ set_title | Sets the title bar text
+ set_status_bar_text | Sets the status bar text when in overview mode
+ initialize_colors | Function for initialzing curses colors. Called when CUI is first created.
+ initialize_widget_renderer | Function that creates the renderer object that will draw each widget
+ check_if_neighbor_exists | Function that checks if widget has neighbor in specified cell.
+ set_selected_widget | Function that sets the selected cell for the CUI
+ get_widget_id | Function for grabbing widget ID
+ lose_focus | Function that forces py_cui out of focus mode.
+ move_focus | Moves focus mode to different widget
+ add_status_bar | function that adds a status bar widget to the CUI</p>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, num_rows, num_cols, auto_focus_buttons=True, exit_key=py_cui.keys.KEY_Q_LOWER)
+</code></pre>
+
+<p>Constructor for PyCUI class</p>
 <h3 id="get_widget_set">get_widget_set</h3>
-<pre><code class="python">    get_widget_set() 
+<pre><code class="python">def get_widget_set(self)
 </code></pre>
 
 <p>Gets widget set object from current widgets.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_widget_set</td>
-<td align="left">py_cui.widget_set.WidgetSet</td>
-<td align="left">Widget set collected from widgets currently added to the py_cui</td>
-</tr>
-</tbody>
-</table>
+<h4 id="returns_1">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_widget_set  |  py_cui.widget_set.WidgetSet | Widget set collected from widgets currently added to the py_cui</p>
 <h3 id="apply_widget_set">apply_widget_set</h3>
-<pre><code class="python">    apply_widget_set(new_widget_set) 
+<pre><code class="python">def apply_widget_set(self, new_widget_set)
 </code></pre>
 
-<p>Function that replaces all widgets in a py_cui with those of a different widget se.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_widget_set</td>
-<td align="left">WidgetSet</td>
-<td align="left">The new widget set to switch to</td>
-</tr>
-</tbody>
-</table>
+<p>Function that replaces all widgets in a py_cui with those of a different widget set</p>
+<h4 id="parameters_1">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ new_widget_set  |  WidgetSet | The new widget set to switch to
+ Raises | ------
+ TypeError | If input is not of type widget set</p>
 <h3 id="start">start</h3>
-<pre><code class="python">    start() 
+<pre><code class="python">def start(self)
 </code></pre>
 
-<p>Function that starts the CU.</p>
+<p>Function that starts the CUI</p>
 <h3 id="stop">stop</h3>
-<pre><code class="python">    stop() 
+<pre><code class="python">def stop(self)
 </code></pre>
 
-<p>Function that stops the CUI, and fires the callback function..</p>
+<p>Function that stops the CUI, and fires the callback function.</p>
 <p>Callback must be a no arg method</p>
 <h3 id="run_on_exit">run_on_exit</h3>
-<pre><code class="python">    run_on_exit(command) 
+<pre><code class="python">def run_on_exit(self, command)
 </code></pre>
 
-<p>Sets callback function on CUI exit. Must be a no-argument function or lambda functio.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">command</td>
-<td align="left">function</td>
-<td align="left">A no-argument or lambda function to be fired on exit</td>
-</tr>
-</tbody>
-</table>
+<p>Sets callback function on CUI exit. Must be a no-argument function or lambda function</p>
+<h4 id="parameters_2">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ command  |  function | A no-argument or lambda function to be fired on exit</p>
 <h3 id="set_title">set_title</h3>
-<pre><code class="python">    set_title(title) 
+<pre><code class="python">def set_title(self, title)
 </code></pre>
 
-<p>Sets the title bar tex.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">New title for CUI</td>
-</tr>
-</tbody>
-</table>
+<p>Sets the title bar text</p>
+<h4 id="parameters_3">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | New title for CUI</p>
 <h3 id="set_status_bar_text">set_status_bar_text</h3>
-<pre><code class="python">    set_status_bar_text(text) 
+<pre><code class="python">def set_status_bar_text(self, text)
 </code></pre>
 
-<p>Sets the status bar text when in overview mod.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">text</td>
-<td align="left">str</td>
-<td align="left">Status bar text</td>
-</tr>
-</tbody>
-</table>
+<p>Sets the status bar text when in overview mode</p>
+<h4 id="parameters_4">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ text  |  str | Status bar text</p>
 <h3 id="initialize_colors">initialize_colors</h3>
-<pre><code class="python">    initialize_colors() 
+<pre><code class="python">def initialize_colors(self)
 </code></pre>
 
 <p>Function for initialzing curses colors. Called when CUI is first created.</p>
 <h3 id="initialize_widget_renderer">initialize_widget_renderer</h3>
-<pre><code class="python">    initialize_widget_renderer() 
+<pre><code class="python">def initialize_widget_renderer(self)
 </code></pre>
 
-<p>Function that creates the renderer object that will draw each widge.</p>
+<p>Function that creates the renderer object that will draw each widget</p>
 <h3 id="add_scroll_menu">add_scroll_menu</h3>
-<pre><code class="python">    add_scroll_menu(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) 
+<pre><code class="python">def add_scroll_menu(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0)
 </code></pre>
 
-<p>Function that adds a new scroll menu to the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">The title of the scroll menu</td>
-</tr>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">The row value, from the top down</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">The column value from the top down</td>
-</tr>
-<tr>
-<td align="left">row_span=1</td>
-<td align="left">int</td>
-<td align="left">The number of rows to span accross</td>
-</tr>
-<tr>
-<td align="left">column_span=1</td>
-<td align="left">int</td>
-<td align="left">the number of columns to span accross</td>
-</tr>
-<tr>
-<td align="left">padx=1</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the x direction</td>
-</tr>
-<tr>
-<td align="left">pady=0</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the y direction</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_scroll_menu</td>
-<td align="left">ScrollMenu</td>
-<td align="left">A reference to the created scroll menu object.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a new scroll menu to the CUI grid</p>
+<h4 id="parameters_5">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | The title of the scroll menu
+ row  |  int | The row value, from the top down
+ column  |  int | The column value from the top down
+ row_span=1  |  int | The number of rows to span accross
+ column_span=1  |  int | the number of columns to span accross
+ padx=1  |  int | number of padding characters in the x direction
+ pady=0  |  int | number of padding characters in the y direction</p>
+<h4 id="returns_2">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_scroll_menu  |  ScrollMenu | A reference to the created scroll menu object.</p>
 <h3 id="add_checkbox_menu">add_checkbox_menu</h3>
-<pre><code class="python">    add_checkbox_menu(title, row, column, row_span=1, column_span=1, padx=1, pady=0, checked_char='X') 
+<pre><code class="python">def add_checkbox_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0, checked_char='X')
 </code></pre>
 
-<p>Function that adds a new checkbox menu to the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">The title of the checkbox</td>
-</tr>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">The row value, from the top down</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">The column value from the top down</td>
-</tr>
-<tr>
-<td align="left">row_span=1</td>
-<td align="left">int</td>
-<td align="left">The number of rows to span accross</td>
-</tr>
-<tr>
-<td align="left">column_span=1</td>
-<td align="left">int</td>
-<td align="left">the number of columns to span accross</td>
-</tr>
-<tr>
-<td align="left">padx=1</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the x direction</td>
-</tr>
-<tr>
-<td align="left">pady=0</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the y direction</td>
-</tr>
-<tr>
-<td align="left">checked_char='X'</td>
-<td align="left">char</td>
-<td align="left">The character used to mark 'Checked' items</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_checkbox_menu</td>
-<td align="left">CheckBoxMenu</td>
-<td align="left">A reference to the created checkbox object.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a new checkbox menu to the CUI grid</p>
+<h4 id="parameters_6">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | The title of the checkbox
+ row  |  int | The row value, from the top down
+ column  |  int | The column value from the top down
+ row_span=1  |  int | The number of rows to span accross
+ column_span=1  |  int | the number of columns to span accross
+ padx=1  |  int | number of padding characters in the x direction
+ pady=0  |  int | number of padding characters in the y direction
+ checked_char='X'  |  char | The character used to mark 'Checked' items</p>
+<h4 id="returns_3">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_checkbox_menu  |  CheckBoxMenu | A reference to the created checkbox object.</p>
 <h3 id="add_text_box">add_text_box</h3>
-<pre><code class="python">    add_text_box(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '') 
+<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '')
 </code></pre>
 
-<p>Function that adds a new text box to the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">The title of the textbox</td>
-</tr>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">The row value, from the top down</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">The column value from the top down</td>
-</tr>
-<tr>
-<td align="left">row_span=1</td>
-<td align="left">int</td>
-<td align="left">The number of rows to span accross</td>
-</tr>
-<tr>
-<td align="left">column_span=1</td>
-<td align="left">int</td>
-<td align="left">the number of columns to span accross</td>
-</tr>
-<tr>
-<td align="left">padx=1</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the x direction</td>
-</tr>
-<tr>
-<td align="left">pady=0</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the y direction</td>
-</tr>
-<tr>
-<td align="left">initial_text=''</td>
-<td align="left">str</td>
-<td align="left">Initial text for the textbox</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_text_box</td>
-<td align="left">TextBox</td>
-<td align="left">A reference to the created textbox object.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a new text box to the CUI grid</p>
+<h4 id="parameters_7">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | The title of the textbox
+ row  |  int | The row value, from the top down
+ column  |  int | The column value from the top down
+ row_span=1  |  int | The number of rows to span accross
+ column_span=1  |  int | the number of columns to span accross
+ padx=1  |  int | number of padding characters in the x direction
+ pady=0  |  int | number of padding characters in the y direction
+ initial_text=''  |  str | Initial text for the textbox</p>
+<h4 id="returns_4">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_text_box  |  TextBox | A reference to the created textbox object.</p>
 <h3 id="add_text_block">add_text_block</h3>
-<pre><code class="python">    add_text_block(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '') 
+<pre><code class="python">def add_text_block(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '')
 </code></pre>
 
-<p>Function that adds a new text block to the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">The title of the text block</td>
-</tr>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">The row value, from the top down</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">The column value from the top down</td>
-</tr>
-<tr>
-<td align="left">row_span=1</td>
-<td align="left">int</td>
-<td align="left">The number of rows to span accross</td>
-</tr>
-<tr>
-<td align="left">column_span=1</td>
-<td align="left">int</td>
-<td align="left">the number of columns to span accross</td>
-</tr>
-<tr>
-<td align="left">padx=1</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the x direction</td>
-</tr>
-<tr>
-<td align="left">pady=0</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the y direction</td>
-</tr>
-<tr>
-<td align="left">initial_text=''</td>
-<td align="left">str</td>
-<td align="left">Initial text for the text block</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_text_block</td>
-<td align="left">ScrollTextBlock</td>
-<td align="left">A reference to the created textblock object.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a new text block to the CUI grid</p>
+<h4 id="parameters_8">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | The title of the text block
+ row  |  int | The row value, from the top down
+ column  |  int | The column value from the top down
+ row_span=1  |  int | The number of rows to span accross
+ column_span=1  |  int | the number of columns to span accross
+ padx=1  |  int | number of padding characters in the x direction
+ pady=0  |  int | number of padding characters in the y direction
+ initial_text=''  |  str | Initial text for the text block</p>
+<h4 id="returns_5">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_text_block  |  ScrollTextBlock | A reference to the created textblock object.</p>
 <h3 id="add_label">add_label</h3>
-<pre><code class="python">    add_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) 
+<pre><code class="python">def add_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0)
 </code></pre>
 
-<p>Function that adds a new label to the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">The title of the label</td>
-</tr>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">The row value, from the top down</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">The column value from the top down</td>
-</tr>
-<tr>
-<td align="left">row_span=1</td>
-<td align="left">int</td>
-<td align="left">The number of rows to span accross</td>
-</tr>
-<tr>
-<td align="left">column_span=1</td>
-<td align="left">int</td>
-<td align="left">the number of columns to span accross</td>
-</tr>
-<tr>
-<td align="left">padx=1</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the x direction</td>
-</tr>
-<tr>
-<td align="left">pady=0</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the y direction</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_label</td>
-<td align="left">Label</td>
-<td align="left">A reference to the created label object.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a new label to the CUI grid</p>
+<h4 id="parameters_9">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | The title of the label
+ row  |  int | The row value, from the top down
+ column  |  int | The column value from the top down
+ row_span=1  |  int | The number of rows to span accross
+ column_span=1  |  int | the number of columns to span accross
+ padx=1  |  int | number of padding characters in the x direction
+ pady=0  |  int | number of padding characters in the y direction</p>
+<h4 id="returns_6">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_label  |  Label | A reference to the created label object.</p>
 <h3 id="add_block_label">add_block_label</h3>
-<pre><code class="python">    add_block_label(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True) 
+<pre><code class="python">def add_block_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True)
 </code></pre>
 
-<p>Function that adds a new block label to the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">The title of the block label</td>
-</tr>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">The row value, from the top down</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">The column value from the top down</td>
-</tr>
-<tr>
-<td align="left">row_span=1</td>
-<td align="left">int</td>
-<td align="left">The number of rows to span accross</td>
-</tr>
-<tr>
-<td align="left">column_span=1</td>
-<td align="left">int</td>
-<td align="left">the number of columns to span accross</td>
-</tr>
-<tr>
-<td align="left">padx=1</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the x direction</td>
-</tr>
-<tr>
-<td align="left">pady=0</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the y direction</td>
-</tr>
-<tr>
-<td align="left">center</td>
-<td align="left">bool</td>
-<td align="left">flag to tell label to be centered or left-aligned.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_label</td>
-<td align="left">BlockLabel</td>
-<td align="left">A reference to the created block label object.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a new block label to the CUI grid</p>
+<h4 id="parameters_10">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | The title of the block label
+ row  |  int | The row value, from the top down
+ column  |  int | The column value from the top down
+ row_span=1  |  int | The number of rows to span accross
+ column_span=1  |  int | the number of columns to span accross
+ padx=1  |  int | number of padding characters in the x direction
+ pady=0  |  int | number of padding characters in the y direction
+ center  |  bool | flag to tell label to be centered or left-aligned.</p>
+<h4 id="returns_7">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_label  |  BlockLabel | A reference to the created block label object.</p>
 <h3 id="add_button">add_button</h3>
-<pre><code class="python">    add_button(title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, command=None) 
+<pre><code class="python">def add_button(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, command=None)
 </code></pre>
 
-<p>Function that adds a new button to the CUI gri.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">The title of the button</td>
-</tr>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">The row value, from the top down</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">The column value from the top down</td>
-</tr>
-<tr>
-<td align="left">row_span=1</td>
-<td align="left">int</td>
-<td align="left">The number of rows to span accross</td>
-</tr>
-<tr>
-<td align="left">column_span=1</td>
-<td align="left">int</td>
-<td align="left">the number of columns to span accross</td>
-</tr>
-<tr>
-<td align="left">padx=1</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the x direction</td>
-</tr>
-<tr>
-<td align="left">pady=0</td>
-<td align="left">int</td>
-<td align="left">number of padding characters in the y direction</td>
-</tr>
-<tr>
-<td align="left">command=None</td>
-<td align="left">Function</td>
-<td align="left">A no-argument or lambda function to fire on button press.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">new_button</td>
-<td align="left">Button</td>
-<td align="left">A reference to the created button object.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a new button to the CUI grid</p>
+<h4 id="parameters_11">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | The title of the button
+ row  |  int | The row value, from the top down
+ column  |  int | The column value from the top down
+ row_span=1  |  int | The number of rows to span accross
+ column_span=1  |  int | the number of columns to span accross
+ padx=1  |  int | number of padding characters in the x direction
+ pady=0  |  int | number of padding characters in the y direction
+ command=None  |  Function | A no-argument or lambda function to fire on button press.</p>
+<h4 id="returns_8">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ new_button  |  Button | A reference to the created button object.</p>
 <h3 id="check_if_neighbor_exists">check_if_neighbor_exists</h3>
-<pre><code class="python">    check_if_neighbor_exists(row, column, row_span, col_span, direction) 
+<pre><code class="python">def check_if_neighbor_exists(self, row, column, row_span, col_span, direction)
 </code></pre>
 
-<p>Function that checks if widget has neighbor in specified cell..</p>
+<p>Function that checks if widget has neighbor in specified cell.</p>
 <p>Used for navigating CUI, as arrow keys find the immediate neighbor</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">row</td>
-<td align="left">int</td>
-<td align="left">row of current widget</td>
-</tr>
-<tr>
-<td align="left">column</td>
-<td align="left">int</td>
-<td align="left">column of current widget</td>
-</tr>
-<tr>
-<td align="left">row_span</td>
-<td align="left">int</td>
-<td align="left">row span of current widget</td>
-</tr>
-<tr>
-<td align="left">col_span</td>
-<td align="left">int</td>
-<td align="left">column span of current widget</td>
-</tr>
-<tr>
-<td align="left">direction</td>
-<td align="left">py_cui.keys.KEY_*</td>
-<td align="left">The direction in which to search</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">widget_id</td>
-<td align="left">str</td>
-<td align="left">The widget neighbor ID if found, None otherwise</td>
-</tr>
-</tbody>
-</table>
+<h4 id="parameters_12">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ row  |  int | row of current widget
+ column  |  int | column of current widget
+ row_span  |  int | row span of current widget
+ col_span  |  int | column span of current widget
+ direction  |  py_cui.keys.KEY_* | The direction in which to search</p>
+<h4 id="returns_9">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ widget_id  |  str | The widget neighbor ID if found, None otherwise</p>
 <h3 id="set_selected_widget">set_selected_widget</h3>
-<pre><code class="python">    set_selected_widget(widget_id) 
+<pre><code class="python">def set_selected_widget(self, widget_id)
 </code></pre>
 
-<p>Function that sets the selected cell for the CU.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">widget_id</td>
-<td align="left">str</td>
-<td align="left">the id of the widget</td>
-</tr>
-</tbody>
-</table>
+<p>Function that sets the selected cell for the CUI</p>
+<h4 id="parameters_13">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ widget_id  |  str | the id of the widget</p>
 <h3 id="get_widget_id">get_widget_id</h3>
-<pre><code class="python">    get_widget_id(widget) 
+<pre><code class="python">def get_widget_id(self, widget)
 </code></pre>
 
-<p>Function for grabbing widget I.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">widget</td>
-<td align="left">Widget</td>
-<td align="left">The widget object we wish to get an ID from</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="left">Returns</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">widget_id</td>
-<td align="left">str</td>
-<td align="left">The id if found, None otherwise</td>
-</tr>
-</tbody>
-</table>
+<p>Function for grabbing widget ID</p>
+<h4 id="parameters_14">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ widget  |  Widget | The widget object we wish to get an ID from</p>
+<h4 id="returns_10">Returns</h4>
+<p>Return Variable  | Type  | Doc
+-----|----------|----------|-----
+ widget_id  |  str | The id if found, None otherwise</p>
 <h3 id="lose_focus">lose_focus</h3>
-<pre><code class="python">    lose_focus() 
+<pre><code class="python">def lose_focus(self)
 </code></pre>
 
 <p>Function that forces py_cui out of focus mode.</p>
 <p>After popup is called, focus is lost</p>
 <h3 id="move_focus">move_focus</h3>
-<pre><code class="python">    move_focus(widget) 
+<pre><code class="python">def move_focus(self, widget)
 </code></pre>
 
-<p>Moves focus mode to different widge.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">widget</td>
-<td align="left">Widget</td>
-<td align="left">The widget object we want to move focus to.</td>
-</tr>
-</tbody>
-</table>
+<p>Moves focus mode to different widget</p>
+<h4 id="parameters_15">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ widget  |  Widget | The widget object we want to move focus to.</p>
 <h3 id="add_key_command">add_key_command</h3>
-<pre><code class="python">    add_key_command(key, command) 
+<pre><code class="python">def add_key_command(self, key, command)
 </code></pre>
 
-<p>Function that adds a keybinding to the CUI when in overview mod.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">key</td>
-<td align="left">py_cui.keys.KEY_*</td>
-<td align="left">The key bound to the command</td>
-</tr>
-<tr>
-<td align="left">command</td>
-<td align="left">Function</td>
-<td align="left">A no-arg or lambda function to fire on keypress</td>
-</tr>
-</tbody>
-</table>
+<p>Function that adds a keybinding to the CUI when in overview mode</p>
+<h4 id="parameters_16">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ key  |  py_cui.keys.KEY_* | The key bound to the command
+ command  |  Function | A no-arg or lambda function to fire on keypress</p>
 <h3 id="show_message_popup">show_message_popup</h3>
-<pre><code class="python">    show_message_popup(title, text) 
+<pre><code class="python">def show_message_popup(self, title, text)
 </code></pre>
 
-<p>Shows a message popu.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">Message title</td>
-</tr>
-<tr>
-<td align="left">text</td>
-<td align="left">str</td>
-<td align="left">Message text</td>
-</tr>
-</tbody>
-</table>
+<p>Shows a message popup</p>
+<h4 id="parameters_17">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | Message title
+ text  |  str | Message text</p>
 <h3 id="show_warning_popup">show_warning_popup</h3>
-<pre><code class="python">    show_warning_popup(title, text) 
+<pre><code class="python">def show_warning_popup(self, title, text)
 </code></pre>
 
-<p>Shows a warning popu.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">Warning title</td>
-</tr>
-<tr>
-<td align="left">text</td>
-<td align="left">str</td>
-<td align="left">Warning text</td>
-</tr>
-</tbody>
-</table>
+<p>Shows a warning popup</p>
+<h4 id="parameters_18">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | Warning title
+ text  |  str | Warning text</p>
 <h3 id="show_error_popup">show_error_popup</h3>
-<pre><code class="python">    show_error_popup(title, text) 
+<pre><code class="python">def show_error_popup(self, title, text)
 </code></pre>
 
-<p>Shows an error popu.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">Error title</td>
-</tr>
-<tr>
-<td align="left">text</td>
-<td align="left">str</td>
-<td align="left">Error text</td>
-</tr>
-</tbody>
-</table>
+<p>Shows an error popup</p>
+<h4 id="parameters_19">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | Error title
+ text  |  str | Error text</p>
 <h3 id="show_yes_no_popup">show_yes_no_popup</h3>
-<pre><code class="python">    show_yes_no_popup(title, command) 
+<pre><code class="python">def show_yes_no_popup(self, title, command)
 </code></pre>
 
 <p>Shows a yes/no popup.</p>
 <p>The 'command' parameter must be a function with a single boolean parameter</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">Message title</td>
-</tr>
-<tr>
-<td align="left">command</td>
-<td align="left">function</td>
-<td align="left">A function taking in a single boolean parameter. Will be fired with True if yes selected, false otherwise</td>
-</tr>
-</tbody>
-</table>
+<h4 id="parameters_20">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | Message title
+ command  |  function | A function taking in a single boolean parameter. Will be fired with True if yes selected, false otherwise</p>
 <h3 id="show_text_box_popup">show_text_box_popup</h3>
-<pre><code class="python">    show_text_box_popup(title, command, password=False) 
+<pre><code class="python">def show_text_box_popup(self, title, command, password=False)
 </code></pre>
 
 <p>Shows a textbox popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">Message title</td>
-</tr>
-<tr>
-<td align="left">command</td>
-<td align="left">Function</td>
-<td align="left">A function with a single string parameter, fired with contents of textbox when enter key pressed</td>
-</tr>
-<tr>
-<td align="left">password=False</td>
-<td align="left">bool</td>
-<td align="left">If true, write characters as '*'</td>
-</tr>
-</tbody>
-</table>
+<h4 id="parameters_21">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | Message title
+ command  |  Function | A function with a single string parameter, fired with contents of textbox when enter key pressed
+ password=False  |  bool | If true, write characters as '*'</p>
 <h3 id="show_menu_popup">show_menu_popup</h3>
-<pre><code class="python">    show_menu_popup(title, menu_items, command, run_command_if_none=False) 
+<pre><code class="python">def show_menu_popup(self, title, menu_items, command, run_command_if_none=False)
 </code></pre>
 
 <p>Shows a menu popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">menu title</td>
-</tr>
-<tr>
-<td align="left">menu_items</td>
-<td align="left">list of str</td>
-<td align="left">A list of menu items</td>
-</tr>
-<tr>
-<td align="left">command</td>
-<td align="left">Function</td>
-<td align="left">A function taking in a single string argument. Fired with selected menu item when ENTER pressed.</td>
-</tr>
-<tr>
-<td align="left">run_command_if_none=False</td>
-<td align="left">bool</td>
-<td align="left">If True, will run command passing in None if no menu item selected.</td>
-</tr>
-</tbody>
-</table>
+<h4 id="parameters_22">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | menu title
+ menu_items  |  list of str | A list of menu items
+ command  |  Function | A function taking in a single string argument. Fired with selected menu item when ENTER pressed.
+ run_command_if_none=False  |  bool | If True, will run command passing in None if no menu item selected.</p>
 <h3 id="show_loading_icon_popup">show_loading_icon_popup</h3>
-<pre><code class="python">    show_loading_icon_popup(title, message, callback=None) 
+<pre><code class="python">def show_loading_icon_popup(self, title, message, callback=None)
 </code></pre>
 
-<p>Shows a loading icon popu.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">Message title</td>
-</tr>
-<tr>
-<td align="left">message</td>
-<td align="left">str</td>
-<td align="left">Message text. Will show as '$message...'</td>
-</tr>
-<tr>
-<td align="left">callback=None</td>
-<td align="left">Function</td>
-<td align="left">If not none, fired after loading is completed. Must be a no-arg function</td>
-</tr>
-</tbody>
-</table>
+<p>Shows a loading icon popup</p>
+<h4 id="parameters_23">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | Message title
+ message  |  str | Message text. Will show as '$message...'
+ callback=None  |  Function | If not none, fired after loading is completed. Must be a no-arg function</p>
 <h3 id="show_loading_bar_popup">show_loading_bar_popup</h3>
-<pre><code class="python">    show_loading_bar_popup(title, num_items, callback=None) 
+<pre><code class="python">def show_loading_bar_popup(self, title, num_items, callback=None)
 </code></pre>
 
 <p>Shows loading bar popup.</p>
 <p>Use 'increment_loading_bar' to show progress</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">title</td>
-<td align="left">str</td>
-<td align="left">Message title</td>
-</tr>
-<tr>
-<td align="left">num_items</td>
-<td align="left">int</td>
-<td align="left">Number of items to iterate through for loading</td>
-</tr>
-<tr>
-<td align="left">callback=None</td>
-<td align="left">Function</td>
-<td align="left">If not none, fired after loading is completed. Must be a no-arg function</td>
-</tr>
-</tbody>
-</table>
+<h4 id="parameters_24">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ title  |  str | Message title
+ num_items  |  int | Number of items to iterate through for loading
+ callback=None  |  Function | If not none, fired after loading is completed. Must be a no-arg function</p>
 <h3 id="increment_loading_bar">increment_loading_bar</h3>
-<pre><code class="python">    increment_loading_bar() 
+<pre><code class="python">def increment_loading_bar(self)
 </code></pre>
 
-<p>Increments progress bar if loading bar popup is ope.</p>
+<p>Increments progress bar if loading bar popup is open</p>
 <h3 id="stop_loading_popup">stop_loading_popup</h3>
-<pre><code class="python">    stop_loading_popup() 
+<pre><code class="python">def stop_loading_popup(self)
 </code></pre>
 
 <p>Leaves loading state, and closes popup.</p>
 <p>Must be called by user to escape loading.</p>
 <h3 id="close_popup">close_popup</h3>
-<pre><code class="python">    close_popup() 
+<pre><code class="python">def close_popup(self)
 </code></pre>
 
-<p>Closes the popup, and resets focu.</p>
+<p>Closes the popup, and resets focus</p>
 <h3 id="refresh_height_width">refresh_height_width</h3>
-<pre><code class="python">    refresh_height_width(height, width) 
+<pre><code class="python">def refresh_height_width(self, height, width)
 </code></pre>
 
-<p>Function that updates the height and width of the CUI based on terminal window siz.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">height</td>
-<td align="left">int</td>
-<td align="left">Window height in terminal characters</td>
-</tr>
-<tr>
-<td align="left">width</td>
-<td align="left">int</td>
-<td align="left">Window width in terminal characters</td>
-</tr>
-</tbody>
-</table>
+<p>Function that updates the height and width of the CUI based on terminal window size</p>
+<h4 id="parameters_25">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ height  |  int | Window height in terminal characters
+ width  |  int | Window width in terminal characters</p>
 <h3 id="draw_widgets">draw_widgets</h3>
-<pre><code class="python">    draw_widgets() 
+<pre><code class="python">def draw_widgets(self)
 </code></pre>
 
-<p>Function that draws all of the widgets to the scree.</p>
+<p>Function that draws all of the widgets to the screen</p>
 <h3 id="draw_status_bars">draw_status_bars</h3>
-<pre><code class="python">    draw_status_bars(stdscr, height, width) 
+<pre><code class="python">def draw_status_bars(self, stdscr, height, width)
 </code></pre>
 
-<p>Draws status bar and title ba.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">stdscr</td>
-<td align="left">curses Standard cursor</td>
-<td align="left">The cursor used to draw the status bar</td>
-</tr>
-<tr>
-<td align="left">height</td>
-<td align="left">int</td>
-<td align="left">Window height in terminal characters</td>
-</tr>
-<tr>
-<td align="left">width</td>
-<td align="left">int</td>
-<td align="left">Window width in terminal characters</td>
-</tr>
-</tbody>
-</table>
+<p>Draws status bar and title bar</p>
+<h4 id="parameters_26">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ stdscr  |  curses Standard cursor | The cursor used to draw the status bar
+ height  |  int | Window height in terminal characters
+ width  |  int | Window width in terminal characters</p>
 <h3 id="display_window_warning">display_window_warning</h3>
-<pre><code class="python">    display_window_warning(stdscr, error_info) 
+<pre><code class="python">def display_window_warning(self, stdscr, error_info)
 </code></pre>
 
-<p>Function that prints some basic error info if there is an error with the CU.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">stdscr</td>
-<td align="left">curses Standard cursor</td>
-<td align="left">The cursor used to draw the warning</td>
-</tr>
-<tr>
-<td align="left">error_info</td>
-<td align="left">str</td>
-<td align="left">The information regarding the error.</td>
-</tr>
-</tbody>
-</table>
+<p>Function that prints some basic error info if there is an error with the CUI</p>
+<h4 id="parameters_27">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ stdscr  |  curses Standard cursor | The cursor used to draw the warning
+ error_info  |  str | The information regarding the error.</p>
 <h3 id="handle_key_presses">handle_key_presses</h3>
-<pre><code class="python">    handle_key_presses(key_pressed) 
+<pre><code class="python">def handle_key_presses(self, key_pressed)
 </code></pre>
 
 <p>Function that handles all main loop key presses.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">key_pressed</td>
-<td align="left">py_cui.keys.KEY_*</td>
-<td align="left">The key being pressed</td>
-</tr>
-</tbody>
-</table>
+<h4 id="parameters_28">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ key_pressed  |  py_cui.keys.KEY_* | The key being pressed</p>
 <h3 id="draw">draw</h3>
-<pre><code class="python">    draw(stdscr) 
+<pre><code class="python">def draw(self, stdscr)
 </code></pre>
 
-<p>Main CUI draw loop called by start(.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">stdscr</td>
-<td align="left">curses Standard cursor</td>
-<td align="left">The cursor used to draw the CUI</td>
-</tr>
-</tbody>
-</table>
+<p>Main CUI draw loop called by start()</p>
+<h4 id="parameters_29">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ stdscr  |  curses Standard cursor | The cursor used to draw the CUI</p>
 <h3 id="format"><strong>format</strong></h3>
-<pre><code class="python">    __format__(fmt) 
+<pre><code class="python">def __format__(self, fmt)
 </code></pre>
 
 <p>Override of base format function. Prints list of current widgets.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Parameters</th>
-<th align="left">Type</th>
-<th align="left">Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">fmt</td>
-<td align="left">Format</td>
-<td align="left">The format to override</td>
-</tr>
-</tbody>
-</table>
+<h4 id="parameters_30">Parameters</h4>
+<p>Parameter  | Type  | Doc
+-----|----------|----------|-----
+ fmt  |  Format | The format to override</p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../Grid/" class="btn btn-neutral float-right" title="Grid">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../../writing/" class="btn btn-neutral" title="Writing a PyCUI step-by-step"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -1663,10 +735,6 @@ create an instance of this class, and then add cells + widgets to it.</p>
           <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../writing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../Grid/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

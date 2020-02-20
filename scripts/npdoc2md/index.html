@@ -8,7 +8,7 @@
   <meta name="description" content="None">
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>MarkDoc - py_cui Documentation</title>
+  <title>npdoc2md - py_cui Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "MarkDoc";
-    var mkdocs_page_input_path = "scripts/markdoc/README.md";
+    var mkdocs_page_name = "npdoc2md";
+    var mkdocs_page_input_path = "scripts\\npdoc2md\\README.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -95,7 +95,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../DocstringGenerated/PyCUI/">PyCUI</a>
+    <a class="" href="../../DocstringGenerated/PyCUI.md">PyCUI</a>
                 </li>
                 <li class="">
                     
@@ -165,10 +165,10 @@
     
       
     
-    <li>MarkDoc</li>
+    <li>npdoc2md</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/scripts/markdoc/README.md"
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/scripts/npdoc2md/README.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -178,85 +178,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="markdoc">MarkDoc</h1>
-<p>This piece of code can be used to convert
-<a href="https://sphinxcontrib-napoleon.readthedocs.org/en/latest/example_numpy.html">NumPy-styled</a> Python docstrings (<a href="https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/neural_network/multilayer_perceptron.py#L134">example</a>),
-such as those used in <a href="https://www.scikit-learn.org/">scikit-learn</a>, to
-Markdown with minimum dependencies. In this way, only the code-contained
-documentation needs to be editted, and your documentation on for example
-<a href="http://www.readthedocs.org/">readthedocs</a> can be automatically updated
-thereafter with some configuration.</p>
-<h2 id="example">Example</h2>
-<p>The converted documentation for this particular code can be found
-<a href="https://github.com/cmry/markdoc/blob/master/markdoc.md">here</a>.</p>
-<h2 id="before-use">Before Use</h2>
-<p>The format assumes that your code (or at least your docstring documentation) is
-in line with the styleguides of <em>both</em> PEP8 and PEP257. There are two ways to
-go about making sure this is the case:</p>
-<h4 id="fast">Fast</h4>
-<p>Just check the example
-<a href="https://github.com/cmry/markdoc/blob/master/markdoc.py#L304">here</a> to get a
-quick overview of how the docstrings would have to look in order for them
-to parse correctly.</p>
-<h4 id="better">Better</h4>
-<p>The styleguides are incorporated into two libraries that can be used to check
-the Python files for style errors in terminal, like so:</p>
-<pre><code class="shell">pip install pep8
-pip install pep257
-
-pep8 yourpythonfile.py
-pep257 yourpythonfile.py
-</code></pre>
-
-<p>These are more conveniently implemented in linter plugins such as <code>linter-pep8</code>
-and <code>linter-pep257</code> for the <a href="https://atom.io/users/AtomLinter/packages">linter</a>
-package in <a href="http://www.atom.io/">Atom</a>, and
-<a href="https://github.com/dreadatour/Flake8Lint">Flake8Lint</a> for
-<a href="https://www.sublimetext.com/">Sublime Text</a> (and pretty much every other IDE).</p>
-<h2 id="usage">Usage</h2>
-<p>First clone from GitHub:</p>
-<pre><code class="shell">git clone https://www.github.com/cmry/markdoc
-</code></pre>
-
-<p>To use the script within terminal, simply type:</p>
-<pre><code class="shell">python3 markdoc.py /dir/to/somefile.py /dir/to/somedoc.md
-</code></pre>
-
-<p>If you want to automatically generate a bunch of documentation and are not
-comfortable with writing <code>.sh</code> scripts, you can use the code in Python as well:</p>
-<pre><code class="python">from markdoc import MarkDoc
-md = MarkDoc('/dir/to/somefile.py', '/dir/to/somedoc.md')
-</code></pre>
-
-<p>You can access the converted markdown string in:</p>
-<pre><code class="python"># print markdown from class attribute
-print(md.markdown)
-</code></pre>
-
-<p>The class runs itself on initialization (calls <code>self.read</code>). If you do not
-want this, you can add <code>cold=True</code> to the class initialization, like so:</p>
-<pre><code class="python">md = MarkDoc('file.py', 'doc.md', cold=True)
-</code></pre>
-
-<h2 id="planned-fixes">Planned Fixes</h2>
-<ul>
-<li>Handle consecutive classes within the same file.</li>
-<li>Fix inherrited classes being handled correctly (no <code>__init__</code>, no <code>object</code>).</li>
-<li>Link class methods from table to their documentation.</li>
-<li>Might not handle decorators neatly.</li>
-</ul>
-<h2 id="docstring-issues">Docstring Issues</h2>
-<p>Some caveats:</p>
-<ul>
-<li>Do not use <code>"""</code> for anything other than docstrings.</li>
-<li>First line of any docstring has to contain the first short title
-  (<a href="https://github.com/cmry/markdoc/blob/master/markdoc.py#L162">example</a>).</li>
-<li>Classes have to be structured new-style: <code>class SomeClass(object):</code>.</li>
-<li>Codeblocks in examples have to be vanilla Python (<code>&gt;&gt;&gt;</code> and <code>...</code>).</li>
-<li>Please do not use <code>class</code> as a parameter name!</li>
-</ul>
-<h2 id="notes">Notes</h2>
-<p>Script has only been tested with Python 3.4 on Ubuntu.</p>
+                <h1 id="npdoc2md">npdoc2md</h1>
+<p>A simple python script for auto-converting numpy-style python docstrings to 
+markdown for use with mkdocs, an entire repository at a time.</p>
               
             </div>
           </div>
@@ -300,5 +224,5 @@ want this, you can add <code>cold=True</code> to the class initialization, like 
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2020-01-29 17:57:18
+Build Date UTC : 2020-02-20 02:57:31
 -->
