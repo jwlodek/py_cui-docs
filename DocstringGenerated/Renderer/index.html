@@ -206,28 +206,99 @@
 <p>Has helper functions for drawing the borders, cursor,
 and text required for the cui. All of the functions supplied by the renderer class should only be used internally.</p>
 <h4 id="attributes">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- root  |  py_cui.PyCUI | The parent window
- stdscr  |  standard cursor | The cursor with which renderer draws text
- color_rules  |  list of py_cui.colors.ColorRule | List of currently loaded rules to apply during drawing</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root</td>
+<td>py_cui.PyCUI</td>
+<td>The parent window</td>
+</tr>
+<tr>
+<td>stdscr</td>
+<td>standard cursor</td>
+<td>The cursor with which renderer draws text</td>
+</tr>
+<tr>
+<td>color_rules</td>
+<td>list of py_cui.colors.ColorRule</td>
+<td>List of currently loaded rules to apply during drawing</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- set_bold | Sets bold draw mode
- unset_bold | Unsets bold draw mode
- set_color_rules | Sets current color rules
- set_color_mode | Sets the output color mode
- unset_color_mode | Unsets the output color mode
- reset_cursor | Positions the cursor at the bottom right of the selected widget
- draw_cursor | Draws the cursor at a particular location
- draw_border | Draws border around widget
- draw_border_top | Draws top of border
- draw_border_bottom | Draws bottom of border
- draw_blank_row | Draws a blank row, with an optional border
- get_render_text | Converts line into renderably sized text.
- generate_text_color_fragments | Function that applies color rules to text, dividing them if match is found
- draw_text | Function that draws widget text.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_bold</td>
+<td>Sets bold draw mode</td>
+</tr>
+<tr>
+<td>unset_bold</td>
+<td>Unsets bold draw mode</td>
+</tr>
+<tr>
+<td>set_color_rules</td>
+<td>Sets current color rules</td>
+</tr>
+<tr>
+<td>set_color_mode</td>
+<td>Sets the output color mode</td>
+</tr>
+<tr>
+<td>unset_color_mode</td>
+<td>Unsets the output color mode</td>
+</tr>
+<tr>
+<td>reset_cursor</td>
+<td>Positions the cursor at the bottom right of the selected widget</td>
+</tr>
+<tr>
+<td>draw_cursor</td>
+<td>Draws the cursor at a particular location</td>
+</tr>
+<tr>
+<td>draw_border</td>
+<td>Draws border around widget</td>
+</tr>
+<tr>
+<td>draw_border_top</td>
+<td>Draws top of border</td>
+</tr>
+<tr>
+<td>draw_border_bottom</td>
+<td>Draws bottom of border</td>
+</tr>
+<tr>
+<td>draw_blank_row</td>
+<td>Draws a blank row, with an optional border</td>
+</tr>
+<tr>
+<td>get_render_text</td>
+<td>Converts line into renderably sized text.</td>
+</tr>
+<tr>
+<td>generate_text_color_fragments</td>
+<td>Function that applies color rules to text, dividing them if match is found</td>
+</tr>
+<tr>
+<td>draw_text</td>
+<td>Function that draws widget text.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, root, stdscr)
 </code></pre>
@@ -249,135 +320,393 @@ and text required for the cui. All of the functions supplied by the renderer cla
 
 <p>Sets current color rules</p>
 <h4 id="parameters">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- color_rules  |  list of py_cui.colors.ColorRule | List of currently loaded rules to apply during drawing</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color_rules</td>
+<td>list of py_cui.colors.ColorRule</td>
+<td>List of currently loaded rules to apply during drawing</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_color_mode">set_color_mode</h3>
 <pre><code class="python">def set_color_mode(self, color_mode)
 </code></pre>
 
 <p>Sets the output color mode</p>
 <h4 id="parameters_1">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- color_mode  |  int | Color code to apply during drawing</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color_mode</td>
+<td>int</td>
+<td>Color code to apply during drawing</td>
+</tr>
+</tbody>
+</table>
 <h3 id="unset_color_mode">unset_color_mode</h3>
 <pre><code class="python">def unset_color_mode(self, color_mode)
 </code></pre>
 
 <p>Unsets the output color mode</p>
 <h4 id="parameters_2">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- color_mode  |  int | Color code to unapply during drawing</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color_mode</td>
+<td>int</td>
+<td>Color code to unapply during drawing</td>
+</tr>
+</tbody>
+</table>
 <h3 id="reset_cursor">reset_cursor</h3>
 <pre><code class="python">def reset_cursor(self, widget, fill=True)
 </code></pre>
 
 <p>Positions the cursor at the bottom right of the selected widget</p>
 <h4 id="parameters_3">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | widget for which to reset cursor
- fill  |  bool | a flag that tells the renderer if the widget is filling its grid space, or not (ex. Textbox vs textblock)</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>widget for which to reset cursor</td>
+</tr>
+<tr>
+<td>fill</td>
+<td>bool</td>
+<td>a flag that tells the renderer if the widget is filling its grid space, or not (ex. Textbox vs textblock)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_cursor">draw_cursor</h3>
 <pre><code class="python">def draw_cursor(self, cursor_y, cursor_x)
 </code></pre>
 
 <p>Draws the cursor at a particular location</p>
 <h4 id="parameters_4">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- cursor_x, cursor_y  |  int | x, y coordinates where to draw the cursor</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cursor_x, cursor_y</td>
+<td>int</td>
+<td>x, y coordinates where to draw the cursor</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_border">draw_border</h3>
 <pre><code class="python">def draw_border(self, widget, fill=True, with_title=True)
 </code></pre>
 
 <p>Draws border around widget</p>
 <h4 id="parameters_5">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | The widget being drawn
- fill  |  bool | a flag that tells the renderer if the widget is filling its grid space, or not (ex. Textbox vs textblock)
- with_title  |  bool | flag that tells whether or not to draw widget title</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The widget being drawn</td>
+</tr>
+<tr>
+<td>fill</td>
+<td>bool</td>
+<td>a flag that tells the renderer if the widget is filling its grid space, or not (ex. Textbox vs textblock)</td>
+</tr>
+<tr>
+<td>with_title</td>
+<td>bool</td>
+<td>flag that tells whether or not to draw widget title</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_border_top">draw_border_top</h3>
 <pre><code class="python">def draw_border_top(self, widget, y, with_title)
 </code></pre>
 
 <p>Internal function for drawing top of border</p>
 <h4 id="parameters_6">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | The widget being drawn
- y  |  int | the terminal row (top down) on which to draw the text
- with_title  |  bool | Flag that tells renderer if title should be superimposed into border.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The widget being drawn</td>
+</tr>
+<tr>
+<td>y</td>
+<td>int</td>
+<td>the terminal row (top down) on which to draw the text</td>
+</tr>
+<tr>
+<td>with_title</td>
+<td>bool</td>
+<td>Flag that tells renderer if title should be superimposed into border.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_border_bottom">draw_border_bottom</h3>
 <pre><code class="python">def draw_border_bottom(self, widget, y)
 </code></pre>
 
 <p>Internal function for drawing bottom of border</p>
 <h4 id="parameters_7">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | The widget being drawn
- y  |  int | the terminal row (top down) on which to draw the text</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The widget being drawn</td>
+</tr>
+<tr>
+<td>y</td>
+<td>int</td>
+<td>the terminal row (top down) on which to draw the text</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_blank_row">draw_blank_row</h3>
 <pre><code class="python">def draw_blank_row(self, widget, y)
 </code></pre>
 
 <p>Internal function for drawing a blank row</p>
 <h4 id="parameters_8">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | The widget being drawn
- y  |  int | the terminal row (top down) on which to draw the text</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The widget being drawn</td>
+</tr>
+<tr>
+<td>y</td>
+<td>int</td>
+<td>the terminal row (top down) on which to draw the text</td>
+</tr>
+</tbody>
+</table>
 <h3 id="get_render_text">get_render_text</h3>
 <pre><code class="python">def get_render_text(self, widget, line, centered, bordered, start_pos)
 </code></pre>
 
 <p>Internal function that computes the scope of the text that should be drawn</p>
 <h4 id="parameters_9">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | The widget being drawn
- line  |  str | the line of text being drawn
- centered  |  bool | flag to set if the text should be centered
- bordered  |  bool | a flag to set if the text should be bordered
- start_pos  |  int | position to start rendering the text from.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The widget being drawn</td>
+</tr>
+<tr>
+<td>line</td>
+<td>str</td>
+<td>the line of text being drawn</td>
+</tr>
+<tr>
+<td>centered</td>
+<td>bool</td>
+<td>flag to set if the text should be centered</td>
+</tr>
+<tr>
+<td>bordered</td>
+<td>bool</td>
+<td>a flag to set if the text should be bordered</td>
+</tr>
+<tr>
+<td>start_pos</td>
+<td>int</td>
+<td>position to start rendering the text from.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- render_text  |  str | The text shortened to fit within given space</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>render_text</td>
+<td>str</td>
+<td>The text shortened to fit within given space</td>
+</tr>
+</tbody>
+</table>
 <h3 id="generate_text_color_fragments">generate_text_color_fragments</h3>
 <pre><code class="python">def generate_text_color_fragments(self, widget, line, render_text)
 </code></pre>
 
 <p>Function that applies color rules to text, dividing them if match is found</p>
 <h4 id="parameters_10">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | The widget being drawn
- line  |  str | the line of text being drawn
- render_text  |  str | The text shortened to fit within given space</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The widget being drawn</td>
+</tr>
+<tr>
+<td>line</td>
+<td>str</td>
+<td>the line of text being drawn</td>
+</tr>
+<tr>
+<td>render_text</td>
+<td>str</td>
+<td>The text shortened to fit within given space</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_1">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- fragments  |  list of [int, str] | list of text - color code combinations to write</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fragments</td>
+<td>list of [int, str]</td>
+<td>list of text - color code combinations to write</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_text">draw_text</h3>
 <pre><code class="python">def draw_text(self, widget, line, y, centered = False, bordered = True, selected = False, start_pos = 0)
 </code></pre>
 
 <p>Function that draws widget text.</p>
 <h4 id="parameters_11">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.widgets.Widget | The widget being drawn
- line  |  str | the line of text being drawn
- y  |  int | the terminal row (top down) on which to draw the text
- centered  |  bool | flag to set if the text should be centered
- bordered  |  bool | a flag to set if the text should be bordered
- selected  |  bool | Flag that tells renderer if widget is selected.
- start_pos  |  int | position to start rendering the text from.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The widget being drawn</td>
+</tr>
+<tr>
+<td>line</td>
+<td>str</td>
+<td>the line of text being drawn</td>
+</tr>
+<tr>
+<td>y</td>
+<td>int</td>
+<td>the terminal row (top down) on which to draw the text</td>
+</tr>
+<tr>
+<td>centered</td>
+<td>bool</td>
+<td>flag to set if the text should be centered</td>
+</tr>
+<tr>
+<td>bordered</td>
+<td>bool</td>
+<td>a flag to set if the text should be bordered</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>bool</td>
+<td>Flag that tells renderer if widget is selected.</td>
+</tr>
+<tr>
+<td>start_pos</td>
+<td>int</td>
+<td>position to start rendering the text from.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

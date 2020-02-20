@@ -234,40 +234,160 @@ file and extending the base Widget class, or if appropriate one of the other cor
 <p>Extended by all widgets. Contains base classes for handling key presses, drawing,
 and setting status bar text.</p>
 <h4 id="attributes">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- id  |  int | Id of the widget
- title  |  str | Widget title
- grid  |  py_cui.grid.Grid | The parent grid object of the widget
- renderer  |  py_cui.renderer.Renderer | The renderer object that draws the widget
- row, column  |  int | row and column position of the widget
- row_span, column_span  |  int | number of rows or columns spanned by the widget
- padx, pady  |  int | Padding size in terminal characters
- start_x, start_y  |  int | The position on the terminal of the top left corner of the widget
- width, height  |  int | The width/height of the widget
- color  |  int | Color code combination
- selected_color  |  int | color code combination for when widget is selected
- selected  |  bool | Flag that says if widget is selected
- is_selectable  |  bool | Flag that says if a widget can be selected
- help_text  |  str | text displayed in status bar when selected
- key_commands  |  dict | Dictionary mapping key codes to functions
- text_color_rules  |  list of py_cui.ColorRule | color rules to load into renderer when drawing widget</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>Id of the widget</td>
+</tr>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>Widget title</td>
+</tr>
+<tr>
+<td>grid</td>
+<td>py_cui.grid.Grid</td>
+<td>The parent grid object of the widget</td>
+</tr>
+<tr>
+<td>renderer</td>
+<td>py_cui.renderer.Renderer</td>
+<td>The renderer object that draws the widget</td>
+</tr>
+<tr>
+<td>row, column</td>
+<td>int</td>
+<td>row and column position of the widget</td>
+</tr>
+<tr>
+<td>row_span, column_span</td>
+<td>int</td>
+<td>number of rows or columns spanned by the widget</td>
+</tr>
+<tr>
+<td>padx, pady</td>
+<td>int</td>
+<td>Padding size in terminal characters</td>
+</tr>
+<tr>
+<td>start_x, start_y</td>
+<td>int</td>
+<td>The position on the terminal of the top left corner of the widget</td>
+</tr>
+<tr>
+<td>width, height</td>
+<td>int</td>
+<td>The width/height of the widget</td>
+</tr>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>Color code combination</td>
+</tr>
+<tr>
+<td>selected_color</td>
+<td>int</td>
+<td>color code combination for when widget is selected</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>bool</td>
+<td>Flag that says if widget is selected</td>
+</tr>
+<tr>
+<td>is_selectable</td>
+<td>bool</td>
+<td>Flag that says if a widget can be selected</td>
+</tr>
+<tr>
+<td>help_text</td>
+<td>str</td>
+<td>text displayed in status bar when selected</td>
+</tr>
+<tr>
+<td>key_commands</td>
+<td>dict</td>
+<td>Dictionary mapping key codes to functions</td>
+</tr>
+<tr>
+<td>text_color_rules</td>
+<td>list of py_cui.ColorRule</td>
+<td>color rules to load into renderer when drawing widget</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- set_focus_text | Sets status bar text when focused
- add_key_command | Maps a keycode that will be executed in focus mode
- add_text_color_rule | Adds a color rule for text rendering in the widget
- set_standard_color | Sets the default color of the widget
- set_selected_color | Sets the default color of widget when selected
- assign_renderer | Assigns a renderer object to the widget
- get_absolute_position | Gets absolute position of widget in characters
- get_absolute_dims | Gets absolute dimensions of the widget
- is_row_col_inside | Checks if given row/column spot in grid is occupied by the widget
- update_height_width | Refreshes widget position and dims on resize
- get_help_text | Gets status bar text
- handle_key_press | Executes appropriate function based on key press
- draw | Uses the renderer to display the widget</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_focus_text</td>
+<td>Sets status bar text when focused</td>
+</tr>
+<tr>
+<td>add_key_command</td>
+<td>Maps a keycode that will be executed in focus mode</td>
+</tr>
+<tr>
+<td>add_text_color_rule</td>
+<td>Adds a color rule for text rendering in the widget</td>
+</tr>
+<tr>
+<td>set_standard_color</td>
+<td>Sets the default color of the widget</td>
+</tr>
+<tr>
+<td>set_selected_color</td>
+<td>Sets the default color of widget when selected</td>
+</tr>
+<tr>
+<td>assign_renderer</td>
+<td>Assigns a renderer object to the widget</td>
+</tr>
+<tr>
+<td>get_absolute_position</td>
+<td>Gets absolute position of widget in characters</td>
+</tr>
+<tr>
+<td>get_absolute_dims</td>
+<td>Gets absolute dimensions of the widget</td>
+</tr>
+<tr>
+<td>is_row_col_inside</td>
+<td>Checks if given row/column spot in grid is occupied by the widget</td>
+</tr>
+<tr>
+<td>update_height_width</td>
+<td>Refreshes widget position and dims on resize</td>
+</tr>
+<tr>
+<td>get_help_text</td>
+<td>Gets status bar text</td>
+</tr>
+<tr>
+<td>handle_key_press</td>
+<td>Executes appropriate function based on key press</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Uses the renderer to display the widget</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, selectable = True)
 </code></pre>
@@ -279,51 +399,140 @@ and setting status bar text.</p>
 
 <p>Function that sets the text of the status bar on focus for a particular widget</p>
 <h4 id="parameters">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- text  |  str | text to write to status bar when in focus mode.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>text to write to status bar when in focus mode.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_key_command">add_key_command</h3>
 <pre><code class="python">def add_key_command(self, key, command)
 </code></pre>
 
 <p>Maps a keycode to a function that will be executed when in focus mode</p>
 <h4 id="parameters_1">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key  |  py_cui.keys.KEY | ascii keycode used to map the key
- command  |  function without args | a non-argument function or lambda function to execute if in focus mode and key is pressed</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>py_cui.keys.KEY</td>
+<td>ascii keycode used to map the key</td>
+</tr>
+<tr>
+<td>command</td>
+<td>function without args</td>
+<td>a non-argument function or lambda function to execute if in focus mode and key is pressed</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_text_color_rule">add_text_color_rule</h3>
 <pre><code class="python">def add_text_color_rule(self, regex, color, rule_type, match_type='line', region=[0,1], include_whitespace=False)
 </code></pre>
 
 <p>Forces renderer to draw text using given color if text_condition_function returns True</p>
 <h4 id="parameters_2">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- regex  |  str | A string to check against the line for a given rule type
- color  |  int | a supported py_cui color value
- rule_type  |  string | A supported color rule type
- match_type='line'  |  str | sets match type. Can be 'line', 'regex', or 'region'
- region  |  [int, int] | A specified region to color if using match_type='region'
- include_whitespace  |  bool | if false, strip string before checking for match</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regex</td>
+<td>str</td>
+<td>A string to check against the line for a given rule type</td>
+</tr>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>a supported py_cui color value</td>
+</tr>
+<tr>
+<td>rule_type</td>
+<td>string</td>
+<td>A supported color rule type</td>
+</tr>
+<tr>
+<td>match_type='line'</td>
+<td>str</td>
+<td>sets match type. Can be 'line', 'regex', or 'region'</td>
+</tr>
+<tr>
+<td>region</td>
+<td>[int, int]</td>
+<td>A specified region to color if using match_type='region'</td>
+</tr>
+<tr>
+<td>include_whitespace</td>
+<td>bool</td>
+<td>if false, strip string before checking for match</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_standard_color">set_standard_color</h3>
 <pre><code class="python">def set_standard_color(self, color)
 </code></pre>
 
 <p>Sets the standard color for the widget</p>
 <h4 id="parameters_3">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- color  |  int | Color code for widegt</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>Color code for widegt</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_selected_color">set_selected_color</h3>
 <pre><code class="python">def set_selected_color(self, color)
 </code></pre>
 
 <p>Sets the selected color for the widget</p>
 <h4 id="parameters_4">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- color  |  int | Color code for widegt when selected</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>Color code for widegt when selected</td>
+</tr>
+</tbody>
+</table>
 <h3 id="assign_renderer">assign_renderer</h3>
 <pre><code class="python">def assign_renderer(self, renderer)
 </code></pre>
@@ -331,42 +540,115 @@ and setting status bar text.</p>
 <p>Function that assigns a renderer object to the widget</p>
 <p>(Meant for internal usage only)</p>
 <h4 id="parameters_5">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- renderer  |  py_cui.renderer.Renderer | Renderer for drawing widget
- Raises | ------
- error  |  PyCUIError | If parameter is not a initialized renderer.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>renderer</td>
+<td>py_cui.renderer.Renderer</td>
+<td>Renderer for drawing widget</td>
+</tr>
+<tr>
+<td>Raises</td>
+<td>------</td>
+<td></td>
+</tr>
+<tr>
+<td>error</td>
+<td>PyCUIError</td>
+<td>If parameter is not a initialized renderer.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="get_absolute_position">get_absolute_position</h3>
 <pre><code class="python">def get_absolute_position(self)
 </code></pre>
 
 <p>Gets the absolute position of the widget in characters</p>
 <h4 id="returns">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- x_pos, y_pos  |  int | position of widget in terminal</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x_pos, y_pos</td>
+<td>int</td>
+<td>position of widget in terminal</td>
+</tr>
+</tbody>
+</table>
 <h3 id="get_absolute_dims">get_absolute_dims</h3>
 <pre><code class="python">def get_absolute_dims(self)
 </code></pre>
 
 <p>Gets the absolute dimensions of the widget in characters</p>
 <h4 id="returns_1">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- width, height  |  int | dimensions of widget in terminal</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width, height</td>
+<td>int</td>
+<td>dimensions of widget in terminal</td>
+</tr>
+</tbody>
+</table>
 <h3 id="is_row_col_inside">is_row_col_inside</h3>
 <pre><code class="python">def is_row_col_inside(self, row, col)
 </code></pre>
 
 <p>Checks if a particular row + column is inside the widget area</p>
 <h4 id="parameters_6">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- row, col  |  int | row and column position to check</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row, col</td>
+<td>int</td>
+<td>row and column position to check</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_2">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- is_inside  |  bool | True if row, col is within widget bounds, false otherwise</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>is_inside</td>
+<td>bool</td>
+<td>True if row, col is within widget bounds, false otherwise</td>
+</tr>
+</tbody>
+</table>
 <h3 id="update_height_width">update_height_width</h3>
 <pre><code class="python">def update_height_width(self)
 </code></pre>
@@ -379,9 +661,22 @@ and setting status bar text.</p>
 
 <p>Returns help text</p>
 <h4 id="returns_3">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- help_text  |  str | Status bar text</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>help_text</td>
+<td>str</td>
+<td>Status bar text</td>
+</tr>
+</tbody>
+</table>
 <h3 id="handle_key_press">handle_key_press</h3>
 <pre><code class="python">def handle_key_press(self, key_pressed)
 </code></pre>
@@ -390,9 +685,22 @@ and setting status bar text.</p>
 <p>When overwriting this function, make sure to add a super().handle_key_press(key_pressed) call,
 as this is required for user defined key command support</p>
 <h4 id="parameters_7">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | key code of key pressed</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw">draw</h3>
 <pre><code class="python">def draw(self)
 </code></pre>
@@ -406,14 +714,41 @@ as this is required for user defined key command support</p>
 <p>The most basic subclass of Widget.</p>
 <p>Simply displays one centered row of text. Has no unique attributes or methods</p>
 <h4 id="attributes_1">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- draw_border  |  bool | Toggle for drawing label border</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>draw_border</td>
+<td>bool</td>
+<td>Toggle for drawing label border</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods_1">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- toggle_border | Toggle drawing label border
- draw | Override base draw class.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toggle_border</td>
+<td>Toggle drawing label border</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override base draw class.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_1"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady)
 </code></pre>
@@ -436,15 +771,46 @@ as this is required for user defined key command support</p>
 
 <p>A Variation of the label widget that renders a block of text.</p>
 <h4 id="attributes_2">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- lines  |  list of str | list of lines that make up block text
- center  |  bool | Decides whether or not label should be centered</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lines</td>
+<td>list of str</td>
+<td>list of lines that make up block text</td>
+</tr>
+<tr>
+<td>center</td>
+<td>bool</td>
+<td>Decides whether or not label should be centered</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods_2">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- toggle_border | Toggle drawing label border
- draw | Override base draw class.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toggle_border</td>
+<td>Toggle drawing label border</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override base draw class.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_2"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady, center)
 </code></pre>
@@ -467,24 +833,83 @@ as this is required for user defined key command support</p>
 <p>Allows for creating a scrollable list of items of which one is selectable.
 Analogous to a RadioButton</p>
 <h4 id="attributes_3">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- top_view  |  int | the uppermost menu element in view
- selected_item  |  int | the currently highlighted menu item
- view_items  |  list of str | list of menu items</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>top_view</td>
+<td>int</td>
+<td>the uppermost menu element in view</td>
+</tr>
+<tr>
+<td>selected_item</td>
+<td>int</td>
+<td>the currently highlighted menu item</td>
+</tr>
+<tr>
+<td>view_items</td>
+<td>list of str</td>
+<td>list of menu items</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods_3">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- clear | clears items from menu
- scroll_up | Function that scrolls the view up in the scroll menu
- scroll_down | Function that scrolls the view down in the scroll menu
- add_item | Adds an item to the menu.
- add_item_list | Adds a list of items to the scroll menu.
- remove_selected_item | Function that removes the selected item from the scroll menu.
- get_item_list | Function that gets list of items in a scroll menu
- get | Function that gets the selected item from the scroll menu
- handle_key_press | Override of base class function
- draw | Override of base class function</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clear</td>
+<td>clears items from menu</td>
+</tr>
+<tr>
+<td>scroll_up</td>
+<td>Function that scrolls the view up in the scroll menu</td>
+</tr>
+<tr>
+<td>scroll_down</td>
+<td>Function that scrolls the view down in the scroll menu</td>
+</tr>
+<tr>
+<td>add_item</td>
+<td>Adds an item to the menu.</td>
+</tr>
+<tr>
+<td>add_item_list</td>
+<td>Adds a list of items to the scroll menu.</td>
+</tr>
+<tr>
+<td>remove_selected_item</td>
+<td>Function that removes the selected item from the scroll menu.</td>
+</tr>
+<tr>
+<td>get_item_list</td>
+<td>Function that gets list of items in a scroll menu</td>
+</tr>
+<tr>
+<td>get</td>
+<td>Function that gets the selected item from the scroll menu</td>
+</tr>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base class function</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override of base class function</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_3"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady)
 </code></pre>
@@ -511,18 +936,44 @@ Analogous to a RadioButton</p>
 
 <p>Adds an item to the menu.</p>
 <h4 id="parameters_8">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- item_text  |  str | The text for the item</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item_text</td>
+<td>str</td>
+<td>The text for the item</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_item_list">add_item_list</h3>
 <pre><code class="python">def add_item_list(self, item_list)
 </code></pre>
 
 <p>Adds a list of items to the scroll menu.</p>
 <h4 id="parameters_9">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- item_list  |  list of str | list of strings to add as items to the scrollmenu</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item_list</td>
+<td>list of str</td>
+<td>list of strings to add as items to the scrollmenu</td>
+</tr>
+</tbody>
+</table>
 <h3 id="remove_selected_item">remove_selected_item</h3>
 <pre><code class="python">def remove_selected_item(self)
 </code></pre>
@@ -534,18 +985,44 @@ Analogous to a RadioButton</p>
 
 <p>Function that gets list of items in a scroll menu</p>
 <h4 id="returns_4">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- item_list  |  list of str | list of items in the scrollmenu</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item_list</td>
+<td>list of str</td>
+<td>list of items in the scrollmenu</td>
+</tr>
+</tbody>
+</table>
 <h3 id="get">get</h3>
 <pre><code class="python">def get(self)
 </code></pre>
 
 <p>Function that gets the selected item from the scroll menu</p>
 <h4 id="returns_5">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- item  |  str | selected item, or None if there are no items in the menu</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item</td>
+<td>str</td>
+<td>selected item, or None if there are no items in the menu</td>
+</tr>
+</tbody>
+</table>
 <h3 id="handle_key_press_1">handle_key_press</h3>
 <pre><code class="python">def handle_key_press(self, key_pressed)
 </code></pre>
@@ -553,9 +1030,22 @@ Analogous to a RadioButton</p>
 <p>Override base class function.</p>
 <p>UP_ARROW scrolls up, DOWN_ARROW scrolls down.</p>
 <h4 id="parameters_10">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | key code of key pressed</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_3">draw</h3>
 <pre><code class="python">def draw(self)
 </code></pre>
@@ -567,18 +1057,58 @@ Analogous to a RadioButton</p>
 
 <p>Extension of ScrollMenu that allows for multiple items to be selected at once.</p>
 <h4 id="attributes_4">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- selected_item_list  |  list of str | List of checked items
- checked_char  |  char | Character to represent a checked item</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selected_item_list</td>
+<td>list of str</td>
+<td>List of checked items</td>
+</tr>
+<tr>
+<td>checked_char</td>
+<td>char</td>
+<td>Character to represent a checked item</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods_4">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- add_item | Adds item to Checkbox
- add_item_list | Adds list of items to the checkbox
- get | Gets list of selected items from the checkbox
- mark_item_as_checked | Function that marks an item as selected
- handle_key_press | Override of base class function</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add_item</td>
+<td>Adds item to Checkbox</td>
+</tr>
+<tr>
+<td>add_item_list</td>
+<td>Adds list of items to the checkbox</td>
+</tr>
+<tr>
+<td>get</td>
+<td>Gets list of selected items from the checkbox</td>
+</tr>
+<tr>
+<td>mark_item_as_checked</td>
+<td>Function that marks an item as selected</td>
+</tr>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base class function</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_4"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, checked_char)
 </code></pre>
@@ -589,36 +1119,88 @@ Analogous to a RadioButton</p>
 
 <p>Adds item to Checkbox</p>
 <h4 id="parameters_11">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- item_text  |  str | Menu item to add</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item_text</td>
+<td>str</td>
+<td>Menu item to add</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_item_list_1">add_item_list</h3>
 <pre><code class="python">def add_item_list(self, item_list)
 </code></pre>
 
 <p>Adds list of items to the checkbox</p>
 <h4 id="parameters_12">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- item_list  |  list of str | Menu item list to add</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item_list</td>
+<td>list of str</td>
+<td>Menu item list to add</td>
+</tr>
+</tbody>
+</table>
 <h3 id="get_1">get</h3>
 <pre><code class="python">def get(self)
 </code></pre>
 
 <p>Gets list of selected items from the checkbox</p>
 <h4 id="returns_6">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- selected_items  |  list of str | list of checked items</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selected_items</td>
+<td>list of str</td>
+<td>list of checked items</td>
+</tr>
+</tbody>
+</table>
 <h3 id="mark_item_as_checked">mark_item_as_checked</h3>
 <pre><code class="python">def mark_item_as_checked(self, text)
 </code></pre>
 
 <p>Function that marks an item as selected</p>
 <h4 id="parameters_13">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- text  |  str | Mark item with text = text as checked</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>Mark item with text = text as checked</td>
+</tr>
+</tbody>
+</table>
 <h3 id="handle_key_press_2">handle_key_press</h3>
 <pre><code class="python">def handle_key_press(self, key_pressed)
 </code></pre>
@@ -627,9 +1209,22 @@ Analogous to a RadioButton</p>
 <p>First, run the superclass function, scrolling should still work.
 Adds Enter command to toggle selection</p>
 <h4 id="parameters_14">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | key code of pressed key</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of pressed key</td>
+</tr>
+</tbody>
+</table>
 <h2 id="buttonwidget">Button(Widget)</h2>
 <pre><code class="python">class Button(Widget)
 </code></pre>
@@ -637,14 +1232,41 @@ Adds Enter command to toggle selection</p>
 <p>Basic button widget.</p>
 <p>Allows for running a command function on Enter</p>
 <h4 id="attributes_5">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- command  |  function | A no-args function to run when the button is pressed.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>function</td>
+<td>A no-args function to run when the button is pressed.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods_5">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- handle_key_press | Override of base class function
- draw | Override of base class function</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base class function</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override of base class function</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_5"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, command)
 </code></pre>
@@ -655,9 +1277,22 @@ Adds Enter command to toggle selection</p>
 
 <p>Override of base class, adds ENTER listener that runs the button's command</p>
 <h4 id="parameters_15">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | Key code of pressed key</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>Key code of pressed key</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_4">draw</h3>
 <pre><code class="python">def draw(self)
 </code></pre>
@@ -669,27 +1304,97 @@ Adds Enter command to toggle selection</p>
 
 <p>Widget for entering small single lines of text</p>
 <h4 id="attributes_6">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- text  |  str | The text in the text box
- cursor_x, cursor_y  |  int | The absolute positions of the cursor in the terminal window
- cursor_text_pos  |  int | the cursor position relative to the text
- cursor_max_left, cursor_max_right  |  int | The cursor bounds of the text box
- viewport_width  |  int | The width of the textbox viewport</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The text in the text box</td>
+</tr>
+<tr>
+<td>cursor_x, cursor_y</td>
+<td>int</td>
+<td>The absolute positions of the cursor in the terminal window</td>
+</tr>
+<tr>
+<td>cursor_text_pos</td>
+<td>int</td>
+<td>the cursor position relative to the text</td>
+</tr>
+<tr>
+<td>cursor_max_left, cursor_max_right</td>
+<td>int</td>
+<td>The cursor bounds of the text box</td>
+</tr>
+<tr>
+<td>viewport_width</td>
+<td>int</td>
+<td>The width of the textbox viewport</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods_6">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- set_text | sets textbox text
- get | Gets value of the text in the textbox
- clear | Clears the text in the textbox
- move_left | Shifts the cursor the the left. Internal use only
- move_right | Shifts the cursor the the right. Internal use only
- insert_char | Inserts char at cursor position.
- jump_to_start | Jumps to the start of the textbox
- jump_to_end | Jumps to the end to the textbox
- erase_char | Erases character at textbox cursor
- handle_key_press | Override of base class function
- draw | Override of base class function</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_text</td>
+<td>sets textbox text</td>
+</tr>
+<tr>
+<td>get</td>
+<td>Gets value of the text in the textbox</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>Clears the text in the textbox</td>
+</tr>
+<tr>
+<td>move_left</td>
+<td>Shifts the cursor the the left. Internal use only</td>
+</tr>
+<tr>
+<td>move_right</td>
+<td>Shifts the cursor the the right. Internal use only</td>
+</tr>
+<tr>
+<td>insert_char</td>
+<td>Inserts char at cursor position.</td>
+</tr>
+<tr>
+<td>jump_to_start</td>
+<td>Jumps to the start of the textbox</td>
+</tr>
+<tr>
+<td>jump_to_end</td>
+<td>Jumps to the end to the textbox</td>
+</tr>
+<tr>
+<td>erase_char</td>
+<td>Erases character at textbox cursor</td>
+</tr>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base class function</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override of base class function</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_6"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, initial_text)
 </code></pre>
@@ -705,18 +1410,44 @@ Adds Enter command to toggle selection</p>
 
 <p>Sets the value of the text. Overwrites existing text</p>
 <h4 id="parameters_16">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- text  |  str | The text to write to the textbox</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The text to write to the textbox</td>
+</tr>
+</tbody>
+</table>
 <h3 id="get_2">get</h3>
 <pre><code class="python">def get(self)
 </code></pre>
 
 <p>Gets value of the text in the textbox</p>
 <h4 id="returns_7">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- text  |  str | The current textbox test</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The current textbox test</td>
+</tr>
+</tbody>
+</table>
 <h3 id="clear_1">clear</h3>
 <pre><code class="python">def clear(self)
 </code></pre>
@@ -739,9 +1470,22 @@ Adds Enter command to toggle selection</p>
 <p>Inserts char at cursor position.</p>
 <p>Internal use only</p>
 <h4 id="parameters_17">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | key code of key pressed</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
 <h3 id="jump_to_start">jump_to_start</h3>
 <pre><code class="python">def jump_to_start(self)
 </code></pre>
@@ -763,9 +1507,22 @@ Adds Enter command to toggle selection</p>
 
 <p>Override of base handle key press function</p>
 <h4 id="parameters_18">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | key code of key pressed</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_5">draw</h3>
 <pre><code class="python">def draw(self)
 </code></pre>
@@ -777,36 +1534,135 @@ Adds Enter command to toggle selection</p>
 
 <p>Widget for editing large multi-line blocks of text</p>
 <h4 id="attributes_7">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- text_lines  |  list of str | The lines of text in the text box
- cursor_x, cursor_y  |  int | The absolute positions of the cursor in the terminal window
- cursor_text_pos_x, cursor_text_pos_y  |  int | the cursor position relative to the text
- cursor_max_left, cursor_max_right  |  int | The cursor bounds of the text box
- cursor_max_up, cursor_max_down  |  int | The cursor bounds of the text box
- viewport_x_start, viewport_y_start  |  int | upper left corner of the viewport
- viewport_width  |  int | The width of the textbox viewport</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text_lines</td>
+<td>list of str</td>
+<td>The lines of text in the text box</td>
+</tr>
+<tr>
+<td>cursor_x, cursor_y</td>
+<td>int</td>
+<td>The absolute positions of the cursor in the terminal window</td>
+</tr>
+<tr>
+<td>cursor_text_pos_x, cursor_text_pos_y</td>
+<td>int</td>
+<td>the cursor position relative to the text</td>
+</tr>
+<tr>
+<td>cursor_max_left, cursor_max_right</td>
+<td>int</td>
+<td>The cursor bounds of the text box</td>
+</tr>
+<tr>
+<td>cursor_max_up, cursor_max_down</td>
+<td>int</td>
+<td>The cursor bounds of the text box</td>
+</tr>
+<tr>
+<td>viewport_x_start, viewport_y_start</td>
+<td>int</td>
+<td>upper left corner of the viewport</td>
+</tr>
+<tr>
+<td>viewport_width</td>
+<td>int</td>
+<td>The width of the textbox viewport</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods_7">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- get | Gets value of the text in the textbox
- write | Writes text to the textblock
- clear | Clears the text in the textbox
- get_current_line | Gets current line of text (cursor pos)
- set_text | Function that sets the text for the textblock.
- set_text_line | Function that sets the current line's text.
- move_left | Shifts the cursor the the left. Internal use only
- move_right | Shifts the cursor the the right. Internal use only
- move_up | Shifts the cursor upwards. Internal use only
- move_right | Shifts the cursor downwards. Internal use only
- handle_newline | Handles newline characters
- handle_backspace | Handles backspace presses
- handle_home | Handles home key presses
- handle_end | Handles end key presses
- handle_delete | handles delete key presses
- insert_char | Inserts char at cursor position.
- handle_key_press | Override of base class function
- draw | Override of base class function</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get</td>
+<td>Gets value of the text in the textbox</td>
+</tr>
+<tr>
+<td>write</td>
+<td>Writes text to the textblock</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>Clears the text in the textbox</td>
+</tr>
+<tr>
+<td>get_current_line</td>
+<td>Gets current line of text (cursor pos)</td>
+</tr>
+<tr>
+<td>set_text</td>
+<td>Function that sets the text for the textblock.</td>
+</tr>
+<tr>
+<td>set_text_line</td>
+<td>Function that sets the current line's text.</td>
+</tr>
+<tr>
+<td>move_left</td>
+<td>Shifts the cursor the the left. Internal use only</td>
+</tr>
+<tr>
+<td>move_right</td>
+<td>Shifts the cursor the the right. Internal use only</td>
+</tr>
+<tr>
+<td>move_up</td>
+<td>Shifts the cursor upwards. Internal use only</td>
+</tr>
+<tr>
+<td>move_right</td>
+<td>Shifts the cursor downwards. Internal use only</td>
+</tr>
+<tr>
+<td>handle_newline</td>
+<td>Handles newline characters</td>
+</tr>
+<tr>
+<td>handle_backspace</td>
+<td>Handles backspace presses</td>
+</tr>
+<tr>
+<td>handle_home</td>
+<td>Handles home key presses</td>
+</tr>
+<tr>
+<td>handle_end</td>
+<td>Handles end key presses</td>
+</tr>
+<tr>
+<td>handle_delete</td>
+<td>handles delete key presses</td>
+</tr>
+<tr>
+<td>insert_char</td>
+<td>Inserts char at cursor position.</td>
+</tr>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base class function</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override of base class function</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_7"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, initial_text)
 </code></pre>
@@ -822,18 +1678,44 @@ Adds Enter command to toggle selection</p>
 
 <p>Gets all of the text in the textblock and returns it</p>
 <h4 id="returns_8">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- text  |  str | The current text in the text block</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The current text in the text block</td>
+</tr>
+</tbody>
+</table>
 <h3 id="write">write</h3>
 <pre><code class="python">def write(self, text)
 </code></pre>
 
 <p>Function used for writing text to the text block</p>
 <h4 id="parameters_19">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- text  |  str | Text to write to the text block</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>Text to write to the text block</td>
+</tr>
+</tbody>
+</table>
 <h3 id="clear_2">clear</h3>
 <pre><code class="python">def clear(self)
 </code></pre>
@@ -845,9 +1727,22 @@ Adds Enter command to toggle selection</p>
 
 <p>Returns the line on which the cursor currently resides</p>
 <h4 id="returns_9">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- current_line  |  str | The current line of text that the cursor is on</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>current_line</td>
+<td>str</td>
+<td>The current line of text that the cursor is on</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_text_1">set_text</h3>
 <pre><code class="python">def set_text(self, text)
 </code></pre>
@@ -855,9 +1750,22 @@ Adds Enter command to toggle selection</p>
 <p>Function that sets the text for the textblock.</p>
 <p>Note that this will overwrite any existing text </p>
 <h4 id="parameters_20">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- text  |  str | text to write into text block</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>text to write into text block</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_text_line">set_text_line</h3>
 <pre><code class="python">def set_text_line(self, text)
 </code></pre>
@@ -865,9 +1773,22 @@ Adds Enter command to toggle selection</p>
 <p>Function that sets the current line's text.</p>
 <p>Meant only for internal use</p>
 <h4 id="parameters_21">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- text  |  str | text line to write into text block</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>text line to write into text block</td>
+</tr>
+</tbody>
+</table>
 <h3 id="move_left_1">move_left</h3>
 <pre><code class="python">def move_left(self)
 </code></pre>
@@ -919,18 +1840,44 @@ Adds Enter command to toggle selection</p>
 
 <p>Function that handles recieving a character</p>
 <h4 id="parameters_22">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | key code of key pressed</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
 <h3 id="handle_key_press_5">handle_key_press</h3>
 <pre><code class="python">def handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base class handle key press function</p>
 <h4 id="parameters_23">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key_pressed  |  int | key code of key pressed</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
 <h3 id="draw_6">draw</h3>
 <pre><code class="python">def draw(self)
 </code></pre>

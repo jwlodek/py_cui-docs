@@ -205,68 +205,218 @@
 
 <p>Class representing the CUI grid</p>
 <h4 id="attributes">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- num_rows  |  int | Number of grid rows
- num_columns  |  int | Number of grid columns
- height  |  int | The height in characters of the terminal window
- width  |  int | The width in characters of the terminal window
- offset_y  |  int | The number of additional characters found by height mod rows
- offset_x  |  int | The number of additional characters found by width mod columns
- row_height  |  int | The number of characters in a single grid row
- column_width  |  int | The number of characters in a single grid column</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_rows</td>
+<td>int</td>
+<td>Number of grid rows</td>
+</tr>
+<tr>
+<td>num_columns</td>
+<td>int</td>
+<td>Number of grid columns</td>
+</tr>
+<tr>
+<td>height</td>
+<td>int</td>
+<td>The height in characters of the terminal window</td>
+</tr>
+<tr>
+<td>width</td>
+<td>int</td>
+<td>The width in characters of the terminal window</td>
+</tr>
+<tr>
+<td>offset_y</td>
+<td>int</td>
+<td>The number of additional characters found by height mod rows</td>
+</tr>
+<tr>
+<td>offset_x</td>
+<td>int</td>
+<td>The number of additional characters found by width mod columns</td>
+</tr>
+<tr>
+<td>row_height</td>
+<td>int</td>
+<td>The number of characters in a single grid row</td>
+</tr>
+<tr>
+<td>column_width</td>
+<td>int</td>
+<td>The number of characters in a single grid column</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- set_num_rows | Sets the grid row size
- set_num_cols | Sets the grid column size
- update_grid_height_width | Update grid height and width. Allows for on-the-fly size editing</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_num_rows</td>
+<td>Sets the grid row size</td>
+</tr>
+<tr>
+<td>set_num_cols</td>
+<td>Sets the grid column size</td>
+</tr>
+<tr>
+<td>update_grid_height_width</td>
+<td>Update grid height and width. Allows for on-the-fly size editing</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, num_rows, num_columns, height, width)
 </code></pre>
 
 <p>Constructor for the Grid class</p>
 <h4 id="parameters">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- num_rows  |  int | Number of grid rows
- num_columns  |  int | Number of grid columns
- height  |  int | The height in characters of the terminal window
- width  |  int | The width in characters of the terminal window</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_rows</td>
+<td>int</td>
+<td>Number of grid rows</td>
+</tr>
+<tr>
+<td>num_columns</td>
+<td>int</td>
+<td>Number of grid columns</td>
+</tr>
+<tr>
+<td>height</td>
+<td>int</td>
+<td>The height in characters of the terminal window</td>
+</tr>
+<tr>
+<td>width</td>
+<td>int</td>
+<td>The width in characters of the terminal window</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_num_rows">set_num_rows</h3>
 <pre><code class="python">def set_num_rows(self, num_rows)
 </code></pre>
 
 <p>Sets the grid row size</p>
 <h4 id="parameters_1">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- num_rows  |  int | New number of grid rows
- Raises | ------
- error  |  PyCUIOutOfBoundsError | If the size of the terminal window is too small</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_rows</td>
+<td>int</td>
+<td>New number of grid rows</td>
+</tr>
+<tr>
+<td>Raises</td>
+<td>------</td>
+<td></td>
+</tr>
+<tr>
+<td>error</td>
+<td>PyCUIOutOfBoundsError</td>
+<td>If the size of the terminal window is too small</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_num_cols">set_num_cols</h3>
 <pre><code class="python">def set_num_cols(self, num_columns)
 </code></pre>
 
 <p>Sets the grid column size</p>
 <h4 id="parameters_2">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- num_columns  |  int | New number of grid columns
- Raises | ------
- error  |  PyCUIOutOfBoundsError | If the size of the terminal window is too small</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_columns</td>
+<td>int</td>
+<td>New number of grid columns</td>
+</tr>
+<tr>
+<td>Raises</td>
+<td>------</td>
+<td></td>
+</tr>
+<tr>
+<td>error</td>
+<td>PyCUIOutOfBoundsError</td>
+<td>If the size of the terminal window is too small</td>
+</tr>
+</tbody>
+</table>
 <h3 id="update_grid_height_width">update_grid_height_width</h3>
 <pre><code class="python">def update_grid_height_width(self, height, width)
 </code></pre>
 
 <p>Update grid height and width. Allows for on-the-fly size editing</p>
 <h4 id="parameters_3">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- height  |  int | The height in characters of the terminal window
- width  |  int | The width in characters of the terminal window
- Raises | ------
- error  |  PyCUIOutOfBoundsError | If the size of the terminal window is too small</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>height</td>
+<td>int</td>
+<td>The height in characters of the terminal window</td>
+</tr>
+<tr>
+<td>width</td>
+<td>int</td>
+<td>The width in characters of the terminal window</td>
+</tr>
+<tr>
+<td>Raises</td>
+<td>------</td>
+<td></td>
+</tr>
+<tr>
+<td>error</td>
+<td>PyCUIOutOfBoundsError</td>
+<td>If the size of the terminal window is too small</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

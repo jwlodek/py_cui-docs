@@ -206,24 +206,84 @@
 <p>Class that represents a collection of widgets.</p>
 <p>Use PyCUI.apply_widget_set() to set a given widget set for display</p>
 <h4 id="attributes">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- grid  |  py_cui.grid.Grid | The main layout manager for the CUI
- widgets  |  dict of str - py_cui.widgets.Widget | dict of widget in the grid
- keybindings  |  list of py_cui.keybinding.KeyBinding | list of keybindings to check against in the main CUI loop
- height, width  |  int | height of the terminal in characters, width of terminal in characters</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grid</td>
+<td>py_cui.grid.Grid</td>
+<td>The main layout manager for the CUI</td>
+</tr>
+<tr>
+<td>widgets</td>
+<td>dict of str - py_cui.widgets.Widget</td>
+<td>dict of widget in the grid</td>
+</tr>
+<tr>
+<td>keybindings</td>
+<td>list of py_cui.keybinding.KeyBinding</td>
+<td>list of keybindings to check against in the main CUI loop</td>
+</tr>
+<tr>
+<td>height, width</td>
+<td>int</td>
+<td>height of the terminal in characters, width of terminal in characters</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- set_selected_widget | Function that sets the selected cell for the CUI
- add_scroll_menu | Function that adds a new scroll menu to the CUI grid
- add_checkbox_menu | Function that adds a new checkbox menu to the CUI grid
- add_text_box | Function that adds a new text box to the CUI grid
- add_text_block | Function that adds a new text block to the CUI grid
- add_label | Function that adds a new label to the CUI grid
- add_block_label | Function that adds a new block label to the CUI grid
- add_button | Function that adds a new button to the CUI grid
- add_key_command | Function that adds a keybinding to the CUI when in overview mode</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_selected_widget</td>
+<td>Function that sets the selected cell for the CUI</td>
+</tr>
+<tr>
+<td>add_scroll_menu</td>
+<td>Function that adds a new scroll menu to the CUI grid</td>
+</tr>
+<tr>
+<td>add_checkbox_menu</td>
+<td>Function that adds a new checkbox menu to the CUI grid</td>
+</tr>
+<tr>
+<td>add_text_box</td>
+<td>Function that adds a new text box to the CUI grid</td>
+</tr>
+<tr>
+<td>add_text_block</td>
+<td>Function that adds a new text block to the CUI grid</td>
+</tr>
+<tr>
+<td>add_label</td>
+<td>Function that adds a new label to the CUI grid</td>
+</tr>
+<tr>
+<td>add_block_label</td>
+<td>Function that adds a new block label to the CUI grid</td>
+</tr>
+<tr>
+<td>add_button</td>
+<td>Function that adds a new button to the CUI grid</td>
+</tr>
+<tr>
+<td>add_key_command</td>
+<td>Function that adds a keybinding to the CUI when in overview mode</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, num_rows, num_cols)
 </code></pre>
@@ -235,157 +295,557 @@
 
 <p>Function that sets the selected cell for the CUI</p>
 <h4 id="parameters">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- cell_title  |  str | the title of the cell</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cell_title</td>
+<td>str</td>
+<td>the title of the cell</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_key_command">add_key_command</h3>
 <pre><code class="python">def add_key_command(self, key, command)
 </code></pre>
 
 <p>Function that adds a keybinding to the CUI when in overview mode</p>
 <h4 id="parameters_1">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- key  |  py_cui.keys.KEY_* | The key bound to the command
- command  |  Function | A no-arg or lambda function to fire on keypress</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>py_cui.keys.KEY_*</td>
+<td>The key bound to the command</td>
+</tr>
+<tr>
+<td>command</td>
+<td>Function</td>
+<td>A no-arg or lambda function to fire on keypress</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_scroll_menu">add_scroll_menu</h3>
 <pre><code class="python">def add_scroll_menu(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0)
 </code></pre>
 
 <p>Function that adds a new scroll menu to the CUI grid</p>
 <h4 id="parameters_2">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- title  |  str | The title of the scroll menu
- row  |  int | The row value, from the top down
- column  |  int | The column value from the top down
- row_span=1  |  int | The number of rows to span accross
- column_span=1  |  int | the number of columns to span accross
- padx=1  |  int | number of padding characters in the x direction
- pady=0  |  int | number of padding characters in the y direction</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the scroll menu</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- ScrollMenu | A reference to the created scroll menu object.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ScrollMenu</td>
+<td>A reference to the created scroll menu object.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_checkbox_menu">add_checkbox_menu</h3>
 <pre><code class="python">def add_checkbox_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0, checked_char='X')
 </code></pre>
 
 <p>Function that adds a new checkbox menu to the CUI grid</p>
 <h4 id="parameters_3">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- title  |  str | The title of the checkbox
- row  |  int | The row value, from the top down
- column  |  int | The column value from the top down
- row_span=1  |  int | The number of rows to span accross
- column_span=1  |  int | the number of columns to span accross
- padx=1  |  int | number of padding characters in the x direction
- pady=0  |  int | number of padding characters in the y direction
- checked_char='X'  |  char | The character used to mark 'Checked' items</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the checkbox</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td>checked_char='X'</td>
+<td>char</td>
+<td>The character used to mark 'Checked' items</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_1">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- new_checkbox_menu  |  CheckBoxMenu | A reference to the created checkbox object.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_checkbox_menu</td>
+<td>CheckBoxMenu</td>
+<td>A reference to the created checkbox object.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_text_box">add_text_box</h3>
 <pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '')
 </code></pre>
 
 <p>Function that adds a new text box to the CUI grid</p>
 <h4 id="parameters_4">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- title  |  str | The title of the textbox
- row  |  int | The row value, from the top down
- column  |  int | The column value from the top down
- row_span=1  |  int | The number of rows to span accross
- column_span=1  |  int | the number of columns to span accross
- padx=1  |  int | number of padding characters in the x direction
- pady=0  |  int | number of padding characters in the y direction
- initial_text=''  |  str | Initial text for the textbox</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the textbox</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td>initial_text=''</td>
+<td>str</td>
+<td>Initial text for the textbox</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_2">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- new_text_box  |  TextBox | A reference to the created textbox object.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_text_box</td>
+<td>TextBox</td>
+<td>A reference to the created textbox object.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_text_block">add_text_block</h3>
 <pre><code class="python">def add_text_block(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '')
 </code></pre>
 
 <p>Function that adds a new text block to the CUI grid</p>
 <h4 id="parameters_5">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- title  |  str | The title of the text block
- row  |  int | The row value, from the top down
- column  |  int | The column value from the top down
- row_span=1  |  int | The number of rows to span accross
- column_span=1  |  int | the number of columns to span accross
- padx=1  |  int | number of padding characters in the x direction
- pady=0  |  int | number of padding characters in the y direction
- initial_text=''  |  str | Initial text for the text block</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the text block</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td>initial_text=''</td>
+<td>str</td>
+<td>Initial text for the text block</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_3">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- new_text_block  |  ScrollTextBlock | A reference to the created textblock object.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_text_block</td>
+<td>ScrollTextBlock</td>
+<td>A reference to the created textblock object.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_label">add_label</h3>
 <pre><code class="python">def add_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0)
 </code></pre>
 
 <p>Function that adds a new label to the CUI grid</p>
 <h4 id="parameters_6">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- title  |  str | The title of the label
- row  |  int | The row value, from the top down
- column  |  int | The column value from the top down
- row_span=1  |  int | The number of rows to span accross
- column_span=1  |  int | the number of columns to span accross
- padx=1  |  int | number of padding characters in the x direction
- pady=0  |  int | number of padding characters in the y direction</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the label</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_4">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- new_label  |  Label | A reference to the created label object.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_label</td>
+<td>Label</td>
+<td>A reference to the created label object.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_block_label">add_block_label</h3>
 <pre><code class="python">def add_block_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True)
 </code></pre>
 
 <p>Function that adds a new block label to the CUI grid</p>
 <h4 id="parameters_7">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- title  |  str | The title of the block label
- row  |  int | The row value, from the top down
- column  |  int | The column value from the top down
- row_span=1  |  int | The number of rows to span accross
- column_span=1  |  int | the number of columns to span accross
- padx=1  |  int | number of padding characters in the x direction
- pady=0  |  int | number of padding characters in the y direction
- center  |  bool | flag to tell label to be centered or left-aligned.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the block label</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td>center</td>
+<td>bool</td>
+<td>flag to tell label to be centered or left-aligned.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_5">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- new_label  |  BlockLabel | A reference to the created block label object.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_label</td>
+<td>BlockLabel</td>
+<td>A reference to the created block label object.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_button">add_button</h3>
 <pre><code class="python">def add_button(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, command=None)
 </code></pre>
 
 <p>Function that adds a new button to the CUI grid</p>
 <h4 id="parameters_8">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- title  |  str | The title of the button
- row  |  int | The row value, from the top down
- column  |  int | The column value from the top down
- row_span=1  |  int | The number of rows to span accross
- column_span=1  |  int | the number of columns to span accross
- padx=1  |  int | number of padding characters in the x direction
- pady=0  |  int | number of padding characters in the y direction
- command=None  |  Function | A no-argument or lambda function to fire on button press.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the button</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td>command=None</td>
+<td>Function</td>
+<td>A no-argument or lambda function to fire on button press.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_6">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- new_button  |  Button | A reference to the created button object.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_button</td>
+<td>Button</td>
+<td>A reference to the created button object.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

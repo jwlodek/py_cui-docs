@@ -204,92 +204,302 @@
 
 <p>Class representing a text color rendering rule</p>
 <h4 id="attributes">Attributes</h4>
-<p>Attribute  | Type  | Doc
------|----------|----------|-----
- regex  |  str | A python 're' module string
- color  |  int | A valid color value. Ex. py_cui.WHITE_ON_BLACK
- rule_type  |  str | String representing rule type. ['startswith', 'endswith', 'notstartswith', 'notendswith', 'contains']
- match_type  |  str | String representing the match type. ['line', 'regex', 'region']
- region  |  [int, int] | Start and end positions for the coloring, None if match_type != 'region'
- include_whitespace  |  bool | Flag to determine whether to strip whitespace before matching.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regex</td>
+<td>str</td>
+<td>A python 're' module string</td>
+</tr>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>A valid color value. Ex. py_cui.WHITE_ON_BLACK</td>
+</tr>
+<tr>
+<td>rule_type</td>
+<td>str</td>
+<td>String representing rule type. ['startswith', 'endswith', 'notstartswith', 'notendswith', 'contains']</td>
+</tr>
+<tr>
+<td>match_type</td>
+<td>str</td>
+<td>String representing the match type. ['line', 'regex', 'region']</td>
+</tr>
+<tr>
+<td>region</td>
+<td>[int, int]</td>
+<td>Start and end positions for the coloring, None if match_type != 'region'</td>
+</tr>
+<tr>
+<td>include_whitespace</td>
+<td>bool</td>
+<td>Flag to determine whether to strip whitespace before matching.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="methods">Methods</h4>
-<p>Method  | Doc
------|----------|-----
- check_match | Function that checks if the regex given matches the input line given the rule type
- generate_fragments_regex | Splits text into color coded renderable fragments based on regular expression
- split_text_on_region | Splits text into color coded renderable fragments based on region
- generate_fragments | Checks match of rule with line, then splits render_text into fragments if required</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>check_match</td>
+<td>Function that checks if the regex given matches the input line given the rule type</td>
+</tr>
+<tr>
+<td>generate_fragments_regex</td>
+<td>Splits text into color coded renderable fragments based on regular expression</td>
+</tr>
+<tr>
+<td>split_text_on_region</td>
+<td>Splits text into color coded renderable fragments based on region</td>
+</tr>
+<tr>
+<td>generate_fragments</td>
+<td>Checks match of rule with line, then splits render_text into fragments if required</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, regex, color, rule_type, match_type, region, include_whitespace)
 </code></pre>
 
 <p>Constructor for ColorRule object</p>
 <h4 id="parameters">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- regex  |  str | A python 're' module string
- color  |  int | A valid color value. Ex. py_cui.WHITE_ON_BLACK
- rule_type  |  str | String representing rule type. ['startswith', 'endswith', 'notstartswith', 'notendswith', 'contains']
- match_type  |  str | String representing the match type. ['line', 'regex', 'region']
- region  |  [int, int] | Start and end positions for the coloring, None if match_type != 'region'
- include_whitespace  |  bool | Flag to determine whether to strip whitespace before matching.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regex</td>
+<td>str</td>
+<td>A python 're' module string</td>
+</tr>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>A valid color value. Ex. py_cui.WHITE_ON_BLACK</td>
+</tr>
+<tr>
+<td>rule_type</td>
+<td>str</td>
+<td>String representing rule type. ['startswith', 'endswith', 'notstartswith', 'notendswith', 'contains']</td>
+</tr>
+<tr>
+<td>match_type</td>
+<td>str</td>
+<td>String representing the match type. ['line', 'regex', 'region']</td>
+</tr>
+<tr>
+<td>region</td>
+<td>[int, int]</td>
+<td>Start and end positions for the coloring, None if match_type != 'region'</td>
+</tr>
+<tr>
+<td>include_whitespace</td>
+<td>bool</td>
+<td>Flag to determine whether to strip whitespace before matching.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="check_match">check_match</h3>
 <pre><code class="python">def check_match(self, line)
 </code></pre>
 
 <p>Checks if the color rule matches a line</p>
 <h4 id="parameters_1">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- line  |  str | The input line of text to try to match the rule against</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>line</td>
+<td>str</td>
+<td>The input line of text to try to match the rule against</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- matched  |  bool | True if a match was found, false otherwise</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>matched</td>
+<td>bool</td>
+<td>True if a match was found, false otherwise</td>
+</tr>
+</tbody>
+</table>
 <h3 id="generate_fragments_regex">generate_fragments_regex</h3>
 <pre><code class="python">def generate_fragments_regex(self, widget, render_text)
 </code></pre>
 
 <p>Splits text into fragments based on regular expression</p>
 <h4 id="parameters_2">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.Widget | Widget containing the render text
- render_text  |  str | text being rendered</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.Widget</td>
+<td>Widget containing the render text</td>
+</tr>
+<tr>
+<td>render_text</td>
+<td>str</td>
+<td>text being rendered</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_1">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- fragments  |  list of lists of [str, color] | the render text split into fragments of strings paired with colors</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fragments</td>
+<td>list of lists of [str, color]</td>
+<td>the render text split into fragments of strings paired with colors</td>
+</tr>
+</tbody>
+</table>
 <h3 id="split_text_on_region">split_text_on_region</h3>
 <pre><code class="python">def split_text_on_region(self, widget, render_text)
 </code></pre>
 
 <p>Splits text into fragments based on region</p>
 <h4 id="parameters_3">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.Widget | Widget containing the render text
- render_text  |  str | text being rendered</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.Widget</td>
+<td>Widget containing the render text</td>
+</tr>
+<tr>
+<td>render_text</td>
+<td>str</td>
+<td>text being rendered</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_2">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- fragments  |  list of lists of [str, color] | the render text split into fragments of strings paired with colors</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fragments</td>
+<td>list of lists of [str, color]</td>
+<td>the render text split into fragments of strings paired with colors</td>
+</tr>
+</tbody>
+</table>
 <h3 id="generate_fragments">generate_fragments</h3>
 <pre><code class="python">def generate_fragments(self, widget, line, render_text)
 </code></pre>
 
 <p>Splits text into fragments if matched line to regex</p>
 <h4 id="parameters_4">Parameters</h4>
-<p>Parameter  | Type  | Doc
------|----------|----------|-----
- widget  |  py_cui.Widget | Widget containing the render text
- line  |  str | the line to match
- render_text  |  str | text being rendered</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.Widget</td>
+<td>Widget containing the render text</td>
+</tr>
+<tr>
+<td>line</td>
+<td>str</td>
+<td>the line to match</td>
+</tr>
+<tr>
+<td>render_text</td>
+<td>str</td>
+<td>text being rendered</td>
+</tr>
+</tbody>
+</table>
 <h4 id="returns_3">Returns</h4>
-<p>Return Variable  | Type  | Doc
------|----------|----------|-----
- fragments  |  list of lists of [str, color] | the render text split into fragments of strings paired with colors
- matched  |  bool | Boolean output saying if a match was found in the line.</p>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fragments</td>
+<td>list of lists of [str, color]</td>
+<td>the render text split into fragments of strings paired with colors</td>
+</tr>
+<tr>
+<td>matched</td>
+<td>bool</td>
+<td>Boolean output saying if a match was found in the line.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
