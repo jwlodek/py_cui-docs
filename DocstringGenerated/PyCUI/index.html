@@ -7,14 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>PyCUI - py_cui Documentation</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../css/theme.css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
@@ -25,7 +24,7 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -36,7 +35,6 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> py_cui Documentation</a>
         <div role="search">
@@ -47,320 +45,121 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../install/">Installation</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Using and Writing PyCUIs</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../usage/">Basic Usage</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../widgets/">Widgets</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../colors/">Colors</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../popups/">Popups</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../keybindings/">Keys</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../writing/">Writing a PyCUI step-by-step</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Classes / Functions</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">PyCUI</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#fit_text">fit_text</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pycui">PyCUI</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#init">init</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#get_widget_set">get_widget_set</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_1">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#apply_widget_set">apply_widget_set</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#start">start</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#stop">stop</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#run_on_exit">run_on_exit</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_2">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set_title">set_title</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_3">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set_status_bar_text">set_status_bar_text</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_4">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#initialize_colors">initialize_colors</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#initialize_widget_renderer">initialize_widget_renderer</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_scroll_menu">add_scroll_menu</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_5">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_2">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_checkbox_menu">add_checkbox_menu</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_6">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_3">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_text_box">add_text_box</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_7">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_4">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_text_block">add_text_block</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_8">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_5">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_label">add_label</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_9">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_6">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_block_label">add_block_label</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_10">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_7">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_button">add_button</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_11">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_8">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#get_widgets_by_row">get_widgets_by_row</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_12">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_9">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#get_widgets_by_col">get_widgets_by_col</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_13">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_10">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#check_if_neighbor_exists">check_if_neighbor_exists</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_14">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_11">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set_selected_widget">set_selected_widget</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_15">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#get_widget_id">get_widget_id</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_16">Parameters</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#returns_12">Returns</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#lose_focus">lose_focus</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#move_focus">move_focus</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_17">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add_key_command">add_key_command</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_18">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_message_popup">show_message_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_19">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_warning_popup">show_warning_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_20">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_error_popup">show_error_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_21">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_yes_no_popup">show_yes_no_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_22">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_text_box_popup">show_text_box_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_23">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_menu_popup">show_menu_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_24">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_loading_icon_popup">show_loading_icon_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_25">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#show_loading_bar_popup">show_loading_bar_popup</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_26">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#increment_loading_bar">increment_loading_bar</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#stop_loading_popup">stop_loading_popup</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#close_popup">close_popup</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#refresh_height_width">refresh_height_width</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_27">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#draw_widgets">draw_widgets</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#draw_status_bars">draw_status_bars</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_28">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#display_window_warning">display_window_warning</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_29">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#handle_key_presses">handle_key_presses</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_30">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#draw">draw</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_31">Parameters</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#format">format</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#parameters_32">Parameters</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using and Writing PyCUIs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../usage/">Basic Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../keybindings/">Keys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../writing/">Writing a PyCUI step-by-step</a>
+                </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Grid/">Grid</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Widgets/">Widgets</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Popups/">Popups</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Colors/">Colors</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../WidgetSet/">Widget Sets</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Renderer/">Renderer</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Keys/">Keys</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../developers/">For PyCUI Developers</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../examples/">Examples</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
-                    </li>
-                </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Classes and Functions</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">PyCUI</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#py_cui">py_cui</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#fit_text">fit_text</a></li>
+        
+            <li><a class="toctree-l4" href="#pycui">PyCUI</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Grid/">Grid</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../WidgetSet/">Widget Sets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Renderer/">Renderer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Keys/">Keys</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../developers/">For PyCUI Developers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../examples/">Examples</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+        </ul>
       </div>
-    </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -380,7 +179,7 @@
     
       
         
-          <li>Classes / Functions &raquo;</li>
+          <li>Classes and Functions &raquo;</li>
         
       
     
@@ -392,7 +191,6 @@
       
     </li>
   </ul>
-  
   <hr/>
 </div>
           <div role="main">
@@ -2027,11 +1825,11 @@ create an instance of this class, and then add cells + widgets to it.</p>
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>2019 - Jakub Wlodek</p>
+      <p>2020 - Jakub Wlodek</p>
     
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -2041,7 +1839,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -2057,11 +1855,6 @@ create an instance of this class, and then add cells + widgets to it.</p>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
 
 </body>
 </html>
