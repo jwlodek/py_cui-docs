@@ -95,7 +95,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../PyCUI/">PyCUI</a>
+    <a class="" href="../PyCui/">PyCUI</a>
                 </li>
                 <li class="">
                     
@@ -109,6 +109,8 @@
     <li class="toctree-l3"><a href="#widgets">widgets</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l4" href="#classes">Classes</a></li>
         
             <li><a class="toctree-l4" href="#widget">Widget</a></li>
         
@@ -226,6 +228,49 @@ This file contains classes for:</p>
 file and extending the base Widget class, or if appropriate one of the other core widgets.</p>
 <p>@author:    Jakub Wlodek<br />
 @created:   12-Aug-2019</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Widget</td>
+<td>Top Level Widget Base Class</td>
+</tr>
+<tr>
+<td>Label(Widget)</td>
+<td>The most basic subclass of Widget.</td>
+</tr>
+<tr>
+<td>BlockLabel(Widget)</td>
+<td>A Variation of the label widget that renders a block of text.</td>
+</tr>
+<tr>
+<td>ScrollMenu(Widget)</td>
+<td>A scroll menu widget.</td>
+</tr>
+<tr>
+<td>CheckBoxMenu(ScrollMenu)</td>
+<td>Extension of ScrollMenu that allows for multiple items to be selected at once.</td>
+</tr>
+<tr>
+<td>Button(Widget)</td>
+<td>Basic button widget.</td>
+</tr>
+<tr>
+<td>TextBox(Widget)</td>
+<td>Widget for entering small single lines of text</td>
+</tr>
+<tr>
+<td>ScrollTextBlock(Widget)</td>
+<td>Widget for editing large multi-line blocks of text</td>
+</tr>
+</tbody>
+</table>
 <h2 id="widget">Widget</h2>
 <pre><code class="python">class Widget
 </code></pre>
@@ -336,55 +381,55 @@ and setting status bar text.</p>
 <tbody>
 <tr>
 <td>set_focus_text</td>
-<td>Sets status bar text when focused</td>
+<td>Function that sets the text of the status bar on focus for a particular widget</td>
 </tr>
 <tr>
 <td>add_key_command</td>
-<td>Maps a keycode that will be executed in focus mode</td>
+<td>Maps a keycode to a function that will be executed when in focus mode</td>
 </tr>
 <tr>
 <td>add_text_color_rule</td>
-<td>Adds a color rule for text rendering in the widget</td>
+<td>Forces renderer to draw text using given color if text_condition_function returns True</td>
 </tr>
 <tr>
 <td>set_standard_color</td>
-<td>Sets the default color of the widget</td>
+<td>Sets the standard color for the widget</td>
 </tr>
 <tr>
 <td>set_selected_color</td>
-<td>Sets the default color of widget when selected</td>
+<td>Sets the selected color for the widget</td>
 </tr>
 <tr>
 <td>assign_renderer</td>
-<td>Assigns a renderer object to the widget</td>
+<td>Function that assigns a renderer object to the widget</td>
 </tr>
 <tr>
 <td>get_absolute_position</td>
-<td>Gets absolute position of widget in characters</td>
+<td>Gets the absolute position of the widget in characters</td>
 </tr>
 <tr>
 <td>get_absolute_dims</td>
-<td>Gets absolute dimensions of the widget</td>
+<td>Gets the absolute dimensions of the widget in characters</td>
 </tr>
 <tr>
 <td>is_row_col_inside</td>
-<td>Checks if given row/column spot in grid is occupied by the widget</td>
+<td>Checks if a particular row + column is inside the widget area</td>
 </tr>
 <tr>
 <td>update_height_width</td>
-<td>Refreshes widget position and dims on resize</td>
+<td>Function that refreshes position and dimensons on resize.</td>
 </tr>
 <tr>
 <td>get_help_text</td>
-<td>Gets status bar text</td>
+<td>Returns help text</td>
 </tr>
 <tr>
 <td>handle_key_press</td>
-<td>Executes appropriate function based on key press</td>
+<td>Base class function that handles all assigned key presses.</td>
 </tr>
 <tr>
 <td>draw</td>
-<td>Uses the renderer to display the widget</td>
+<td>Base class draw class that checks if renderer is valid.</td>
 </tr>
 </tbody>
 </table>
@@ -554,11 +599,18 @@ and setting status bar text.</p>
 <td>py_cui.renderer.Renderer</td>
 <td>Renderer for drawing widget</td>
 </tr>
+</tbody>
+</table>
+<h4 id="raises">Raises</h4>
+<table>
+<thead>
 <tr>
-<td>Raises</td>
-<td>------</td>
-<td></td>
+<th>Error</th>
+<th>Type</th>
+<th>Doc</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>error</td>
 <td>PyCUIError</td>
@@ -741,7 +793,7 @@ as this is required for user defined key command support</p>
 <tbody>
 <tr>
 <td>toggle_border</td>
-<td>Toggle drawing label border</td>
+<td>Function that gives option to draw border around label</td>
 </tr>
 <tr>
 <td>draw</td>
@@ -803,7 +855,7 @@ as this is required for user defined key command support</p>
 <tbody>
 <tr>
 <td>toggle_border</td>
-<td>Toggle drawing label border</td>
+<td>Function that gives option to draw border around label</td>
 </tr>
 <tr>
 <td>draw</td>
@@ -870,7 +922,7 @@ Analogous to a RadioButton</p>
 <tbody>
 <tr>
 <td>clear</td>
-<td>clears items from menu</td>
+<td>Clears all items from the Scroll Menu</td>
 </tr>
 <tr>
 <td>scroll_up</td>
@@ -902,11 +954,11 @@ Analogous to a RadioButton</p>
 </tr>
 <tr>
 <td>handle_key_press</td>
-<td>Override of base class function</td>
+<td>Override base class function.</td>
 </tr>
 <tr>
 <td>draw</td>
-<td>Override of base class function</td>
+<td>Overrides base class draw function</td>
 </tr>
 </tbody>
 </table>
@@ -1105,7 +1157,7 @@ Analogous to a RadioButton</p>
 </tr>
 <tr>
 <td>handle_key_press</td>
-<td>Override of base class function</td>
+<td>Override of key presses.</td>
 </tr>
 </tbody>
 </table>
@@ -1259,11 +1311,11 @@ Adds Enter command to toggle selection</p>
 <tbody>
 <tr>
 <td>handle_key_press</td>
-<td>Override of base class function</td>
+<td>Override of base class, adds ENTER listener that runs the button's command</td>
 </tr>
 <tr>
 <td>draw</td>
-<td>Override of base class function</td>
+<td>Override of base class draw function</td>
 </tr>
 </tbody>
 </table>
@@ -1350,8 +1402,12 @@ Adds Enter command to toggle selection</p>
 </thead>
 <tbody>
 <tr>
+<td>update_height_width</td>
+<td>Need to update all cursor positions on resize</td>
+</tr>
+<tr>
 <td>set_text</td>
-<td>sets textbox text</td>
+<td>Sets the value of the text. Overwrites existing text</td>
 </tr>
 <tr>
 <td>get</td>
@@ -1387,11 +1443,11 @@ Adds Enter command to toggle selection</p>
 </tr>
 <tr>
 <td>handle_key_press</td>
-<td>Override of base class function</td>
+<td>Override of base handle key press function</td>
 </tr>
 <tr>
 <td>draw</td>
-<td>Override of base class function</td>
+<td>Override of base draw function</td>
 </tr>
 </tbody>
 </table>
@@ -1590,20 +1646,24 @@ Adds Enter command to toggle selection</p>
 </thead>
 <tbody>
 <tr>
+<td>update_height_width</td>
+<td>Function that updates the position of the text and cursor on resize</td>
+</tr>
+<tr>
 <td>get</td>
-<td>Gets value of the text in the textbox</td>
+<td>Gets all of the text in the textblock and returns it</td>
 </tr>
 <tr>
 <td>write</td>
-<td>Writes text to the textblock</td>
+<td>Function used for writing text to the text block</td>
 </tr>
 <tr>
 <td>clear</td>
-<td>Clears the text in the textbox</td>
+<td>Function that clears the text block</td>
 </tr>
 <tr>
 <td>get_current_line</td>
-<td>Gets current line of text (cursor pos)</td>
+<td>Returns the line on which the cursor currently resides</td>
 </tr>
 <tr>
 <td>set_text</td>
@@ -1615,51 +1675,51 @@ Adds Enter command to toggle selection</p>
 </tr>
 <tr>
 <td>move_left</td>
-<td>Shifts the cursor the the left. Internal use only</td>
+<td>Function that moves the cursor/text position one location to the left</td>
 </tr>
 <tr>
 <td>move_right</td>
-<td>Shifts the cursor the the right. Internal use only</td>
+<td>Function that moves the cursor/text position one location to the right</td>
 </tr>
 <tr>
 <td>move_up</td>
-<td>Shifts the cursor upwards. Internal use only</td>
+<td>Function that moves the cursor/text position one location up</td>
 </tr>
 <tr>
-<td>move_right</td>
-<td>Shifts the cursor downwards. Internal use only</td>
+<td>move_down</td>
+<td>Function that moves the cursor/text position one location down</td>
 </tr>
 <tr>
 <td>handle_newline</td>
-<td>Handles newline characters</td>
+<td>Function that handles recieving newline characters in the text</td>
 </tr>
 <tr>
 <td>handle_backspace</td>
-<td>Handles backspace presses</td>
+<td>Function that handles recieving backspace characters in the text</td>
 </tr>
 <tr>
 <td>handle_home</td>
-<td>Handles home key presses</td>
+<td>Function that handles recieving a home keypress</td>
 </tr>
 <tr>
 <td>handle_end</td>
-<td>Handles end key presses</td>
+<td>Function that handles recieving an end keypress</td>
 </tr>
 <tr>
 <td>handle_delete</td>
-<td>handles delete key presses</td>
+<td>Function that handles recieving a delete keypress</td>
 </tr>
 <tr>
 <td>insert_char</td>
-<td>Inserts char at cursor position.</td>
+<td>Function that handles recieving a character</td>
 </tr>
 <tr>
 <td>handle_key_press</td>
-<td>Override of base class function</td>
+<td>Override of base class handle key press function</td>
 </tr>
 <tr>
 <td>draw</td>
-<td>Override of base class function</td>
+<td>Override of base class draw function</td>
 </tr>
 </tbody>
 </table>

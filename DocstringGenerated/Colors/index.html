@@ -95,7 +95,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../PyCUI/">PyCUI</a>
+    <a class="" href="../PyCui/">PyCUI</a>
                 </li>
                 <li class="">
                     
@@ -117,6 +117,8 @@
     <li class="toctree-l3"><a href="#colors">colors</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l4" href="#classes">Classes</a></li>
         
             <li><a class="toctree-l4" href="#colorrule">ColorRule</a></li>
         
@@ -198,6 +200,21 @@
 <p>File containing color rule class and any color-rendering related functions</p>
 <p>@author:    Jakub Wlodek<br />
 @created:   12-Aug-2019</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ColorRule</td>
+<td>Class representing a text color rendering rule</td>
+</tr>
+</tbody>
+</table>
 <h2 id="colorrule">ColorRule</h2>
 <pre><code class="python">class ColorRule
 </code></pre>
@@ -256,19 +273,19 @@
 <tbody>
 <tr>
 <td>check_match</td>
-<td>Function that checks if the regex given matches the input line given the rule type</td>
+<td>Checks if the color rule matches a line</td>
 </tr>
 <tr>
 <td>generate_fragments_regex</td>
-<td>Splits text into color coded renderable fragments based on regular expression</td>
+<td>Splits text into fragments based on regular expression</td>
 </tr>
 <tr>
 <td>split_text_on_region</td>
-<td>Splits text into color coded renderable fragments based on region</td>
+<td>Splits text into fragments based on region</td>
 </tr>
 <tr>
 <td>generate_fragments</td>
-<td>Checks match of rule with line, then splits render_text into fragments if required</td>
+<td>Splits text into fragments if matched line to regex</td>
 </tr>
 </tbody>
 </table>

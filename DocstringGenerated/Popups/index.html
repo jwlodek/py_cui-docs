@@ -95,7 +95,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../PyCUI/">PyCUI</a>
+    <a class="" href="../PyCui/">PyCUI</a>
                 </li>
                 <li class="">
                     
@@ -113,6 +113,8 @@
     <li class="toctree-l3"><a href="#popups">popups</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l4" href="#classes">Classes</a></li>
         
             <li><a class="toctree-l4" href="#popup">Popup</a></li>
         
@@ -210,6 +212,45 @@
 <p>File containing classes for all popups used by py_cui</p>
 <p>@author:    Jakub Wlodek<br />
 @created:   12-Aug-2019</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Popup</td>
+<td>Base CUI popup class.</td>
+</tr>
+<tr>
+<td>MessagePopup(Popup)</td>
+<td>Class representing a simple message popup</td>
+</tr>
+<tr>
+<td>YesNoPopup(Popup)</td>
+<td>Class for Yes/No popup. Extends Popup</td>
+</tr>
+<tr>
+<td>TextBoxPopup(Popup)</td>
+<td>Class representing a textbox popup</td>
+</tr>
+<tr>
+<td>MenuPopup(Popup)</td>
+<td>A scroll menu popup.</td>
+</tr>
+<tr>
+<td>LoadingIconPopup(Popup)</td>
+<td>Loading icon popup class</td>
+</tr>
+<tr>
+<td>LoadingBarPopup(Popup)</td>
+<td>Class for Loading Bar Popup</td>
+</tr>
+</tbody>
+</table>
 <h2 id="popup">Popup</h2>
 <pre><code class="python">class Popup
 </code></pre>
@@ -291,11 +332,11 @@ frame</p>
 <tbody>
 <tr>
 <td>handle_key_press</td>
-<td>Implemented by each subclass, handles key presses</td>
+<td>Handles key presses when popup is open</td>
 </tr>
 <tr>
 <td>draw</td>
-<td>Implemented by each subclass, draws the popup to the terminal</td>
+<td>Function that uses renderer to draw the popup</td>
 </tr>
 </tbody>
 </table>
@@ -355,6 +396,21 @@ frame</p>
 </tr>
 </tbody>
 </table>
+<h4 id="methods_1">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>draw</td>
+<td>Draw function for MessagePopup. Calls superclass draw()</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_1"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, root, title, text, color, renderer)
 </code></pre>
@@ -384,6 +440,25 @@ frame</p>
 <td>command</td>
 <td>function, 1 boolean parameter</td>
 <td>Function that takes one boolean parameter. Called with True if yes, called with False if no.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_2">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>handle_key_press</td>
+<td>Handle key press overwrite from superclass</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Uses base class draw function</td>
 </tr>
 </tbody>
 </table>
@@ -471,7 +546,7 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h4 id="methods_1">Methods</h4>
+<h4 id="methods_3">Methods</h4>
 <table>
 <thead>
 <tr>
@@ -482,7 +557,7 @@ frame</p>
 <tbody>
 <tr>
 <td>set_text</td>
-<td>sets textbox text</td>
+<td>Sets the value of the text. Overwrites existing text</td>
 </tr>
 <tr>
 <td>get</td>
@@ -502,7 +577,7 @@ frame</p>
 </tr>
 <tr>
 <td>insert_char</td>
-<td>Inserts char at cursor position.</td>
+<td>Inserts char at cursor position. Internal use only</td>
 </tr>
 <tr>
 <td>jump_to_start</td>
@@ -515,6 +590,14 @@ frame</p>
 <tr>
 <td>erase_char</td>
 <td>Erases character at textbox cursor</td>
+</tr>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base handle key press function</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override of base draw function</td>
 </tr>
 </tbody>
 </table>
@@ -688,7 +771,7 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h4 id="methods_2">Methods</h4>
+<h4 id="methods_4">Methods</h4>
 <table>
 <thead>
 <tr>
@@ -698,10 +781,6 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>clear</td>
-<td>clears items from menu</td>
-</tr>
-<tr>
 <td>scroll_up</td>
 <td>Function that scrolls the view up in the scroll menu</td>
 </tr>
@@ -710,24 +789,16 @@ frame</p>
 <td>Function that scrolls the view down in the scroll menu</td>
 </tr>
 <tr>
-<td>add_item</td>
-<td>Adds an item to the menu.</td>
-</tr>
-<tr>
-<td>add_item_list</td>
-<td>Adds a list of items to the scroll menu.</td>
-</tr>
-<tr>
-<td>remove_selected_item</td>
-<td>Function that removes the selected item from the scroll menu.</td>
-</tr>
-<tr>
-<td>get_item_list</td>
-<td>Function that gets list of items in a scroll menu</td>
-</tr>
-<tr>
 <td>get</td>
 <td>Function that gets the selected item from the scroll menu</td>
+</tr>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base handle key press function</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Overrides base class draw function</td>
 </tr>
 </tbody>
 </table>
@@ -829,6 +900,25 @@ frame</p>
 </tr>
 </tbody>
 </table>
+<h4 id="methods_5">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base class function.</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Overrides base draw function</td>
+</tr>
+</tbody>
+</table>
 <h3 id="init_5"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, root, title, message, color, renderer)
 </code></pre>
@@ -887,6 +977,25 @@ frame</p>
 <td>completed_items</td>
 <td>int</td>
 <td>counter for completed items</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_6">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>handle_key_press</td>
+<td>Override of base class function.</td>
+</tr>
+<tr>
+<td>draw</td>
+<td>Override of base draw function</td>
 </tr>
 </tbody>
 </table>
