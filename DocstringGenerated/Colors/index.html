@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Colors";
-    var mkdocs_page_input_path = "DocstringGenerated/Colors.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\Colors.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -272,15 +272,15 @@
 </thead>
 <tbody>
 <tr>
-<td>check_match</td>
+<td>_check_match</td>
 <td>Checks if the color rule matches a line</td>
 </tr>
 <tr>
-<td>generate_fragments_regex</td>
+<td>_generate_fragments_regex</td>
 <td>Splits text into fragments based on regular expression</td>
 </tr>
 <tr>
-<td>split_text_on_region</td>
+<td>_split_text_on_region</td>
 <td>Splits text into fragments based on region</td>
 </tr>
 <tr>
@@ -290,7 +290,7 @@
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, regex, color, rule_type, match_type, region, include_whitespace)
+<pre><code class="python">def __init__(self, regex, color, rule_type, match_type, region, include_whitespace, logger)
 </code></pre>
 
 <p>Constructor for ColorRule object</p>
@@ -336,8 +336,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="check_match">check_match</h3>
-<pre><code class="python">def check_match(self, line)
+<h3 id="_check_match">_check_match</h3>
+<pre><code class="python">def _check_match(self, line)
 </code></pre>
 
 <p>Checks if the color rule matches a line</p>
@@ -375,8 +375,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="generate_fragments_regex">generate_fragments_regex</h3>
-<pre><code class="python">def generate_fragments_regex(self, widget, render_text)
+<h3 id="_generate_fragments_regex">_generate_fragments_regex</h3>
+<pre><code class="python">def _generate_fragments_regex(self, widget, render_text)
 </code></pre>
 
 <p>Splits text into fragments based on regular expression</p>
@@ -419,8 +419,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="split_text_on_region">split_text_on_region</h3>
-<pre><code class="python">def split_text_on_region(self, widget, render_text)
+<h3 id="_split_text_on_region">_split_text_on_region</h3>
+<pre><code class="python">def _split_text_on_region(self, widget, render_text)
 </code></pre>
 
 <p>Splits text into fragments based on region</p>
@@ -507,7 +507,7 @@
 <tbody>
 <tr>
 <td>fragments</td>
-<td>list of lists of [str, color]</td>
+<td>List[List[str, color]]</td>
 <td>the render text split into fragments of strings paired with colors</td>
 </tr>
 <tr>

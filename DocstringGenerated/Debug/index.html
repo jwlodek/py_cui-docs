@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Grid - py_cui Documentation</title>
+  <title>debug - py_cui Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Grid";
-    var mkdocs_page_input_path = "DocstringGenerated\\Grid.md";
+    var mkdocs_page_name = "debug";
+    var mkdocs_page_input_path = "DocstringGenerated\\Debug.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -97,23 +97,9 @@
                     
     <a class="" href="../PyCui/">PyCUI</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Grid</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#grid">grid</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#classes">Classes</a></li>
-        
-            <li><a class="toctree-l4" href="#grid_1">Grid</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../Grid/">Grid</a>
                 </li>
                 <li class="">
                     
@@ -178,15 +164,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Classes and Functions &raquo;</li>
-        
-      
     
-    <li>Grid</li>
+    <li>debug</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Grid.md"
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Debug.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -196,11 +178,8 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="grid">grid</h1>
-<p>File containing the Grid Class.</p>
-<p>The grid is currently the only supported layout manager for py_cui</p>
-<p>@author:    Jakub Wlodek<br />
-@created:   12-Aug-2019</p>
+                <h1 id="debug">debug</h1>
+<p>Module containing py_cui logging utilities</p>
 <h4 id="classes">Classes</h4>
 <table>
 <thead>
@@ -211,97 +190,35 @@
 </thead>
 <tbody>
 <tr>
-<td>Grid</td>
-<td>Class representing the CUI grid</td>
+<td>PyCUILogger(logging.Logger)</td>
+<td>Custom logger class for py_cui, extends the base logging.Logger Class</td>
 </tr>
 </tbody>
 </table>
-<h2 id="grid_1">Grid</h2>
-<pre><code class="python">class Grid
-</code></pre>
-
-<p>Class representing the CUI grid</p>
-<h4 id="attributes">Attributes</h4>
+<h4 id="functions">Functions</h4>
 <table>
 <thead>
 <tr>
-<th>Attribute</th>
-<th>Type</th>
+<th>Function</th>
 <th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>_num_rows, _num_columns</td>
-<td>int</td>
-<td>Number of grid rows and columns</td>
+<td>_enable_logging</td>
+<td>Function that creates basic logging configuration for selected logger</td>
 </tr>
 <tr>
-<td>_height, _width</td>
-<td>int</td>
-<td>The height, width in characters of the terminal window</td>
-</tr>
-<tr>
-<td>_offset_y, _offset_x</td>
-<td>int</td>
-<td>The number of additional characters found by height mod rows and width mod columns</td>
-</tr>
-<tr>
-<td>_row_height, _column_width</td>
-<td>int</td>
-<td>The number of characters in a single grid row, column</td>
-</tr>
-<tr>
-<td>_logger</td>
-<td>py_cui.debug.PyCUILogger</td>
-<td>logger object for maintaining debug messages</td>
+<td>_initialize_logger</td>
+<td>Function that retrieves an instance of either the default or custom py_cui logger.</td>
 </tr>
 </tbody>
 </table>
-<h4 id="methods">Methods</h4>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>get_dimensions</td>
-<td>Gets dimensions in rows/columns</td>
-</tr>
-<tr>
-<td>get_dimensions_absolute</td>
-<td>Gets dimensions of grid in terminal characters</td>
-</tr>
-<tr>
-<td>get_offsets</td>
-<td>Gets leftover characters for x and y</td>
-</tr>
-<tr>
-<td>get_cell_dimensions</td>
-<td>Gets size in characters of single (row, column) cell location</td>
-</tr>
-<tr>
-<td>set_num_rows</td>
-<td>Sets the grid row size</td>
-</tr>
-<tr>
-<td>set_num_cols</td>
-<td>Sets the grid column size</td>
-</tr>
-<tr>
-<td>update_grid_height_width</td>
-<td>Update grid height and width. Allows for on-the-fly size editing</td>
-</tr>
-</tbody>
-</table>
-<h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, num_rows, num_columns, height, width, logger)
+<h3 id="_enable_logging">_enable_logging</h3>
+<pre><code class="python">def _enable_logging(logger, filename='py_cui_log.txt', logging_level=logging.DEBUG)
 </code></pre>
 
-<p>Constructor for the Grid class</p>
+<p>Function that creates basic logging configuration for selected logger</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -313,154 +230,19 @@
 </thead>
 <tbody>
 <tr>
-<td>num_rows</td>
-<td>int</td>
-<td>Number of grid rows</td>
+<td>logger</td>
+<td>PyCUILogger</td>
+<td>Main logger object</td>
 </tr>
 <tr>
-<td>num_columns</td>
-<td>int</td>
-<td>Number of grid columns</td>
+<td>filename</td>
+<td>os.Pathlike</td>
+<td>File path for output logfile</td>
 </tr>
 <tr>
-<td>height</td>
-<td>int</td>
-<td>The height in characters of the terminal window</td>
-</tr>
-<tr>
-<td>width</td>
-<td>int</td>
-<td>The width in characters of the terminal window</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_dimensions">get_dimensions</h3>
-<pre><code class="python">def get_dimensions(self)
-</code></pre>
-
-<p>Gets dimensions in rows/columns</p>
-<h4 id="returns">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>num_rows</td>
-<td>int</td>
-<td>size of grid in rows</td>
-</tr>
-<tr>
-<td>num_cols</td>
-<td>int</td>
-<td>size of grid in columns</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_dimensions_absolute">get_dimensions_absolute</h3>
-<pre><code class="python">def get_dimensions_absolute(self)
-</code></pre>
-
-<p>Gets dimensions of grid in terminal characters</p>
-<h4 id="returns_1">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>height</td>
-<td>int</td>
-<td>height in characters</td>
-</tr>
-<tr>
-<td>width</td>
-<td>int</td>
-<td>width in characters</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_offsets">get_offsets</h3>
-<pre><code class="python">def get_offsets(self)
-</code></pre>
-
-<p>Gets leftover characters for x and y</p>
-<h4 id="returns_2">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>offset_x</td>
-<td>int</td>
-<td>leftover chars in x direction</td>
-</tr>
-<tr>
-<td>offset_y</td>
-<td>int</td>
-<td>leftover chars in y direction</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_cell_dimensions">get_cell_dimensions</h3>
-<pre><code class="python">def get_cell_dimensions(self)
-</code></pre>
-
-<p>Gets size in characters of single (row, column) cell location</p>
-<h4 id="returns_3">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>row_height</td>
-<td>int</td>
-<td>height of row in characters</td>
-</tr>
-<tr>
-<td>column_width</td>
-<td>int</td>
-<td>width of column in characters</td>
-</tr>
-</tbody>
-</table>
-<h3 id="set_num_rows">set_num_rows</h3>
-<pre><code class="python">def set_num_rows(self, num_rows)
-</code></pre>
-
-<p>Sets the grid row size</p>
-<h4 id="parameters_1">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>num_rows</td>
-<td>int</td>
-<td>New number of grid rows</td>
+<td>logging_level</td>
+<td>logging.LEVEL, optional</td>
+<td>Level of messages to display, by default logging.DEBUG</td>
 </tr>
 </tbody>
 </table>
@@ -475,18 +257,23 @@
 </thead>
 <tbody>
 <tr>
-<td>error</td>
-<td>PyCUIOutOfBoundsError</td>
-<td>If the size of the terminal window is too small</td>
+<td>Unknown</td>
+<td>PermissionError</td>
+<td>py_cui logs require permission to cwd to operate.</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>TypeError</td>
+<td>Only the custom PyCUILogger can be used here.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="set_num_cols">set_num_cols</h3>
-<pre><code class="python">def set_num_cols(self, num_columns)
+<h3 id="_initialize_logger">_initialize_logger</h3>
+<pre><code class="python">def _initialize_logger(py_cui_root, name=None, custom_logger=True)
 </code></pre>
 
-<p>Sets the grid column size</p>
-<h4 id="parameters_2">Parameters</h4>
+<p>Function that retrieves an instance of either the default or custom py_cui logger.</p>
+<h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -497,12 +284,110 @@
 </thead>
 <tbody>
 <tr>
-<td>num_columns</td>
-<td>int</td>
-<td>New number of grid columns</td>
+<td>py_cui_root</td>
+<td>py_cui.PyCUI</td>
+<td>reference to the root py_cui window</td>
+</tr>
+<tr>
+<td>name</td>
+<td>str, optional</td>
+<td>The name of the logger, by default None</td>
+</tr>
+<tr>
+<td>custom_logger</td>
+<td>bool, optional</td>
+<td>Use a custom py_cui logger, by default True</td>
 </tr>
 </tbody>
 </table>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>logger</td>
+<td>py_cui.debug.PyCUILogger</td>
+<td>A custom logger that allows for live debugging</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pycuiloggerlogginglogger">PyCUILogger(logging.Logger)</h2>
+<pre><code class="python">class PyCUILogger(logging.Logger)
+</code></pre>
+
+<p>Custom logger class for py_cui, extends the base logging.Logger Class</p>
+<h4 id="attributes">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>py_cui_root</td>
+<td>py_cui.PyCUI</td>
+<td>The root py_cui program for which the logger runs</td>
+</tr>
+<tr>
+<td>live_debug</td>
+<td>bool</td>
+<td>Flag to toggle live debugging messages</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_assign_root_window</td>
+<td>Attaches logger to the root window for live debugging</td>
+</tr>
+<tr>
+<td>_get_debug_text</td>
+<td>Function that generates full debug text for the log</td>
+</tr>
+<tr>
+<td>info</td>
+<td>Adds stacktrace info to log</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</td>
+</tr>
+<tr>
+<td>warn</td>
+<td>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Function that displays error messages live in status bar for py_cui logging</td>
+</tr>
+<tr>
+<td>toggle_live_debug</td>
+<td>Toggles live debugging mode</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, name)
+</code></pre>
+
+<p>Initializer for the PyCUILogger helper class</p>
 <h4 id="raises_1">Raises</h4>
 <table>
 <thead>
@@ -514,17 +399,49 @@
 </thead>
 <tbody>
 <tr>
-<td>error</td>
-<td>PyCUIOutOfBoundsError</td>
-<td>If the size of the terminal window is too small</td>
+<td>Unknown</td>
+<td>TypeError</td>
+<td>If root variable instance is not a PyCUI object raise a typeerror</td>
 </tr>
 </tbody>
 </table>
-<h3 id="update_grid_height_width">update_grid_height_width</h3>
-<pre><code class="python">def update_grid_height_width(self, height, width)
+<h3 id="_assign_root_window">_assign_root_window</h3>
+<pre><code class="python">def _assign_root_window(self, py_cui_root)
 </code></pre>
 
-<p>Update grid height and width. Allows for on-the-fly size editing</p>
+<p>Attaches logger to the root window for live debugging</p>
+<h3 id="_get_debug_text">_get_debug_text</h3>
+<pre><code class="python">def _get_debug_text(self, text)
+</code></pre>
+
+<p>Function that generates full debug text for the log</p>
+<h3 id="info">info</h3>
+<pre><code class="python">def info(self, text)
+</code></pre>
+
+<p>Adds stacktrace info to log</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The log text ot display</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debug_1">debug</h3>
+<pre><code class="python">def debug(self, text)
+</code></pre>
+
+<p>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>
 <thead>
@@ -536,47 +453,65 @@
 </thead>
 <tbody>
 <tr>
-<td>height</td>
-<td>int</td>
-<td>The height in characters of the terminal window</td>
-</tr>
-<tr>
-<td>width</td>
-<td>int</td>
-<td>The width in characters of the terminal window</td>
+<td>text</td>
+<td>str</td>
+<td>The log text ot display</td>
 </tr>
 </tbody>
 </table>
-<h4 id="raises_2">Raises</h4>
+<h3 id="warn">warn</h3>
+<pre><code class="python">def warn(self, text)
+</code></pre>
+
+<p>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</p>
+<h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th>Error</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>error</td>
-<td>PyCUIOutOfBoundsError</td>
-<td>If the size of the terminal window is too small</td>
+<td>text</td>
+<td>str</td>
+<td>The log text ot display</td>
 </tr>
 </tbody>
 </table>
+<h3 id="error">error</h3>
+<pre><code class="python">def error(self, text)
+</code></pre>
+
+<p>Function that displays error messages live in status bar for py_cui logging</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The log text ot display</td>
+</tr>
+</tbody>
+</table>
+<h3 id="toggle_live_debug">toggle_live_debug</h3>
+<pre><code class="python">def toggle_live_debug(self, level=logging.ERROR)
+</code></pre>
+
+<p>Toggles live debugging mode</p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../Widgets/" class="btn btn-neutral float-right" title="Widgets">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../PyCui/" class="btn btn-neutral" title="PyCUI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -604,10 +539,6 @@
           <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../PyCui/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../Widgets/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

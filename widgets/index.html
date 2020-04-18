@@ -75,8 +75,6 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#base-widget-class">Base Widget Class</a></li>
-        
             <li><a class="toctree-l4" href="#label">Label</a></li>
         
             <li><a class="toctree-l4" href="#block-label">Block Label</a></li>
@@ -209,14 +207,8 @@
             <div class="section">
               
                 <h1 id="widgets">Widgets</h1>
-<p>Below are details on each widget supported by <code>py_cui</code> including how to add them to a CUI, and their supported functions.</p>
-<h3 id="base-widget-class">Base Widget Class</h3>
-<p>This base class contains all shared functionality.</p>
+<p>Below are details on each widget supported by <code>py_cui</code> including how to add them to a CUI, draw behavior, and default keybindings. Please take a look at <code>Classes and Functions</code> section of these docs to see function/attribute information.</p>
 <h3 id="label">Label</h3>
-<p><strong>Widget Specific Class Variables</strong></p>
-<p>None</p>
-<p><strong>Widget Specific Functions</strong></p>
-<p>None</p>
 <p><strong>Usage</strong></p>
 <p>Labels only display text. You cannot enter focus mode on labels, and thus keybindings will have no effect.
 Add labels for single lines to text to the center of a grid cell.</p>
@@ -225,16 +217,10 @@ Add labels for single lines to text to the center of a grid cell.</p>
 </code></pre>
 
 <p><strong>Draw Behavior</strong></p>
-<p>Draws <code>self.title</code> in the center of the grid location it is placed in.</p>
+<p>Draws <code>self._title</code> in the center of the grid location it is placed in.</p>
 <p><strong>Default Keybindings</strong></p>
 <p>None</p>
 <h3 id="block-label">Block Label</h3>
-<p><strong>Widget Specific Class Variables</strong></p>
-<ul>
-<li><code>self.lines</code> - represents the title passed in split on newline characters</li>
-</ul>
-<p><strong>Widget Specific Functions</strong></p>
-<p>None</p>
 <p><strong>Usage</strong></p>
 <p>Block Labels only display text. You cannot enter focus mode on block labels, and thus keybindings will have no effect.
 Add block labels for multi line text that will be drawn in the center of the grid cell. One example for this is to display ASCII-Art.</p>
@@ -243,16 +229,10 @@ Add block labels for multi line text that will be drawn in the center of the gri
 </code></pre>
 
 <p><strong>Draw Behavior</strong></p>
-<p>Draws <code>self.title.splitlines()</code> in the center of the grid location it is placed in.</p>
+<p>Draws <code>self._title.splitlines()</code> in the center of the grid location it is placed in.</p>
 <p><strong>Default Keybindings</strong></p>
 <p>None</p>
 <h3 id="button">Button</h3>
-<p><strong>Widget Specific Class Variables</strong></p>
-<ul>
-<li><code>self.command</code> - represents the command executed when Enter key pressed on button</li>
-</ul>
-<p><strong>Widget Specific Functions</strong></p>
-<p>None</p>
 <p><strong>Usage</strong></p>
 <p>Buttons execute a no-args function when enter pressed. By default, pressing enter when hovering over a button executes the command instead of entering focus mode. To disable this behavior, add the <code>auto_focus_buttons=False</code> to the creation of the <code>PyCUI</code> object.</p>
 <p><strong>Adding to CUI</strong></p>
@@ -260,29 +240,12 @@ Add block labels for multi line text that will be drawn in the center of the gri
 </code></pre>
 
 <p><strong>Draw Behavior</strong></p>
-<p>Draws <code>self.title</code> centered in the grid cell, with a border. By default, buttons have a magenta color.</p>
+<p>Draws <code>self._title</code> centered in the grid cell, with a border. By default, buttons have a magenta color.</p>
 <p><strong>Default Keybindings</strong></p>
 <ul>
 <li>KEY_ENTER - runs the command passed into the button</li>
 </ul>
 <h3 id="scroll-menu">Scroll Menu</h3>
-<p><strong>Widget Specific Class Variables</strong></p>
-<ul>
-<li><code>self.top_view</code> - Uppermost menu item in viewport</li>
-<li><code>self.selected_item</code> - currently selected item index</li>
-<li><code>self.view_items</code> - list of menu items</li>
-</ul>
-<p><strong>Widget Specific Functions</strong></p>
-<ul>
-<li><code>clear()</code> - removes all selected items</li>
-<li><code>scroll_up()</code> - Internal use only, scrolls up in menu</li>
-<li><code>scroll_down()</code> - Internal use only, scrolls down in menu</li>
-<li><code>add_item(item)</code> - Takes in a string, adds it as an item to the menu</li>
-<li><code>add_item_list(item_list)</code> - Takes a list of strings, adds them all to the menu</li>
-<li><code>remove_selected_item()</code> - Removes the currently selected item from the menu</li>
-<li><code>get()</code> - Returns the currently selected item</li>
-<li><code>get_item_list()</code> - gets current list of menu items</li>
-</ul>
 <p><strong>Usage</strong></p>
 <p>Scroll Menus are very useful for having multiple option menus or for showing a list of information. The most common usage is to add a keybinding for the <code>ENTER</code> which processes some function depending on the selected item.</p>
 <p><strong>Adding to CUI</strong></p>
@@ -292,25 +255,14 @@ menu.add_item_list(menu_item_list)
 </code></pre>
 
 <p><strong>Draw Behavior</strong></p>
-<p>Draws all menu items starting with <code>self.top_view</code> down, along with a border. <code>self.title</code> is drawn inline with the top of the border</p>
+<p>Draws all menu items starting with upper viewport item down, along with a border. The title is drawn inline with the top of the border</p>
 <p><strong>Default Keybindings</strong></p>
 <ul>
-<li>KEY_UP_ARROW - Scrolls up if <code>self.selected_item</code> is greater than 0</li>
-<li>KEY_DOWN_ARROW - Scrolls down if <code>self.selected_item</code> is not at the end of the list</li>
+<li>KEY_UP_ARROW - Scrolls up if selected item index is greater than 0</li>
+<li>KEY_DOWN_ARROW - Scrolls down if selected item index is not at the end of the list</li>
 </ul>
 <h3 id="checkbox-menu">Checkbox Menu</h3>
 <p>The checkbox menu extends from the scrollmenu, and so shares many functions with it.</p>
-<p><strong>Widget Specific Class Variables</strong></p>
-<ul>
-<li><code>self.selected_item_list</code> - list of selected items</li>
-<li><code>self.checked_char</code> - character to mark item as checked</li>
-</ul>
-<p><strong>Widget Specific Functions</strong></p>
-<ul>
-<li><code>mark_item_as_checked(text)</code> - marks item matching text as checked</li>
-<li><code>get()</code> - overrides the <code>ScrollMenu</code> function. Returns the selected item list</li>
-</ul>
-<p>All functions included from <code>ScrollMenu</code> are also available.</p>
 <p><strong>Usage</strong></p>
 <p>Checkbox Menus are very useful for selecting several options. They should be used for having the user to select multiple items.</p>
 <p><strong>Adding to CUI</strong></p>
@@ -320,36 +272,13 @@ menu.add_item_list(menu_item_list)
 </code></pre>
 
 <p><strong>Draw Behavior</strong></p>
-<p>Draws all menu items starting with <code>self.top_view</code> down, along with a border. <code>self.title</code> is drawn inline with the top of the border</p>
+<p>Draws all menu items starting with upper viewport item down, along with a border. The title is drawn inline with the top of the border</p>
 <p><strong>Default Keybindings</strong></p>
 <ul>
-<li>KEY_UP_ARROW - Scrolls up if <code>self.selected_item</code> is greater than 0</li>
-<li>KEY_DOWN_ARROW - Scrolls down if <code>self.selected_item</code> is not at the end of the list</li>
+<li>KEY_UP_ARROW - Scrolls up if selected item index is greater than 0</li>
+<li>KEY_DOWN_ARROW - Scrolls down if selected item index is not at the end of the list</li>
 </ul>
 <h3 id="text-box">Text Box</h3>
-<p><strong>Widget Specific Class Variables</strong></p>
-<ul>
-<li><code>self.text</code> - text currently in the text box</li>
-<li><code>self.cursor_x</code> - cursor x  location in terms of terminal characters</li>
-<li><code>self.cursor_text_pos</code> - cursor position relative to the text</li>
-<li><code>self.cursor_max_left</code> - maximum terminal position for the cursor on the left</li>
-<li><code>self.cursor_max_right</code> - maximum terminal position for the cursor on the right</li>
-<li><code>self.cursor_y</code> - cursor y location in terms of terminal characters</li>
-<li><code>self.viewport_width</code> - Width of the text viewport</li>
-</ul>
-<p><strong>Widget Specific Functions</strong></p>
-<ul>
-<li><code>update_height_width()</code> - Updates the height/width of the textbox. Internal use only</li>
-<li><code>set_text(, text)</code> - Sets the textbox text</li>
-<li><code>get()</code> - Gets text from textbox</li>
-<li><code>clear()</code> - Clears text in textbox</li>
-<li><code>move_left()</code> - Shifts the cursor the the left. Internal use only</li>
-<li><code>move_right()</code> - Shifts the cursor the the right. Internal use only</li>
-<li><code>insert_char(key_pressed)</code> - Inserts char at cursor position. Internal use only</li>
-<li><code>jump_to_start()</code> - Jumps to the start to the textbox. Internal use only</li>
-<li><code>jump_to_end()</code> - Jumps to the end to the textbox. Internal use only</li>
-<li><code>erase_char()</code> - Erases character at textbox cursor. Internal use only</li>
-</ul>
 <p><strong>Usage</strong></p>
 <p>Used for user entering text into CUI. For prompts, it is suggested to use the Textbox popup instead.</p>
 <p><strong>Adding to CUI</strong></p>
@@ -357,7 +286,7 @@ menu.add_item_list(menu_item_list)
 </code></pre>
 
 <p><strong>Draw Behavior</strong></p>
-<p>Draws <code>self.title</code> above a bordered entry field centered in the grid cell assigned</p>
+<p>Draws title above a bordered entry field centered in the grid cell assigned</p>
 <p><strong>Default Keybindings</strong></p>
 <ul>
 <li>KEY_END - Jumps to the end of the text</li>
@@ -368,37 +297,6 @@ menu.add_item_list(menu_item_list)
 <li>KEY_BACKSPACE - Erases character in text</li>
 </ul>
 <h3 id="text-block">Text Block</h3>
-<p><strong>Widget Specific Class Variables</strong></p>
-<ul>
-<li><code>self.text</code> - text currently in the text box</li>
-<li><code>self.cursor_x</code> - cursor x  location in terms of terminal characters</li>
-<li><code>self.cursor_text_pos</code> - cursor position relative to the text</li>
-<li><code>self.cursor_max_left</code> - maximum terminal position for the cursor on the left</li>
-<li><code>self.cursor_max_right</code> - maximum terminal position for the cursor on the right</li>
-<li><code>self.cursor_y</code> - cursor y location in terms of terminal characters</li>
-<li><code>self.viewport_width</code> - Width of the text viewport</li>
-</ul>
-<p><strong>Widget Specific Functions</strong></p>
-<ul>
-<li><code>update_height_width()</code> - Updates the height/width of the textbox. Internal use only</li>
-<li><code>set_text(, text)</code> - Sets the textbox text</li>
-<li><code>get()</code> - Gets text from textbox</li>
-<li><code>clear()</code> - Clears text in textbox</li>
-<li><code>move_left(current_line)</code> - Shifts the cursor to the  left. Internal use only</li>
-<li><code>move_right(current_line)</code> - Shifts the cursor to the right. Internal use only</li>
-<li><code>move_down(current_line)</code> - Shifts the cursor down. Internal use only</li>
-<li><code>move_up(current_line)</code> - Shifts the cursor up. Internal use only</li>
-<li><code>write(text)</code> - writes text to the textblock</li>
-<li><code>insert_char(key_pressed)</code> - Inserts char at cursor position. Internal use only</li>
-<li><code>jump_to_start()</code> - Jumps to the start to the textbox. Internal use only</li>
-<li><code>jump_to_end()</code> - Jumps to the end to the textbox. Internal use only</li>
-<li><code>erase_char()</code> - Erases character at textbox cursor. Internal use only</li>
-<li><code>handle_delete(current_line)</code> - Handles deleting characters. Internal use only</li>
-<li><code>handle_end(current_line)</code> - handles end key. Internal use only</li>
-<li><code>handle_home(current_line)</code> - handles home key. Internal use only</li>
-<li><code>handle_backspace(current_line)</code> - handles backspace key. Internal use only</li>
-<li><code>handle_newline(current_line)</code> - handles newline key. Internal use only</li>
-</ul>
 <p><strong>Usage</strong></p>
 <p>TextBoxes have two key uses:
 * For editing larger blocks of text, such as if you wish to create a CUI text editor (see <code>snano</code> example)
@@ -408,7 +306,7 @@ menu.add_item_list(menu_item_list)
 </code></pre>
 
 <p><strong>Draw Behavior</strong></p>
-<p>Draws <code>self.title</code> above a bordered entry box that fills the grid cells.</p>
+<p>Draws title above a bordered entry box that fills the grid cells.</p>
 <p><strong>Default Keybindings</strong></p>
 <ul>
 <li>KEY_END - Jumps to the end of the text</li>

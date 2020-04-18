@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Widget Sets";
-    var mkdocs_page_input_path = "DocstringGenerated/WidgetSet.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\WidgetSet.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -268,6 +268,10 @@
 <td>Function that sets the selected cell for the CUI</td>
 </tr>
 <tr>
+<td>get_widgets</td>
+<td>Function that gets current set of widgets</td>
+</tr>
+<tr>
 <td>add_key_command</td>
 <td>Function that adds a keybinding to the CUI when in overview mode</td>
 </tr>
@@ -302,7 +306,7 @@
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, num_rows, num_cols)
+<pre><code class="python">def __init__(self, num_rows, num_cols, logger, simulated_terminal=None)
 </code></pre>
 
 <p>Constructor for WidgetSet</p>
@@ -325,6 +329,28 @@
 <td>cell_title</td>
 <td>str</td>
 <td>the title of the cell</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_widgets">get_widgets</h3>
+<pre><code class="python">def get_widgets(self)
+</code></pre>
+
+<p>Function that gets current set of widgets</p>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widgets</td>
+<td>dict of str -&gt; widget</td>
+<td>dictionary mapping widget IDs to object instances</td>
 </tr>
 </tbody>
 </table>
@@ -407,7 +433,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns">Returns</h4>
+<h4 id="returns_1">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -418,8 +444,8 @@
 </thead>
 <tbody>
 <tr>
+<td>new_scroll_menu</td>
 <td>ScrollMenu</td>
-<td>Unknown</td>
 <td>A reference to the created scroll menu object.</td>
 </tr>
 </tbody>
@@ -481,7 +507,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_2">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -499,7 +525,7 @@
 </tbody>
 </table>
 <h3 id="add_text_box">add_text_box</h3>
-<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '')
+<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '', password = False)
 </code></pre>
 
 <p>Function that adds a new text box to the CUI grid</p>
@@ -553,9 +579,14 @@
 <td>str</td>
 <td>Initial text for the textbox</td>
 </tr>
+<tr>
+<td>password=False</td>
+<td>bool</td>
+<td>Toggle to show '*' instead of characters.</td>
+</tr>
 </tbody>
 </table>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_3">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -629,7 +660,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_4">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -698,7 +729,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_5">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -772,7 +803,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_6">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -846,7 +877,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_7">Returns</h4>
 <table>
 <thead>
 <tr>

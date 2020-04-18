@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Widgets";
-    var mkdocs_page_input_path = "DocstringGenerated/Widgets.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\Widgets.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -112,21 +112,21 @@
         
             <li><a class="toctree-l4" href="#classes">Classes</a></li>
         
-            <li><a class="toctree-l4" href="#widget">Widget</a></li>
+            <li><a class="toctree-l4" href="#widgetpy_cuiuiuielement">Widget(py_cui.ui.UIElement)</a></li>
         
             <li><a class="toctree-l4" href="#labelwidget">Label(Widget)</a></li>
         
             <li><a class="toctree-l4" href="#blocklabelwidget">BlockLabel(Widget)</a></li>
         
-            <li><a class="toctree-l4" href="#scrollmenuwidget">ScrollMenu(Widget)</a></li>
+            <li><a class="toctree-l4" href="#scrollmenuwidge">ScrollMenu(Widge</a></li>
         
             <li><a class="toctree-l4" href="#checkboxmenuscrollmenu">CheckBoxMenu(ScrollMenu)</a></li>
         
             <li><a class="toctree-l4" href="#buttonwidget">Button(Widget)</a></li>
         
-            <li><a class="toctree-l4" href="#textboxwidget">TextBox(Widget)</a></li>
+            <li><a class="toctree-l4" href="#textboxwidge">TextBox(Widge</a></li>
         
-            <li><a class="toctree-l4" href="#scrolltextblockwidget">ScrollTextBlock(Widget)</a></li>
+            <li><a class="toctree-l4" href="#scrolltextblockwidge">ScrollTextBlock(Widge</a></li>
         
         </ul>
     
@@ -212,7 +212,7 @@
               
                 <h1 id="widgets">widgets</h1>
 <p>File contatining all core widget classes for py_cui.</p>
-<p>Widgets are the basic building blocks of a user interface made with py_cui. 
+<p>Widgets are the basic building blocks of a user interface made with py_cui.
 This file contains classes for:</p>
 <ul>
 <li>Base Widget class</li>
@@ -238,7 +238,7 @@ file and extending the base Widget class, or if appropriate one of the other cor
 </thead>
 <tbody>
 <tr>
-<td>Widget</td>
+<td>Widget(py_cui.ui.UIElement)</td>
 <td>Top Level Widget Base Class</td>
 </tr>
 <tr>
@@ -250,7 +250,7 @@ file and extending the base Widget class, or if appropriate one of the other cor
 <td>A Variation of the label widget that renders a block of text.</td>
 </tr>
 <tr>
-<td>ScrollMenu(Widget)</td>
+<td>ScrollMenu(Widge</td>
 <td>A scroll menu widget.</td>
 </tr>
 <tr>
@@ -262,17 +262,17 @@ file and extending the base Widget class, or if appropriate one of the other cor
 <td>Basic button widget.</td>
 </tr>
 <tr>
-<td>TextBox(Widget)</td>
+<td>TextBox(Widge</td>
 <td>Widget for entering small single lines of text</td>
 </tr>
 <tr>
-<td>ScrollTextBlock(Widget)</td>
+<td>ScrollTextBlock(Widge</td>
 <td>Widget for editing large multi-line blocks of text</td>
 </tr>
 </tbody>
 </table>
-<h2 id="widget">Widget</h2>
-<pre><code class="python">class Widget
+<h2 id="widgetpy_cuiuiuielement">Widget(py_cui.ui.UIElement)</h2>
+<pre><code class="python">class Widget(py_cui.ui.UIElement)
 </code></pre>
 
 <p>Top Level Widget Base Class</p>
@@ -289,83 +289,33 @@ and setting status bar text.</p>
 </thead>
 <tbody>
 <tr>
-<td>id</td>
-<td>int</td>
-<td>Id of the widget</td>
-</tr>
-<tr>
-<td>title</td>
-<td>str</td>
-<td>Widget title</td>
-</tr>
-<tr>
-<td>grid</td>
+<td>_grid</td>
 <td>py_cui.grid.Grid</td>
 <td>The parent grid object of the widget</td>
 </tr>
 <tr>
-<td>renderer</td>
-<td>py_cui.renderer.Renderer</td>
-<td>The renderer object that draws the widget</td>
-</tr>
-<tr>
-<td>row, column</td>
+<td>_row, _column</td>
 <td>int</td>
 <td>row and column position of the widget</td>
 </tr>
 <tr>
-<td>row_span, column_span</td>
+<td>_row_span, _column_span</td>
 <td>int</td>
 <td>number of rows or columns spanned by the widget</td>
 </tr>
 <tr>
-<td>padx, pady</td>
-<td>int</td>
-<td>Padding size in terminal characters</td>
-</tr>
-<tr>
-<td>start_x, start_y</td>
-<td>int</td>
-<td>The position on the terminal of the top left corner of the widget</td>
-</tr>
-<tr>
-<td>width, height</td>
-<td>int</td>
-<td>The width/height of the widget</td>
-</tr>
-<tr>
-<td>color</td>
-<td>int</td>
-<td>Color code combination</td>
-</tr>
-<tr>
-<td>selected_color</td>
-<td>int</td>
-<td>color code combination for when widget is selected</td>
-</tr>
-<tr>
-<td>selected</td>
-<td>bool</td>
-<td>Flag that says if widget is selected</td>
-</tr>
-<tr>
-<td>is_selectable</td>
+<td>_selectable</td>
 <td>bool</td>
 <td>Flag that says if a widget can be selected</td>
 </tr>
 <tr>
-<td>help_text</td>
-<td>str</td>
-<td>text displayed in status bar when selected</td>
-</tr>
-<tr>
-<td>key_commands</td>
+<td>_key_commands</td>
 <td>dict</td>
 <td>Dictionary mapping key codes to functions</td>
 </tr>
 <tr>
-<td>text_color_rules</td>
-<td>list of py_cui.ColorRule</td>
+<td>_text_color_rules</td>
+<td>List[py_cui.ColorRule]</td>
 <td>color rules to load into renderer when drawing widget</td>
 </tr>
 </tbody>
@@ -380,69 +330,63 @@ and setting status bar text.</p>
 </thead>
 <tbody>
 <tr>
-<td>set_focus_text</td>
-<td>Function that sets the text of the status bar on focus for a particular widget</td>
-</tr>
-<tr>
 <td>add_key_command</td>
 <td>Maps a keycode to a function that will be executed when in focus mode</td>
+</tr>
+<tr>
+<td>update_key_command</td>
+<td>Maps a keycode to a function that will be executed when in focus mode, if key is already mapped</td>
 </tr>
 <tr>
 <td>add_text_color_rule</td>
 <td>Forces renderer to draw text using given color if text_condition_function returns True</td>
 </tr>
 <tr>
-<td>set_standard_color</td>
-<td>Sets the standard color for the widget</td>
+<td>get_absolute_start_pos</td>
+<td>Gets the absolute position of the widget in characters. Override of base class function</td>
 </tr>
 <tr>
-<td>set_selected_color</td>
-<td>Sets the selected color for the widget</td>
+<td>get_absolute_stop_pos</td>
+<td>Gets the absolute dimensions of the widget in characters. Override of base class function</td>
 </tr>
 <tr>
-<td>assign_renderer</td>
-<td>Function that assigns a renderer object to the widget</td>
+<td>get_grid_cell</td>
+<td>Gets widget row, column in grid</td>
 </tr>
 <tr>
-<td>get_absolute_position</td>
-<td>Gets the absolute position of the widget in characters</td>
+<td>get_grid_cell_spans</td>
+<td>Gets widget row span, column span in grid</td>
 </tr>
 <tr>
-<td>get_absolute_dims</td>
-<td>Gets the absolute dimensions of the widget in characters</td>
+<td>is_selectable</td>
+<td>Checks if the widget is selectable</td>
 </tr>
 <tr>
-<td>is_row_col_inside</td>
+<td>_is_row_col_inside</td>
 <td>Checks if a particular row + column is inside the widget area</td>
 </tr>
 <tr>
-<td>update_height_width</td>
-<td>Function that refreshes position and dimensons on resize.</td>
-</tr>
-<tr>
-<td>get_help_text</td>
-<td>Returns help text</td>
-</tr>
-<tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Base class function that handles all assigned key presses.</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Base class draw class that checks if renderer is valid.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, selectable = True)
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, selectable = True)
 </code></pre>
 
-<p>Constructor for base widget class</p>
-<h3 id="set_focus_text">set_focus_text</h3>
-<pre><code class="python">def set_focus_text(self, text)
+<p>Initializer for base widget class</p>
+<p>Calss UIElement superclass initialzier, and then assigns widget to grid, along with row/column info
+and color rules and key commands</p>
+<h3 id="add_key_command">add_key_command</h3>
+<pre><code class="python">def add_key_command(self, key, command)
 </code></pre>
 
-<p>Function that sets the text of the status bar on focus for a particular widget</p>
+<p>Maps a keycode to a function that will be executed when in focus mode</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -454,17 +398,22 @@ and setting status bar text.</p>
 </thead>
 <tbody>
 <tr>
-<td>text</td>
-<td>str</td>
-<td>text to write to status bar when in focus mode.</td>
+<td>key</td>
+<td>py_cui.keys.KEY</td>
+<td>ascii keycode used to map the key</td>
+</tr>
+<tr>
+<td>command</td>
+<td>function without args</td>
+<td>a non-argument function or lambda function to execute if in focus mode and key is pressed</td>
 </tr>
 </tbody>
 </table>
-<h3 id="add_key_command">add_key_command</h3>
-<pre><code class="python">def add_key_command(self, key, command)
+<h3 id="update_key_command">update_key_command</h3>
+<pre><code class="python">def update_key_command(self, key, command)
 </code></pre>
 
-<p>Maps a keycode to a function that will be executed when in focus mode</p>
+<p>Maps a keycode to a function that will be executed when in focus mode, if key is already mapped</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>
@@ -523,7 +472,7 @@ and setting status bar text.</p>
 <td>sets match type. Can be 'line', 'regex', or 'region'</td>
 </tr>
 <tr>
-<td>region</td>
+<td>region=[0,1]</td>
 <td>[int, int]</td>
 <td>A specified region to color if using match_type='region'</td>
 </tr>
@@ -534,95 +483,11 @@ and setting status bar text.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="set_standard_color">set_standard_color</h3>
-<pre><code class="python">def set_standard_color(self, color)
+<h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
+<pre><code class="python">def get_absolute_start_pos(self)
 </code></pre>
 
-<p>Sets the standard color for the widget</p>
-<h4 id="parameters_3">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>color</td>
-<td>int</td>
-<td>Color code for widegt</td>
-</tr>
-</tbody>
-</table>
-<h3 id="set_selected_color">set_selected_color</h3>
-<pre><code class="python">def set_selected_color(self, color)
-</code></pre>
-
-<p>Sets the selected color for the widget</p>
-<h4 id="parameters_4">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>color</td>
-<td>int</td>
-<td>Color code for widegt when selected</td>
-</tr>
-</tbody>
-</table>
-<h3 id="assign_renderer">assign_renderer</h3>
-<pre><code class="python">def assign_renderer(self, renderer)
-</code></pre>
-
-<p>Function that assigns a renderer object to the widget</p>
-<p>(Meant for internal usage only)</p>
-<h4 id="parameters_5">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>renderer</td>
-<td>py_cui.renderer.Renderer</td>
-<td>Renderer for drawing widget</td>
-</tr>
-</tbody>
-</table>
-<h4 id="raises">Raises</h4>
-<table>
-<thead>
-<tr>
-<th>Error</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>error</td>
-<td>PyCUIError</td>
-<td>If parameter is not a initialized renderer.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_absolute_position">get_absolute_position</h3>
-<pre><code class="python">def get_absolute_position(self)
-</code></pre>
-
-<p>Gets the absolute position of the widget in characters</p>
+<p>Gets the absolute position of the widget in characters. Override of base class function</p>
 <h4 id="returns">Returns</h4>
 <table>
 <thead>
@@ -640,11 +505,11 @@ and setting status bar text.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="get_absolute_dims">get_absolute_dims</h3>
-<pre><code class="python">def get_absolute_dims(self)
+<h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
+<pre><code class="python">def get_absolute_stop_pos(self)
 </code></pre>
 
-<p>Gets the absolute dimensions of the widget in characters</p>
+<p>Gets the absolute dimensions of the widget in characters. Override of base class function</p>
 <h4 id="returns_1">Returns</h4>
 <table>
 <thead>
@@ -662,12 +527,78 @@ and setting status bar text.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="is_row_col_inside">is_row_col_inside</h3>
-<pre><code class="python">def is_row_col_inside(self, row, col)
+<h3 id="get_grid_cell">get_grid_cell</h3>
+<pre><code class="python">def get_grid_cell(self)
+</code></pre>
+
+<p>Gets widget row, column in grid</p>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row, column</td>
+<td>int</td>
+<td>Initial row and column placement for widget in grid</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_grid_cell_spans">get_grid_cell_spans</h3>
+<pre><code class="python">def get_grid_cell_spans(self)
+</code></pre>
+
+<p>Gets widget row span, column span in grid</p>
+<h4 id="returns_3">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row_span, column_span</td>
+<td>int</td>
+<td>Initial row span and column span placement for widget in grid</td>
+</tr>
+</tbody>
+</table>
+<h3 id="is_selectable">is_selectable</h3>
+<pre><code class="python">def is_selectable(self)
+</code></pre>
+
+<p>Checks if the widget is selectable</p>
+<h4 id="returns_4">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selectable</td>
+<td>bool</td>
+<td>True if selectable, false otherwise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_is_row_col_inside">_is_row_col_inside</h3>
+<pre><code class="python">def _is_row_col_inside(self, row, col)
 </code></pre>
 
 <p>Checks if a particular row + column is inside the widget area</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_3">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -684,7 +615,7 @@ and setting status bar text.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_5">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -701,42 +632,14 @@ and setting status bar text.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="update_height_width">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
-</code></pre>
-
-<p>Function that refreshes position and dimensons on resize.</p>
-<p>If necessary, make sure required widget attributes updated here as well.</p>
-<h3 id="get_help_text">get_help_text</h3>
-<pre><code class="python">def get_help_text(self)
-</code></pre>
-
-<p>Returns help text</p>
-<h4 id="returns_3">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>help_text</td>
-<td>str</td>
-<td>Status bar text</td>
-</tr>
-</tbody>
-</table>
-<h3 id="handle_key_press">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<h3 id="_handle_key_press">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Base class function that handles all assigned key presses.</p>
-<p>When overwriting this function, make sure to add a super().handle_key_press(key_pressed) call,
+<p>When overwriting this function, make sure to add a super()._handle_key_press(key_pressed) call,
 as this is required for user defined key command support</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -753,12 +656,13 @@ as this is required for user defined key command support</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Base class draw class that checks if renderer is valid.</p>
-<p>Should be called with super().draw() in overrides</p>
+<p>Should be called with super()._draw() in overrides.
+Also intializes color rules, so if not called color rules will not be applied</p>
 <h2 id="labelwidget">Label(Widget)</h2>
 <pre><code class="python">class Label(Widget)
 </code></pre>
@@ -796,23 +700,23 @@ as this is required for user defined key command support</p>
 <td>Function that gives option to draw border around label</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Override base draw class.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_1"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady)
+<pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady, logger)
 </code></pre>
 
-<p>Constructor for Label</p>
+<p>Initalizer for Label widget</p>
 <h3 id="toggle_border">toggle_border</h3>
 <pre><code class="python">def toggle_border(self)
 </code></pre>
 
 <p>Function that gives option to draw border around label</p>
-<h3 id="draw_1">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_1">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override base draw class.</p>
@@ -858,59 +762,32 @@ as this is required for user defined key command support</p>
 <td>Function that gives option to draw border around label</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Override base draw class.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_2"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady, center)
+<pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady, center, logger)
 </code></pre>
 
+<p>Initializer for blocklabel widget</p>
 <h3 id="toggle_border_1">toggle_border</h3>
 <pre><code class="python">def toggle_border(self)
 </code></pre>
 
 <p>Function that gives option to draw border around label</p>
-<h3 id="draw_2">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_2">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override base draw class.</p>
-<h2 id="scrollmenuwidget">ScrollMenu(Widget)</h2>
-<pre><code class="python">class ScrollMenu(Widget)
+<p>Center text and draw it</p>
+<h2 id="scrollmenuwidge">ScrollMenu(Widge</h2>
+<pre><code class="python">class ScrollMenu(Widget, py_cui.ui.MenuImplementation)
 </code></pre>
 
 <p>A scroll menu widget.</p>
-<p>Allows for creating a scrollable list of items of which one is selectable.
-Analogous to a RadioButton</p>
-<h4 id="attributes_3">Attributes</h4>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>top_view</td>
-<td>int</td>
-<td>the uppermost menu element in view</td>
-</tr>
-<tr>
-<td>selected_item</td>
-<td>int</td>
-<td>the currently highlighted menu item</td>
-</tr>
-<tr>
-<td>view_items</td>
-<td>list of str</td>
-<td>list of menu items</td>
-</tr>
-</tbody>
-</table>
 <h4 id="methods_3">Methods</h4>
 <table>
 <thead>
@@ -921,167 +798,27 @@ Analogous to a RadioButton</p>
 </thead>
 <tbody>
 <tr>
-<td>clear</td>
-<td>Clears all items from the Scroll Menu</td>
-</tr>
-<tr>
-<td>scroll_up</td>
-<td>Function that scrolls the view up in the scroll menu</td>
-</tr>
-<tr>
-<td>scroll_down</td>
-<td>Function that scrolls the view down in the scroll menu</td>
-</tr>
-<tr>
-<td>add_item</td>
-<td>Adds an item to the menu.</td>
-</tr>
-<tr>
-<td>add_item_list</td>
-<td>Adds a list of items to the scroll menu.</td>
-</tr>
-<tr>
-<td>remove_selected_item</td>
-<td>Function that removes the selected item from the scroll menu.</td>
-</tr>
-<tr>
-<td>get_item_list</td>
-<td>Function that gets list of items in a scroll menu</td>
-</tr>
-<tr>
-<td>get</td>
-<td>Function that gets the selected item from the scroll menu</td>
-</tr>
-<tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override base class function.</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Overrides base class draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_3"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady)
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger)
 </code></pre>
 
-<p>Constructor for scroll menu</p>
-<h3 id="clear">clear</h3>
-<pre><code class="python">def clear(self)
-</code></pre>
-
-<p>Clears all items from the Scroll Menu</p>
-<h3 id="scroll_up">scroll_up</h3>
-<pre><code class="python">def scroll_up(self)
-</code></pre>
-
-<p>Function that scrolls the view up in the scroll menu</p>
-<h3 id="scroll_down">scroll_down</h3>
-<pre><code class="python">def scroll_down(self)
-</code></pre>
-
-<p>Function that scrolls the view down in the scroll menu</p>
-<h3 id="add_item">add_item</h3>
-<pre><code class="python">def add_item(self, item_text)
-</code></pre>
-
-<p>Adds an item to the menu.</p>
-<h4 id="parameters_8">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>item_text</td>
-<td>str</td>
-<td>The text for the item</td>
-</tr>
-</tbody>
-</table>
-<h3 id="add_item_list">add_item_list</h3>
-<pre><code class="python">def add_item_list(self, item_list)
-</code></pre>
-
-<p>Adds a list of items to the scroll menu.</p>
-<h4 id="parameters_9">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>item_list</td>
-<td>list of str</td>
-<td>list of strings to add as items to the scrollmenu</td>
-</tr>
-</tbody>
-</table>
-<h3 id="remove_selected_item">remove_selected_item</h3>
-<pre><code class="python">def remove_selected_item(self)
-</code></pre>
-
-<p>Function that removes the selected item from the scroll menu.</p>
-<h3 id="get_item_list">get_item_list</h3>
-<pre><code class="python">def get_item_list(self)
-</code></pre>
-
-<p>Function that gets list of items in a scroll menu</p>
-<h4 id="returns_4">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>item_list</td>
-<td>list of str</td>
-<td>list of items in the scrollmenu</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get">get</h3>
-<pre><code class="python">def get(self)
-</code></pre>
-
-<p>Function that gets the selected item from the scroll menu</p>
-<h4 id="returns_5">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>item</td>
-<td>str</td>
-<td>selected item, or None if there are no items in the menu</td>
-</tr>
-</tbody>
-</table>
-<h3 id="handle_key_press_1">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<p>Initializer for scroll menu. calls superclass initializers and sets help text</p>
+<h3 id="_handle_key_press_1">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override base class function.</p>
 <p>UP_ARROW scrolls up, DOWN_ARROW scrolls down.</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_5">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1098,8 +835,8 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_3">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_3">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Overrides base class draw function</p>
@@ -1108,7 +845,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Extension of ScrollMenu that allows for multiple items to be selected at once.</p>
-<h4 id="attributes_4">Attributes</h4>
+<h4 id="attributes_3">Attributes</h4>
 <table>
 <thead>
 <tr>
@@ -1156,21 +893,22 @@ Analogous to a RadioButton</p>
 <td>Function that marks an item as selected</td>
 </tr>
 <tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override of key presses.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_4"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, checked_char)
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, checked_char)
 </code></pre>
 
-<h3 id="add_item_1">add_item</h3>
+<p>Initializer for CheckBoxMenu Widget. Builds on ScrollMenu</p>
+<h3 id="add_item">add_item</h3>
 <pre><code class="python">def add_item(self, item_text)
 </code></pre>
 
 <p>Adds item to Checkbox</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1187,12 +925,12 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
-<h3 id="add_item_list_1">add_item_list</h3>
+<h3 id="add_item_list">add_item_list</h3>
 <pre><code class="python">def add_item_list(self, item_list)
 </code></pre>
 
 <p>Adds list of items to the checkbox</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1209,7 +947,7 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
-<h3 id="get_1">get</h3>
+<h3 id="get">get</h3>
 <pre><code class="python">def get(self)
 </code></pre>
 
@@ -1236,7 +974,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that marks an item as selected</p>
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1253,14 +991,14 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
-<h3 id="handle_key_press_2">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<h3 id="_handle_key_press_2">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of key presses.</p>
 <p>First, run the superclass function, scrolling should still work.
 Adds Enter command to toggle selection</p>
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1283,7 +1021,7 @@ Adds Enter command to toggle selection</p>
 
 <p>Basic button widget.</p>
 <p>Allows for running a command function on Enter</p>
-<h4 id="attributes_5">Attributes</h4>
+<h4 id="attributes_4">Attributes</h4>
 <table>
 <thead>
 <tr>
@@ -1310,25 +1048,26 @@ Adds Enter command to toggle selection</p>
 </thead>
 <tbody>
 <tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override of base class, adds ENTER listener that runs the button's command</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Override of base class draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_5"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, command)
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, command)
 </code></pre>
 
-<h3 id="handle_key_press_3">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<p>Initializer for Button Widget</p>
+<h3 id="_handle_key_press_3">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base class, adds ENTER listener that runs the button's command</p>
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1345,53 +1084,16 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_4">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_4">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override of base class draw function</p>
-<h2 id="textboxwidget">TextBox(Widget)</h2>
-<pre><code class="python">class TextBox(Widget)
+<h2 id="textboxwidge">TextBox(Widge</h2>
+<pre><code class="python">class TextBox(Widget, py_cui.ui.TextBoxImplementation)
 </code></pre>
 
 <p>Widget for entering small single lines of text</p>
-<h4 id="attributes_6">Attributes</h4>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>The text in the text box</td>
-</tr>
-<tr>
-<td>cursor_x, cursor_y</td>
-<td>int</td>
-<td>The absolute positions of the cursor in the terminal window</td>
-</tr>
-<tr>
-<td>cursor_text_pos</td>
-<td>int</td>
-<td>the cursor position relative to the text</td>
-</tr>
-<tr>
-<td>cursor_max_left, cursor_max_right</td>
-<td>int</td>
-<td>The cursor bounds of the text box</td>
-</tr>
-<tr>
-<td>viewport_width</td>
-<td>int</td>
-<td>The width of the textbox viewport</td>
-</tr>
-</tbody>
-</table>
 <h4 id="methods_6">Methods</h4>
 <table>
 <thead>
@@ -1406,163 +1108,31 @@ Adds Enter command to toggle selection</p>
 <td>Need to update all cursor positions on resize</td>
 </tr>
 <tr>
-<td>set_text</td>
-<td>Sets the value of the text. Overwrites existing text</td>
-</tr>
-<tr>
-<td>get</td>
-<td>Gets value of the text in the textbox</td>
-</tr>
-<tr>
-<td>clear</td>
-<td>Clears the text in the textbox</td>
-</tr>
-<tr>
-<td>move_left</td>
-<td>Shifts the cursor the the left. Internal use only</td>
-</tr>
-<tr>
-<td>move_right</td>
-<td>Shifts the cursor the the right. Internal use only</td>
-</tr>
-<tr>
-<td>insert_char</td>
-<td>Inserts char at cursor position.</td>
-</tr>
-<tr>
-<td>jump_to_start</td>
-<td>Jumps to the start of the textbox</td>
-</tr>
-<tr>
-<td>jump_to_end</td>
-<td>Jumps to the end to the textbox</td>
-</tr>
-<tr>
-<td>erase_char</td>
-<td>Erases character at textbox cursor</td>
-</tr>
-<tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override of base handle key press function</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Override of base draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_6"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, initial_text)
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, initial_text, password)
 </code></pre>
 
-<h3 id="update_height_width_1">update_height_width</h3>
+<p>Initializer for TextBox widget. Uses TextBoxImplementation as base</p>
+<h3 id="update_height_width">update_height_width</h3>
 <pre><code class="python">def update_height_width(self)
 </code></pre>
 
 <p>Need to update all cursor positions on resize</p>
-<h3 id="set_text">set_text</h3>
-<pre><code class="python">def set_text(self, text)
-</code></pre>
-
-<p>Sets the value of the text. Overwrites existing text</p>
-<h4 id="parameters_16">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>The text to write to the textbox</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_2">get</h3>
-<pre><code class="python">def get(self)
-</code></pre>
-
-<p>Gets value of the text in the textbox</p>
-<h4 id="returns_7">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>The current textbox test</td>
-</tr>
-</tbody>
-</table>
-<h3 id="clear_1">clear</h3>
-<pre><code class="python">def clear(self)
-</code></pre>
-
-<p>Clears the text in the textbox</p>
-<h3 id="move_left">move_left</h3>
-<pre><code class="python">def move_left(self)
-</code></pre>
-
-<p>Shifts the cursor the the left. Internal use only</p>
-<h3 id="move_right">move_right</h3>
-<pre><code class="python">def move_right(self)
-</code></pre>
-
-<p>Shifts the cursor the the right. Internal use only</p>
-<h3 id="insert_char">insert_char</h3>
-<pre><code class="python">def insert_char(self, key_pressed)
-</code></pre>
-
-<p>Inserts char at cursor position.</p>
-<p>Internal use only</p>
-<h4 id="parameters_17">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key_pressed</td>
-<td>int</td>
-<td>key code of key pressed</td>
-</tr>
-</tbody>
-</table>
-<h3 id="jump_to_start">jump_to_start</h3>
-<pre><code class="python">def jump_to_start(self)
-</code></pre>
-
-<p>Jumps to the start of the textbox</p>
-<h3 id="jump_to_end">jump_to_end</h3>
-<pre><code class="python">def jump_to_end(self)
-</code></pre>
-
-<p>Jumps to the end to the textbox</p>
-<h3 id="erase_char">erase_char</h3>
-<pre><code class="python">def erase_char(self)
-</code></pre>
-
-<p>Erases character at textbox cursor</p>
-<h3 id="handle_key_press_4">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<h3 id="_handle_key_press_4">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base handle key press function</p>
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1579,63 +1149,16 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_5">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_5">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override of base draw function</p>
-<h2 id="scrolltextblockwidget">ScrollTextBlock(Widget)</h2>
-<pre><code class="python">class ScrollTextBlock(Widget)
+<h2 id="scrolltextblockwidge">ScrollTextBlock(Widge</h2>
+<pre><code class="python">class ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)
 </code></pre>
 
 <p>Widget for editing large multi-line blocks of text</p>
-<h4 id="attributes_7">Attributes</h4>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text_lines</td>
-<td>list of str</td>
-<td>The lines of text in the text box</td>
-</tr>
-<tr>
-<td>cursor_x, cursor_y</td>
-<td>int</td>
-<td>The absolute positions of the cursor in the terminal window</td>
-</tr>
-<tr>
-<td>cursor_text_pos_x, cursor_text_pos_y</td>
-<td>int</td>
-<td>the cursor position relative to the text</td>
-</tr>
-<tr>
-<td>cursor_max_left, cursor_max_right</td>
-<td>int</td>
-<td>The cursor bounds of the text box</td>
-</tr>
-<tr>
-<td>cursor_max_up, cursor_max_down</td>
-<td>int</td>
-<td>The cursor bounds of the text box</td>
-</tr>
-<tr>
-<td>viewport_x_start, viewport_y_start</td>
-<td>int</td>
-<td>upper left corner of the viewport</td>
-</tr>
-<tr>
-<td>viewport_width</td>
-<td>int</td>
-<td>The width of the textbox viewport</td>
-</tr>
-</tbody>
-</table>
 <h4 id="methods_7">Methods</h4>
 <table>
 <thead>
@@ -1650,278 +1173,31 @@ Adds Enter command to toggle selection</p>
 <td>Function that updates the position of the text and cursor on resize</td>
 </tr>
 <tr>
-<td>get</td>
-<td>Gets all of the text in the textblock and returns it</td>
-</tr>
-<tr>
-<td>write</td>
-<td>Function used for writing text to the text block</td>
-</tr>
-<tr>
-<td>clear</td>
-<td>Function that clears the text block</td>
-</tr>
-<tr>
-<td>get_current_line</td>
-<td>Returns the line on which the cursor currently resides</td>
-</tr>
-<tr>
-<td>set_text</td>
-<td>Function that sets the text for the textblock.</td>
-</tr>
-<tr>
-<td>set_text_line</td>
-<td>Function that sets the current line's text.</td>
-</tr>
-<tr>
-<td>move_left</td>
-<td>Function that moves the cursor/text position one location to the left</td>
-</tr>
-<tr>
-<td>move_right</td>
-<td>Function that moves the cursor/text position one location to the right</td>
-</tr>
-<tr>
-<td>move_up</td>
-<td>Function that moves the cursor/text position one location up</td>
-</tr>
-<tr>
-<td>move_down</td>
-<td>Function that moves the cursor/text position one location down</td>
-</tr>
-<tr>
-<td>handle_newline</td>
-<td>Function that handles recieving newline characters in the text</td>
-</tr>
-<tr>
-<td>handle_backspace</td>
-<td>Function that handles recieving backspace characters in the text</td>
-</tr>
-<tr>
-<td>handle_home</td>
-<td>Function that handles recieving a home keypress</td>
-</tr>
-<tr>
-<td>handle_end</td>
-<td>Function that handles recieving an end keypress</td>
-</tr>
-<tr>
-<td>handle_delete</td>
-<td>Function that handles recieving a delete keypress</td>
-</tr>
-<tr>
-<td>insert_char</td>
-<td>Function that handles recieving a character</td>
-</tr>
-<tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override of base class handle key press function</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Override of base class draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_7"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, initial_text)
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, initial_text)
 </code></pre>
 
-<h3 id="update_height_width_2">update_height_width</h3>
+<p>Initializer for TextBlock Widget. Uses TextBlockImplementation as base</p>
+<h3 id="update_height_width_1">update_height_width</h3>
 <pre><code class="python">def update_height_width(self)
 </code></pre>
 
 <p>Function that updates the position of the text and cursor on resize</p>
-<h3 id="get_3">get</h3>
-<pre><code class="python">def get(self)
-</code></pre>
-
-<p>Gets all of the text in the textblock and returns it</p>
-<h4 id="returns_8">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>The current text in the text block</td>
-</tr>
-</tbody>
-</table>
-<h3 id="write">write</h3>
-<pre><code class="python">def write(self, text)
-</code></pre>
-
-<p>Function used for writing text to the text block</p>
-<h4 id="parameters_19">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>Text to write to the text block</td>
-</tr>
-</tbody>
-</table>
-<h3 id="clear_2">clear</h3>
-<pre><code class="python">def clear(self)
-</code></pre>
-
-<p>Function that clears the text block</p>
-<h3 id="get_current_line">get_current_line</h3>
-<pre><code class="python">def get_current_line(self)
-</code></pre>
-
-<p>Returns the line on which the cursor currently resides</p>
-<h4 id="returns_9">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>current_line</td>
-<td>str</td>
-<td>The current line of text that the cursor is on</td>
-</tr>
-</tbody>
-</table>
-<h3 id="set_text_1">set_text</h3>
-<pre><code class="python">def set_text(self, text)
-</code></pre>
-
-<p>Function that sets the text for the textblock.</p>
-<p>Note that this will overwrite any existing text </p>
-<h4 id="parameters_20">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>text to write into text block</td>
-</tr>
-</tbody>
-</table>
-<h3 id="set_text_line">set_text_line</h3>
-<pre><code class="python">def set_text_line(self, text)
-</code></pre>
-
-<p>Function that sets the current line's text.</p>
-<p>Meant only for internal use</p>
-<h4 id="parameters_21">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>text line to write into text block</td>
-</tr>
-</tbody>
-</table>
-<h3 id="move_left_1">move_left</h3>
-<pre><code class="python">def move_left(self)
-</code></pre>
-
-<p>Function that moves the cursor/text position one location to the left</p>
-<h3 id="move_right_1">move_right</h3>
-<pre><code class="python">def move_right(self)
-</code></pre>
-
-<p>Function that moves the cursor/text position one location to the right</p>
-<h3 id="move_up">move_up</h3>
-<pre><code class="python">def move_up(self)
-</code></pre>
-
-<p>Function that moves the cursor/text position one location up</p>
-<h3 id="move_down">move_down</h3>
-<pre><code class="python">def move_down(self)
-</code></pre>
-
-<p>Function that moves the cursor/text position one location down</p>
-<h3 id="handle_newline">handle_newline</h3>
-<pre><code class="python">def handle_newline(self)
-</code></pre>
-
-<p>Function that handles recieving newline characters in the text</p>
-<h3 id="handle_backspace">handle_backspace</h3>
-<pre><code class="python">def handle_backspace(self)
-</code></pre>
-
-<p>Function that handles recieving backspace characters in the text</p>
-<h3 id="handle_home">handle_home</h3>
-<pre><code class="python">def handle_home(self)
-</code></pre>
-
-<p>Function that handles recieving a home keypress</p>
-<h3 id="handle_end">handle_end</h3>
-<pre><code class="python">def handle_end(self)
-</code></pre>
-
-<p>Function that handles recieving an end keypress</p>
-<h3 id="handle_delete">handle_delete</h3>
-<pre><code class="python">def handle_delete(self)
-</code></pre>
-
-<p>Function that handles recieving a delete keypress</p>
-<h3 id="insert_char_1">insert_char</h3>
-<pre><code class="python">def insert_char(self, key_pressed)
-</code></pre>
-
-<p>Function that handles recieving a character</p>
-<h4 id="parameters_22">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key_pressed</td>
-<td>int</td>
-<td>key code of key pressed</td>
-</tr>
-</tbody>
-</table>
-<h3 id="handle_key_press_5">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<h3 id="_handle_key_press_5">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base class handle key press function</p>
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1938,8 +1214,8 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_6">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_6">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override of base class draw function</p>

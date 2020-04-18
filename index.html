@@ -57,11 +57,11 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#what-is-py_cui">What is py_cui?</a></li>
+            <li><a class="toctree-l3" href="#examples">Examples</a></li>
         
-            <li><a class="toctree-l3" href="#writing-a-pycui">Writing a PyCUI</a></li>
+            <li><a class="toctree-l3" href="#powered-by-py_cui">Powered by py_cui</a></li>
         
-            <li><a class="toctree-l3" href="#using-a-pycui">Using a PyCUI</a></li>
+            <li><a class="toctree-l3" href="#license">License</a></li>
         
         </ul>
     
@@ -194,39 +194,80 @@
           <div role="main">
             <div class="section">
               
-                <p align="center">
-    <img src="assets/py_cui_logo.png">
-</p>
+                <div align="center">
+    <img src="assets/py_cui_logo_new.svg" alt="PyCUI" width=300px>
+</div>
 
-<h1 id="py_cui">py_cui <img alt="" src="https://travis-ci.org/jwlodek/py_cui.svg?branch=master" /></h1>
-<p>A <strong>py</strong>thon library for creating <strong>c</strong>ommand line <strong>u</strong>ser <strong>i</strong>nterfaces.</p>
-<h3 id="what-is-py_cui">What is py_cui?</h3>
-<p><code>py_cui</code> is a python library meant to simplify writing command line user interfaces in python. It relies on the <code>curses</code> module, which is traditionally a unix-specific python module, however, I was able to use the <a href="https://github.com/zephyrproject-rtos/windows-curses">windows-curses</a> module to run <code>py_cui</code> on windows.</p>
-<p>The main advantage <code>py_cui</code> has over traditional command line user interfaces is that it relies on widgets and a grid layout manager like most traditional Graphical User Interfaces. You may define a grid size, and then drop predefined widgets onto it into specific grid locations. Widgets can also be stretched accross multiple grid rows and columns. If you've ever made a Tkinter GUI, you will feel right at home.</p>
-<h3 id="writing-a-pycui">Writing a PyCUI</h3>
-<p>Basic usage of <code>py_cui</code> starts with creating a PyCUI object, and specifiying it's grid size. Keep in mind that grid cell height and width will be measured in terminal characters, not pixels, so there is a lower limit on legal grid size, and heights will be smaller values than widths. Create this object with:</p>
-<pre><code>root = py_cui.PyCUI(7, 9)
-</code></pre>
+<div align="center">
+    <p><strong><br/>A library for creating CUI/TUI interfaces with pre-built widgets in python.</strong></p>
+    <p>Easily build text-based user interfaces on both Linux and Windows.</p>
+    <a href="#">
+        <img src="https://github.com/jwlodek/py_cui/workflows/tests/badge.svg?branch=master" alt="Automated Test+Build Status">
+    </a>
+    <a href="https://pepy.tech/project/py-cui">
+        <img src="https://pepy.tech/badge/py-cui" alt="Download Counter">
+    </a>
+    <a href="https://badge.fury.io/py/py-cui">
+        <img src="https://badge.fury.io/py/py-cui.svg" alt="PyPI Version">
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/github/license/jwlodek/py_cui.svg" alt="License">
+    </a>
+</div>
 
-<p>The above line will create a UI with 7 rows and 9 columns. Then, add widgets with the different add commands:</p>
-<pre><code>label = root.add_label('Label Text', 0, 0)
-button = root.add_button('Button Text', 1, 2, column_span=2, command=my_function)
-...
-</code></pre>
-
-<p>Finally, start the CUI with</p>
-<pre><code>root.start()
-</code></pre>
-
-<p><code>py_cui</code> has support for custom key bindings for both the overview mode and focused mode, popup windows and prompts, color rendering rules, and several useful widgets. For more details on writing <code>py_cui</code> based interfaces, be sure to check on the examples and the documentation <a href="https://jwlodek.github.io/py_cui-docs">here</a>.</p>
-<h3 id="using-a-pycui">Using a PyCUI</h3>
-<p>There are some basic rules that apply to all <code>py_cui</code> based interfaces. There are three key operating modes - overview mode, focus mode, and popup mode. </p>
-<p><strong>Overview Mode</strong></p>
-<p>Overview mode is the main control view of the interface. In this mode you use the arrow keys to move between widgets, and you may select widgets with the <code>Enter</code> key. By default, you may also press buttons in this mode, unless <code>auto_focus_buttons</code> is set to false when the CUI was created.</p>
-<p><strong>Focus Mode</strong></p>
-<p>When in focus mode, you enter into a particular widget (For example a text box.). Each widget has some predefined basic controls, such as arrow keys to scroll in a <code>ScrollMenu</code>. You may also add keybindings to functions for each particular widget. These keybindings will only apply to a widget if it is in focus mode. Enter focus mode by navigating to a widget in overview mode and hitting the <code>Enter</code> key. Return to overview mode from focus mode by pressing <code>Escape</code>.</p>
-<p><strong>Popup Mode</strong></p>
-<p>Popup mode simply displays a popup over the rest of the UI. Each popup type behaves slightly differently. For example, you may exit an info popup mode by pressing <code>Space</code>, <code>Enter</code>, or <code>Escape</code>, while a loading popup will remain onscreen until whatever operation is being run is terminated.</p>
+<hr />
+<h1 id="py_cui">py_cui</h1>
+<p><code>py_cui</code> is a python library meant to simplify writing command line user interfaces in python. It is built upon the <code>curses</code> module, which is traditionally a unix-specific, however, you may use <a href="https://github.com/zephyrproject-rtos/windows-curses">windows-curses</a> to gain compatibility for <code>py_cui</code> on windows.</p>
+<p>The main advantage <code>py_cui</code> has over typical text-based user interface builders is that it relies on widgets and a grid layout manager like most traditional graphical user interfaces. You may define a grid size, and then drop predefined widgets onto it into specific grid locations. Widgets can also be stretched accross multiple grid rows and columns. If you've ever made a Tkinter GUI, you will feel right at home.</p>
+<h2 id="examples">Examples</h2>
+<p>Below are some screenshots/gifs of programs written with py_cui. Additional (simpler) examples are available in the <code>examples/</code> directory of this repository.</p>
+<p><strong>py_cui_2048 - A command line version of the classic 2048 game</strong></p>
+<p><a href="https://github.com/jwlodek/py_cui_2048">py_cui_2048</a> is a demo of using <code>py_cui</code> to build simple CUI games and applications. The entire game was made in under 400 lines of code.
+<p align="center">
+    <img src="assets/py2048-demo.gif">
+</p></p>
+<p><strong>unipkg - A command line utility that will allow for managing all installed package managers on your system through one cli interface</strong></p>
+<p><a href="https://github.com/jwlodek/unipkg">unipkg</a> is currently an in-progress project, check back in the future to see a screenshot, and more information.</p>
+<p><strong>pyautogit - A command line interface for managing git repositories</strong></p>
+<p><a href="https://github.com/jwlodek/pyautogit">pyautogit</a> is the first larger scale project written in <code>py_cui</code>. Feel free to use it as a guide to programming with <code>py_cui</code>.
+<p align="center">
+    <img src="assets/pyautogit-demo.gif">
+</p></p>
+<h2 id="powered-by-py_cui">Powered by py_cui</h2>
+<p>Below is a table of python projects developed with the help of <code>py_cui</code>. If you've made something, feel free to make a pull request to add it!</p>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/jwlodek/pyautogit">pyautogit</a></td>
+<td>A command line UI for interfacing with git features for multiple repositories.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jwlodek/py_cui_2048">py_cui_2048</a></td>
+<td>A CUI version of the classic 2048 game.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jwlodek/unipkg">unipkg</a></td>
+<td>A CUI interface for managing all installed package managers on your system. (In-Progress)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/HakierGrzonzo/tinyPub">tinypub</a></td>
+<td>A console-based ebook reader.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/channel-42/hue-tui">hue-tui</a></td>
+<td>A CUI controlling for Philips Hue lights.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="license">License</h2>
+<p>BSD 3-Clause License</p>
+<p>Copyright (c) 2019-2020, Jakub Wlodek</p>
               
             </div>
           </div>
@@ -279,5 +320,5 @@ button = root.add_button('Button Text', 1, 2, column_span=2, command=my_function
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2020-02-28 15:41:41
+Build Date UTC : 2020-04-18 19:46:57
 -->

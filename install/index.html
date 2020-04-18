@@ -58,13 +58,15 @@
     <a class="current" href="./">Installation</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    <li class="toctree-l2"><a href="#pycui-installation">PyCUI Installation</a></li>
     
-
-    <li class="toctree-l2"><a href="#running-unit-tests">Running Unit Tests</a></li>
-    
-
-    <li class="toctree-l2"><a href="#running-examples">Running Examples</a></li>
+        <ul>
+        
+            <li><a class="toctree-l3" href="#developer-installation">Developer Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#running-examples">Running Examples</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -190,7 +192,7 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="installation">Installation</h3>
+                <h1 id="pycui-installation">PyCUI Installation</h1>
 <p>The easiest way to install py_cui is to use <code>pip</code>. You may simply run:</p>
 <pre><code>pip install py_cui
 </code></pre>
@@ -204,14 +206,45 @@ pip install .
 </code></pre>
 
 <p>This will use pip to install from the sources in the git repository. If you wish to avoid installing altogether, you may copy an example from the <code>examples/</code> directory into the root <code>py_cui</code> directory, and run it with python3. Note that in this case you are required to install the dependancies yourself, which are <code>curses</code> on UNIX (should be included with python3) and <code>windows-curses</code> on windows, which can be installed with <code>pip</code>.</p>
-<h3 id="running-unit-tests">Running Unit Tests</h3>
-<p>Unit tests for <code>py_cui</code> are written for pytest. Simply clone the repository, and run <code>pytest</code> in the root directory:</p>
-<pre><code>git clone https://github.com/jwlodek/py_cui
-cd py_cui
-pytest
+<h3 id="developer-installation">Developer Installation</h3>
+<p>Additional packages can be used by <code>py_cui</code> developers to help with debugging and other issues. For these, you may use pip:</p>
+<pre><code>pip install -r requirements_dev.txt
 </code></pre>
 
-<p>These tests are also run on Travis-CI each time a new commit is pushed to the upstream repository.</p>
+<p>It is also recommended to use a virtual environment to develop <code>py_cui</code>:</p>
+<pre><code>mkdir venv
+cd venv
+python3 -m venv .
+source bin/activate
+</code></pre>
+
+<p>Development packages are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Used For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pytest</code></td>
+<td>Unit testing</td>
+</tr>
+<tr>
+<td><code>pytest-cov</code></td>
+<td>Code coverage stats</td>
+</tr>
+<tr>
+<td><code>flake8</code></td>
+<td>Style checking</td>
+</tr>
+<tr>
+<td><code>npdoc2md</code></td>
+<td>Docstring to Markdown documentation auto-conversion</td>
+</tr>
+</tbody>
+</table>
 <h3 id="running-examples">Running Examples</h3>
 <p>To run examples, install py_cui, enter the <code>examples/</code> directory, and run them with python3. For example, to run <code>todo_list_example.py</code>:</p>
 <pre><code>cd examples

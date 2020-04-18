@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Popups";
-    var mkdocs_page_input_path = "DocstringGenerated/Popups.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\Popups.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -116,15 +116,15 @@
         
             <li><a class="toctree-l4" href="#classes">Classes</a></li>
         
-            <li><a class="toctree-l4" href="#popup">Popup</a></li>
+            <li><a class="toctree-l4" href="#popuppy_cuiuiuielement">Popup(py_cui.ui.UIElement)</a></li>
         
             <li><a class="toctree-l4" href="#messagepopuppopup">MessagePopup(Popup)</a></li>
         
             <li><a class="toctree-l4" href="#yesnopopuppopup">YesNoPopup(Popup)</a></li>
         
-            <li><a class="toctree-l4" href="#textboxpopuppopup">TextBoxPopup(Popup)</a></li>
+            <li><a class="toctree-l4" href="#textboxpopuppopu">TextBoxPopup(Popu</a></li>
         
-            <li><a class="toctree-l4" href="#menupopuppopup">MenuPopup(Popup)</a></li>
+            <li><a class="toctree-l4" href="#menupopuppopu">MenuPopup(Popu</a></li>
         
             <li><a class="toctree-l4" href="#loadingiconpopuppopup">LoadingIconPopup(Popup)</a></li>
         
@@ -222,7 +222,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Popup</td>
+<td>Popup(py_cui.ui.UIElement)</td>
 <td>Base CUI popup class.</td>
 </tr>
 <tr>
@@ -234,11 +234,11 @@
 <td>Class for Yes/No popup. Extends Popup</td>
 </tr>
 <tr>
-<td>TextBoxPopup(Popup)</td>
+<td>TextBoxPopup(Popu</td>
 <td>Class representing a textbox popup</td>
 </tr>
 <tr>
-<td>MenuPopup(Popup)</td>
+<td>MenuPopup(Popu</td>
 <td>A scroll menu popup.</td>
 </tr>
 <tr>
@@ -251,8 +251,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="popup">Popup</h2>
-<pre><code class="python">class Popup
+<h2 id="popuppy_cuiuiuielement">Popup(py_cui.ui.UIElement)</h2>
+<pre><code class="python">class Popup(py_cui.ui.UIElement)
 </code></pre>
 
 <p>Base CUI popup class.</p>
@@ -270,54 +270,24 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>root</td>
+<td>_root</td>
 <td>py_cui.PyCUI</td>
 <td>Root CUI window</td>
 </tr>
 <tr>
-<td>title</td>
-<td>str</td>
-<td>Popup title</td>
-</tr>
-<tr>
-<td>text</td>
+<td>_text</td>
 <td>str</td>
 <td>Popup message text</td>
 </tr>
 <tr>
-<td>color</td>
-<td>int</td>
-<td>PyCUI color value</td>
-</tr>
-<tr>
-<td>renderer</td>
-<td>py_cui.renderer.Renderer</td>
-<td>Renderer for drawing the popup</td>
-</tr>
-<tr>
-<td>start_x, start_y</td>
-<td>int</td>
-<td>top left corner of the popup</td>
-</tr>
-<tr>
-<td>stop_x, stop_y</td>
-<td>int</td>
-<td>bottom right corner of the popup</td>
-</tr>
-<tr>
-<td>height, width</td>
-<td>int</td>
-<td>The dimensions of the popup</td>
-</tr>
-<tr>
-<td>padx, pady</td>
-<td>int</td>
-<td>The padding on either side of the popup</td>
-</tr>
-<tr>
-<td>selected</td>
+<td>_selected</td>
 <td>bool</td>
 <td>Always true. Used by the renderer to highlight popup</td>
+</tr>
+<tr>
+<td>_close_keys</td>
+<td>List[int]</td>
+<td>List of keycodes used to close popup</td>
 </tr>
 </tbody>
 </table>
@@ -331,27 +301,114 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>handle_key_press</td>
+<td>_increment_counter</td>
+<td>Function that increments an internal counter</td>
+</tr>
+<tr>
+<td>set_text</td>
+<td>Sets popup text (message)</td>
+</tr>
+<tr>
+<td>get_absolute_start_pos</td>
+<td>Override of base class, computes position based on root dimensions</td>
+</tr>
+<tr>
+<td>get_absolute_stop_pos</td>
+<td>Override of base class, computes position based on root dimensions</td>
+</tr>
+<tr>
+<td>_handle_key_press</td>
 <td>Handles key presses when popup is open</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Function that uses renderer to draw the popup</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, title, text, color, renderer)
+<pre><code class="python">def __init__(self, root, title, text, color, renderer, logger)
 </code></pre>
 
-<p>Constructor for popup class</p>
-<h3 id="handle_key_press">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<p>Initializer for main popup class. Calls UIElement intialier, and sets some initial values</p>
+<h3 id="_increment_counter">_increment_counter</h3>
+<pre><code class="python">def _increment_counter(self)
+</code></pre>
+
+<p>Function that increments an internal counter</p>
+<h3 id="set_text">set_text</h3>
+<pre><code class="python">def set_text(self, text)
+</code></pre>
+
+<p>Sets popup text (message)</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The new popup text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
+<pre><code class="python">def get_absolute_start_pos(self)
+</code></pre>
+
+<p>Override of base class, computes position based on root dimensions</p>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_x, start_y</td>
+<td>int</td>
+<td>The coords of the upper-left corner of the popup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
+<pre><code class="python">def get_absolute_stop_pos(self)
+</code></pre>
+
+<p>Override of base class, computes position based on root dimensions</p>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_x, stop_y</td>
+<td>int</td>
+<td>The coords of the lower-right corner of the popup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_key_press">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Handles key presses when popup is open</p>
 <p>By default, only closes popup when Escape is pressed</p>
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -368,8 +425,8 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Function that uses renderer to draw the popup</p>
@@ -379,6 +436,36 @@ frame</p>
 </code></pre>
 
 <p>Class representing a simple message popup</p>
+<h4 id="methods_1">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_draw</td>
+<td>Draw function for MessagePopup. Calls superclass draw()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_1"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, root, title, text, color, renderer, logger)
+</code></pre>
+
+<p>Initializer for MessagePopup</p>
+<h3 id="_draw_1">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<p>Draw function for MessagePopup. Calls superclass draw()</p>
+<h2 id="yesnopopuppopup">YesNoPopup(Popup)</h2>
+<pre><code class="python">class YesNoPopup(Popup)
+</code></pre>
+
+<p>Class for Yes/No popup. Extends Popup</p>
 <h4 id="attributes_1">Attributes</h4>
 <table>
 <thead>
@@ -390,54 +477,7 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>close_keys</td>
-<td>list of int</td>
-<td>list of key codes that can be used to close the popup</td>
-</tr>
-</tbody>
-</table>
-<h4 id="methods_1">Methods</h4>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>draw</td>
-<td>Draw function for MessagePopup. Calls superclass draw()</td>
-</tr>
-</tbody>
-</table>
-<h3 id="init_1"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, title, text, color, renderer)
-</code></pre>
-
-<p>Constructor for MessagePopup</p>
-<h3 id="draw_1">draw</h3>
-<pre><code class="python">def draw(self)
-</code></pre>
-
-<p>Draw function for MessagePopup. Calls superclass draw()</p>
-<h2 id="yesnopopuppopup">YesNoPopup(Popup)</h2>
-<pre><code class="python">class YesNoPopup(Popup)
-</code></pre>
-
-<p>Class for Yes/No popup. Extends Popup</p>
-<h4 id="attributes_2">Attributes</h4>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command</td>
+<td>_command</td>
 <td>function, 1 boolean parameter</td>
 <td>Function that takes one boolean parameter. Called with True if yes, called with False if no.</td>
 </tr>
@@ -453,26 +493,26 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Handle key press overwrite from superclass</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Uses base class draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_2"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, title, text, color, command, renderer)
+<pre><code class="python">def __init__(self, root, title, text, color, command, renderer, logger)
 </code></pre>
 
-<p>Constructor for YesNoPopup</p>
-<h3 id="handle_key_press_1">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<p>Initializer for YesNoPopup</p>
+<h3 id="_handle_key_press_1">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Handle key press overwrite from superclass</p>
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_2">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -489,17 +529,17 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_2">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_2">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Uses base class draw function</p>
-<h2 id="textboxpopuppopup">TextBoxPopup(Popup)</h2>
-<pre><code class="python">class TextBoxPopup(Popup)
+<h2 id="textboxpopuppopu">TextBoxPopup(Popu</h2>
+<pre><code class="python">class TextBoxPopup(Popup, py_cui.ui.TextBoxImplementation)
 </code></pre>
 
 <p>Class representing a textbox popup</p>
-<h4 id="attributes_3">Attributes</h4>
+<h4 id="attributes_2">Attributes</h4>
 <table>
 <thead>
 <tr>
@@ -510,39 +550,9 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>text</td>
-<td>str</td>
-<td>The text in the text box</td>
-</tr>
-<tr>
-<td>command</td>
+<td>_command</td>
 <td>function</td>
 <td>The command to run when enter is pressed</td>
-</tr>
-<tr>
-<td>cursor_x, cursor_y</td>
-<td>int</td>
-<td>The absolute positions of the cursor in the terminal window</td>
-</tr>
-<tr>
-<td>cursor_text_pos</td>
-<td>int</td>
-<td>the cursor position relative to the text</td>
-</tr>
-<tr>
-<td>cursor_max_left, cursor_max_right</td>
-<td>int</td>
-<td>The cursor bounds of the text box</td>
-</tr>
-<tr>
-<td>viewport_width</td>
-<td>int</td>
-<td>The width of the textbox viewport</td>
-</tr>
-<tr>
-<td>password</td>
-<td>bool</td>
-<td>If set, replace all characters with *</td>
 </tr>
 </tbody>
 </table>
@@ -556,119 +566,34 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>set_text</td>
-<td>Sets the value of the text. Overwrites existing text</td>
+<td>update_height_width</td>
+<td>Need to update all cursor positions on resize</td>
 </tr>
 <tr>
-<td>get</td>
-<td>Gets value of the text in the textbox</td>
-</tr>
-<tr>
-<td>clear</td>
-<td>Clears the text in the textbox</td>
-</tr>
-<tr>
-<td>move_left</td>
-<td>Shifts the cursor the the left. Internal use only</td>
-</tr>
-<tr>
-<td>move_right</td>
-<td>Shifts the cursor the the right. Internal use only</td>
-</tr>
-<tr>
-<td>insert_char</td>
-<td>Inserts char at cursor position. Internal use only</td>
-</tr>
-<tr>
-<td>jump_to_start</td>
-<td>Jumps to the start of the textbox</td>
-</tr>
-<tr>
-<td>jump_to_end</td>
-<td>Jumps to the end to the textbox</td>
-</tr>
-<tr>
-<td>erase_char</td>
-<td>Erases character at textbox cursor</td>
-</tr>
-<tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override of base handle key press function</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Override of base draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_3"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, title, color, command, renderer, password)
+<pre><code class="python">def __init__(self, root, title, color, command, renderer, password, logger)
 </code></pre>
 
-<h3 id="set_text">set_text</h3>
-<pre><code class="python">def set_text(self, text)
+<p>Initializer for textbox popup. Uses TextBoxImplementation as base</p>
+<h3 id="update_height_width">update_height_width</h3>
+<pre><code class="python">def update_height_width(self)
 </code></pre>
 
-<p>Sets the value of the text. Overwrites existing text</p>
-<h4 id="parameters_2">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>The text to write to the textbox</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get">get</h3>
-<pre><code class="python">def get(self)
+<p>Need to update all cursor positions on resize</p>
+<h3 id="_handle_key_press_2">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
-<p>Gets value of the text in the textbox</p>
-<h4 id="returns">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>The current textbox test</td>
-</tr>
-</tbody>
-</table>
-<h3 id="clear">clear</h3>
-<pre><code class="python">def clear(self)
-</code></pre>
-
-<p>Clears the text in the textbox</p>
-<h3 id="move_left">move_left</h3>
-<pre><code class="python">def move_left(self)
-</code></pre>
-
-<p>Shifts the cursor the the left. Internal use only</p>
-<h3 id="move_right">move_right</h3>
-<pre><code class="python">def move_right(self)
-</code></pre>
-
-<p>Shifts the cursor the the right. Internal use only</p>
-<h3 id="insert_char">insert_char</h3>
-<pre><code class="python">def insert_char(self, key_pressed)
-</code></pre>
-
-<p>Inserts char at cursor position. Internal use only</p>
+<p>Override of base handle key press function</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>
 <thead>
@@ -686,26 +611,69 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h3 id="jump_to_start">jump_to_start</h3>
-<pre><code class="python">def jump_to_start(self)
+<h3 id="_draw_3">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
-<p>Jumps to the start of the textbox</p>
-<h3 id="jump_to_end">jump_to_end</h3>
-<pre><code class="python">def jump_to_end(self)
+<p>Override of base draw function</p>
+<h2 id="menupopuppopu">MenuPopup(Popu</h2>
+<pre><code class="python">class MenuPopup(Popup, py_cui.ui.MenuImplementation)
 </code></pre>
 
-<p>Jumps to the end to the textbox</p>
-<h3 id="erase_char">erase_char</h3>
-<pre><code class="python">def erase_char(self)
+<p>A scroll menu popup.</p>
+<p>Allows for popup with several menu items to select from</p>
+<h4 id="attributes_3">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_command</td>
+<td>function</td>
+<td>a function that takes a single string parameter, run when ENTER pressed</td>
+</tr>
+<tr>
+<td>_run_command_if_none</td>
+<td>bool</td>
+<td>Runs command even if there are no menu items (passes None)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_4">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_handle_key_press</td>
+<td>Override of base handle key press function</td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Overrides base class draw function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_4"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, root, items, title, color, command, renderer, logger, run_command_if_none)
 </code></pre>
 
-<p>Erases character at textbox cursor</p>
-<h3 id="handle_key_press_2">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<p>Initializer for MenuPopup. Uses MenuImplementation as base</p>
+<h3 id="_handle_key_press_3">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base handle key press function</p>
+<p>Enter key runs command, Escape key closes menu</p>
 <h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
@@ -723,17 +691,17 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_3">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_4">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
-<p>Override of base draw function</p>
-<h2 id="menupopuppopup">MenuPopup(Popup)</h2>
-<pre><code class="python">class MenuPopup(Popup)
+<p>Overrides base class draw function</p>
+<h2 id="loadingiconpopuppopup">LoadingIconPopup(Popup)</h2>
+<pre><code class="python">class LoadingIconPopup(Popup)
 </code></pre>
 
-<p>A scroll menu popup.</p>
-<p>Allows for popup with several menu items to select from</p>
+<p>Loading icon popup class</p>
+<p>MUST BE USED WITH A FORM OF ASYNC/THREADING</p>
 <h4 id="attributes_4">Attributes</h4>
 <table>
 <thead>
@@ -745,156 +713,17 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>top_view</td>
-<td>int</td>
-<td>the uppermost menu element in view</td>
-</tr>
-<tr>
-<td>selected_item</td>
-<td>int</td>
-<td>the currently highlighted menu item</td>
-</tr>
-<tr>
-<td>view_items</td>
-<td>list of str</td>
-<td>list of menu items</td>
-</tr>
-<tr>
-<td>command</td>
-<td>function</td>
-<td>a function that takes a single string parameter, run when ENTER pressed</td>
-</tr>
-<tr>
-<td>run_command_if_none</td>
-<td>bool</td>
-<td>Runs command even if there are no menu items (passes None)</td>
-</tr>
-</tbody>
-</table>
-<h4 id="methods_4">Methods</h4>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>scroll_up</td>
-<td>Function that scrolls the view up in the scroll menu</td>
-</tr>
-<tr>
-<td>scroll_down</td>
-<td>Function that scrolls the view down in the scroll menu</td>
-</tr>
-<tr>
-<td>get</td>
-<td>Function that gets the selected item from the scroll menu</td>
-</tr>
-<tr>
-<td>handle_key_press</td>
-<td>Override of base handle key press function</td>
-</tr>
-<tr>
-<td>draw</td>
-<td>Overrides base class draw function</td>
-</tr>
-</tbody>
-</table>
-<h3 id="init_4"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, items, title, color, command, renderer, run_command_if_none)
-</code></pre>
-
-<p>Constructor for MenuPopup</p>
-<h3 id="scroll_up">scroll_up</h3>
-<pre><code class="python">def scroll_up(self)
-</code></pre>
-
-<p>Function that scrolls the view up in the scroll menu</p>
-<h3 id="scroll_down">scroll_down</h3>
-<pre><code class="python">def scroll_down(self)
-</code></pre>
-
-<p>Function that scrolls the view down in the scroll menu</p>
-<h3 id="get_1">get</h3>
-<pre><code class="python">def get(self)
-</code></pre>
-
-<p>Function that gets the selected item from the scroll menu</p>
-<h4 id="returns_1">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>item</td>
-<td>str</td>
-<td>selected item, or None if there are no items in the menu</td>
-</tr>
-</tbody>
-</table>
-<h3 id="handle_key_press_3">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
-</code></pre>
-
-<p>Override of base handle key press function</p>
-<p>Enter key runs command, Escape key closes menu</p>
-<h4 id="parameters_5">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key_pressed</td>
-<td>int</td>
-<td>key code of key pressed</td>
-</tr>
-</tbody>
-</table>
-<h3 id="draw_4">draw</h3>
-<pre><code class="python">def draw(self)
-</code></pre>
-
-<p>Overrides base class draw function</p>
-<h2 id="loadingiconpopuppopup">LoadingIconPopup(Popup)</h2>
-<pre><code class="python">class LoadingIconPopup(Popup)
-</code></pre>
-
-<p>Loading icon popup class</p>
-<p>MUST BE USED WITH A FORM OF ASYNC/THREADING</p>
-<h4 id="attributes_5">Attributes</h4>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>loading_icons</td>
+<td>_loading_icons</td>
 <td>list of str</td>
 <td>Animation frames for loading icon</td>
 </tr>
 <tr>
-<td>icon_counter</td>
+<td>_icon_counter</td>
 <td>int</td>
 <td>Current frame of animation</td>
 </tr>
 <tr>
-<td>message</td>
+<td>_message</td>
 <td>str</td>
 <td>Loading message</td>
 </tr>
@@ -910,27 +739,27 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override of base class function.</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Overrides base draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_5"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, title, message, color, renderer)
+<pre><code class="python">def __init__(self, root, title, message, color, renderer, logger)
 </code></pre>
 
-<p>Constructor for LoadingIconPopup</p>
-<h3 id="handle_key_press_4">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<p>Initializer for LoadingIconPopup</p>
+<h3 id="_handle_key_press_4">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base class function.</p>
 <p>Loading icon popups cannot be cancelled, so we wish to avoid default behavior</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_5">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -947,8 +776,8 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_5">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_draw_5">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Overrides base draw function</p>
@@ -958,7 +787,7 @@ frame</p>
 
 <p>Class for Loading Bar Popup</p>
 <p>MUST BE USED WITH A FORM OF ASYNC/THREADING</p>
-<h4 id="attributes_6">Attributes</h4>
+<h4 id="attributes_5">Attributes</h4>
 <table>
 <thead>
 <tr>
@@ -990,27 +819,31 @@ frame</p>
 </thead>
 <tbody>
 <tr>
-<td>handle_key_press</td>
+<td>_handle_key_press</td>
 <td>Override of base class function.</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_increment_counter</td>
+<td>Function that increments an internal counter</td>
+</tr>
+<tr>
+<td>_draw</td>
 <td>Override of base draw function</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_6"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, title, num_items, color, renderer)
+<pre><code class="python">def __init__(self, root, title, num_items, color, renderer, logger)
 </code></pre>
 
-<p>Constructor for LoadingBarPopup</p>
-<h3 id="handle_key_press_5">handle_key_press</h3>
-<pre><code class="python">def handle_key_press(self, key_pressed)
+<p>Initializer for LoadingBarPopup</p>
+<h3 id="_handle_key_press_5">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base class function.</p>
 <p>Loading icon popups cannot be cancelled, so we wish to avoid default behavior</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1027,8 +860,13 @@ frame</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_6">draw</h3>
-<pre><code class="python">def draw(self)
+<h3 id="_increment_counter_1">_increment_counter</h3>
+<pre><code class="python">def _increment_counter(self)
+</code></pre>
+
+<p>Function that increments an internal counter</p>
+<h3 id="_draw_6">_draw</h3>
+<pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override of base draw function</p>

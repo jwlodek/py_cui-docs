@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "PyCUI";
-    var mkdocs_page_input_path = "DocstringGenerated/PyCui.md";
+    var mkdocs_page_input_path = "DocstringGenerated\\PyCui.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -342,6 +342,11 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td>key_code</td>
 <td>a key code for a key that exits the CUI</td>
 </tr>
+<tr>
+<td>simulated_terminal</td>
+<td>List[int]</td>
+<td>Dimensions for an alternative simulated terminal (used for testing)</td>
+</tr>
 </tbody>
 </table>
 <h4 id="methods">Methods</h4>
@@ -354,12 +359,16 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </thead>
 <tbody>
 <tr>
-<td>get_widget_set</td>
-<td>Gets widget set object from current widgets.</td>
+<td>enable_logging</td>
+<td>Function enables logging for py_cui library</td>
 </tr>
 <tr>
 <td>apply_widget_set</td>
 <td>Function that replaces all widgets in a py_cui with those of a different widget set</td>
+</tr>
+<tr>
+<td>create_new_widget_set</td>
+<td>Function that is used to create additional widget sets</td>
 </tr>
 <tr>
 <td>start</td>
@@ -382,11 +391,11 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td>Sets the status bar text when in overview mode</td>
 </tr>
 <tr>
-<td>initialize_colors</td>
+<td>_initialize_colors</td>
 <td>Function for initialzing curses colors. Called when CUI is first created.</td>
 </tr>
 <tr>
-<td>initialize_widget_renderer</td>
+<td>_initialize_widget_renderer</td>
 <td>Function that creates the renderer object that will draw each widget</td>
 </tr>
 <tr>
@@ -396,6 +405,10 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <tr>
 <td>set_widget_border_characters</td>
 <td>Function that can be used to set arbitrary border characters for drawing widget borders by renderer.</td>
+</tr>
+<tr>
+<td>get_widgets</td>
+<td>Function that gets current set of widgets</td>
 </tr>
 <tr>
 <td>add_scroll_menu</td>
@@ -426,24 +439,24 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td>Function that adds a new button to the CUI grid</td>
 </tr>
 <tr>
-<td>get_widgets_by_row</td>
-<td>Gets all widgets in a specific row</td>
+<td>_get_horizontal_neighbors</td>
+<td>Gets all horizontal (left, right) neighbor widgets</td>
 </tr>
 <tr>
-<td>get_widgets_by_col</td>
-<td>Gets all widgets in a specific column</td>
+<td>_get_vertical_neighbors</td>
+<td>Gets all vertical (up, down) neighbor widgets</td>
 </tr>
 <tr>
-<td>check_if_neighbor_exists</td>
+<td>_check_if_neighbor_exists</td>
 <td>Function that checks if widget has neighbor in specified cell.</td>
 </tr>
 <tr>
-<td>set_selected_widget</td>
-<td>Function that sets the selected cell for the CUI</td>
+<td>get_selected_widget</td>
+<td>Function that gets currently selected widget</td>
 </tr>
 <tr>
-<td>get_widget_id</td>
-<td>Function for grabbing widget ID</td>
+<td>set_selected_widget</td>
+<td>Function that sets the selected widget for the CUI</td>
 </tr>
 <tr>
 <td>lose_focus</td>
@@ -502,27 +515,31 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td>Closes the popup, and resets focus</td>
 </tr>
 <tr>
-<td>refresh_height_width</td>
+<td>_refresh_height_width</td>
 <td>Function that updates the height and width of the CUI based on terminal window size</td>
 </tr>
 <tr>
-<td>draw_widgets</td>
+<td>get_absolute_size</td>
+<td>Returns dimensions of CUI</td>
+</tr>
+<tr>
+<td>_draw_widgets</td>
 <td>Function that draws all of the widgets to the screen</td>
 </tr>
 <tr>
-<td>draw_status_bars</td>
+<td>_draw_status_bars</td>
 <td>Draws status bar and title bar</td>
 </tr>
 <tr>
-<td>display_window_warning</td>
+<td>_display_window_warning</td>
 <td>Function that prints some basic error info if there is an error with the CUI</td>
 </tr>
 <tr>
-<td>handle_key_presses</td>
+<td>_handle_key_presses</td>
 <td>Function that handles all main loop key presses.</td>
 </tr>
 <tr>
-<td>draw</td>
+<td>_draw</td>
 <td>Main CUI draw loop called by start()</td>
 </tr>
 <tr>
@@ -532,29 +549,34 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, num_rows, num_cols, auto_focus_buttons=True, exit_key=py_cui.keys.KEY_Q_LOWER)
+<pre><code class="python">def __init__(self, num_rows, num_cols, auto_focus_buttons=True, exit_key=py_cui.keys.KEY_Q_LOWER, simulated_terminal=None)
 </code></pre>
 
 <p>Constructor for PyCUI class</p>
-<h3 id="get_widget_set">get_widget_set</h3>
-<pre><code class="python">def get_widget_set(self)
+<h3 id="enable_logging">enable_logging</h3>
+<pre><code class="python">def enable_logging(self, log_file_path='py_cui_log.txt', logging_level = logging.DEBUG)
 </code></pre>
 
-<p>Gets widget set object from current widgets.</p>
-<h4 id="returns_1">Returns</h4>
+<p>Function enables logging for py_cui library</p>
+<h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>
 <tr>
-<th>Return Variable</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>new_widget_set</td>
-<td>py_cui.widget_set.WidgetSet</td>
-<td>Widget set collected from widgets currently added to the py_cui</td>
+<td>log_file_path</td>
+<td>str</td>
+<td>The target log filepath. Default 'py_cui_log.txt</td>
+</tr>
+<tr>
+<td>logging_level</td>
+<td>int</td>
+<td>Default logging level = logging.DEBUG</td>
 </tr>
 </tbody>
 </table>
@@ -563,7 +585,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that replaces all widgets in a py_cui with those of a different widget set</p>
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_2">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -577,6 +599,52 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td>new_widget_set</td>
 <td>WidgetSet</td>
 <td>The new widget set to switch to</td>
+</tr>
+</tbody>
+</table>
+<h3 id="create_new_widget_set">create_new_widget_set</h3>
+<pre><code class="python">def create_new_widget_set(self, num_rows, num_cols)
+</code></pre>
+
+<p>Function that is used to create additional widget sets</p>
+<p>Use this function instead of directly creating widget set object instances, to allow
+for logging support.</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_rows</td>
+<td>int</td>
+<td>row count for new widget set</td>
+</tr>
+<tr>
+<td>num_cols</td>
+<td>int</td>
+<td>column count for new widget set</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_widget_set</td>
+<td>py_cui.widget_set.WidgetSet</td>
+<td>The new widget set object instance</td>
 </tr>
 </tbody>
 </table>
@@ -596,7 +664,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Sets callback function on CUI exit. Must be a no-argument function or lambda function</p>
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -618,7 +686,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Sets the title bar text</p>
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_5">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -640,7 +708,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Sets the status bar text when in overview mode</p>
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -657,13 +725,13 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="initialize_colors">initialize_colors</h3>
-<pre><code class="python">def initialize_colors(self)
+<h3 id="_initialize_colors">_initialize_colors</h3>
+<pre><code class="python">def _initialize_colors(self)
 </code></pre>
 
 <p>Function for initialzing curses colors. Called when CUI is first created.</p>
-<h3 id="initialize_widget_renderer">initialize_widget_renderer</h3>
-<pre><code class="python">def initialize_widget_renderer(self)
+<h3 id="_initialize_widget_renderer">_initialize_widget_renderer</h3>
+<pre><code class="python">def _initialize_widget_renderer(self)
 </code></pre>
 
 <p>Function that creates the renderer object that will draw each widget</p>
@@ -677,7 +745,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that can be used to set arbitrary border characters for drawing widget borders by renderer.</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -719,12 +787,34 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="get_widgets">get_widgets</h3>
+<pre><code class="python">def get_widgets(self)
+</code></pre>
+
+<p>Function that gets current set of widgets</p>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widgets</td>
+<td>dict of str -&gt; widget</td>
+<td>dictionary mapping widget IDs to object instances</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_scroll_menu">add_scroll_menu</h3>
 <pre><code class="python">def add_scroll_menu(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0)
 </code></pre>
 
 <p>Function that adds a new scroll menu to the CUI grid</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -771,7 +861,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_3">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -793,7 +883,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that adds a new checkbox menu to the CUI grid</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -845,7 +935,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_4">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -863,11 +953,11 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="add_text_box">add_text_box</h3>
-<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '')
+<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '', password = False)
 </code></pre>
 
 <p>Function that adds a new text box to the CUI grid</p>
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -917,9 +1007,14 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td>str</td>
 <td>Initial text for the textbox</td>
 </tr>
+<tr>
+<td>password=False</td>
+<td>bool</td>
+<td>Toggle to show '*' instead of characters.</td>
+</tr>
 </tbody>
 </table>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_5">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -941,7 +1036,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that adds a new text block to the CUI grid</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -993,7 +1088,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_6">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1015,7 +1110,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that adds a new label to the CUI grid</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1062,7 +1157,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_7">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1084,7 +1179,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that adds a new block label to the CUI grid</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_13">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1136,7 +1231,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_8">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1158,7 +1253,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that adds a new button to the CUI grid</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_14">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1210,7 +1305,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_9">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1227,12 +1322,12 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="get_widgets_by_row">get_widgets_by_row</h3>
-<pre><code class="python">def get_widgets_by_row(self, row)
+<h3 id="_get_horizontal_neighbors">_get_horizontal_neighbors</h3>
+<pre><code class="python">def _get_horizontal_neighbors(self, widget, direction)
 </code></pre>
 
-<p>Gets all widgets in a specific row</p>
-<h4 id="parameters_13">Parameters</h4>
+<p>Gets all horizontal (left, right) neighbor widgets</p>
+<h4 id="parameters_15">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1243,48 +1338,14 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </thead>
 <tbody>
 <tr>
-<td>row</td>
-<td>int</td>
-<td>Grid row</td>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The currently selected widget</td>
 </tr>
-</tbody>
-</table>
-<h4 id="returns_9">Returns</h4>
-<table>
-<thead>
 <tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>widget_list</td>
-<td>list[Widget]</td>
-<td>A list of the widgets in the given row</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_widgets_by_col">get_widgets_by_col</h3>
-<pre><code class="python">def get_widgets_by_col(self, col)
-</code></pre>
-
-<p>Gets all widgets in a specific column</p>
-<h4 id="parameters_14">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col</td>
-<td>int</td>
-<td>Grid column</td>
+<td>direction</td>
+<td>py_cui.keys.KEY*</td>
+<td>must be an arrow key value</td>
 </tr>
 </tbody>
 </table>
@@ -1299,19 +1360,18 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </thead>
 <tbody>
 <tr>
-<td>widget_list</td>
-<td>list[Widget]</td>
-<td>A list of the widgets in the given column</td>
+<td>id_list</td>
+<td>list[]</td>
+<td>A list of the neighbor widget ids</td>
 </tr>
 </tbody>
 </table>
-<h3 id="check_if_neighbor_exists">check_if_neighbor_exists</h3>
-<pre><code class="python">def check_if_neighbor_exists(self, row, column, direction)
+<h3 id="_get_vertical_neighbors">_get_vertical_neighbors</h3>
+<pre><code class="python">def _get_vertical_neighbors(self, widget, direction)
 </code></pre>
 
-<p>Function that checks if widget has neighbor in specified cell.</p>
-<p>Used for navigating CUI, as arrow keys find the immediate neighbor</p>
-<h4 id="parameters_15">Parameters</h4>
+<p>Gets all vertical (up, down) neighbor widgets</p>
+<h4 id="parameters_16">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1322,19 +1382,14 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </thead>
 <tbody>
 <tr>
-<td>row</td>
-<td>int</td>
-<td>row of current widget</td>
-</tr>
-<tr>
-<td>column</td>
-<td>int</td>
-<td>column of current widget</td>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The currently selected widget</td>
 </tr>
 <tr>
 <td>direction</td>
-<td>py_cui.keys.KEY_*</td>
-<td>The direction in which to search</td>
+<td>py_cui.keys.KEY*</td>
+<td>must be an arrow key value</td>
 </tr>
 </tbody>
 </table>
@@ -1349,39 +1404,18 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </thead>
 <tbody>
 <tr>
-<td>widget_id</td>
-<td>str</td>
-<td>The widget neighbor ID if found, None otherwise</td>
+<td>id_list</td>
+<td>list[]</td>
+<td>A list of the neighbor widget ids</td>
 </tr>
 </tbody>
 </table>
-<h3 id="set_selected_widget">set_selected_widget</h3>
-<pre><code class="python">def set_selected_widget(self, widget_id)
+<h3 id="_check_if_neighbor_exists">_check_if_neighbor_exists</h3>
+<pre><code class="python">def _check_if_neighbor_exists(self, direction)
 </code></pre>
 
-<p>Function that sets the selected cell for the CUI</p>
-<h4 id="parameters_16">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>widget_id</td>
-<td>str</td>
-<td>the id of the widget</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get_widget_id">get_widget_id</h3>
-<pre><code class="python">def get_widget_id(self, widget)
-</code></pre>
-
-<p>Function for grabbing widget ID</p>
+<p>Function that checks if widget has neighbor in specified cell.</p>
+<p>Used for navigating CUI, as arrow keys find the immediate neighbor</p>
 <h4 id="parameters_17">Parameters</h4>
 <table>
 <thead>
@@ -1393,9 +1427,9 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </thead>
 <tbody>
 <tr>
-<td>widget</td>
-<td>Widget</td>
-<td>The widget object we wish to get an ID from</td>
+<td>direction</td>
+<td>py_cui.keys.KEY_*</td>
+<td>The direction in which to search</td>
 </tr>
 </tbody>
 </table>
@@ -1412,7 +1446,51 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <tr>
 <td>widget_id</td>
 <td>str</td>
-<td>The id if found, None otherwise</td>
+<td>The widget neighbor ID if found, None otherwise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_selected_widget">get_selected_widget</h3>
+<pre><code class="python">def get_selected_widget(self)
+</code></pre>
+
+<p>Function that gets currently selected widget</p>
+<h4 id="returns_13">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selected_widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>Reference to currently selected widget object</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_selected_widget">set_selected_widget</h3>
+<pre><code class="python">def set_selected_widget(self, widget_id)
+</code></pre>
+
+<p>Function that sets the selected widget for the CUI</p>
+<h4 id="parameters_18">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget_id</td>
+<td>str</td>
+<td>the id of the widget to select</td>
 </tr>
 </tbody>
 </table>
@@ -1427,7 +1505,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Moves focus mode to different widget</p>
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_19">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1449,7 +1527,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that adds a keybinding to the CUI when in overview mode</p>
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_20">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1476,7 +1554,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Shows a message popup</p>
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_21">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1503,7 +1581,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Shows a warning popup</p>
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_22">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1530,7 +1608,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Shows an error popup</p>
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_23">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1558,7 +1636,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 
 <p>Shows a yes/no popup.</p>
 <p>The 'command' parameter must be a function with a single boolean parameter</p>
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_24">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1586,7 +1664,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 
 <p>Shows a textbox popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_25">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1619,7 +1697,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 
 <p>Shows a menu popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_26">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1656,7 +1734,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Shows a loading icon popup</p>
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_27">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1689,7 +1767,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 
 <p>Shows loading bar popup.</p>
 <p>Use 'increment_loading_bar' to show progress</p>
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_28">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1732,12 +1810,12 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Closes the popup, and resets focus</p>
-<h3 id="refresh_height_width">refresh_height_width</h3>
-<pre><code class="python">def refresh_height_width(self, height, width)
+<h3 id="_refresh_height_width">_refresh_height_width</h3>
+<pre><code class="python">def _refresh_height_width(self, height, width)
 </code></pre>
 
 <p>Function that updates the height and width of the CUI based on terminal window size</p>
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_29">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1759,17 +1837,39 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw_widgets">draw_widgets</h3>
-<pre><code class="python">def draw_widgets(self)
+<h3 id="get_absolute_size">get_absolute_size</h3>
+<pre><code class="python">def get_absolute_size(self)
+</code></pre>
+
+<p>Returns dimensions of CUI</p>
+<h4 id="returns_14">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>height, width</td>
+<td>int</td>
+<td>The dimensions of drawable CUI space in characters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_draw_widgets">_draw_widgets</h3>
+<pre><code class="python">def _draw_widgets(self)
 </code></pre>
 
 <p>Function that draws all of the widgets to the screen</p>
-<h3 id="draw_status_bars">draw_status_bars</h3>
-<pre><code class="python">def draw_status_bars(self, stdscr, height, width)
+<h3 id="_draw_status_bars">_draw_status_bars</h3>
+<pre><code class="python">def _draw_status_bars(self, stdscr, height, width)
 </code></pre>
 
 <p>Draws status bar and title bar</p>
-<h4 id="parameters_29">Parameters</h4>
+<h4 id="parameters_30">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1796,12 +1896,12 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="display_window_warning">display_window_warning</h3>
-<pre><code class="python">def display_window_warning(self, stdscr, error_info)
+<h3 id="_display_window_warning">_display_window_warning</h3>
+<pre><code class="python">def _display_window_warning(self, stdscr, error_info)
 </code></pre>
 
 <p>Function that prints some basic error info if there is an error with the CUI</p>
-<h4 id="parameters_30">Parameters</h4>
+<h4 id="parameters_31">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1823,12 +1923,12 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="handle_key_presses">handle_key_presses</h3>
-<pre><code class="python">def handle_key_presses(self, key_pressed)
+<h3 id="_handle_key_presses">_handle_key_presses</h3>
+<pre><code class="python">def _handle_key_presses(self, key_pressed)
 </code></pre>
 
 <p>Function that handles all main loop key presses.</p>
-<h4 id="parameters_31">Parameters</h4>
+<h4 id="parameters_32">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1845,12 +1945,12 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="draw">draw</h3>
-<pre><code class="python">def draw(self, stdscr)
+<h3 id="_draw">_draw</h3>
+<pre><code class="python">def _draw(self, stdscr)
 </code></pre>
 
 <p>Main CUI draw loop called by start()</p>
-<h4 id="parameters_32">Parameters</h4>
+<h4 id="parameters_33">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1872,7 +1972,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Override of base format function. Prints list of current widgets.</p>
-<h4 id="parameters_33">Parameters</h4>
+<h4 id="parameters_34">Parameters</h4>
 <table>
 <thead>
 <tr>
