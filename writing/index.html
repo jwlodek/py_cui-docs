@@ -92,12 +92,24 @@
 
     </ul>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../developers/">For PyCUI Developers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../examples/">Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../about/">About</a>
+                </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Classes and Functions</span>
+    <span class="caption-text">API Docstring Docs</span>
     <ul class="subnav">
                 <li class="">
                     
@@ -136,21 +148,6 @@
     <a class="" href="../DocstringGenerated/Keys/">Keys</a>
                 </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../developers/">For PyCUI Developers</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../examples/">Examples</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../about/">About</a>
 	    </li>
           
         </ul>
@@ -212,7 +209,9 @@ root.start()
 </code></pre>
 
 <p><strong>Step 2 - Add your widgets</strong></p>
-<p>Next, we want to add widgets to the CUI. We will add 3 scroll menus to represent our lists of TODO, In Progress, and Done, a text field for adding new items for now.</p>
+<p>Next, we want to add widgets to the CUI. We will add 3 scroll menus to represent our lists of TODO, In Progress, and Done, a text field for adding new items for now.
+In more complex programs, you may use any object with an implemented <code>__str__</code> function to pass to a scroll menu, but in this example, we will simply input strings representing 
+the different tasks in our list.</p>
 <pre><code class="Python">import py_cui
 
 class SimpleTodoList:
@@ -316,7 +315,7 @@ root.start()
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../DocstringGenerated/PyCui/" class="btn btn-neutral float-right" title="PyCUI">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../developers/" class="btn btn-neutral float-right" title="For PyCUI Developers">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../keybindings/" class="btn btn-neutral" title="Keys"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -352,7 +351,7 @@ root.start()
         <span><a href="../keybindings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../DocstringGenerated/PyCui/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../developers/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

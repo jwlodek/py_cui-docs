@@ -86,12 +86,24 @@
                     
     <a class="" href="../../writing/">Writing a PyCUI step-by-step</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../developers/">For PyCUI Developers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../examples/">Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../about/">About</a>
+                </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Classes and Functions</span>
+    <span class="caption-text">API Docstring Docs</span>
     <ul class="subnav">
                 <li class=" current">
                     
@@ -150,21 +162,6 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../developers/">For PyCUI Developers</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../examples/">Examples</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../about/">About</a>
-	    </li>
-          
         </ul>
       </div>
       &nbsp;
@@ -187,7 +184,7 @@
     
       
         
-          <li>Classes and Functions &raquo;</li>
+          <li>API Docstring Docs &raquo;</li>
         
       
     
@@ -205,9 +202,7 @@
             <div class="section">
               
                 <h1 id="py_cui">py_cui</h1>
-<p>A python library for creating command line based user interfaces.</p>
-<p>@author:    Jakub Wlodek<br />
-@created:   12-Aug-2019</p>
+<p>A python library for intuitively creating CUI/TUI interfaces with pre-built widgets.</p>
 <h4 id="classes">Classes</h4>
 <table>
 <thead>
@@ -441,6 +436,10 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <tr>
 <td>add_button</td>
 <td>Function that adds a new button to the CUI grid</td>
+</tr>
+<tr>
+<td>get_widget_at_position</td>
+<td>Returns containing widget for character position</td>
 </tr>
 <tr>
 <td>_get_horizontal_neighbors</td>
@@ -1326,11 +1325,11 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="_get_horizontal_neighbors">_get_horizontal_neighbors</h3>
-<pre><code class="python">def _get_horizontal_neighbors(self, widget, direction)
+<h3 id="get_widget_at_position">get_widget_at_position</h3>
+<pre><code class="python">def get_widget_at_position(self, x, y)
 </code></pre>
 
-<p>Gets all horizontal (left, right) neighbor widgets</p>
+<p>Returns containing widget for character position</p>
 <h4 id="parameters_15">Parameters</h4>
 <table>
 <thead>
@@ -1342,14 +1341,14 @@ for logging support.</p>
 </thead>
 <tbody>
 <tr>
-<td>widget</td>
-<td>py_cui.widgets.Widget</td>
-<td>The currently selected widget</td>
+<td>x</td>
+<td>int</td>
+<td>Horizontal character position</td>
 </tr>
 <tr>
-<td>direction</td>
-<td>py_cui.keys.KEY*</td>
-<td>must be an arrow key value</td>
+<td>y</td>
+<td>int</td>
+<td>Vertical character position, top down</td>
 </tr>
 </tbody>
 </table>
@@ -1364,17 +1363,17 @@ for logging support.</p>
 </thead>
 <tbody>
 <tr>
-<td>id_list</td>
-<td>list[]</td>
-<td>A list of the neighbor widget ids</td>
+<td>in_widget</td>
+<td>UIElement</td>
+<td>Widget or popup that is within the position None if nothing</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_get_vertical_neighbors">_get_vertical_neighbors</h3>
-<pre><code class="python">def _get_vertical_neighbors(self, widget, direction)
+<h3 id="_get_horizontal_neighbors">_get_horizontal_neighbors</h3>
+<pre><code class="python">def _get_horizontal_neighbors(self, widget, direction)
 </code></pre>
 
-<p>Gets all vertical (up, down) neighbor widgets</p>
+<p>Gets all horizontal (left, right) neighbor widgets</p>
 <h4 id="parameters_16">Parameters</h4>
 <table>
 <thead>
@@ -1414,13 +1413,57 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="_get_vertical_neighbors">_get_vertical_neighbors</h3>
+<pre><code class="python">def _get_vertical_neighbors(self, widget, direction)
+</code></pre>
+
+<p>Gets all vertical (up, down) neighbor widgets</p>
+<h4 id="parameters_17">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The currently selected widget</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>py_cui.keys.KEY*</td>
+<td>must be an arrow key value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_12">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_list</td>
+<td>list[]</td>
+<td>A list of the neighbor widget ids</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_check_if_neighbor_exists">_check_if_neighbor_exists</h3>
 <pre><code class="python">def _check_if_neighbor_exists(self, direction)
 </code></pre>
 
 <p>Function that checks if widget has neighbor in specified cell.</p>
 <p>Used for navigating CUI, as arrow keys find the immediate neighbor</p>
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_18">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1437,7 +1480,7 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_13">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1459,7 +1502,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that gets currently selected widget</p>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_14">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1481,7 +1524,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that sets the selected widget for the CUI</p>
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_19">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1509,7 +1552,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Moves focus mode to different widget</p>
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_20">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1531,7 +1574,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that adds a keybinding to the CUI when in overview mode</p>
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_21">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1558,7 +1601,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows a message popup</p>
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_22">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1585,7 +1628,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows a warning popup</p>
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_23">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1612,7 +1655,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows an error popup</p>
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_24">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1640,7 +1683,7 @@ for logging support.</p>
 
 <p>Shows a yes/no popup.</p>
 <p>The 'command' parameter must be a function with a single boolean parameter</p>
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_25">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1668,7 +1711,7 @@ for logging support.</p>
 
 <p>Shows a textbox popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_26">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1701,7 +1744,7 @@ for logging support.</p>
 
 <p>Shows a menu popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_27">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1738,7 +1781,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows a loading icon popup</p>
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_28">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1771,7 +1814,7 @@ for logging support.</p>
 
 <p>Shows loading bar popup.</p>
 <p>Use 'increment_loading_bar' to show progress</p>
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_29">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1819,7 +1862,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that updates the height and width of the CUI based on terminal window size</p>
-<h4 id="parameters_29">Parameters</h4>
+<h4 id="parameters_30">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1846,7 +1889,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Returns dimensions of CUI</p>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_15">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1873,7 +1916,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Draws status bar and title bar</p>
-<h4 id="parameters_30">Parameters</h4>
+<h4 id="parameters_31">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1905,7 +1948,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that prints some basic error info if there is an error with the CUI</p>
-<h4 id="parameters_31">Parameters</h4>
+<h4 id="parameters_32">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1932,7 +1975,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that handles all main loop key presses.</p>
-<h4 id="parameters_32">Parameters</h4>
+<h4 id="parameters_33">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1954,7 +1997,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Main CUI draw loop called by start()</p>
-<h4 id="parameters_33">Parameters</h4>
+<h4 id="parameters_34">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1976,7 +2019,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Override of base format function. Prints list of current widgets.</p>
-<h4 id="parameters_34">Parameters</h4>
+<h4 id="parameters_35">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2003,7 +2046,7 @@ for logging support.</p>
         <a href="../Grid/" class="btn btn-neutral float-right" title="Grid">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../writing/" class="btn btn-neutral" title="Writing a PyCUI step-by-step"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../about/" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -2033,7 +2076,7 @@ for logging support.</p>
           <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../writing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../about/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../Grid/" style="color: #fcfcfc">Next &raquo;</a></span>

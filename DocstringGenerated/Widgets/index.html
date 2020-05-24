@@ -86,12 +86,24 @@
                     
     <a class="" href="../../writing/">Writing a PyCUI step-by-step</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../developers/">For PyCUI Developers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../examples/">Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../about/">About</a>
+                </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Classes and Functions</span>
+    <span class="caption-text">API Docstring Docs</span>
     <ul class="subnav">
                 <li class="">
                     
@@ -122,15 +134,15 @@
         
             <li><a class="toctree-l4" href="#blocklabelwidget">BlockLabel(Widget)</a></li>
         
-            <li><a class="toctree-l4" href="#scrollmenuwidge">ScrollMenu(Widge</a></li>
+            <li><a class="toctree-l4" href="#scrollmenuwidget-py_cuiuimenuimplementation">ScrollMenu(Widget, py_cui.ui.MenuImplementation)</a></li>
         
-            <li><a class="toctree-l4" href="#checkboxmenuscrollmenu">CheckBoxMenu(ScrollMenu)</a></li>
+            <li><a class="toctree-l4" href="#checkboxmenuwidget-py_cuiuicheckboxmenuimplementation">CheckBoxMenu(Widget, py_cui.ui.CheckBoxMenuImplementation)</a></li>
         
             <li><a class="toctree-l4" href="#buttonwidget">Button(Widget)</a></li>
         
-            <li><a class="toctree-l4" href="#textboxwidge">TextBox(Widge</a></li>
+            <li><a class="toctree-l4" href="#textboxwidget-py_cuiuitextboximplementation">TextBox(Widget, py_cui.ui.TextBoxImplementation)</a></li>
         
-            <li><a class="toctree-l4" href="#scrolltextblockwidge">ScrollTextBlock(Widge</a></li>
+            <li><a class="toctree-l4" href="#scrolltextblockwidget-py_cuiuitextblockimplementation">ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)</a></li>
         
         </ul>
     
@@ -160,21 +172,6 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../developers/">For PyCUI Developers</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../examples/">Examples</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../about/">About</a>
-	    </li>
-          
         </ul>
       </div>
       &nbsp;
@@ -197,7 +194,7 @@
     
       
         
-          <li>Classes and Functions &raquo;</li>
+          <li>API Docstring Docs &raquo;</li>
         
       
     
@@ -230,8 +227,6 @@ This file contains classes for:</p>
 </ul>
 <p>Additional widgets should be added in as additional_widgets/$WIDGET_NAME.py, importing this
 file and extending the base Widget class, or if appropriate one of the other core widgets.</p>
-<p>@author:    Jakub Wlodek<br />
-@created:   12-Aug-2019</p>
 <h4 id="classes">Classes</h4>
 <table>
 <thead>
@@ -254,11 +249,11 @@ file and extending the base Widget class, or if appropriate one of the other cor
 <td>A Variation of the label widget that renders a block of text.</td>
 </tr>
 <tr>
-<td>ScrollMenu(Widge</td>
+<td>ScrollMenu(Widget, py_cui.ui.MenuImplementation)</td>
 <td>A scroll menu widget.</td>
 </tr>
 <tr>
-<td>CheckBoxMenu(ScrollMenu)</td>
+<td>CheckBoxMenu(Widget, py_cui.ui.CheckBoxMenuImplementation)</td>
 <td>Extension of ScrollMenu that allows for multiple items to be selected at once.</td>
 </tr>
 <tr>
@@ -266,11 +261,11 @@ file and extending the base Widget class, or if appropriate one of the other cor
 <td>Basic button widget.</td>
 </tr>
 <tr>
-<td>TextBox(Widge</td>
+<td>TextBox(Widget, py_cui.ui.TextBoxImplementation)</td>
 <td>Widget for entering small single lines of text</td>
 </tr>
 <tr>
-<td>ScrollTextBlock(Widge</td>
+<td>ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)</td>
 <td>Widget for editing large multi-line blocks of text</td>
 </tr>
 </tbody>
@@ -787,7 +782,7 @@ Also intializes color rules, so if not called color rules will not be applied</p
 
 <p>Override base draw class.</p>
 <p>Center text and draw it</p>
-<h2 id="scrollmenuwidge">ScrollMenu(Widge</h2>
+<h2 id="scrollmenuwidget-py_cuiuimenuimplementation">ScrollMenu(Widget, py_cui.ui.MenuImplementation)</h2>
 <pre><code class="python">class ScrollMenu(Widget, py_cui.ui.MenuImplementation)
 </code></pre>
 
@@ -801,6 +796,10 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>_handle_mouse_press</td>
+<td>Override of base class function, handles mouse press in menu</td>
+</tr>
 <tr>
 <td>_handle_key_press</td>
 <td>Override base class function.</td>
@@ -816,13 +815,35 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </code></pre>
 
 <p>Initializer for scroll menu. calls superclass initializers and sets help text</p>
+<h3 id="_handle_mouse_press">_handle_mouse_press</h3>
+<pre><code class="python">def _handle_mouse_press(self, x, y)
+</code></pre>
+
+<p>Override of base class function, handles mouse press in menu</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x, y</td>
+<td>int</td>
+<td>Coordinates of mouse press</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_handle_key_press_1">_handle_key_press</h3>
 <pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override base class function.</p>
 <p>UP_ARROW scrolls up, DOWN_ARROW scrolls down.</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -844,8 +865,8 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </code></pre>
 
 <p>Overrides base class draw function</p>
-<h2 id="checkboxmenuscrollmenu">CheckBoxMenu(ScrollMenu)</h2>
-<pre><code class="python">class CheckBoxMenu(ScrollMenu)
+<h2 id="checkboxmenuwidget-py_cuiuicheckboxmenuimplementation">CheckBoxMenu(Widget, py_cui.ui.CheckBoxMenuImplementation)</h2>
+<pre><code class="python">class CheckBoxMenu(Widget, py_cui.ui.CheckBoxMenuImplementation)
 </code></pre>
 
 <p>Extension of ScrollMenu that allows for multiple items to be selected at once.</p>
@@ -881,24 +902,16 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </thead>
 <tbody>
 <tr>
-<td>add_item</td>
-<td>Adds item to Checkbox</td>
-</tr>
-<tr>
-<td>add_item_list</td>
-<td>Adds list of items to the checkbox</td>
-</tr>
-<tr>
-<td>get</td>
-<td>Gets list of selected items from the checkbox</td>
-</tr>
-<tr>
-<td>mark_item_as_checked</td>
-<td>Function that marks an item as selected</td>
+<td>_handle_mouse_press</td>
+<td>Override of base class function, handles mouse press in menu</td>
 </tr>
 <tr>
 <td>_handle_key_press</td>
 <td>Override of key presses.</td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Overrides base class draw function</td>
 </tr>
 </tbody>
 </table>
@@ -906,34 +919,12 @@ Also intializes color rules, so if not called color rules will not be applied</p
 <pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, checked_char)
 </code></pre>
 
-<p>Initializer for CheckBoxMenu Widget. Builds on ScrollMenu</p>
-<h3 id="add_item">add_item</h3>
-<pre><code class="python">def add_item(self, item_text)
+<p>Initializer for CheckBoxMenu Widget</p>
+<h3 id="_handle_mouse_press_1">_handle_mouse_press</h3>
+<pre><code class="python">def _handle_mouse_press(self, x, y)
 </code></pre>
 
-<p>Adds item to Checkbox</p>
-<h4 id="parameters_6">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>item_text</td>
-<td>str</td>
-<td>Menu item to add</td>
-</tr>
-</tbody>
-</table>
-<h3 id="add_item_list">add_item_list</h3>
-<pre><code class="python">def add_item_list(self, item_list)
-</code></pre>
-
-<p>Adds list of items to the checkbox</p>
+<p>Override of base class function, handles mouse press in menu</p>
 <h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
@@ -945,53 +936,9 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </thead>
 <tbody>
 <tr>
-<td>item_list</td>
-<td>list of str</td>
-<td>Menu item list to add</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get">get</h3>
-<pre><code class="python">def get(self)
-</code></pre>
-
-<p>Gets list of selected items from the checkbox</p>
-<h4 id="returns_6">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>selected_items</td>
-<td>list of str</td>
-<td>list of checked items</td>
-</tr>
-</tbody>
-</table>
-<h3 id="mark_item_as_checked">mark_item_as_checked</h3>
-<pre><code class="python">def mark_item_as_checked(self, text)
-</code></pre>
-
-<p>Function that marks an item as selected</p>
-<h4 id="parameters_8">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text</td>
-<td>str</td>
-<td>Mark item with text = text as checked</td>
+<td>x, y</td>
+<td>int</td>
+<td>Coordinates of mouse press</td>
 </tr>
 </tbody>
 </table>
@@ -1002,7 +949,7 @@ Also intializes color rules, so if not called color rules will not be applied</p
 <p>Override of key presses.</p>
 <p>First, run the superclass function, scrolling should still work.
 Adds Enter command to toggle selection</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1019,6 +966,11 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
+<h3 id="_draw_4">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<p>Overrides base class draw function</p>
 <h2 id="buttonwidget">Button(Widget)</h2>
 <pre><code class="python">class Button(Widget)
 </code></pre>
@@ -1071,7 +1023,7 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Override of base class, adds ENTER listener that runs the button's command</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1088,12 +1040,12 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="_draw_4">_draw</h3>
+<h3 id="_draw_5">_draw</h3>
 <pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override of base class draw function</p>
-<h2 id="textboxwidge">TextBox(Widge</h2>
+<h2 id="textboxwidget-py_cuiuitextboximplementation">TextBox(Widget, py_cui.ui.TextBoxImplementation)</h2>
 <pre><code class="python">class TextBox(Widget, py_cui.ui.TextBoxImplementation)
 </code></pre>
 
@@ -1110,6 +1062,10 @@ Adds Enter command to toggle selection</p>
 <tr>
 <td>update_height_width</td>
 <td>Need to update all cursor positions on resize</td>
+</tr>
+<tr>
+<td>_handle_mouse_press</td>
+<td>Override of base class function, handles mouse press in menu</td>
 </tr>
 <tr>
 <td>_handle_key_press</td>
@@ -1131,6 +1087,28 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Need to update all cursor positions on resize</p>
+<h3 id="_handle_mouse_press_2">_handle_mouse_press</h3>
+<pre><code class="python">def _handle_mouse_press(self, x, y)
+</code></pre>
+
+<p>Override of base class function, handles mouse press in menu</p>
+<h4 id="parameters_10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x, y</td>
+<td>int</td>
+<td>Coordinates of mouse press</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_handle_key_press_4">_handle_key_press</h3>
 <pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
@@ -1153,12 +1131,12 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="_draw_5">_draw</h3>
+<h3 id="_draw_6">_draw</h3>
 <pre><code class="python">def _draw(self)
 </code></pre>
 
 <p>Override of base draw function</p>
-<h2 id="scrolltextblockwidge">ScrollTextBlock(Widge</h2>
+<h2 id="scrolltextblockwidget-py_cuiuitextblockimplementation">ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)</h2>
 <pre><code class="python">class ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)
 </code></pre>
 
@@ -1175,6 +1153,10 @@ Adds Enter command to toggle selection</p>
 <tr>
 <td>update_height_width</td>
 <td>Function that updates the position of the text and cursor on resize</td>
+</tr>
+<tr>
+<td>_handle_mouse_press</td>
+<td>Override of base class function, handles mouse press in menu</td>
 </tr>
 <tr>
 <td>_handle_key_press</td>
@@ -1196,12 +1178,34 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Function that updates the position of the text and cursor on resize</p>
+<h3 id="_handle_mouse_press_3">_handle_mouse_press</h3>
+<pre><code class="python">def _handle_mouse_press(self, x, y)
+</code></pre>
+
+<p>Override of base class function, handles mouse press in menu</p>
+<h4 id="parameters_12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x, y</td>
+<td>int</td>
+<td>Coordinates of mouse press</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_handle_key_press_5">_handle_key_press</h3>
 <pre><code class="python">def _handle_key_press(self, key_pressed)
 </code></pre>
 
 <p>Override of base class handle key press function</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_13">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1218,7 +1222,7 @@ Adds Enter command to toggle selection</p>
 </tr>
 </tbody>
 </table>
-<h3 id="_draw_6">_draw</h3>
+<h3 id="_draw_7">_draw</h3>
 <pre><code class="python">def _draw(self)
 </code></pre>
 

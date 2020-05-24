@@ -86,12 +86,24 @@
                     
     <a class="" href="../../writing/">Writing a PyCUI step-by-step</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../developers/">For PyCUI Developers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../examples/">Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../about/">About</a>
+                </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Classes and Functions</span>
+    <span class="caption-text">API Docstring Docs</span>
     <ul class="subnav">
                 <li class="">
                     
@@ -119,6 +131,8 @@
             <li><a class="toctree-l4" href="#textboximplementationuiimplementation">TextBoxImplementation(UIImplementation)</a></li>
         
             <li><a class="toctree-l4" href="#menuimplementationuiimplementation">MenuImplementation(UIImplementation)</a></li>
+        
+            <li><a class="toctree-l4" href="#checkboxmenuimplementationmenuimplementation">CheckBoxMenuImplementation(MenuImplementation)</a></li>
         
             <li><a class="toctree-l4" href="#textblockimplementationuiimplementation">TextBlockImplementation(UIImplementation)</a></li>
         
@@ -154,21 +168,6 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../developers/">For PyCUI Developers</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../examples/">Examples</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../about/">About</a>
-	    </li>
-          
         </ul>
       </div>
       &nbsp;
@@ -191,7 +190,7 @@
     
       
         
-          <li>Classes and Functions &raquo;</li>
+          <li>API Docstring Docs &raquo;</li>
         
       
     
@@ -235,6 +234,10 @@
 <tr>
 <td>MenuImplementation(UIImplementation)</td>
 <td>A scrollable menu UI element</td>
+</tr>
+<tr>
+<td>CheckBoxMenuImplementation(MenuImplementation)</td>
+<td>Class representing checkbox menu ui implementation</td>
 </tr>
 <tr>
 <td>TextBlockImplementation(UIImplementation)</td>
@@ -409,12 +412,24 @@ class contains all links to the CUI engine.</p>
 <td>Must be implemented by subclass. Used to handle keypresses</td>
 </tr>
 <tr>
+<td>add_mouse_press_handler</td>
+<td>Sets a mouse press handler function</td>
+</tr>
+<tr>
+<td>_handle_mouse_press</td>
+<td>Can be implemented by subclass. Used to handle mouse presses</td>
+</tr>
+<tr>
 <td>_draw</td>
 <td>Must be implemented by subclasses. Uses renderer to draw element to terminal</td>
 </tr>
 <tr>
 <td>_assign_renderer</td>
 <td>Function that assigns a renderer object to the element</td>
+</tr>
+<tr>
+<td>_contains_position</td>
+<td>Checks if character position is within element.</td>
 </tr>
 </tbody>
 </table>
@@ -796,6 +811,50 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Must be implemented by subclass. Used to handle keypresses</p>
+<h3 id="add_mouse_press_handler">add_mouse_press_handler</h3>
+<pre><code class="python">def add_mouse_press_handler(self, mouse_press_handler_func)
+</code></pre>
+
+<p>Sets a mouse press handler function</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mouse_press_handler_func</td>
+<td>function / lambda function</td>
+<td>Function that takes 2 parameters: x and y of a mouse press. Executes when mouse pressed and element is selected</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_mouse_press">_handle_mouse_press</h3>
+<pre><code class="python">def _handle_mouse_press(self, x, y)
+</code></pre>
+
+<p>Can be implemented by subclass. Used to handle mouse presses</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x, y</td>
+<td>int, int</td>
+<td>Coordinates of the mouse press event.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_draw">_draw</h3>
 <pre><code class="python">def _draw(self)
 </code></pre>
@@ -807,7 +866,7 @@ class contains all links to the CUI engine.</p>
 
 <p>Function that assigns a renderer object to the element</p>
 <p>(Meant for internal usage only)</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -838,6 +897,50 @@ class contains all links to the CUI engine.</p>
 <td>error</td>
 <td>PyCUIError</td>
 <td>If parameter is not an initialized renderer.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_contains_position">_contains_position</h3>
+<pre><code class="python">def _contains_position(self, x, y)
+</code></pre>
+
+<p>Checks if character position is within element.</p>
+<h4 id="parameters_8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>int</td>
+<td>X coordinate to check</td>
+</tr>
+<tr>
+<td>y</td>
+<td>int</td>
+<td>Y coordinate to check</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_11">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contains</td>
+<td>bool</td>
+<td>True if (x,y) is within the element, false otherwise</td>
 </tr>
 </tbody>
 </table>
@@ -1003,7 +1106,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets initial cursor position</p>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_12">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1025,7 +1128,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets current position of cursor relative to text</p>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_13">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1047,7 +1150,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets cursor extreme points in terminal position</p>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_14">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1069,7 +1172,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Returns current cursor poition</p>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_15">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1091,7 +1194,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets the width of the textbox viewport</p>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_16">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1113,7 +1216,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Sets the value of the text. Overwrites existing text</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1135,7 +1238,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets value of the text in the textbox</p>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_17">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1172,7 +1275,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Inserts char at cursor position. Internal use only</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1257,11 +1360,11 @@ Analogous to a RadioButton</p>
 <td>Clears all items from the Scroll Menu</td>
 </tr>
 <tr>
-<td>get_selected_item</td>
+<td>get_selected_item_index</td>
 <td>Gets the currently selected item</td>
 </tr>
 <tr>
-<td>set_selected_item</td>
+<td>set_selected_item_index</td>
 <td>Sets the currently selected item</td>
 </tr>
 <tr>
@@ -1271,6 +1374,22 @@ Analogous to a RadioButton</p>
 <tr>
 <td>_scroll_down</td>
 <td>Function that scrolls the view down in the scroll menu</td>
+</tr>
+<tr>
+<td>_jump_up</td>
+<td>Function for jumping up menu several spots at a time</td>
+</tr>
+<tr>
+<td>_jump_down</td>
+<td>Function for jumping down the menu several spots at a time</td>
+</tr>
+<tr>
+<td>_jump_to_top</td>
+<td>Function that jumps to the top of the menu</td>
+</tr>
+<tr>
+<td>_jump_to_bottom</td>
+<td>Function that jumps to the bottom of the menu</td>
 </tr>
 <tr>
 <td>add_item</td>
@@ -1283,6 +1402,10 @@ Analogous to a RadioButton</p>
 <tr>
 <td>remove_selected_item</td>
 <td>Function that removes the selected item from the scroll menu.</td>
+</tr>
+<tr>
+<td>remove_item</td>
+<td>Function that removes a specific item from the menu</td>
 </tr>
 <tr>
 <td>get_item_list</td>
@@ -1304,12 +1427,12 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Clears all items from the Scroll Menu</p>
-<h3 id="get_selected_item">get_selected_item</h3>
-<pre><code class="python">def get_selected_item(self)
+<h3 id="get_selected_item_index">get_selected_item_index</h3>
+<pre><code class="python">def get_selected_item_index(self)
 </code></pre>
 
 <p>Gets the currently selected item</p>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_18">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1326,12 +1449,12 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
-<h3 id="set_selected_item">set_selected_item</h3>
-<pre><code class="python">def set_selected_item(self, selected_item)
+<h3 id="set_selected_item_index">set_selected_item_index</h3>
+<pre><code class="python">def set_selected_item_index(self, selected_item)
 </code></pre>
 
 <p>Sets the currently selected item</p>
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1359,7 +1482,61 @@ Analogous to a RadioButton</p>
 
 <p>Function that scrolls the view down in the scroll menu</p>
 <p>TODO: Viewport height should be calculated internally, and not rely on a parameter.</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>viewport_height</td>
+<td>int</td>
+<td>The number of visible viewport items</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_jump_up">_jump_up</h3>
+<pre><code class="python">def _jump_up(self)
+</code></pre>
+
+<p>Function for jumping up menu several spots at a time</p>
+<h3 id="_jump_down">_jump_down</h3>
+<pre><code class="python">def _jump_down(self, viewport_height)
+</code></pre>
+
+<p>Function for jumping down the menu several spots at a time</p>
+<h4 id="parameters_13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>viewport_height</td>
+<td>int</td>
+<td>The number of visible viewport items</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_jump_to_top">_jump_to_top</h3>
+<pre><code class="python">def _jump_to_top(self)
+</code></pre>
+
+<p>Function that jumps to the top of the menu</p>
+<h3 id="_jump_to_bottom">_jump_to_bottom</h3>
+<pre><code class="python">def _jump_to_bottom(self, viewport_height)
+</code></pre>
+
+<p>Function that jumps to the bottom of the menu</p>
+<h4 id="parameters_14">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1377,11 +1554,11 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="add_item">add_item</h3>
-<pre><code class="python">def add_item(self, item_text)
+<pre><code class="python">def add_item(self, item)
 </code></pre>
 
 <p>Adds an item to the menu.</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_15">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1392,9 +1569,9 @@ Analogous to a RadioButton</p>
 </thead>
 <tbody>
 <tr>
-<td>item_text</td>
-<td>str</td>
-<td>The text for the item</td>
+<td>item</td>
+<td>Object</td>
+<td>Object to add to the menu. Must have implemented <strong>str</strong> function</td>
 </tr>
 </tbody>
 </table>
@@ -1403,7 +1580,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Adds a list of items to the scroll menu.</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_16">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1415,8 +1592,8 @@ Analogous to a RadioButton</p>
 <tbody>
 <tr>
 <td>item_list</td>
-<td>list of str</td>
-<td>list of strings to add as items to the scrollmenu</td>
+<td>list of Object</td>
+<td>list of objects to add as items to the scrollmenu</td>
 </tr>
 </tbody>
 </table>
@@ -1425,12 +1602,34 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that removes the selected item from the scroll menu.</p>
+<h3 id="remove_item">remove_item</h3>
+<pre><code class="python">def remove_item(self, item)
+</code></pre>
+
+<p>Function that removes a specific item from the menu</p>
+<h4 id="parameters_17">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item</td>
+<td>Object</td>
+<td>Reference of item to remove</td>
+</tr>
+</tbody>
+</table>
 <h3 id="get_item_list">get_item_list</h3>
 <pre><code class="python">def get_item_list(self)
 </code></pre>
 
 <p>Function that gets list of items in a scroll menu</p>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_19">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1452,7 +1651,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that gets the selected item from the scroll menu</p>
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_20">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1469,6 +1668,136 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
+<h2 id="checkboxmenuimplementationmenuimplementation">CheckBoxMenuImplementation(MenuImplementation)</h2>
+<pre><code class="python">class CheckBoxMenuImplementation(MenuImplementation)
+</code></pre>
+
+<p>Class representing checkbox menu ui implementation</p>
+<h4 id="attributes_4">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_selected_item_dict</td>
+<td>dict of object -&gt; bool</td>
+<td>stores each object and maps to its current selected status</td>
+</tr>
+<tr>
+<td>_checked_char</td>
+<td>char</td>
+<td>Character to mark checked items</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_3">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add_item</td>
+<td>Extends base class function, item is added and marked as unchecked to start</td>
+</tr>
+<tr>
+<td>remove_selected_item</td>
+<td>Removes selected item from item list and selected item dictionary</td>
+</tr>
+<tr>
+<td>remove_item</td>
+<td>Removes item from item list and selected item dict</td>
+</tr>
+<tr>
+<td>mark_item_as_checked</td>
+<td>Function that marks an item as selected</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_4"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, logger, checked_char)
+</code></pre>
+
+<p>Initializer for the checkbox menu implementation</p>
+<h3 id="add_item_1">add_item</h3>
+<pre><code class="python">def add_item(self, item)
+</code></pre>
+
+<p>Extends base class function, item is added and marked as unchecked to start</p>
+<h4 id="parameters_18">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item</td>
+<td>object</td>
+<td>The item being added</td>
+</tr>
+</tbody>
+</table>
+<h3 id="remove_selected_item_1">remove_selected_item</h3>
+<pre><code class="python">def remove_selected_item(self)
+</code></pre>
+
+<p>Removes selected item from item list and selected item dictionary</p>
+<h3 id="remove_item_1">remove_item</h3>
+<pre><code class="python">def remove_item(self, item)
+</code></pre>
+
+<p>Removes item from item list and selected item dict</p>
+<h4 id="parameters_19">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item</td>
+<td>object</td>
+<td>Item to remove from menu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mark_item_as_checked">mark_item_as_checked</h3>
+<pre><code class="python">def mark_item_as_checked(self, item)
+</code></pre>
+
+<p>Function that marks an item as selected</p>
+<h4 id="parameters_20">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item</td>
+<td>object</td>
+<td>Mark item as checked</td>
+</tr>
+</tbody>
+</table>
 <h2 id="textblockimplementationuiimplementation">TextBlockImplementation(UIImplementation)</h2>
 <pre><code class="python">class TextBlockImplementation(UIImplementation)
 </code></pre>
@@ -1476,7 +1805,7 @@ Analogous to a RadioButton</p>
 <p>Base class for TextBlockImplementation</p>
 <p>Contains all logic required for a textblock ui element to function.
 Currently only implemented in widget form, though popup form is possible.</p>
-<h4 id="attributes_4">Attributes</h4>
+<h4 id="attributes_5">Attributes</h4>
 <table>
 <thead>
 <tr>
@@ -1523,7 +1852,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="methods_3">Methods</h4>
+<h4 id="methods_4">Methods</h4>
 <table>
 <thead>
 <tr>
@@ -1622,7 +1951,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="init_4"><strong>init</strong></h3>
+<h3 id="init_5"><strong>init</strong></h3>
 <pre><code class="python">def __init__(self, initial_text, logger)
 </code></pre>
 
@@ -1633,7 +1962,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets upper left corner position of viewport</p>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_21">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1655,7 +1984,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets viewport dimensions in characters</p>
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_22">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1677,7 +2006,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets cursor postion relative to text</p>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_23">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1699,7 +2028,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets absolute cursor position in terminal characters</p>
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_24">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1721,7 +2050,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets limits for cursor in vertical direction</p>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_25">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1743,7 +2072,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets limits for cursor in horizontal direction</p>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_26">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1765,7 +2094,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets all of the text in the textblock and returns it</p>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_27">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1787,7 +2116,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Function used for writing text to the text block</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_21">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1814,7 +2143,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Returns the line on which the cursor currently resides</p>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_28">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1837,7 +2166,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 
 <p>Function that sets the text for the textblock.</p>
 <p>Note that this will overwrite any existing text</p>
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_22">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1860,7 +2189,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 
 <p>Function that sets the current line's text.</p>
 <p>Meant only for internal use</p>
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_23">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1927,7 +2256,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Function that handles recieving a character</p>
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_24">Parameters</h4>
 <table>
 <thead>
 <tr>
