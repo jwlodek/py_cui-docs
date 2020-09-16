@@ -81,6 +81,8 @@
         
             <li><a class="toctree-l4" href="#supported-colors">Supported Colors</a></li>
         
+            <li><a class="toctree-l4" href="#ui-element-color-customization">UI Element Color Customization</a></li>
+        
             <li><a class="toctree-l4" href="#using-color-rules">Using Color Rules</a></li>
         
         </ul>
@@ -200,69 +202,32 @@
                 <h1 id="using-colors-in-a-py_cui">Using colors in a py_cui</h1>
 <p>Colors in <code>py_cui</code> based interfaces are handled by widget level color choices, or by text color rules. In the case of widget coloring, you may use the <code>Widget.set_color</code> function, and pass in one of the supported color pairs. Color rules on the other hand are assigned to widgets, and relate to the text drawn within the widget. </p>
 <h3 id="supported-colors">Supported Colors</h3>
-<p>All colors in the <code>py_cui</code> library are represented as pairs, a foreground and background color. Below is a list of supported color pairs:</p>
-<table>
-<thead>
-<tr>
-<th>Color Pair</th>
-<th>Foreground (Text) Color</th>
-<th>Background Color</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WHITE_ON_BLACK</td>
-<td>WHITE</td>
-<td>BLACK</td>
-</tr>
-<tr>
-<td>BLACK_ON_GREEN</td>
-<td>BLACK</td>
-<td>GREEN</td>
-</tr>
-<tr>
-<td>BLACK_ON_WHITE</td>
-<td>BLACK</td>
-<td>WHITE</td>
-</tr>
-<tr>
-<td>WHITE_ON_RED</td>
-<td>WHITE</td>
-<td>RED</td>
-</tr>
-<tr>
-<td>YELLOW_ON_BLACK</td>
-<td>YELLOW</td>
-<td>BLACK</td>
-</tr>
-<tr>
-<td>RED_ON_BLACK</td>
-<td>RED</td>
-<td>BLACK</td>
-</tr>
-<tr>
-<td>CYAN_ON_BLACK</td>
-<td>CYAN</td>
-<td>BLACK</td>
-</tr>
-<tr>
-<td>MAGENTA_ON_BLACK</td>
-<td>MAGENTA</td>
-<td>BLACK</td>
-</tr>
-<tr>
-<td>GREEN_ON_BLACK</td>
-<td>GREEN</td>
-<td>BLACK</td>
-</tr>
-<tr>
-<td>BLUE_ON_BLACK</td>
-<td>BLUE</td>
-<td>BLACK</td>
-</tr>
-</tbody>
-</table>
+<p>All colors in the <code>py_cui</code> library are represented as pairs, a foreground and background color. Below is a list of supported colors:</p>
+<ul>
+<li>Black</li>
+<li>White</li>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+<li>Magenta</li>
+<li>Yellow</li>
+<li>Cyan</li>
+</ul>
+<p>Each of these colors can either be a foreground or background color, in any combination. To access a specific color pair, use py_cui.FOREGROUND_ON_BACKGROUND.
+For example, a simple white on black classic terminal color would be <code>py_cui.WHITE_ON_BLACK</code>. This is also the default color for all UI elements.</p>
+<h3 id="ui-element-color-customization">UI Element Color Customization</h3>
+<p>You may set three individual color attributes for UI elements, in addition to more complex color rules described below. You may set the following:</p>
+<ul>
+<li>Border Color</li>
+<li>Text Color</li>
+<li>Selected Text Color</li>
+</ul>
+<p>Overall UI color is applied by default to all three attributes, unless one is specifically set. Use the dedicated getter/setter methods for UI element
+objects to adjust these attributes.</p>
 <h3 id="using-color-rules">Using Color Rules</h3>
+<p>In addition to setting the default color for certain UI elements, in many cases it is important to gain a more fine control over
+widget coloration, and color rules aim to achive this by allowing for defining color logic depending on matches against regular
+expressions.</p>
 <p>There are several possible color rules that can be added to a py_cui widget, and these are classified under:</p>
 <ul>
 <li>Rule Type - How we attempt to match a text line with a given regular expression</li>
@@ -335,6 +300,10 @@
 </code></pre>
 
 <p>The above color rule will color all matches of @ ... @ cyan in the text of the textblock.</p>
+<p>In addition, if your widget uses selected text and you wish for it to apply a different color in that case, an additional parameter is 
+passed into the <code>add_text_color_rule</code> function, namely: <code>selected_color=py_cui.GREEN_ON_WHITE</code>, specifying the color of the match 
+in the event that text is selected. This is important, for example, for color rules applied to scroll menus, since the current position in
+the menu is rendered as "selected" text.</p>
               
             </div>
           </div>

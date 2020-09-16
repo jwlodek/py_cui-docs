@@ -130,6 +130,8 @@
         
             <li><a class="toctree-l4" href="#widgetpy_cuiuiuielement">Widget(py_cui.ui.UIElement)</a></li>
         
+            <li><a class="toctree-l4" href="#paramters">Paramters</a></li>
+        
             <li><a class="toctree-l4" href="#labelwidget">Label(Widget)</a></li>
         
             <li><a class="toctree-l4" href="#blocklabelwidget">BlockLabel(Widget)</a></li>
@@ -212,9 +214,9 @@
             <div class="section">
               
                 <h1 id="widgets">widgets</h1>
-<p>File contatining all core widget classes for py_cui.</p>
+<p>Module contatining all core widget classes for py_cui.</p>
 <p>Widgets are the basic building blocks of a user interface made with py_cui.
-This file contains classes for:</p>
+This module contains classes for:</p>
 <ul>
 <li>Base Widget class</li>
 <li>Label</li>
@@ -224,8 +226,9 @@ This file contains classes for:</p>
 <li>Button</li>
 <li>TextBox</li>
 <li>Text Block</li>
+<li>Slider</li>
 </ul>
-<p>Additional widgets should be added in as additional_widgets/$WIDGET_NAME.py, importing this
+<p>Additional widgets should be added in appropriate sub-modules, importing this
 file and extending the base Widget class, or if appropriate one of the other core widgets.</p>
 <h4 id="classes">Classes</h4>
 <table>
@@ -357,6 +360,10 @@ and setting status bar text.</p>
 <td>Gets widget row span, column span in grid</td>
 </tr>
 <tr>
+<td>set_selectable</td>
+<td>Setter for widget selectablility</td>
+</tr>
+<tr>
 <td>is_selectable</td>
 <td>Checks if the widget is selectable</td>
 </tr>
@@ -436,7 +443,7 @@ and color rules and key commands</p>
 </tbody>
 </table>
 <h3 id="add_text_color_rule">add_text_color_rule</h3>
-<pre><code class="python">def add_text_color_rule(self, regex, color, rule_type, match_type='line', region=[0,1], include_whitespace=False)
+<pre><code class="python">def add_text_color_rule(self, regex, color, rule_type, match_type='line', region=[0,1], include_whitespace=False, selected_color=None)
 </code></pre>
 
 <p>Forces renderer to draw text using given color if text_condition_function returns True</p>
@@ -570,6 +577,14 @@ and color rules and key commands</p>
 </tr>
 </tbody>
 </table>
+<h3 id="set_selectable">set_selectable</h3>
+<pre><code class="python">def set_selectable(self, selectable)
+</code></pre>
+
+<p>Setter for widget selectablility</p>
+<h2 id="paramters">Paramters</h2>
+<p>selectable : bool
+Widget selectable if true, otherwise not</p>
 <h3 id="is_selectable">is_selectable</h3>
 <pre><code class="python">def is_selectable(self)
 </code></pre>
@@ -757,6 +772,10 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </thead>
 <tbody>
 <tr>
+<td>set_title</td>
+<td>Override of base class, splits title into lines for rendering line by line.</td>
+</tr>
+<tr>
 <td>toggle_border</td>
 <td>Function that gives option to draw border around label</td>
 </tr>
@@ -771,6 +790,28 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </code></pre>
 
 <p>Initializer for blocklabel widget</p>
+<h3 id="set_title">set_title</h3>
+<pre><code class="python">def set_title(self, title)
+</code></pre>
+
+<p>Override of base class, splits title into lines for rendering line by line.</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The new title for the block label object.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="toggle_border_1">toggle_border</h3>
 <pre><code class="python">def toggle_border(self)
 </code></pre>
@@ -820,7 +861,7 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </code></pre>
 
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -843,7 +884,7 @@ Also intializes color rules, so if not called color rules will not be applied</p
 
 <p>Override base class function.</p>
 <p>UP_ARROW scrolls up, DOWN_ARROW scrolls down.</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -925,7 +966,7 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </code></pre>
 
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -949,7 +990,7 @@ Also intializes color rules, so if not called color rules will not be applied</p
 <p>Override of key presses.</p>
 <p>First, run the superclass function, scrolling should still work.
 Adds Enter command to toggle selection</p>
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1023,7 +1064,7 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Override of base class, adds ENTER listener that runs the button's command</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1092,7 +1133,7 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1114,7 +1155,7 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Override of base handle key press function</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1183,7 +1224,7 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_13">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1205,7 +1246,7 @@ Adds Enter command to toggle selection</p>
 </code></pre>
 
 <p>Override of base class handle key press function</p>
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_14">Parameters</h4>
 <table>
 <thead>
 <tr>

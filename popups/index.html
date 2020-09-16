@@ -204,7 +204,7 @@
             <div class="section">
               
                 <h1 id="popups">Popups</h1>
-<p>This page contains information regarding all popups supported by <code>py_cui</code>. Please see the <code>popups_example.py</code> in the <code>examples/</code> directory in the repository.</p>
+<p>This page contains information regarding all popups supported by <code>py_cui</code>. Please see the <code>popups_example.py</code> in the <code>examples/</code> directory in the repository. In general, <code>py_cui</code> popups are handled by using callback functions. A popup is opened with a special <code>show</code> method, and then upon some user action a callback function is fired, with some specified input parameters.</p>
 <h3 id="messagewarningerror-popup">Message/Warning/Error Popup</h3>
 <p><strong>Spawn Command</strong></p>
 <pre><code>show_message_popup(title, text)

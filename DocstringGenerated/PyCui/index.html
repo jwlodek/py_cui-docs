@@ -122,6 +122,8 @@
         
             <li><a class="toctree-l4" href="#pycui">PyCUI</a></li>
         
+            <li><a class="toctree-l4" href="#paramters">Paramters</a></li>
+        
         </ul>
     
 
@@ -289,8 +291,8 @@ being too long</p>
 </code></pre>
 
 <p>Base CUI class</p>
-<p>Main user interface class for py_cui. To create a user interface, you must first
-create an instance of this class, and then add cells + widgets to it.</p>
+<p>Main user interface class for py_cui. To create a user interface, you must
+first create an instance of this class, and then add cells + widgets to it.</p>
 <h4 id="attributes">Attributes</h4>
 <table>
 <thead>
@@ -357,6 +359,18 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>set_refresh_timeout</td>
+<td>Sets the CUI auto-refresh timeout to a number of seconds.</td>
+</tr>
+<tr>
+<td>set_on_draw_update_func</td>
+<td>Adds a function that is fired during each draw call of the CUI</td>
+</tr>
+<tr>
+<td>set_widget_cycle_key</td>
+<td>Assigns a key for automatically cycling through widgets in both focus and overview modes</td>
+</tr>
 <tr>
 <td>enable_logging</td>
 <td>Function enables logging for py_cui library</td>
@@ -438,7 +452,11 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <td>Function that adds a new button to the CUI grid</td>
 </tr>
 <tr>
-<td>get_widget_at_position</td>
+<td>add_slider</td>
+<td>Function that adds a new label to the CUI grid</td>
+</tr>
+<tr>
+<td>get_element_at_position</td>
 <td>Returns containing widget for character position</td>
 </tr>
 <tr>
@@ -468,6 +486,10 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <tr>
 <td>move_focus</td>
 <td>Moves focus mode to different widget</td>
+</tr>
+<tr>
+<td>_cycle_widgets</td>
+<td>Function that is fired if cycle key is pressed to move to next widget</td>
 </tr>
 <tr>
 <td>add_key_command</td>
@@ -504,6 +526,10 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <tr>
 <td>show_loading_bar_popup</td>
 <td>Shows loading bar popup.</td>
+</tr>
+<tr>
+<td>show_form_popup</td>
+<td>Shows form popup.</td>
 </tr>
 <tr>
 <td>increment_loading_bar</td>
@@ -552,16 +578,82 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, num_rows, num_cols, auto_focus_buttons=True, exit_key=py_cui.keys.KEY_Q_LOWER, simulated_terminal=None)
+<pre><code class="python">def __init__(self, num_rows, num_cols, auto_focus_buttons=True
 </code></pre>
 
 <p>Constructor for PyCUI class</p>
+<h3 id="set_refresh_timeout">set_refresh_timeout</h3>
+<pre><code class="python">def set_refresh_timeout(self, timeout)
+</code></pre>
+
+<p>Sets the CUI auto-refresh timeout to a number of seconds.</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timeout</td>
+<td>int</td>
+<td>Number of seconds to wait before refreshing the CUI</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_on_draw_update_func">set_on_draw_update_func</h3>
+<pre><code class="python">def set_on_draw_update_func(self, update_function)
+</code></pre>
+
+<p>Adds a function that is fired during each draw call of the CUI</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>update_function</td>
+<td>function</td>
+<td>A no-argument or lambda function that is fired at the start of each draw call</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_widget_cycle_key">set_widget_cycle_key</h3>
+<pre><code class="python">def set_widget_cycle_key(self, forward_cycle_key=None, reverse_cycle_key=None)
+</code></pre>
+
+<p>Assigns a key for automatically cycling through widgets in both focus and overview modes</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget_cycle_key</td>
+<td>py_cui.keys.KEY</td>
+<td>Key code for key to cycle through widgets</td>
+</tr>
+</tbody>
+</table>
 <h3 id="enable_logging">enable_logging</h3>
 <pre><code class="python">def enable_logging(self, log_file_path='py_cui_log.txt', logging_level = logging.DEBUG)
 </code></pre>
 
 <p>Function enables logging for py_cui library</p>
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -588,7 +680,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </code></pre>
 
 <p>Function that replaces all widgets in a py_cui with those of a different widget set</p>
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_5">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -605,6 +697,23 @@ create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
+<h4 id="raises">Raises</h4>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unknown</td>
+<td>TypeError</td>
+<td>If input is not of type WidgetSet</td>
+</tr>
+</tbody>
+</table>
 <h3 id="create_new_widget_set">create_new_widget_set</h3>
 <pre><code class="python">def create_new_widget_set(self, num_rows, num_cols)
 </code></pre>
@@ -612,7 +721,7 @@ create an instance of this class, and then add cells + widgets to it.</p>
 <p>Function that is used to create additional widget sets</p>
 <p>Use this function instead of directly creating widget set object instances, to allow
 for logging support.</p>
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -667,7 +776,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Sets callback function on CUI exit. Must be a no-argument function or lambda function</p>
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -689,7 +798,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Sets the title bar text</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -711,7 +820,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Sets the status bar text when in overview mode</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -748,7 +857,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that can be used to set arbitrary border characters for drawing widget borders by renderer.</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -813,11 +922,11 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_scroll_menu">add_scroll_menu</h3>
-<pre><code class="python">def add_scroll_menu(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0)
+<pre><code class="python">def add_scroll_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0)
 </code></pre>
 
 <p>Function that adds a new scroll menu to the CUI grid</p>
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -886,7 +995,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that adds a new checkbox menu to the CUI grid</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -960,7 +1069,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that adds a new text box to the CUI grid</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_13">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1039,7 +1148,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that adds a new text block to the CUI grid</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_14">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1113,7 +1222,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that adds a new label to the CUI grid</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_15">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1182,7 +1291,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that adds a new block label to the CUI grid</p>
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_16">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1256,7 +1365,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that adds a new button to the CUI grid</p>
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_17">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1325,12 +1434,101 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="get_widget_at_position">get_widget_at_position</h3>
-<pre><code class="python">def get_widget_at_position(self, x, y)
+<h3 id="add_slider">add_slider</h3>
+<pre><code class="python">def add_slider(self, title, row, column, row_span=1
+</code></pre>
+
+<p>Function that adds a new label to the CUI grid</p>
+<h4 id="parameters_18">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the label</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>min_val = 0 int</td>
+<td>min value of the slider</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>max_val = 0 int</td>
+<td>max value of the slider</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>step = 0 int</td>
+<td>step to incremento or decrement</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>init_val = 0 int</td>
+<td>initial value of the slider</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_10">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_slider</td>
+<td>Slider</td>
+<td>A reference to the created slider object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_element_at_position">get_element_at_position</h3>
+<pre><code class="python">def get_element_at_position(self, x, y)
 </code></pre>
 
 <p>Returns containing widget for character position</p>
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_19">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1352,7 +1550,7 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_11">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1374,51 +1572,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Gets all horizontal (left, right) neighbor widgets</p>
-<h4 id="parameters_16">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>widget</td>
-<td>py_cui.widgets.Widget</td>
-<td>The currently selected widget</td>
-</tr>
-<tr>
-<td>direction</td>
-<td>py_cui.keys.KEY*</td>
-<td>must be an arrow key value</td>
-</tr>
-</tbody>
-</table>
-<h4 id="returns_11">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id_list</td>
-<td>list[]</td>
-<td>A list of the neighbor widget ids</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_get_vertical_neighbors">_get_vertical_neighbors</h3>
-<pre><code class="python">def _get_vertical_neighbors(self, widget, direction)
-</code></pre>
-
-<p>Gets all vertical (up, down) neighbor widgets</p>
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_20">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1457,13 +1611,57 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="_get_vertical_neighbors">_get_vertical_neighbors</h3>
+<pre><code class="python">def _get_vertical_neighbors(self, widget, direction)
+</code></pre>
+
+<p>Gets all vertical (up, down) neighbor widgets</p>
+<h4 id="parameters_21">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>The currently selected widget</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>py_cui.keys.KEY*</td>
+<td>must be an arrow key value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_13">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id_list</td>
+<td>list[]</td>
+<td>A list of the neighbor widget ids</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_check_if_neighbor_exists">_check_if_neighbor_exists</h3>
 <pre><code class="python">def _check_if_neighbor_exists(self, direction)
 </code></pre>
 
 <p>Function that checks if widget has neighbor in specified cell.</p>
 <p>Used for navigating CUI, as arrow keys find the immediate neighbor</p>
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_22">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1480,7 +1678,7 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_14">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1502,7 +1700,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that gets currently selected widget</p>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_15">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1524,7 +1722,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that sets the selected widget for the CUI</p>
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_23">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1548,11 +1746,11 @@ for logging support.</p>
 <p>Function that forces py_cui out of focus mode.</p>
 <p>After popup is called, focus is lost</p>
 <h3 id="move_focus">move_focus</h3>
-<pre><code class="python">def move_focus(self, widget)
+<pre><code class="python">def move_focus(self, widget, auto_press_buttons=True)
 </code></pre>
 
 <p>Moves focus mode to different widget</p>
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_24">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1569,12 +1767,34 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="_cycle_widgets">_cycle_widgets</h3>
+<pre><code class="python">def _cycle_widgets(self, reverse=False)
+</code></pre>
+
+<p>Function that is fired if cycle key is pressed to move to next widget</p>
+<h4 id="parameters_25">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reverse</td>
+<td>bool</td>
+<td>Default false. If true, cycle widgets in reverse order.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="add_key_command">add_key_command</h3>
 <pre><code class="python">def add_key_command(self, key, command)
 </code></pre>
 
 <p>Function that adds a keybinding to the CUI when in overview mode</p>
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_26">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1601,7 +1821,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows a message popup</p>
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_27">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1628,7 +1848,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows a warning popup</p>
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_28">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1655,7 +1875,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows an error popup</p>
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_29">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1683,7 +1903,7 @@ for logging support.</p>
 
 <p>Shows a yes/no popup.</p>
 <p>The 'command' parameter must be a function with a single boolean parameter</p>
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_30">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1711,7 +1931,7 @@ for logging support.</p>
 
 <p>Shows a textbox popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_31">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1744,7 +1964,7 @@ for logging support.</p>
 
 <p>Shows a menu popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_32">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1781,7 +2001,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Shows a loading icon popup</p>
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_33">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1814,7 +2034,7 @@ for logging support.</p>
 
 <p>Shows loading bar popup.</p>
 <p>Use 'increment_loading_bar' to show progress</p>
-<h4 id="parameters_29">Parameters</h4>
+<h4 id="parameters_34">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1841,6 +2061,23 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="show_form_popup">show_form_popup</h3>
+<pre><code class="python">def show_form_popup(self, title, fields, passwd_fields=[], required=[], callback=None)
+</code></pre>
+
+<p>Shows form popup.</p>
+<p>Used for inputting several fields worth of values</p>
+<h2 id="paramters">Paramters</h2>
+<p>title : str
+Message title
+fields : List[str]
+Names of each individual field
+passwd_fields : List[str]
+Field names that should have characters hidden
+required : List[str]
+Fields that are required before submission
+callback=None : Function
+If not none, fired after loading is completed. Must be a no-arg function</p>
 <h3 id="increment_loading_bar">increment_loading_bar</h3>
 <pre><code class="python">def increment_loading_bar(self)
 </code></pre>
@@ -1862,7 +2099,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that updates the height and width of the CUI based on terminal window size</p>
-<h4 id="parameters_30">Parameters</h4>
+<h4 id="parameters_35">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1889,7 +2126,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Returns dimensions of CUI</p>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_16">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1916,7 +2153,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Draws status bar and title bar</p>
-<h4 id="parameters_31">Parameters</h4>
+<h4 id="parameters_36">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1948,7 +2185,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that prints some basic error info if there is an error with the CUI</p>
-<h4 id="parameters_32">Parameters</h4>
+<h4 id="parameters_37">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1975,7 +2212,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Function that handles all main loop key presses.</p>
-<h4 id="parameters_33">Parameters</h4>
+<h4 id="parameters_38">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1997,7 +2234,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Main CUI draw loop called by start()</p>
-<h4 id="parameters_34">Parameters</h4>
+<h4 id="parameters_39">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2019,7 +2256,7 @@ for logging support.</p>
 </code></pre>
 
 <p>Override of base format function. Prints list of current widgets.</p>
-<h4 id="parameters_35">Parameters</h4>
+<h4 id="parameters_40">Parameters</h4>
 <table>
 <thead>
 <tr>

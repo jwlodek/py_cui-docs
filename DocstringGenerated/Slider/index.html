@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Colors - py_cui Documentation</title>
+  <title>slider - py_cui Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Colors";
-    var mkdocs_page_input_path = "DocstringGenerated\\Colors.md";
+    var mkdocs_page_name = "slider";
+    var mkdocs_page_input_path = "DocstringGenerated\\Slider.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -125,23 +125,9 @@
                     
     <a class="" href="../Popups/">Popups</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Colors</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#colors">colors</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#classes">Classes</a></li>
-        
-            <li><a class="toctree-l4" href="#colorrule">ColorRule</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../Colors/">Colors</a>
                 </li>
                 <li class="">
                     
@@ -179,15 +165,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>API Docstring Docs &raquo;</li>
-        
-      
     
-    <li>Colors</li>
+    <li>slider</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Colors.md"
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Slider.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -197,8 +179,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="colors">colors</h1>
-<p>Module containing color rule class and any color-rendering related functions and variables</p>
+                <h1 id="slider">slider</h1>
 <h4 id="classes">Classes</h4>
 <table>
 <thead>
@@ -209,16 +190,78 @@
 </thead>
 <tbody>
 <tr>
-<td>ColorRule</td>
-<td>Class representing a text color rendering rule</td>
+<td>SliderImplementation(py_cui.ui.UIImplementation)</td>
+<td></td>
+</tr>
+<tr>
+<td>SliderWidget(py_cui.widgets.Widget, SliderImplementation)</td>
+<td></td>
+</tr>
+<tr>
+<td>SliderPopup(py_cui.popups.Popup, SliderImplementation)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="colorrule">ColorRule</h2>
-<pre><code class="python">class ColorRule
+<h2 id="sliderimplementationpy_cuiuiuiimplementation">SliderImplementation(py_cui.ui.UIImplementation)</h2>
+<pre><code class="python">class SliderImplementation(py_cui.ui.UIImplementation)
 </code></pre>
 
-<p>Class representing a text color rendering rule</p>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_bar_char</td>
+<td>Updates the character used to represent the slider bar</td>
+</tr>
+<tr>
+<td>update_slider_value</td>
+<td>Sets the value of the slider - increment decrement</td>
+</tr>
+<tr>
+<td>get_slider_value</td>
+<td>return current slider value</td>
+</tr>
+<tr>
+<td>set_slider_step</td>
+<td>change step value</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, min_val, max_val, init_val, step)
+</code></pre>
+
+<h3 id="set_bar_char">set_bar_char</h3>
+<pre><code class="python">def set_bar_char(self, char)
+</code></pre>
+
+<p>Updates the character used to represent the slider bar</p>
+<h3 id="update_slider_value">update_slider_value</h3>
+<pre><code class="python">def update_slider_value(self, direction)
+</code></pre>
+
+<p>Sets the value of the slider - increment decrement</p>
+<h3 id="get_slider_value">get_slider_value</h3>
+<pre><code class="python">def get_slider_value(self)
+</code></pre>
+
+<p>return current slider value</p>
+<h3 id="set_slider_step">set_slider_step</h3>
+<pre><code class="python">def set_slider_step(self,step)
+</code></pre>
+
+<p>change step value</p>
+<h2 id="sliderwidgetpy_cuiwidgetswidget-sliderimplementation">SliderWidget(py_cui.widgets.Widget, SliderImplementation)</h2>
+<pre><code class="python">class SliderWidget(py_cui.widgets.Widget, SliderImplementation)
+</code></pre>
+
 <h4 id="attributes">Attributes</h4>
 <table>
 <thead>
@@ -230,38 +273,28 @@
 </thead>
 <tbody>
 <tr>
-<td>regex</td>
-<td>str</td>
-<td>A python 're' module string</td>
-</tr>
-<tr>
-<td>color</td>
+<td>_min_val</td>
 <td>int</td>
-<td>A valid color value. Ex. py_cui.WHITE_ON_BLACK</td>
+<td>Lowest value of the slider</td>
 </tr>
 <tr>
-<td>rule_type</td>
-<td>str</td>
-<td>String representing rule type. ['startswith', 'endswith', 'notstartswith', 'notendswith', 'contains']</td>
+<td>_max_val</td>
+<td>int</td>
+<td>Highest value of the slider</td>
 </tr>
 <tr>
-<td>match_type</td>
-<td>str</td>
-<td>String representing the match type. ['line', 'regex', 'region']</td>
+<td>_step</td>
+<td>int</td>
+<td>Increment from low to high value</td>
 </tr>
 <tr>
-<td>region</td>
-<td>[int, int]</td>
-<td>Start and end positions for the coloring, None if match_type != 'region'</td>
-</tr>
-<tr>
-<td>include_whitespace</td>
-<td>bool</td>
-<td>Flag to determine whether to strip whitespace before matching.</td>
+<td>_cur_val</td>
+<td></td>
+<td>Current value of the slider</td>
 </tr>
 </tbody>
 </table>
-<h4 id="methods">Methods</h4>
+<h4 id="methods_1">Methods</h4>
 <table>
 <thead>
 <tr>
@@ -271,28 +304,28 @@
 </thead>
 <tbody>
 <tr>
-<td>_check_match</td>
-<td>Checks if the color rule matches a line</td>
+<td>_draw</td>
+<td></td>
 </tr>
 <tr>
-<td>_generate_fragments_regex</td>
-<td>Splits text into fragments based on regular expression</td>
-</tr>
-<tr>
-<td>_split_text_on_region</td>
-<td>Splits text into fragments based on region</td>
-</tr>
-<tr>
-<td>generate_fragments</td>
-<td>Splits text into fragments if matched line to regex</td>
+<td>_handle_key_press</td>
+<td>LEFT_ARROW decrease value, RIGHT_ARROW increase.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, regex, color, selected_color, rule_type, match_type, region, include_whitespace, logger)
+<h3 id="init_1"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span
 </code></pre>
 
-<p>Constructor for ColorRule object</p>
+<h3 id="_draw">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<h3 id="_handle_key_press">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
+</code></pre>
+
+<p>LEFT_ARROW decrease value, RIGHT_ARROW increase.</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -304,236 +337,19 @@
 </thead>
 <tbody>
 <tr>
-<td>regex</td>
-<td>str</td>
-<td>A python 're' module string</td>
-</tr>
-<tr>
-<td>color</td>
+<td>key_pressed</td>
 <td>int</td>
-<td>A valid color value. Ex. py_cui.WHITE_ON_BLACK</td>
-</tr>
-<tr>
-<td>selected_color</td>
-<td>int</td>
-<td>Color to use if rule matched but selected modifier is applied</td>
-</tr>
-<tr>
-<td>rule_type</td>
-<td>str</td>
-<td>String representing rule type. ['startswith', 'endswith', 'notstartswith', 'notendswith', 'contains']</td>
-</tr>
-<tr>
-<td>match_type</td>
-<td>str</td>
-<td>String representing the match type. ['line', 'regex', 'region']</td>
-</tr>
-<tr>
-<td>region</td>
-<td>[int, int]</td>
-<td>Start and end positions for the coloring, None if match_type != 'region'</td>
-</tr>
-<tr>
-<td>include_whitespace</td>
-<td>bool</td>
-<td>Flag to determine whether to strip whitespace before matching.</td>
+<td>key code of key pressed</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_check_match">_check_match</h3>
-<pre><code class="python">def _check_match(self, line)
+<h2 id="sliderpopuppy_cuipopupspopup-sliderimplementation">SliderPopup(py_cui.popups.Popup, SliderImplementation)</h2>
+<pre><code class="python">class SliderPopup(py_cui.popups.Popup, SliderImplementation)
 </code></pre>
-
-<p>Checks if the color rule matches a line</p>
-<h4 id="parameters_1">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>line</td>
-<td>str</td>
-<td>The input line of text to try to match the rule against</td>
-</tr>
-</tbody>
-</table>
-<h4 id="returns">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>matched</td>
-<td>bool</td>
-<td>True if a match was found, false otherwise</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_generate_fragments_regex">_generate_fragments_regex</h3>
-<pre><code class="python">def _generate_fragments_regex(self, widget, render_text, selected)
-</code></pre>
-
-<p>Splits text into fragments based on regular expression</p>
-<h4 id="parameters_2">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>widget</td>
-<td>py_cui.Widget</td>
-<td>Widget containing the render text</td>
-</tr>
-<tr>
-<td>render_text</td>
-<td>str</td>
-<td>text being rendered</td>
-</tr>
-</tbody>
-</table>
-<h4 id="returns_1">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fragments</td>
-<td>list of lists of [str, color]</td>
-<td>the render text split into fragments of strings paired with colors</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_split_text_on_region">_split_text_on_region</h3>
-<pre><code class="python">def _split_text_on_region(self, widget, render_text, selected)
-</code></pre>
-
-<p>Splits text into fragments based on region</p>
-<h4 id="parameters_3">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>widget</td>
-<td>py_cui.Widget</td>
-<td>Widget containing the render text</td>
-</tr>
-<tr>
-<td>render_text</td>
-<td>str</td>
-<td>text being rendered</td>
-</tr>
-</tbody>
-</table>
-<h4 id="returns_2">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fragments</td>
-<td>list of lists of [str, color]</td>
-<td>the render text split into fragments of strings paired with colors</td>
-</tr>
-</tbody>
-</table>
-<h3 id="generate_fragments">generate_fragments</h3>
-<pre><code class="python">def generate_fragments(self, widget, line, render_text, selected=False)
-</code></pre>
-
-<p>Splits text into fragments if matched line to regex</p>
-<h4 id="parameters_4">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>widget</td>
-<td>py_cui.Widget</td>
-<td>Widget containing the render text</td>
-</tr>
-<tr>
-<td>line</td>
-<td>str</td>
-<td>the line to match</td>
-</tr>
-<tr>
-<td>render_text</td>
-<td>str</td>
-<td>text being rendered</td>
-</tr>
-</tbody>
-</table>
-<h4 id="returns_3">Returns</h4>
-<table>
-<thead>
-<tr>
-<th>Return Variable</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fragments</td>
-<td>List[List[str, color]]</td>
-<td>the render text split into fragments of strings paired with colors</td>
-</tr>
-<tr>
-<td>matched</td>
-<td>bool</td>
-<td>Boolean output saying if a match was found in the line.</td>
-</tr>
-</tbody>
-</table>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../WidgetSet/" class="btn btn-neutral float-right" title="Widget Sets">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../Popups/" class="btn btn-neutral" title="Popups"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -561,10 +377,6 @@
           <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../Popups/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../WidgetSet/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

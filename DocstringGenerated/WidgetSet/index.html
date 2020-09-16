@@ -302,6 +302,10 @@
 <td>add_button</td>
 <td>Function that adds a new button to the CUI grid</td>
 </tr>
+<tr>
+<td>add_slider</td>
+<td>Function that adds a new label to the CUI grid</td>
+</tr>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
@@ -890,6 +894,95 @@
 <td>new_button</td>
 <td>Button</td>
 <td>A reference to the created button object.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="add_slider">add_slider</h3>
+<pre><code class="python">def add_slider(self, title, row, column, row_span=1
+</code></pre>
+
+<p>Function that adds a new label to the CUI grid</p>
+<h4 id="parameters_9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>The title of the label</td>
+</tr>
+<tr>
+<td>row</td>
+<td>int</td>
+<td>The row value, from the top down</td>
+</tr>
+<tr>
+<td>column</td>
+<td>int</td>
+<td>The column value from the top down</td>
+</tr>
+<tr>
+<td>row_span=1</td>
+<td>int</td>
+<td>The number of rows to span accross</td>
+</tr>
+<tr>
+<td>column_span=1</td>
+<td>int</td>
+<td>the number of columns to span accross</td>
+</tr>
+<tr>
+<td>padx=1</td>
+<td>int</td>
+<td>number of padding characters in the x direction</td>
+</tr>
+<tr>
+<td>pady=0</td>
+<td>int</td>
+<td>number of padding characters in the y direction</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>min_val = 0 int</td>
+<td>min value of the slider</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>max_val = 0 int</td>
+<td>max value of the slider</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>step = 0 int</td>
+<td>step to incremento or decrement</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>init_val = 0 int</td>
+<td>initial value of the slider</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_8">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_slider</td>
+<td>Slider</td>
+<td>A reference to the created slider object.</td>
 </tr>
 </tbody>
 </table>

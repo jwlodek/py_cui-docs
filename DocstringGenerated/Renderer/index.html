@@ -590,7 +590,7 @@ and text required for the cui. All of the functions supplied by the renderer cla
 </tbody>
 </table>
 <h3 id="_get_render_text">_get_render_text</h3>
-<pre><code class="python">def _get_render_text(self, ui_element, line, centered, bordered, start_pos)
+<pre><code class="python">def _get_render_text(self, ui_element, line, centered, bordered, selected, start_pos)
 </code></pre>
 
 <p>Internal function that computes the scope of the text that should be drawn</p>
@@ -649,7 +649,7 @@ and text required for the cui. All of the functions supplied by the renderer cla
 </tbody>
 </table>
 <h3 id="_generate_text_color_fragments">_generate_text_color_fragments</h3>
-<pre><code class="python">def _generate_text_color_fragments(self, ui_element, line, render_text)
+<pre><code class="python">def _generate_text_color_fragments(self, ui_element, line, render_text, selected)
 </code></pre>
 
 <p>Function that applies color rules to text, dividing them if match is found</p>

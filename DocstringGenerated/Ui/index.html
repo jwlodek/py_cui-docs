@@ -376,6 +376,14 @@ class contains all links to the CUI engine.</p>
 <td>Gets current element color</td>
 </tr>
 <tr>
+<td>get_border_color</td>
+<td>Gets current element border color</td>
+</tr>
+<tr>
+<td>get_selected_color</td>
+<td>Gets current selected item color</td>
+</tr>
+<tr>
 <td>is_selected</td>
 <td>Get selected status</td>
 </tr>
@@ -394,6 +402,14 @@ class contains all links to the CUI engine.</p>
 <tr>
 <td>set_color</td>
 <td>Sets element default color</td>
+</tr>
+<tr>
+<td>set_border_color</td>
+<td>Sets element border color</td>
+</tr>
+<tr>
+<td>set_selected_color</td>
+<td>Sets element sected color</td>
 </tr>
 <tr>
 <td>set_selected</td>
@@ -630,12 +646,56 @@ class contains all links to the CUI engine.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="get_border_color">get_border_color</h3>
+<pre><code class="python">def get_border_color(self)
+</code></pre>
+
+<p>Gets current element border color</p>
+<h4 id="returns_8">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>color code for combination</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_selected_color">get_selected_color</h3>
+<pre><code class="python">def get_selected_color(self)
+</code></pre>
+
+<p>Gets current selected item color</p>
+<h4 id="returns_9">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>color code for combination</td>
+</tr>
+</tbody>
+</table>
 <h3 id="is_selected">is_selected</h3>
 <pre><code class="python">def is_selected(self)
 </code></pre>
 
 <p>Get selected status</p>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_10">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -657,7 +717,7 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Gets reference to renderer object</p>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_11">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -679,7 +739,7 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Returns current help text</p>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_12">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -740,12 +800,56 @@ class contains all links to the CUI engine.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="set_border_color">set_border_color</h3>
+<pre><code class="python">def set_border_color(self, color)
+</code></pre>
+
+<p>Sets element border color</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>New color pair key code</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_selected_color">set_selected_color</h3>
+<pre><code class="python">def set_selected_color(self, color)
+</code></pre>
+
+<p>Sets element sected color</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>New color pair key code</td>
+</tr>
+</tbody>
+</table>
 <h3 id="set_selected">set_selected</h3>
 <pre><code class="python">def set_selected(self, selected)
 </code></pre>
 
 <p>Marks the UI element as selected or not selected</p>
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -767,7 +871,7 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Sets status bar help text</p>
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_5">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -789,7 +893,7 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Sets status bar focus text. Legacy function, overridden by set_focus_text</p>
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -816,7 +920,7 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Sets a mouse press handler function</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -838,7 +942,7 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Can be implemented by subclass. Used to handle mouse presses</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -866,7 +970,7 @@ class contains all links to the CUI engine.</p>
 
 <p>Function that assigns a renderer object to the element</p>
 <p>(Meant for internal usage only)</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -905,7 +1009,7 @@ class contains all links to the CUI engine.</p>
 </code></pre>
 
 <p>Checks if character position is within element.</p>
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -927,7 +1031,7 @@ class contains all links to the CUI engine.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_13">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1106,7 +1210,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets initial cursor position</p>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_14">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1128,7 +1232,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets current position of cursor relative to text</p>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_15">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1150,7 +1254,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets cursor extreme points in terminal position</p>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_16">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1172,7 +1276,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Returns current cursor poition</p>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_17">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1194,7 +1298,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets the width of the textbox viewport</p>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_18">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1216,7 +1320,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Sets the value of the text. Overwrites existing text</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1238,7 +1342,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Gets value of the text in the textbox</p>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_19">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1275,7 +1379,7 @@ This base class is only used to initialize the logger</p>
 </code></pre>
 
 <p>Inserts char at cursor position. Internal use only</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1432,7 +1536,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Gets the currently selected item</p>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_20">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1454,7 +1558,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Sets the currently selected item</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_13">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1482,7 +1586,7 @@ Analogous to a RadioButton</p>
 
 <p>Function that scrolls the view down in the scroll menu</p>
 <p>TODO: Viewport height should be calculated internally, and not rely on a parameter.</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_14">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1509,7 +1613,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function for jumping down the menu several spots at a time</p>
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_15">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1536,7 +1640,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that jumps to the bottom of the menu</p>
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_16">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1558,7 +1662,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Adds an item to the menu.</p>
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_17">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1580,7 +1684,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Adds a list of items to the scroll menu.</p>
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_18">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1607,7 +1711,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that removes a specific item from the menu</p>
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_19">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1629,7 +1733,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that gets list of items in a scroll menu</p>
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_21">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1651,7 +1755,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that gets the selected item from the scroll menu</p>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_22">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1732,7 +1836,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Extends base class function, item is added and marked as unchecked to start</p>
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_20">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1759,7 +1863,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Removes item from item list and selected item dict</p>
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_21">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1781,7 +1885,7 @@ Analogous to a RadioButton</p>
 </code></pre>
 
 <p>Function that marks an item as selected</p>
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_22">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1962,7 +2066,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets upper left corner position of viewport</p>
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_23">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -1984,7 +2088,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets viewport dimensions in characters</p>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_24">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -2006,7 +2110,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets cursor postion relative to text</p>
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_25">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -2028,7 +2132,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets absolute cursor position in terminal characters</p>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_26">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -2050,7 +2154,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets limits for cursor in vertical direction</p>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_27">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -2072,7 +2176,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets limits for cursor in horizontal direction</p>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_28">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -2094,7 +2198,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Gets all of the text in the textblock and returns it</p>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_29">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -2116,7 +2220,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Function used for writing text to the text block</p>
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_23">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2143,7 +2247,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Returns the line on which the cursor currently resides</p>
-<h4 id="returns_28">Returns</h4>
+<h4 id="returns_30">Returns</h4>
 <table>
 <thead>
 <tr>
@@ -2166,7 +2270,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 
 <p>Function that sets the text for the textblock.</p>
 <p>Note that this will overwrite any existing text</p>
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_24">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2189,7 +2293,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 
 <p>Function that sets the current line's text.</p>
 <p>Meant only for internal use</p>
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_25">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2256,7 +2360,7 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </code></pre>
 
 <p>Function that handles recieving a character</p>
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_26">Parameters</h4>
 <table>
 <thead>
 <tr>

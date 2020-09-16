@@ -247,7 +247,15 @@ root.start()
 </code></pre>
 
 <h3 id="supported-keys">Supported Keys</h3>
-<p>Below is a table of all keys supported by <code>py_cui</code>. Each key is accessed within your program with <code>py_cui.keys.YOUR_KEY_CODE</code>. There are some differences in the way keycodes are handled on win32 vs. UNIX, though this is abstracted away by py_cui.</p>
+<p>There are many supported keys in <code>py_cui</code>. These include alpha-numeric keys (in both uppercase and lowercase), as well as those keys with <code>Ctrl</code> and <code>Alt</code> modifiers. These can be accessed with (using the letter x as an example):</p>
+<ul>
+<li><code>py_cui.keys.KEY_X_LOWER</code> - Lowercase <code>X</code> key</li>
+<li><code>py_cui.keys.KEY_X_UPPER</code> - Uppercase <code>X</code> key (<code>Shift + x</code>)</li>
+<li><code>py_cui.keys.KEY_CTRL_X</code> - Control key modified <code>X</code> (<code>Ctrl + x</code>)</li>
+<li><code>py_cui.keys.KEY_ALT_X</code> - Alt key modified <code>X</code> (<code>Alt + x</code>)</li>
+</ul>
+<p>In the case of numeric keys, there is no upper/lower distinction.</p>
+<p>In addition, <code>py_cui</code> supports several non alpha-numeric keys, as described in the below table.</p>
 <table>
 <thead>
 <tr>
@@ -291,6 +299,38 @@ root.start()
 <tr>
 <td>KEY_RIGHT_ARROW</td>
 <td>Right Arrow Key</td>
+</tr>
+<tr>
+<td>KEY_SHIFT_LEFT</td>
+<td>Shift Modified Left</td>
+</tr>
+<tr>
+<td>KEY_SHIFT_RIGHT</td>
+<td>Shift Modified Right</td>
+</tr>
+<tr>
+<td>KEY_SHIFT_UP</td>
+<td>Shift Modified Up</td>
+</tr>
+<tr>
+<td>KEY_SHIFT_DOWN</td>
+<td>Shift Modified Down</td>
+</tr>
+<tr>
+<td>KEY_CTRL_LEFT</td>
+<td>Ctrl Modified Left</td>
+</tr>
+<tr>
+<td>KEY_CTRL_RIGHT</td>
+<td>Ctrl Modified Right</td>
+</tr>
+<tr>
+<td>KEY_CTRL_UP</td>
+<td>Ctrl Modified Up</td>
+</tr>
+<tr>
+<td>KEY_CTRL_DOWN</td>
+<td>Ctrl Modified Down</td>
 </tr>
 <tr>
 <td>KEY_PAGE_UP</td>
@@ -341,219 +381,12 @@ root.start()
 <td>End Key</td>
 </tr>
 <tr>
-<td>KEY_A_LOWER</td>
-<td>a Key</td>
-</tr>
-<tr>
-<td>KEY_B_LOWER</td>
-<td>b Key</td>
-</tr>
-<tr>
-<td>KEY_C_LOWER</td>
-<td>c Key</td>
-</tr>
-<tr>
-<td>KEY_D_LOWER</td>
-<td>d Key</td>
-</tr>
-<tr>
-<td>KEY_E_LOWER</td>
-<td>e Key</td>
-</tr>
-<tr>
-<td>KEY_F_LOWER</td>
-<td>f Key</td>
-</tr>
-<tr>
-<td>KEY_G_LOWER</td>
-<td>g Key</td>
-</tr>
-<tr>
-<td>KEY_H_LOWER</td>
-<td>h Key</td>
-</tr>
-<tr>
-<td>KEY_I_LOWER</td>
-<td>i Key</td>
-</tr>
-<tr>
-<td>KEY_J_LOWER</td>
-<td>j Key</td>
-</tr>
-<tr>
-<td>KEY_K_LOWER</td>
-<td>k Key</td>
-</tr>
-<tr>
-<td>KEY_L_LOWER</td>
-<td>l Key</td>
-</tr>
-<tr>
-<td>KEY_M_LOWER</td>
-<td>m Key</td>
-</tr>
-<tr>
-<td>KEY_N_LOWER</td>
-<td>n Key</td>
-</tr>
-<tr>
-<td>KEY_O_LOWER</td>
-<td>o Key</td>
-</tr>
-<tr>
-<td>KEY_P_LOWER</td>
-<td>p Key</td>
-</tr>
-<tr>
-<td>KEY_Q_LOWER</td>
-<td>q Key</td>
-</tr>
-<tr>
-<td>KEY_R_LOWER</td>
-<td>r Key</td>
-</tr>
-<tr>
-<td>KEY_S_LOWER</td>
-<td>s Key</td>
-</tr>
-<tr>
-<td>KEY_T_LOWER</td>
-<td>t Key</td>
-</tr>
-<tr>
-<td>KEY_U_LOWER</td>
-<td>u Key</td>
-</tr>
-<tr>
-<td>KEY_V_LOWER</td>
-<td>v Key</td>
-</tr>
-<tr>
-<td>KEY_W_LOWER</td>
-<td>w Key</td>
-</tr>
-<tr>
-<td>KEY_X_LOWER</td>
-<td>x Key</td>
-</tr>
-<tr>
-<td>KEY_Y_LOWER</td>
-<td>y Key</td>
-</tr>
-<tr>
-<td>KEY_Z_LOWER</td>
-<td>z Key</td>
-</tr>
-<tr>
-<td>KEY_A_UPPER</td>
-<td>a Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_B_UPPER</td>
-<td>b Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_C_UPPER</td>
-<td>c Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_D_UPPER</td>
-<td>d Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_E_UPPER</td>
-<td>e Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_F_UPPER</td>
-<td>f Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_G_UPPER</td>
-<td>g Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_H_UPPER</td>
-<td>h Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_I_UPPER</td>
-<td>i Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_J_UPPER</td>
-<td>j Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_K_UPPER</td>
-<td>k Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_L_UPPER</td>
-<td>l Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_M_UPPER</td>
-<td>m Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_N_UPPER</td>
-<td>n Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_O_UPPER</td>
-<td>o Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_P_UPPER</td>
-<td>p Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_Q_UPPER</td>
-<td>q Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_R_UPPER</td>
-<td>r Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_S_UPPER</td>
-<td>s Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_T_UPPER</td>
-<td>t Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_U_UPPER</td>
-<td>u Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_V_UPPER</td>
-<td>v Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_W_UPPER</td>
-<td>w Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_X_UPPER</td>
-<td>x Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_Y_UPPER</td>
-<td>y Key + Shift Key</td>
-</tr>
-<tr>
-<td>KEY_Z_UPPER</td>
-<td>z Key + Shift Key</td>
-</tr>
-<tr>
 <td>KEY_BACKSPACE</td>
 <td>Backspace Key</td>
 </tr>
 </tbody>
 </table>
+<p>There are also abstractions provided by <code>py_cui</code> for considering sets of keys. For example <code>py_cui.keys.ARROW_KEYS</code> is a list of key codes for each arrow key. These abstractions are useful for applying a key command for each key in a set of keys.</p>
               
             </div>
           </div>
