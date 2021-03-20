@@ -87,7 +87,13 @@
     <a class="current" href="./">Writing a PyCUI step-by-step</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#writing-a-py_cui-step-by-step">Writing a py_cui, step by step</a></li>
+    <li class="toctree-l3"><a href="#writing-a-py_cui-step-by-step">Writing a py_cui, Step by Step</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#advanced-features">Advanced Features</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -122,10 +128,6 @@
                 <li class="">
                     
     <a class="" href="../DocstringGenerated/Ui/">UI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../DocstringGenerated/Widgets/">Widgets</a>
                 </li>
                 <li class="">
                     
@@ -189,15 +191,38 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="writing-a-py_cui-step-by-step">Writing a py_cui, step by step</h1>
-<p>On this page, we will create a simple <code>py_cui</code> program, step by step. We will create something similar to the todo list example that can be seen in the <code>examples</code> directory in the repository.</p>
-<p><strong>Step 1 - Create PyCUI and wrapper class</strong></p>
+                <h1 id="writing-a-py_cui-step-by-step">Writing a py_cui, Step by Step</h1>
+<p>Once you have installed <code>py_cui</code>, you can continue on to create an application.</p>
+<p>On this page, we will create a simple <code>py_cui</code> program, step by step. We will create something similar to the todo list example that can be seen in the <a href="https://github.com/jwlodek/py_cui/blob/master/examples/simple_todo_list.py"><code>examples</code></a> directory in the repository.</p>
+<p>To get started, you can either use the <code>py_cui_cookiecutter</code> template, or start the project from scratch.</p>
+<p><strong>Step 0 - Full Project Setup (Optional)</strong></p>
+<p>If you are developing a mid to large scale project that is meant to be distributed via PyPi, you may want to use the available <code>cookiecutter</code> template to generate some boilerplate setup code for you. First, install the <code>cookiecutter</code> tool:</p>
+<pre><code>pip install cookiecutter
+</code></pre>
+
+<p>Once it is installed, navigate to the directory in which you would like your projects to live, and run:</p>
+<pre><code>cookiecutter https://github.com/jwlodek/py_cui_cookiecutter
+</code></pre>
+
+<p>This will clone the template, and ask several questions about your application, including project name and description, as well as some developer information. It will then create a basic <code>py_cui</code> style project with some pre-done functionality like a working <code>setup.py</code> file etc.</p>
+<p>The entrypoint for the created program will be in <code>myproject/__init__.py</code>, in the <code>main</code> method.</p>
+<p>To run the interface created with <code>cookiecutter</code>, enter your project's top-level directory, install with <code>pip</code> (you may want to set up a virtual environment first), and use the project's name to run the program. If you do this without making any changes to the template, you should be able to see a <code>Hello World</code> example:</p>
+<pre><code>cd myproject
+pip install .
+myproject
+</code></pre>
+
+<p>You are now ready to extend this template for your own application!</p>
+<p>Alternatively, of course, you may always create your project structure from scratch, depending on your needs. </p>
+<p><strong>Step 1 - Create PyCUI and Wrapper Class</strong></p>
+<p>Once you have the project template set up, or have created your own project structure, you can start developing the application itself.</p>
 <p>The recommended way to create <code>py_cui</code> programs is to create a wrapper class that takes the <code>PyCUI</code> object as an argument, similar to how <code>Tk</code> objects are often passed as an argument to a wrapper class.</p>
 <pre><code class="Python">import py_cui
 
 class SimpleTodoList:
 
-    def __init__(self, master):
+    # We add type annotations to our master PyCUI objects for improved intellisense
+    def __init__(self, master : py_cui.PyCUI):
 
         self.master = master
 
@@ -205,13 +230,15 @@ class SimpleTodoList:
 root = py_cui.PyCUI(7, 6)
 
 # If we want to use unicode box characters, we toggle them on here.
+# Alternatively, you can define your own border characters using
+# root.set_border_characters(...)
 root.toggle_unicode_borders()
 root.set_title('CUI TODO List')
 s = SimpleTodoList(root)
 root.start()
 </code></pre>
 
-<p><strong>Step 2 - Add your widgets</strong></p>
+<p><strong>Step 2 - Add Your Widgets</strong></p>
 <p>Next, we want to add widgets to the CUI. We will add 3 scroll menus to represent our lists of TODO, In Progress, and Done, a text field for adding new items for now.
 In more complex programs, you may use any object with an implemented <code>__str__</code> function to pass to a scroll menu, but in this example, we will simply input strings representing 
 the different tasks in our list.</p>
@@ -219,7 +246,8 @@ the different tasks in our list.</p>
 
 class SimpleTodoList:
 
-    def __init__(self, master):
+    # We add type annotations to our master PyCUI objects for improved intellisense
+    def __init__(self, master: py_cui.PyCUI):
 
         self.master = master
 
@@ -238,14 +266,15 @@ s = SimpleTodoList(root)
 root.start()
 </code></pre>
 
-<p>Note how we set the <code>row_span</code> and <code>column_span</code> values, so that even though the grid is 7x6, our widgets will actually be larger than that size. The reason we define these sizes is becaue we wish to have the text field fill a narrow row, meaning that we must subdivide the window into many rows.</p>
-<p><strong>Step 3 - Add key commands</strong></p>
+<p>Note how we set the <code>row_span</code> and <code>column_span</code> values, so that even though the grid is 7x6, our widgets will actually be larger than any individual cell. The reason we define these sizes is becaue we wish to have the text field fill a narrow row, meaning that we must subdivide the window into many rows.</p>
+<p><strong>Step 3 - Add Key Commands</strong></p>
 <p>Next, add keybindings to your widgets. We want buttons that send items into the next list, and the items get removed if theyre in the "Done" list. Also, we need to make the text field send its contents into the "TODO" list.</p>
 <pre><code class="Python">import py_cui
 
 class SimpleTodoList:
 
-    def __init__(self, master):
+    # We add type annotations to our master PyCUI objects for improved intellisense
+    def __init__(self, master: py_cui.PyCUI):
 
         self.master = master
 
@@ -309,8 +338,67 @@ root.start()
 <pre><code>python3 simple_todo.py
 </code></pre>
 
-<p>You should see something similar to this:</p>
+<p>if you created your own file, or with:</p>
+<pre><code>cd myproject
+pip install --upgrade .
+myproject
+</code></pre>
+
+<p>if you used the <code>cookiecutter</code> project template.</p>
 <p>Feel free to play around with this CUI, and note how the keybindings we assigned perform the tasks we wanted them to.</p>
+<h3 id="advanced-features">Advanced Features</h3>
+<p>There are several features supported by <code>py_cui</code> that allow for more complex interfaces to be created. Below is a quick rundown of some of these, and how to implement them in you application. If there is something not listed </p>
+<p><strong>Live Updates to Widgets</strong></p>
+<p>By default, <code>py_cui</code> only refreshes the screen when an event is registered, like a key or mouse press. If you would like to change this behavior, you simply must set the screen refresh timeout (in seconds) with:</p>
+<pre><code class="Python">root.set_refresh_timeout(1)
+</code></pre>
+
+<p>Note that that this will simply have the UI refresh every set number of seconds, and processing any updates to widgets must be performed in a parallel thread outside of the main draw/IO thread.</p>
+<p><strong>Multiple "Windows"</strong></p>
+<p>If your UI requires multiple UI screens, you should not creat multiple <code>PyCUI</code> instances, but rather by using multiple <code>WidgetSet</code> objects. You should use the original root instance to create the widget sets, and then apply the one you would like to currently display. For a basic example of this principle, see below:</p>
+<pre><code class="Python">import py_cui
+
+class MultiWindowDemo:
+
+    def __init__(self, root: py_cui.PyCUI):
+
+        # Root PyCUI window
+        self.root = root
+
+        # Collect current CUI configuration as a widget set object
+        self.widget_set_A = self.root.create_new_widget_set(3,3)
+
+        # Add a button the the CUI
+        self.widget_set_A.add_button('Open 2nd Window', 1, 1, command = self.open_set_B)
+
+        # apply the initial widget set
+        self.root.apply_widget_set(self.widget_set_A)
+
+        # Create a second widget set (window). This one will have a 5x5 grid, not 3x3 like the original CUI
+        self.widget_set_B = self.root.create_new_widget_set(5, 5)
+
+        # Add a text box to the second widget set
+        self.text_box_B = self.widget_set_B.add_text_box('Enter something', 0, 0, column_span=2)
+        self.text_box_B.add_key_command(py_cui.keys.KEY_ENTER, self.open_set_A)
+
+
+    def open_set_A(self):
+        # Fired on the ENTER key in the textbox. Use apply_widget_set to switch between &quot;windows&quot;
+        self.root.apply_widget_set(self.widget_set_A)
+
+
+    def open_set_B(self):
+        # Fired on button press. Use apply_widget_set to switch between &quot;windows&quot;
+        self.root.apply_widget_set(self.widget_set_B)
+
+
+# Create CUI object, pass to wrapper class, and start the CUI
+root = py_cui.PyCUI(3, 3)
+wrapper = MultiWindowDemo(root)
+root.start()
+</code></pre>
+
+<p>In addition, it may be worthwhile to create additional wrapper classes for the individual screens in order to better separate the logic for each. An example of this approach would be the <a href="https://github.com/jwlodek/pyautogit/blob/master/pyautogit/screen_manager.py"><code>ScreenManager</code></a> and various <a href="https://github.com/jwlodek/pyautogit/blob/master/pyautogit/settings_screen.py">sub-classes</a> for <code>pyautogit</code>.</p>
               
             </div>
           </div>

@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>filedialog - py_cui Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "filedialog";
+    var mkdocs_page_input_path = "DocstringGenerated\\Dialogs\\Filedialog.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> py_cui Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using and Writing PyCUIs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../usage/">Basic Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../keybindings/">Keys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../writing/">Writing a PyCUI step-by-step</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../developers/">For PyCUI Developers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../examples/">Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../about/">About</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Docstring Docs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../PyCui/">PyCUI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Grid/">Grid</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Ui/">UI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../WidgetSet/">Widget Sets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Renderer/">Renderer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Keys/">Keys</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">py_cui Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>filedialog</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Dialogs/Filedialog.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="filedialog">filedialog</h1>
+<p>Implementation, widget, and popup classes for file selection dialogs</p>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FileDirElem</td>
+<td>Simple helper class defining a single file or directory</td>
+</tr>
+<tr>
+<td>FileSelectImplementation(py_cui.ui.MenuImplementation)</td>
+<td>Extension of menu implementation that allows for listing files and dirs in a location</td>
+</tr>
+<tr>
+<td>FileSelectElement(py_cui.ui.UIElement, FileSelectImplementation)</td>
+<td>Custom UI Element for selecting files or directories.</td>
+</tr>
+<tr>
+<td>FileNameInput(py_cui.ui.UIElement, py_cui.ui.TextBoxImplementation)</td>
+<td>UI Element class representing name input field for filedialog</td>
+</tr>
+<tr>
+<td>FileDialogButton(py_cui.ui.UIElement)</td>
+<td>Utility button element for parent filedialog</td>
+</tr>
+<tr>
+<td>InternalFileDialogPopup(py_cui.popups.MessagePopup)</td>
+<td>A helper class for abstracting a message popup tied to a parent popup</td>
+</tr>
+<tr>
+<td>FileDialogPopup(py_cui.popups.Popup)</td>
+<td>Main implementation class of a FileDialog poup.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="functions">Functions</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>is_filepath_hidden</td>
+<td>Function checks if file or folder is considered "hidden"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="is_filepath_hidden">is_filepath_hidden</h3>
+<pre><code class="python">def is_filepath_hidden(path)
+</code></pre>
+
+<p>Function checks if file or folder is considered "hidden"</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>str</td>
+<td>Path to file or folder</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>marked_hidden</td>
+<td>bool</td>
+<td>True if name starts with '.', or has hidden attribute in OS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="filedirelem">FileDirElem</h2>
+<pre><code class="python">class FileDirElem
+</code></pre>
+
+<p>Simple helper class defining a single file or directory</p>
+<h4 id="attributes">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_type</td>
+<td>str</td>
+<td>Either dir or file</td>
+</tr>
+<tr>
+<td>_name</td>
+<td>str</td>
+<td>The name of the file or directory</td>
+</tr>
+<tr>
+<td>_path</td>
+<td>str</td>
+<td>The absolute path to the directory or file</td>
+</tr>
+<tr>
+<td>_folder_icon</td>
+<td>str</td>
+<td>icon or text for folder</td>
+</tr>
+<tr>
+<td>_file_icon</td>
+<td>str</td>
+<td>icon for file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_path</td>
+<td>Getter for path</td>
+</tr>
+<tr>
+<td><strong>str</strong></td>
+<td>Override of to-string function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, elem_type, name, fullpath, ascii_icons=False)
+</code></pre>
+
+<p>Intializer for FilDirElem</p>
+<h3 id="get_path">get_path</h3>
+<pre><code class="python">def get_path(self)
+</code></pre>
+
+<p>Getter for path</p>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>str</td>
+<td>Path of file/dir represented by elem</td>
+</tr>
+</tbody>
+</table>
+<h3 id="str"><strong>str</strong></h3>
+<pre><code class="python">def __str__(self)
+</code></pre>
+
+<p>Override of to-string function</p>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>str</td>
+<td>Icon and name of dir or file</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fileselectimplementationpy_cuiuimenuimplementation">FileSelectImplementation(py_cui.ui.MenuImplementation)</h2>
+<pre><code class="python">class FileSelectImplementation(py_cui.ui.MenuImplementation)
+</code></pre>
+
+<p>Extension of menu implementation that allows for listing files and dirs in a location</p>
+<h4 id="attributes_1">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_current_dir</td>
+<td>str</td>
+<td>The current focused-on directory</td>
+</tr>
+<tr>
+<td>_ascii_icons</td>
+<td>bool</td>
+<td>Toggle using ascii or unicode icons</td>
+</tr>
+<tr>
+<td>_dialog_type</td>
+<td>str</td>
+<td>Type of open dialog</td>
+</tr>
+<tr>
+<td>_limit_extensions</td>
+<td>List[str]</td>
+<td>List of file extensions to show as visible</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_1">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refresh_view</td>
+<td>Function that refreshes the current list of files and folders in view</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_1"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, initial_loc, dialog_type, ascii_icons, logger, limit_extensions = [], show_hidden=False)
+</code></pre>
+
+<p>Initalizer for the file select menu implementation. Includes some logic for getting list of file and folders.</p>
+<h3 id="refresh_view">refresh_view</h3>
+<pre><code class="python">def refresh_view(self)
+</code></pre>
+
+<p>Function that refreshes the current list of files and folders in view</p>
+<h2 id="fileselectelementpy_cuiuiuielement-fileselectimplementation">FileSelectElement(py_cui.ui.UIElement, FileSelectImplementation)</h2>
+<pre><code class="python">class FileSelectElement(py_cui.ui.UIElement, FileSelectImplementation)
+</code></pre>
+
+<p>Custom UI Element for selecting files or directories.</p>
+<p>Displays list of files and dirs in a given location</p>
+<h4 id="attributes_2">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_command</td>
+<td>function</td>
+<td>a function that takes a single string parameter, run when ENTER pressed</td>
+</tr>
+<tr>
+<td>_run_command_if_none</td>
+<td>bool</td>
+<td>Runs command even if there are no menu items (passes None)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_2">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_absolute_start_pos</td>
+<td>Override of base function. Uses the parent element do compute start position</td>
+</tr>
+<tr>
+<td>get_absolute_stop_pos</td>
+<td>Override of base function. Uses the parent element do compute stop position</td>
+</tr>
+<tr>
+<td>_handle_key_press</td>
+<td>Override of base handle key press function</td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Overrides base class draw function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_2"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, root, initial_dir, dialog_type, ascii_icons, title, color, command, renderer, logger, limit_extensions=[])
+</code></pre>
+
+<p>Initializer for MenuPopup. Uses MenuImplementation as base</p>
+<h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
+<pre><code class="python">def get_absolute_start_pos(self)
+</code></pre>
+
+<p>Override of base function. Uses the parent element do compute start position</p>
+<h4 id="returns_3">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_x, start_y</td>
+<td>int, int</td>
+<td>The position in characters in the terminal window to start the Field element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
+<pre><code class="python">def get_absolute_stop_pos(self)
+</code></pre>
+
+<p>Override of base function. Uses the parent element do compute stop position</p>
+<h4 id="returns_4">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_x, stop_y</td>
+<td>int, int</td>
+<td>The position in characters in the terminal window to stop the Field element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_key_press">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
+</code></pre>
+
+<p>Override of base handle key press function</p>
+<p>Enter key runs command, Escape key closes menu</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_draw">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<p>Overrides base class draw function</p>
+<h2 id="filenameinputpy_cuiuiuielement-py_cuiuitextboximplementation">FileNameInput(py_cui.ui.UIElement, py_cui.ui.TextBoxImplementation)</h2>
+<pre><code class="python">class FileNameInput(py_cui.ui.UIElement, py_cui.ui.TextBoxImplementation)
+</code></pre>
+
+<p>UI Element class representing name input field for filedialog</p>
+<h4 id="attributes_3">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_parent_dialog</td>
+<td>FileDialog</td>
+<td>parent dialog widget or popup</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_3">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_absolute_start_pos</td>
+<td>Override of base function. Uses the parent element do compute start position</td>
+</tr>
+<tr>
+<td>get_absolute_stop_pos</td>
+<td>Override of base function. Uses the parent element do compute stop position</td>
+</tr>
+<tr>
+<td>update_height_width</td>
+<td>Override of base class. Updates text field variables for form field</td>
+</tr>
+<tr>
+<td>_handle_key_press</td>
+<td>Handles text input for the field. Called by parent</td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Draw function for the field. Called from parent. Essentially the same as a TextboxPopup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_3"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, parent_dialog, title, initial_dir, renderer, logger)
+</code></pre>
+
+<p>Initializer for the FormFieldElement class</p>
+<h3 id="get_absolute_start_pos_1">get_absolute_start_pos</h3>
+<pre><code class="python">def get_absolute_start_pos(self)
+</code></pre>
+
+<p>Override of base function. Uses the parent element do compute start position</p>
+<h4 id="returns_5">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_x, start_y</td>
+<td>int, int</td>
+<td>The position in characters in the terminal window to start the Field element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_absolute_stop_pos_1">get_absolute_stop_pos</h3>
+<pre><code class="python">def get_absolute_stop_pos(self)
+</code></pre>
+
+<p>Override of base function. Uses the parent element do compute stop position</p>
+<h4 id="returns_6">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_x, stop_y</td>
+<td>int, int</td>
+<td>The position in characters in the terminal window to stop the Field element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_height_width">update_height_width</h3>
+<pre><code class="python">def update_height_width(self)
+</code></pre>
+
+<p>Override of base class. Updates text field variables for form field</p>
+<h3 id="_handle_key_press_1">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
+</code></pre>
+
+<p>Handles text input for the field. Called by parent</p>
+<h3 id="_draw_1">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<p>Draw function for the field. Called from parent. Essentially the same as a TextboxPopup</p>
+<h2 id="filedialogbuttonpy_cuiuiuielement">FileDialogButton(py_cui.ui.UIElement)</h2>
+<pre><code class="python">class FileDialogButton(py_cui.ui.UIElement)
+</code></pre>
+
+<p>Utility button element for parent filedialog</p>
+<h4 id="attributes_4">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_parent_dialog</td>
+<td>FileDialog</td>
+<td>Main filedialog popup or widget</td>
+</tr>
+<tr>
+<td>_button_num</td>
+<td>int</td>
+<td>0 for submit button, 1 for cancel button</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_4">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_absolute_start_pos</td>
+<td>Override of base function. Uses the parent element do compute start position</td>
+</tr>
+<tr>
+<td>get_absolute_stop_pos</td>
+<td>Override of base function. Uses the parent element do compute stop position</td>
+</tr>
+<tr>
+<td>_handle_mouse_press</td>
+<td>Handles mouse presses</td>
+</tr>
+<tr>
+<td>_handle_key_press</td>
+<td>Override of base class, adds ENTER listener that runs the button's command</td>
+</tr>
+<tr>
+<td>perform_command</td>
+<td></td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Override of base class draw function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_4"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, parent_dialog, statusbar_msg, command, button_num, *args)
+</code></pre>
+
+<p>Initializer for Button Widget</p>
+<h3 id="get_absolute_start_pos_2">get_absolute_start_pos</h3>
+<pre><code class="python">def get_absolute_start_pos(self)
+</code></pre>
+
+<p>Override of base function. Uses the parent element do compute start position</p>
+<h4 id="returns_7">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_x, start_y</td>
+<td>int, int</td>
+<td>The position in characters in the terminal window to start the Field element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_absolute_stop_pos_2">get_absolute_stop_pos</h3>
+<pre><code class="python">def get_absolute_stop_pos(self)
+</code></pre>
+
+<p>Override of base function. Uses the parent element do compute stop position</p>
+<h4 id="returns_8">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_x, stop_y</td>
+<td>int, int</td>
+<td>The position in characters in the terminal window to stop the Field element</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_mouse_press">_handle_mouse_press</h3>
+<pre><code class="python">def _handle_mouse_press(self, x, y)
+</code></pre>
+
+<p>Handles mouse presses</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>int</td>
+<td>x coordinate of click in characters</td>
+</tr>
+<tr>
+<td>y</td>
+<td>int</td>
+<td>y coordinate of click in characters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_key_press_2">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
+</code></pre>
+
+<p>Override of base class, adds ENTER listener that runs the button's command</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>Key code of pressed key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="perform_command">perform_command</h3>
+<pre><code class="python">def perform_command(self)
+</code></pre>
+
+<h3 id="_draw_2">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<p>Override of base class draw function</p>
+<h2 id="internalfiledialogpopuppy_cuipopupsmessagepopup">InternalFileDialogPopup(py_cui.popups.MessagePopup)</h2>
+<pre><code class="python">class InternalFileDialogPopup(py_cui.popups.MessagePopup)
+</code></pre>
+
+<p>A helper class for abstracting a message popup tied to a parent popup</p>
+<h4 id="attributes_5">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parent</td>
+<td>FormPopup</td>
+<td>The parent form popup that spawned the message popup</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_5">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_handle_key_press</td>
+<td>Override of base class, close in parent instead of root</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_5"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, parent, *args)
+</code></pre>
+
+<p>Initializer for Internal form Popup</p>
+<h3 id="_handle_key_press_3">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
+</code></pre>
+
+<p>Override of base class, close in parent instead of root</p>
+<h2 id="filedialogpopuppy_cuipopupspopup">FileDialogPopup(py_cui.popups.Popup)</h2>
+<pre><code class="python">class FileDialogPopup(py_cui.popups.Popup)
+</code></pre>
+
+<p>Main implementation class of a FileDialog poup.</p>
+<h4 id="attributes_6">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_submit_action</td>
+<td>func</td>
+<td>A function that takes a single string argument. Called with selected path when submit button is pressed</td>
+</tr>
+<tr>
+<td>_filename_input</td>
+<td>FileNameInput</td>
+<td>Extension of textbox, acts as input field to create new dirs/files or select save name</td>
+</tr>
+<tr>
+<td>_file_dir_select</td>
+<td>FileSelectElement</td>
+<td>Extension  of scroll menu used to display current files and dirs</td>
+</tr>
+<tr>
+<td>_submit_button</td>
+<td>FileDialogButton</td>
+<td>Extension of button - Runs the callback with the selected file</td>
+</tr>
+<tr>
+<td>_cancel_button</td>
+<td>FileDialogButton</td>
+<td>Extension of button - closes popup</td>
+</tr>
+<tr>
+<td>_internal_popup</td>
+<td>InternalFileDialogPopup</td>
+<td>Extension of message popup, used to display warnings as secondary popup.</td>
+</tr>
+<tr>
+<td>_currently_selected</td>
+<td>UIElement</td>
+<td>Currently selected sub-element of file dialog popup</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_6">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_submit</td>
+<td></td>
+</tr>
+<tr>
+<td>display_warning</td>
+<td>Helper function for showing internal popup warning message</td>
+</tr>
+<tr>
+<td>output_valid</td>
+<td></td>
+</tr>
+<tr>
+<td>get_absolute_start_pos</td>
+<td>Override of base class, computes position based on root dimensions</td>
+</tr>
+<tr>
+<td>get_absolute_stop_pos</td>
+<td>Override of base class, computes position based on root dimensions</td>
+</tr>
+<tr>
+<td>update_height_width</td>
+<td>Override of base class function</td>
+</tr>
+<tr>
+<td>_handle_key_press</td>
+<td>Override of base class. Here, we handle tabs, enters, and escapes</td>
+</tr>
+<tr>
+<td>_handle_mouse_press</td>
+<td>Override of base class function</td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Override of base class.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_6"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, root, callback, initial_dir, dialog_type, ascii_icons, limit_extensions, color, renderer, logger)
+</code></pre>
+
+<p>Initalizer for the FileDialogPopup</p>
+<h3 id="_submit">_submit</h3>
+<pre><code class="python">def _submit(self, output)
+</code></pre>
+
+<h3 id="display_warning">display_warning</h3>
+<pre><code class="python">def display_warning(self, message)
+</code></pre>
+
+<p>Helper function for showing internal popup warning message</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td>str</td>
+<td>Warning message to display</td>
+</tr>
+</tbody>
+</table>
+<h3 id="output_valid">output_valid</h3>
+<pre><code class="python">def output_valid(self, output)
+</code></pre>
+
+<h3 id="get_absolute_start_pos_3">get_absolute_start_pos</h3>
+<pre><code class="python">def get_absolute_start_pos(self)
+</code></pre>
+
+<p>Override of base class, computes position based on root dimensions</p>
+<h4 id="returns_9">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_x, start_y</td>
+<td>int</td>
+<td>The coords of the upper-left corner of the popup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_absolute_stop_pos_3">get_absolute_stop_pos</h3>
+<pre><code class="python">def get_absolute_stop_pos(self)
+</code></pre>
+
+<p>Override of base class, computes position based on root dimensions</p>
+<h4 id="returns_10">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_x, stop_y</td>
+<td>int</td>
+<td>The coords of the lower-right corner of the popup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_height_width_1">update_height_width</h3>
+<pre><code class="python">def update_height_width(self)
+</code></pre>
+
+<p>Override of base class function</p>
+<p>Also updates all form field elements in the form</p>
+<h3 id="_handle_key_press_4">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
+</code></pre>
+
+<p>Override of base class. Here, we handle tabs, enters, and escapes</p>
+<p>All other key presses are passed to the currently selected field element</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>Key code of pressed key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_mouse_press_1">_handle_mouse_press</h3>
+<pre><code class="python">def _handle_mouse_press(self, x, y)
+</code></pre>
+
+<p>Override of base class function</p>
+<p>Simply enters the appropriate field when mouse is pressed on it</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x, y</td>
+<td>int, int</td>
+<td>Coordinates of the mouse press</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_draw_3">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<p>Override of base class.</p>
+<p>Here, we only draw a border, and then the individual form elements</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

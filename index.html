@@ -135,10 +135,6 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="DocstringGenerated/Widgets/">Widgets</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="DocstringGenerated/Popups/">Popups</a>
                 </li>
                 <li class="">
@@ -218,8 +214,9 @@
 
 <hr />
 <h1 id="py_cui">py_cui</h1>
-<p><code>py_cui</code> is a python library meant to simplify writing command line user interfaces in python. It is built upon the <code>curses</code> module, which is traditionally a unix-specific, however, you may use <a href="https://github.com/zephyrproject-rtos/windows-curses">windows-curses</a> to gain compatibility for <code>py_cui</code> on windows.</p>
+<p><code>py_cui</code> is a python library meant to simplify writing command line user interfaces in python. It relies on <code>curses</code>, which is traditionally unix-specific, however, you may use the <a href="https://github.com/zephyrproject-rtos/windows-curses">windows-curses</a> module to run <code>py_cui</code> on windows.</p>
 <p>The main advantage <code>py_cui</code> has over typical text-based user interface builders is that it relies on widgets and a grid layout manager like most traditional graphical user interfaces. You may define a grid size, and then drop predefined widgets onto it into specific grid locations. Widgets can also be stretched accross multiple grid rows and columns. If you've ever made a Tkinter GUI, you will feel right at home.</p>
+<p>If you would like to contribute, feel free to make an issue or pull request after reading through the <code>CONTRIBUTING.md</code> file.</p>
 <h2 id="examples">Examples</h2>
 <p>Below are some screenshots and gifs of programs written with py_cui. Additional (simpler) examples are available in the <code>examples/</code> directory of this repository.</p>
 <p><strong>py_cui_2048 - A command line version of the classic 2048 game</strong></p>
@@ -227,8 +224,12 @@
 <p align="center">
     <img src="assets/py2048-demo.gif">
 </p></p>
-<p><strong>unipkg - A command line utility that will allow for managing all installed package managers on your system through one cli interface</strong></p>
-<p><a href="https://github.com/jwlodek/unipkg">unipkg</a> is currently an in-progress project, check back in the future to see a screenshot, and more information.</p>
+<p><strong>recoverpy - A TUI that allows for recovering lost or deleted files</strong></p>
+<p><a href="https://github.com/PabloLec/recoverpy">recoverpy</a> is a utility for recovering files on linux. It will search through every inode to find your requested file block.</p>
+<p align="center">
+    <img src="assets/recoverpy-demo.gif">
+</p>
+
 <p><strong>pyautogit - A command line interface for managing git repositories</strong></p>
 <p><a href="https://github.com/jwlodek/pyautogit">pyautogit</a> is the first larger scale project written in <code>py_cui</code>. Feel free to use it as a guide to programming with <code>py_cui</code>.
 <p align="center">
@@ -245,8 +246,16 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="https://github.com/jwlodek/pypodcasts">pypodcasts</a></td>
+<td>A TUI for listening to and managing podcast feeds. (Coming Soon)</td>
+</tr>
+<tr>
 <td><a href="https://github.com/jwlodek/pyautogit">pyautogit</a></td>
 <td>A command line UI for interfacing with git features for multiple repositories.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/PabloLec/recoverpy">recoverpy</a></td>
+<td>A CUI for recovering overwritten or deleted data on linux.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/jwlodek/py_cui_2048">py_cui_2048</a></td>
@@ -255,6 +264,10 @@
 <tr>
 <td><a href="https://github.com/jwlodek/unipkg">unipkg</a></td>
 <td>A CUI interface for managing all installed package managers on your system. (In-Progress)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jupiterbjy/CUIAudioPlayer">CUIAudioPlayer</a></td>
+<td>A TUI for playing back audio files in a variety of formats.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/HakierGrzonzo/tinyPub">tinypub</a></td>
@@ -272,7 +285,7 @@
 </table>
 <h2 id="license">License</h2>
 <p>BSD 3-Clause License</p>
-<p>Copyright (c) 2019-2020, Jakub Wlodek</p>
+<p>Copyright (c) 2019-2021, Jakub Wlodek</p>
               
             </div>
           </div>
@@ -325,5 +338,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2020-09-16 01:46:17
+Build Date UTC : 2021-03-20 01:21:21
 -->

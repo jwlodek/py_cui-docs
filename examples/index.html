@@ -137,10 +137,6 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../DocstringGenerated/Widgets/">Widgets</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../DocstringGenerated/Popups/">Popups</a>
                 </li>
                 <li class="">
@@ -358,7 +354,7 @@ class PopupExample:
             color = py_cui.CYAN_ON_BLACK
         elif new_color == &quot;MAGENTA&quot;:
             color = py_cui.MAGENTA_ON_BLACK
-        for key in self.master.widgets.keys():
+        for key in self.master.get_widgets().keys():
             if isinstance(self.master.get_widgets()[key], py_cui.widgets.Button):
                 self.master.get_widgets()[key].set_color(color)
 
@@ -412,7 +408,7 @@ root.start()
 </code></pre>
 
 <h3 id="other-examples">Other examples</h3>
-<p>Other examples are available in the <code>examples</code> directory in the repository on github. For a larger example of a project using <code>py_cui</code>, see <a href="https://github.com/jwlodek/pyautogit">pyautogit</a>.</p>
+<p>Other examples are available in the <a href="https://github.com/jwlodek/py_cui/tree/master/examples"><code>examples</code></a> directory in the repository on github. For a larger example of a project using <code>py_cui</code>, see <a href="https://github.com/jwlodek/pyautogit">pyautogit</a>.</p>
               
             </div>
           </div>

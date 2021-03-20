@@ -133,10 +133,6 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../DocstringGenerated/Widgets/">Widgets</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../DocstringGenerated/Popups/">Popups</a>
                 </li>
                 <li class="">
@@ -194,19 +190,25 @@
             <div class="section">
               
                 <h1 id="pycui-installation">PyCUI Installation</h1>
-<p>The easiest way to install py_cui is to use <code>pip</code>. You may simply run:</p>
+<p>You may install <code>py_cui</code> via pip (use <code>pip3</code> if python 2 and 3 are installed side by side)</p>
+<pre><code>pip install py-cui
+</code></pre>
+
+<p>Make sure to run as root/sudo as required. Note that the library is titled <code>py_cui</code>, but the name of the pypi package is <code>py-cui</code>, though in most cases, installing with </p>
 <pre><code>pip install py_cui
 </code></pre>
 
-<p>and the library should install along with all dependancies. If you are working on a machine where <code>pip</code> defaults to the <code>Python 2</code> version, replace <code>pip</code> with <code>pip3</code>.</p>
-<p>There is no Python 2 support for <code>py_cui</code>, you will need a version of Python 3.4+ in order to use it. It may function with older versions of Python 3, but it has not been tested on them.</p>
-<p>Alternatively, if you wish to avoid using pip, you may install from this repository:</p>
+<p>should work OK.</p>
+<p>If you would like to use <code>py_cui</code> directly from source, clone this repository with:</p>
 <pre><code>git clone https://github.com/jwlodek/py_cui
-cd py_cui
+</code></pre>
+
+<p>Then build/install with <code>pip</code>:</p>
+<pre><code>cd py_cui
 pip install .
 </code></pre>
 
-<p>This will use pip to install from the sources in the git repository. If you wish to avoid installing altogether, you may copy an example from the <code>examples/</code> directory into the root <code>py_cui</code> directory, and run it with python3. Note that in this case you are required to install the dependancies yourself, which are <code>curses</code> on UNIX (should be included with python3) and <code>windows-curses</code> on windows, which can be installed with <code>pip</code>.</p>
+<p>If you would like to try it out without installing, first make sure that <code>curses</code> is installed (<code>windows-curses</code> if on windows), and then copy one of the example files into the top directory. You may then simply run it with <code>python3</code>.</p>
 <h3 id="developer-installation">Developer Installation</h3>
 <p>Additional packages can be used by <code>py_cui</code> developers to help with debugging and other issues. For these, you may use pip:</p>
 <pre><code>pip install -r requirements_dev.txt

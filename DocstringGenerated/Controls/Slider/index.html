@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>slider - py_cui Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "slider";
+    var mkdocs_page_input_path = "DocstringGenerated\\Controls\\Slider.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> py_cui Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../install/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Using and Writing PyCUIs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../usage/">Basic Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../widgets/">Widgets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../keybindings/">Keys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../writing/">Writing a PyCUI step-by-step</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../developers/">For PyCUI Developers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../examples/">Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../about/">About</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Docstring Docs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../PyCui/">PyCUI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Grid/">Grid</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Ui/">UI</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Popups/">Popups</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Colors/">Colors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../WidgetSet/">Widget Sets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Renderer/">Renderer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Keys/">Keys</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">py_cui Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>slider</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jwlodek/py_cui/edit/master/docs/DocstringGenerated/Controls/Slider.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="slider">slider</h1>
+<h4 id="classes">Classes</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SliderImplementation(py_cui.ui.UIImplementation)</td>
+<td></td>
+</tr>
+<tr>
+<td>SliderWidget(py_cui.widgets.Widget, SliderImplementation)</td>
+<td></td>
+</tr>
+<tr>
+<td>SliderPopup(py_cui.popups.Popup, SliderImplementation)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sliderimplementationpy_cuiuiuiimplementation">SliderImplementation(py_cui.ui.UIImplementation)</h2>
+<pre><code class="python">class SliderImplementation(py_cui.ui.UIImplementation)
+</code></pre>
+
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_bar_char</td>
+<td></td>
+</tr>
+<tr>
+<td>update_slider_value</td>
+<td></td>
+</tr>
+<tr>
+<td>get_slider_value</td>
+<td></td>
+</tr>
+<tr>
+<td>set_slider_step</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, min_val, max_val, init_val, step, logger)
+</code></pre>
+
+<h3 id="set_bar_char">set_bar_char</h3>
+<pre><code class="python">def set_bar_char(self, char)
+</code></pre>
+
+<p>Updates the character used to represent the slider bar.</p>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>str</td>
+<td>Character to represent progressive bar.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_slider_value">update_slider_value</h3>
+<pre><code class="python">def update_slider_value(self, offset: int) -&gt; float
+</code></pre>
+
+<p>Steps up or down the value in offset fashion.</p>
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offset</td>
+<td>int</td>
+<td>Number of steps to increase or decrease the slider value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self._cur_val</td>
+<td>float</td>
+<td>Current slider value.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_slider_value">get_slider_value</h3>
+<pre><code class="python">def get_slider_value(self)
+</code></pre>
+
+<p>Returns current slider value.</p>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self._cur_val</td>
+<td>float</td>
+<td>Current slider value.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set_slider_step">set_slider_step</h3>
+<pre><code class="python">def set_slider_step(self, step)
+</code></pre>
+
+<p>Changes the step value.</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>step</td>
+<td>int</td>
+<td>Step size of the slider.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sliderwidgetpy_cuiwidgetswidget-sliderimplementation">SliderWidget(py_cui.widgets.Widget, SliderImplementation)</h2>
+<pre><code class="python">class SliderWidget(py_cui.widgets.Widget, SliderImplementation)
+</code></pre>
+
+<p>Widget for a Slider</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>min_val</td>
+<td>int</td>
+<td>Lowest value of the slider</td>
+</tr>
+<tr>
+<td>max_val</td>
+<td>int</td>
+<td>Highest value of the slider</td>
+</tr>
+<tr>
+<td>step</td>
+<td>int</td>
+<td>Increment from low to high value</td>
+</tr>
+<tr>
+<td>init_val</td>
+<td></td>
+<td>Initial value of the slider</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods_1">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toggle_title</td>
+<td>Toggles visibility of the widget's name.</td>
+</tr>
+<tr>
+<td>toggle_border</td>
+<td>Toggles visibility of the widget's border.</td>
+</tr>
+<tr>
+<td>toggle_value</td>
+<td>Toggles visibility of the widget's current value in integer.</td>
+</tr>
+<tr>
+<td>align_to_top</td>
+<td>Aligns widget height to top.</td>
+</tr>
+<tr>
+<td>align_to_middle</td>
+<td>Aligns widget height to middle. default configuration.</td>
+</tr>
+<tr>
+<td>align_to_bottom</td>
+<td>Aligns widget height to bottom.</td>
+</tr>
+<tr>
+<td>_custom_draw_with_border</td>
+<td></td>
+</tr>
+<tr>
+<td>_generate_bar</td>
+<td></td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Override of base class draw function.</td>
+</tr>
+<tr>
+<td>_handle_key_press</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_1"><strong>init</strong></h3>
+<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span
+</code></pre>
+
+<h3 id="toggle_title">toggle_title</h3>
+<pre><code class="python">def toggle_title(self)
+</code></pre>
+
+<p>Toggles visibility of the widget's name.</p>
+<h3 id="toggle_border">toggle_border</h3>
+<pre><code class="python">def toggle_border(self)
+</code></pre>
+
+<p>Toggles visibility of the widget's border.</p>
+<h3 id="toggle_value">toggle_value</h3>
+<pre><code class="python">def toggle_value(self)
+</code></pre>
+
+<p>Toggles visibility of the widget's current value in integer.</p>
+<h3 id="align_to_top">align_to_top</h3>
+<pre><code class="python">def align_to_top(self)
+</code></pre>
+
+<p>Aligns widget height to top.</p>
+<h3 id="align_to_middle">align_to_middle</h3>
+<pre><code class="python">def align_to_middle(self)
+</code></pre>
+
+<p>Aligns widget height to middle. default configuration.</p>
+<h3 id="align_to_bottom">align_to_bottom</h3>
+<pre><code class="python">def align_to_bottom(self)
+</code></pre>
+
+<p>Aligns widget height to bottom.</p>
+<h3 id="_custom_draw_with_border">_custom_draw_with_border</h3>
+<pre><code class="python">def _custom_draw_with_border(self, start_y: int, content: str)
+</code></pre>
+
+<p>Custom method made from renderer.draw_border to support alignment for bordered variants.</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_y</td>
+<td>int</td>
+<td>border's Y-axis starting coordination</td>
+</tr>
+<tr>
+<td>content</td>
+<td>str</td>
+<td>string to be drawn inside the border</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_generate_bar">_generate_bar</h3>
+<pre><code class="python">def _generate_bar(self, width: int) -&gt; str
+</code></pre>
+
+<p>Internal implementation to generate progression bar.</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>int</td>
+<td>Width of bar in character length.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>progress</td>
+<td>str</td>
+<td>progressive bar string  with length of width.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_draw">_draw</h3>
+<pre><code class="python">def _draw(self)
+</code></pre>
+
+<p>Override of base class draw function.</p>
+<h3 id="_handle_key_press">_handle_key_press</h3>
+<pre><code class="python">def _handle_key_press(self, key_pressed)
+</code></pre>
+
+<p>LEFT_ARROW decreases value, RIGHT_ARROW increases.</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of pressed key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sliderpopuppy_cuipopupspopup-sliderimplementation">SliderPopup(py_cui.popups.Popup, SliderImplementation)</h2>
+<pre><code class="python">class SliderPopup(py_cui.popups.Popup, SliderImplementation)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>2020 - Jakub Wlodek</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jwlodek/py_cui/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

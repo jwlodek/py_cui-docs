@@ -122,8 +122,6 @@
         
             <li><a class="toctree-l4" href="#pycui">PyCUI</a></li>
         
-            <li><a class="toctree-l4" href="#paramters">Paramters</a></li>
-        
         </ul>
     
 
@@ -136,10 +134,6 @@
                 <li class="">
                     
     <a class="" href="../Ui/">UI</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../Widgets/">Widgets</a>
                 </li>
                 <li class="">
                     
@@ -529,6 +523,10 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 <tr>
 <td>show_form_popup</td>
+<td>Shows form popup.</td>
+</tr>
+<tr>
+<td>show_filedialog_popup</td>
 <td>Shows form popup.</td>
 </tr>
 <tr>
@@ -922,7 +920,7 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_scroll_menu">add_scroll_menu</h3>
-<pre><code class="python">def add_scroll_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0)
+<pre><code class="python">def add_scroll_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0) -&gt; py_cui.widgets.ScrollMenu
 </code></pre>
 
 <p>Function that adds a new scroll menu to the CUI grid</p>
@@ -991,7 +989,7 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_checkbox_menu">add_checkbox_menu</h3>
-<pre><code class="python">def add_checkbox_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0, checked_char='X')
+<pre><code class="python">def add_checkbox_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0, checked_char='X') -&gt; py_cui.widgets.CheckBoxMenu
 </code></pre>
 
 <p>Function that adds a new checkbox menu to the CUI grid</p>
@@ -1065,7 +1063,7 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_text_box">add_text_box</h3>
-<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '', password = False)
+<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '', password = False) -&gt; py_cui.widgets.TextBox
 </code></pre>
 
 <p>Function that adds a new text box to the CUI grid</p>
@@ -1144,7 +1142,7 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_text_block">add_text_block</h3>
-<pre><code class="python">def add_text_block(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '')
+<pre><code class="python">def add_text_block(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '') -&gt; py_cui.widgets.ScrollTextBlock
 </code></pre>
 
 <p>Function that adds a new text block to the CUI grid</p>
@@ -1218,7 +1216,7 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_label">add_label</h3>
-<pre><code class="python">def add_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0)
+<pre><code class="python">def add_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) -&gt; py_cui.widgets.Label
 </code></pre>
 
 <p>Function that adds a new label to the CUI grid</p>
@@ -1287,7 +1285,7 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_block_label">add_block_label</h3>
-<pre><code class="python">def add_block_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True)
+<pre><code class="python">def add_block_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True) -&gt; py_cui.widgets.BlockLabel
 </code></pre>
 
 <p>Function that adds a new block label to the CUI grid</p>
@@ -1361,7 +1359,7 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_button">add_button</h3>
-<pre><code class="python">def add_button(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, command=None)
+<pre><code class="python">def add_button(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, command=None) -&gt; py_cui.widgets.Button
 </code></pre>
 
 <p>Function that adds a new button to the CUI grid</p>
@@ -2067,17 +2065,86 @@ for logging support.</p>
 
 <p>Shows form popup.</p>
 <p>Used for inputting several fields worth of values</p>
-<h2 id="paramters">Paramters</h2>
-<p>title : str
-Message title
-fields : List[str]
-Names of each individual field
-passwd_fields : List[str]
-Field names that should have characters hidden
-required : List[str]
-Fields that are required before submission
-callback=None : Function
-If not none, fired after loading is completed. Must be a no-arg function</p>
+<h4 id="parameters_35">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>Message title</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>List[str]</td>
+<td>Names of each individual field</td>
+</tr>
+<tr>
+<td>passwd_fields</td>
+<td>List[str]</td>
+<td>Field names that should have characters hidden</td>
+</tr>
+<tr>
+<td>required</td>
+<td>List[str]</td>
+<td>Fields that are required before submission</td>
+</tr>
+<tr>
+<td>callback=None</td>
+<td>Function</td>
+<td>If not none, fired after loading is completed. Must be a no-arg function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="show_filedialog_popup">show_filedialog_popup</h3>
+<pre><code class="python">def show_filedialog_popup(self, popup_type='openfile', initial_dir='.', callback=None, ascii_icons=True, limit_extensions=[])
+</code></pre>
+
+<p>Shows form popup.</p>
+<p>Used for inputting several fields worth of values</p>
+<h4 id="parameters_36">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>Message title</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>List[str]</td>
+<td>Names of each individual field</td>
+</tr>
+<tr>
+<td>passwd_fields</td>
+<td>List[str]</td>
+<td>Field names that should have characters hidden</td>
+</tr>
+<tr>
+<td>required</td>
+<td>List[str]</td>
+<td>Fields that are required before submission</td>
+</tr>
+<tr>
+<td>callback=None</td>
+<td>Function</td>
+<td>If not none, fired after loading is completed. Must be a no-arg function</td>
+</tr>
+</tbody>
+</table>
 <h3 id="increment_loading_bar">increment_loading_bar</h3>
 <pre><code class="python">def increment_loading_bar(self)
 </code></pre>
@@ -2099,7 +2166,7 @@ If not none, fired after loading is completed. Must be a no-arg function</p>
 </code></pre>
 
 <p>Function that updates the height and width of the CUI based on terminal window size</p>
-<h4 id="parameters_35">Parameters</h4>
+<h4 id="parameters_37">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2153,7 +2220,7 @@ If not none, fired after loading is completed. Must be a no-arg function</p>
 </code></pre>
 
 <p>Draws status bar and title bar</p>
-<h4 id="parameters_36">Parameters</h4>
+<h4 id="parameters_38">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2185,7 +2252,7 @@ If not none, fired after loading is completed. Must be a no-arg function</p>
 </code></pre>
 
 <p>Function that prints some basic error info if there is an error with the CUI</p>
-<h4 id="parameters_37">Parameters</h4>
+<h4 id="parameters_39">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2212,7 +2279,7 @@ If not none, fired after loading is completed. Must be a no-arg function</p>
 </code></pre>
 
 <p>Function that handles all main loop key presses.</p>
-<h4 id="parameters_38">Parameters</h4>
+<h4 id="parameters_40">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2234,7 +2301,7 @@ If not none, fired after loading is completed. Must be a no-arg function</p>
 </code></pre>
 
 <p>Main CUI draw loop called by start()</p>
-<h4 id="parameters_39">Parameters</h4>
+<h4 id="parameters_41">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2246,8 +2313,8 @@ If not none, fired after loading is completed. Must be a no-arg function</p>
 <tbody>
 <tr>
 <td>stdscr</td>
-<td>curses Standard cursor</td>
-<td>The cursor used to draw the CUI</td>
+<td>curses Standard screen</td>
+<td>The screen buffer used for drawing CUI elements</td>
 </tr>
 </tbody>
 </table>
@@ -2256,7 +2323,7 @@ If not none, fired after loading is completed. Must be a no-arg function</p>
 </code></pre>
 
 <p>Override of base format function. Prints list of current widgets.</p>
-<h4 id="parameters_40">Parameters</h4>
+<h4 id="parameters_42">Parameters</h4>
 <table>
 <thead>
 <tr>
