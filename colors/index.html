@@ -286,15 +286,12 @@ expressions.</p>
 <p><strong>Examples</strong></p>
 <pre><code>self.text_block.add_text_color_rule('+', py_cui.GREEN_ON_BLACK, 'startswith')
 </code></pre>
-
 <p>In the above example, all lines that start with a '+' symbol will be green. The default match type is line, meaning that the entire line will be colored in the event of a rule match.</p>
 <pre><code>self.menu.add_text_color_rule('?', py_cui.GREEN_ON_BLACK, 'notstartswith', match_type='region', region=[0,3], include_whitespace=True)
 </code></pre>
-
 <p>For this color rule, all lines that don't start with a <code>?</code> will have their first three characters colored green.</p>
 <pre><code>self.text_block.add_text_color_rule('@.*@', py_cui.CYAN_ON_BLACK, 'contains', match_type='regex')
 </code></pre>
-
 <p>The above color rule will color all matches of @ ... @ cyan in the text of the textblock.</p>
 <p>In addition, if your widget uses selected text and you wish for it to apply a different color in that case, an additional parameter is 
 passed into the <code>add_text_color_rule</code> function, namely: <code>selected_color=py_cui.GREEN_ON_WHITE</code>, specifying the color of the match 

@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "form";
-    var mkdocs_page_input_path = "DocstringGenerated\\Dialogs\\Form.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Dialogs/Form.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -217,14 +217,12 @@
 </tbody>
 </table>
 <h2 id="duplicateformkeyerrorexception">DuplicateFormKeyError(Exception)</h2>
-<pre><code class="python">class DuplicateFormKeyError(Exception)
+<pre><code class="language-python">class DuplicateFormKeyError(Exception)
 </code></pre>
-
 <p>Error thrown when a duplicate form field key is passed</p>
 <h2 id="formfieldpy_cuiuitextboximplementation">FormField(py_cui.ui.TextBoxImplementation)</h2>
-<pre><code class="python">class FormField(py_cui.ui.TextBoxImplementation)
+<pre><code class="language-python">class FormField(py_cui.ui.TextBoxImplementation)
 </code></pre>
-
 <p>Class containing basic logic of a field in a form</p>
 <h4 id="attributes">Attributes</h4>
 <table>
@@ -272,14 +270,12 @@
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, fieldname, initial_text, password, required, logger)
+<pre><code class="language-python">def __init__(self, fieldname: str, initial_text: str, password: bool, required: bool, logger)
 </code></pre>
-
 <p>Initializer for base FormFields</p>
 <h3 id="get_fieldname">get_fieldname</h3>
-<pre><code class="python">def get_fieldname(self)
+<pre><code class="language-python">def get_fieldname(self) -&gt; str
 </code></pre>
-
 <p>Getter for field name</p>
 <h4 id="returns">Returns</h4>
 <table>
@@ -299,9 +295,8 @@
 </tbody>
 </table>
 <h3 id="is_valid">is_valid</h3>
-<pre><code class="python">def is_valid(self)
+<pre><code class="language-python">def is_valid(self) -&gt; Tuple[bool,Optional[str]]
 </code></pre>
-
 <p>Function that checks if field is valid.</p>
 <p>This function can be implemented by subclasses to support different
 field types (ex. emails etc.)</p>
@@ -328,9 +323,8 @@ field types (ex. emails etc.)</p>
 </tbody>
 </table>
 <h3 id="is_required">is_required</h3>
-<pre><code class="python">def is_required(self)
+<pre><code class="language-python">def is_required(self) -&gt; bool
 </code></pre>
-
 <p>Checks if field is required</p>
 <h4 id="returns_2">Returns</h4>
 <table>
@@ -350,9 +344,8 @@ field types (ex. emails etc.)</p>
 </tbody>
 </table>
 <h2 id="formfieldelementpy_cuiuiuielement-formfield">FormFieldElement(py_cui.ui.UIElement, FormField)</h2>
-<pre><code class="python">class FormFieldElement(py_cui.ui.UIElement, FormField)
+<pre><code class="language-python">class FormFieldElement(py_cui.ui.UIElement, FormField)
 </code></pre>
-
 <p>Extension of UI element representing an individual field in the form</p>
 <h4 id="attributes_1">Attributes</h4>
 <table>
@@ -408,14 +401,12 @@ field types (ex. emails etc.)</p>
 </tbody>
 </table>
 <h3 id="init_1"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, parent_form, field_index, field, init_text, passwd, required, renderer, logger)
+<pre><code class="language-python">def __init__(self, parent_form, field_index: int, field, init_text: str, passwd: bool, required: bool, renderer: 'py_cui.renderer.Renderer', logger)
 </code></pre>
-
 <p>Initializer for the FormFieldElement class</p>
 <h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute start position</p>
 <h4 id="returns_3">Returns</h4>
 <table>
@@ -435,9 +426,8 @@ field types (ex. emails etc.)</p>
 </tbody>
 </table>
 <h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute stop position</p>
 <h4 id="returns_4">Returns</h4>
 <table>
@@ -457,24 +447,20 @@ field types (ex. emails etc.)</p>
 </tbody>
 </table>
 <h3 id="update_height_width">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
+<pre><code class="language-python">def update_height_width(self) -&gt; None
 </code></pre>
-
 <p>Override of base class. Updates text field variables for form field</p>
 <h3 id="_handle_key_press">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Handles text input for the field. Called by parent</p>
 <h3 id="_draw">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Draw function for the field. Called from parent. Essentially the same as a TextboxPopup</p>
 <h2 id="formimplementationpy_cuiuiuiimplementation">FormImplementation(py_cui.ui.UIImplementation)</h2>
-<pre><code class="python">class FormImplementation(py_cui.ui.UIImplementation)
+<pre><code class="language-python">class FormImplementation(py_cui.ui.UIImplementation)
 </code></pre>
-
 <p>Main implementation class for the form widget/popup</p>
 <h2 id="attriubutes">Attriubutes</h2>
 <p>_form_fields : List[FormField]
@@ -521,14 +507,12 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="init_2"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, field_implementations, required_fields, logger)
+<pre><code class="language-python">def __init__(self, field_implementations: List['FormField'], required_fields: List[str], logger)
 </code></pre>
-
 <p>Initializer for the FormImplemnentation class</p>
 <h3 id="get_selected_form_index">get_selected_form_index</h3>
-<pre><code class="python">def get_selected_form_index(self)
+<pre><code class="language-python">def get_selected_form_index(self) -&gt; int
 </code></pre>
-
 <p>Getter for selected form index</p>
 <h4 id="returns_5">Returns</h4>
 <table>
@@ -548,9 +532,8 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="set_selected_form_index">set_selected_form_index</h3>
-<pre><code class="python">def set_selected_form_index(self, form_index)
+<pre><code class="language-python">def set_selected_form_index(self, form_index: int) -&gt; None
 </code></pre>
-
 <p>Setter for selected form index</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -570,9 +553,8 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="set_on_submit_action">set_on_submit_action</h3>
-<pre><code class="python">def set_on_submit_action(self, on_submit_action)
+<pre><code class="language-python">def set_on_submit_action(self, on_submit_action: Callable[[],Any])
 </code></pre>
-
 <p>Setter for callback on submit</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
@@ -592,14 +574,12 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="jump_to_next_field">jump_to_next_field</h3>
-<pre><code class="python">def jump_to_next_field(self)
+<pre><code class="language-python">def jump_to_next_field(self) -&gt; None
 </code></pre>
-
 <p>Function used to jump between form fields</p>
 <h3 id="is_submission_valid">is_submission_valid</h3>
-<pre><code class="python">def is_submission_valid(self)
+<pre><code class="language-python">def is_submission_valid(self) -&gt; Tuple[bool,Optional[str]]
 </code></pre>
-
 <p>Function that checks if all fields are filled out correctly</p>
 <h4 id="returns_6">Returns</h4>
 <table>
@@ -624,9 +604,8 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="get">get</h3>
-<pre><code class="python">def get(self)
+<pre><code class="language-python">def get(self) -&gt; Dict[str,str]
 </code></pre>
-
 <p>Gets values entered into field as a dictionary</p>
 <h4 id="returns_7">Returns</h4>
 <table>
@@ -646,14 +625,12 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h2 id="formpy_cuiwidgetswidget-formimplementation">Form(py_cui.widgets.Widget, FormImplementation)</h2>
-<pre><code class="python">class Form(py_cui.widgets.Widget, FormImplementation)
+<pre><code class="language-python">class Form(py_cui.widgets.Widget, FormImplementation)
 </code></pre>
-
 <p>Main Widget class extending the FormImplementation. TODO</p>
 <h2 id="internalformpopuppy_cuipopupsmessagepopup">InternalFormPopup(py_cui.popups.MessagePopup)</h2>
-<pre><code class="python">class InternalFormPopup(py_cui.popups.MessagePopup)
+<pre><code class="language-python">class InternalFormPopup(py_cui.popups.MessagePopup)
 </code></pre>
-
 <p>A helper class for abstracting a message popup tied to a parent popup</p>
 <h4 id="attributes_2">Attributes</h4>
 <table>
@@ -688,19 +665,16 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="init_3"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, parent, *args)
+<pre><code class="language-python">def __init__(self, parent: 'FormPopup', *args)
 </code></pre>
-
 <p>Initializer for Internal form Popup</p>
 <h3 id="_handle_key_press_1">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base class, close in parent instead of root</p>
 <h2 id="formpopuppy_cuipopupspopup-formimplementation">FormPopup(py_cui.popups.Popup, FormImplementation)</h2>
-<pre><code class="python">class FormPopup(py_cui.popups.Popup, FormImplementation)
+<pre><code class="language-python">class FormPopup(py_cui.popups.Popup, FormImplementation)
 </code></pre>
-
 <p>Main Popup extension class for forms.</p>
 <h4 id="attributes_3">Attributes</h4>
 <table>
@@ -769,13 +743,11 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="init_4"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, fields, passwd_fields, required_fields, fields_init_text, title, color, renderer, logger)
+<pre><code class="language-python">def __init__(self, root, fields, passwd_fields, required_fields, fields_init_text, title, color, renderer, logger)
 </code></pre>
-
 <h3 id="get_num_fields">get_num_fields</h3>
-<pre><code class="python">def get_num_fields(self)
+<pre><code class="language-python">def get_num_fields(self) -&gt; int
 </code></pre>
-
 <p>Getter for number of fields</p>
 <h4 id="returns_8">Returns</h4>
 <table>
@@ -795,9 +767,8 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="get_absolute_start_pos_1">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base class, computes position based on root dimensions</p>
 <h4 id="returns_9">Returns</h4>
 <table>
@@ -817,9 +788,8 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="get_absolute_stop_pos_1">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base class, computes position based on root dimensions</p>
 <h4 id="returns_10">Returns</h4>
 <table>
@@ -839,15 +809,13 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="update_height_width_1">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
+<pre><code class="language-python">def update_height_width(self) -&gt; None
 </code></pre>
-
 <p>Override of base class function</p>
 <p>Also updates all form field elements in the form</p>
 <h3 id="_handle_key_press_2">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base class. Here, we handle tabs, enters, and escapes</p>
 <p>All other key presses are passed to the currently selected field element</p>
 <h4 id="parameters_2">Parameters</h4>
@@ -868,9 +836,8 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="_handle_mouse_press">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int) -&gt; None
 </code></pre>
-
 <p>Override of base class function</p>
 <p>Simply enters the appropriate field when mouse is pressed on it</p>
 <h4 id="parameters_3">Parameters</h4>
@@ -891,9 +858,8 @@ Function fired when submit is called</p>
 </tbody>
 </table>
 <h3 id="_draw_1">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override of base class.</p>
 <p>Here, we only draw a border, and then the individual form elements</p>
               

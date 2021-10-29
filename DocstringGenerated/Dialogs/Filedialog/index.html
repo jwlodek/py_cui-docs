@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "filedialog";
-    var mkdocs_page_input_path = "DocstringGenerated\\Dialogs\\Filedialog.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Dialogs/Filedialog.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -232,9 +232,8 @@
 </tbody>
 </table>
 <h3 id="is_filepath_hidden">is_filepath_hidden</h3>
-<pre><code class="python">def is_filepath_hidden(path)
+<pre><code class="language-python">def is_filepath_hidden(path:  str) -&gt; bool
 </code></pre>
-
 <p>Function checks if file or folder is considered "hidden"</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -271,9 +270,8 @@
 </tbody>
 </table>
 <h2 id="filedirelem">FileDirElem</h2>
-<pre><code class="python">class FileDirElem
+<pre><code class="language-python">class FileDirElem
 </code></pre>
-
 <p>Simple helper class defining a single file or directory</p>
 <h4 id="attributes">Attributes</h4>
 <table>
@@ -332,14 +330,12 @@
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, elem_type, name, fullpath, ascii_icons=False)
+<pre><code class="language-python">def __init__(self, elem_type: str, name: str, fullpath: str, ascii_icons: bool=False)
 </code></pre>
-
 <p>Intializer for FilDirElem</p>
 <h3 id="get_path">get_path</h3>
-<pre><code class="python">def get_path(self)
+<pre><code class="language-python">def get_path(self) -&gt; str
 </code></pre>
-
 <p>Getter for path</p>
 <h4 id="returns_1">Returns</h4>
 <table>
@@ -359,9 +355,8 @@
 </tbody>
 </table>
 <h3 id="str"><strong>str</strong></h3>
-<pre><code class="python">def __str__(self)
+<pre><code class="language-python">def __str__(self) -&gt; str
 </code></pre>
-
 <p>Override of to-string function</p>
 <h4 id="returns_2">Returns</h4>
 <table>
@@ -381,9 +376,8 @@
 </tbody>
 </table>
 <h2 id="fileselectimplementationpy_cuiuimenuimplementation">FileSelectImplementation(py_cui.ui.MenuImplementation)</h2>
-<pre><code class="python">class FileSelectImplementation(py_cui.ui.MenuImplementation)
+<pre><code class="language-python">class FileSelectImplementation(py_cui.ui.MenuImplementation)
 </code></pre>
-
 <p>Extension of menu implementation that allows for listing files and dirs in a location</p>
 <h4 id="attributes_1">Attributes</h4>
 <table>
@@ -433,19 +427,16 @@
 </tbody>
 </table>
 <h3 id="init_1"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, initial_loc, dialog_type, ascii_icons, logger, limit_extensions = [], show_hidden=False)
+<pre><code class="language-python">def __init__(self, initial_loc: str, dialog_type: str, ascii_icons, logger, limit_extensions: List[str] = [], show_hidden: bool=False)
 </code></pre>
-
 <p>Initalizer for the file select menu implementation. Includes some logic for getting list of file and folders.</p>
 <h3 id="refresh_view">refresh_view</h3>
-<pre><code class="python">def refresh_view(self)
+<pre><code class="language-python">def refresh_view(self) -&gt; None
 </code></pre>
-
 <p>Function that refreshes the current list of files and folders in view</p>
 <h2 id="fileselectelementpy_cuiuiuielement-fileselectimplementation">FileSelectElement(py_cui.ui.UIElement, FileSelectImplementation)</h2>
-<pre><code class="python">class FileSelectElement(py_cui.ui.UIElement, FileSelectImplementation)
+<pre><code class="language-python">class FileSelectElement(py_cui.ui.UIElement, FileSelectImplementation)
 </code></pre>
-
 <p>Custom UI Element for selecting files or directories.</p>
 <p>Displays list of files and dirs in a given location</p>
 <h4 id="attributes_2">Attributes</h4>
@@ -498,14 +489,12 @@
 </tbody>
 </table>
 <h3 id="init_2"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, initial_dir, dialog_type, ascii_icons, title, color, command, renderer, logger, limit_extensions=[])
+<pre><code class="language-python">def __init__(self, root, initial_dir, dialog_type: str, ascii_icons, title, color, command, renderer, logger, limit_extensions: List[str]=[])
 </code></pre>
-
 <p>Initializer for MenuPopup. Uses MenuImplementation as base</p>
 <h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute start position</p>
 <h4 id="returns_3">Returns</h4>
 <table>
@@ -525,9 +514,8 @@
 </tbody>
 </table>
 <h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute stop position</p>
 <h4 id="returns_4">Returns</h4>
 <table>
@@ -547,9 +535,8 @@
 </tbody>
 </table>
 <h3 id="_handle_key_press">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base handle key press function</p>
 <p>Enter key runs command, Escape key closes menu</p>
 <h4 id="parameters_1">Parameters</h4>
@@ -570,14 +557,12 @@
 </tbody>
 </table>
 <h3 id="_draw">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Overrides base class draw function</p>
 <h2 id="filenameinputpy_cuiuiuielement-py_cuiuitextboximplementation">FileNameInput(py_cui.ui.UIElement, py_cui.ui.TextBoxImplementation)</h2>
-<pre><code class="python">class FileNameInput(py_cui.ui.UIElement, py_cui.ui.TextBoxImplementation)
+<pre><code class="language-python">class FileNameInput(py_cui.ui.UIElement, py_cui.ui.TextBoxImplementation)
 </code></pre>
-
 <p>UI Element class representing name input field for filedialog</p>
 <h4 id="attributes_3">Attributes</h4>
 <table>
@@ -628,14 +613,12 @@
 </tbody>
 </table>
 <h3 id="init_3"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, parent_dialog, title, initial_dir, renderer, logger)
+<pre><code class="language-python">def __init__(self, parent_dialog, title, initial_dir, renderer, logger)
 </code></pre>
-
 <p>Initializer for the FormFieldElement class</p>
 <h3 id="get_absolute_start_pos_1">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute start position</p>
 <h4 id="returns_5">Returns</h4>
 <table>
@@ -655,9 +638,8 @@
 </tbody>
 </table>
 <h3 id="get_absolute_stop_pos_1">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute stop position</p>
 <h4 id="returns_6">Returns</h4>
 <table>
@@ -677,24 +659,20 @@
 </tbody>
 </table>
 <h3 id="update_height_width">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
+<pre><code class="language-python">def update_height_width(self) -&gt; None
 </code></pre>
-
 <p>Override of base class. Updates text field variables for form field</p>
 <h3 id="_handle_key_press_1">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Handles text input for the field. Called by parent</p>
 <h3 id="_draw_1">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Draw function for the field. Called from parent. Essentially the same as a TextboxPopup</p>
 <h2 id="filedialogbuttonpy_cuiuiuielement">FileDialogButton(py_cui.ui.UIElement)</h2>
-<pre><code class="python">class FileDialogButton(py_cui.ui.UIElement)
+<pre><code class="language-python">class FileDialogButton(py_cui.ui.UIElement)
 </code></pre>
-
 <p>Utility button element for parent filedialog</p>
 <h4 id="attributes_4">Attributes</h4>
 <table>
@@ -754,14 +732,12 @@
 </tbody>
 </table>
 <h3 id="init_4"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, parent_dialog, statusbar_msg, command, button_num, *args)
+<pre><code class="language-python">def __init__(self, parent_dialog, statusbar_msg, command, button_num, *args)
 </code></pre>
-
 <p>Initializer for Button Widget</p>
 <h3 id="get_absolute_start_pos_2">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute start position</p>
 <h4 id="returns_7">Returns</h4>
 <table>
@@ -781,9 +757,8 @@
 </tbody>
 </table>
 <h3 id="get_absolute_stop_pos_2">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base function. Uses the parent element do compute stop position</p>
 <h4 id="returns_8">Returns</h4>
 <table>
@@ -803,9 +778,8 @@
 </tbody>
 </table>
 <h3 id="_handle_mouse_press">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int) -&gt; None
 </code></pre>
-
 <p>Handles mouse presses</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
@@ -827,12 +801,16 @@
 <td>int</td>
 <td>y coordinate of click in characters</td>
 </tr>
+<tr>
+<td>mouse_event</td>
+<td>int</td>
+<td>Mouse event keycode of mouse press</td>
+</tr>
 </tbody>
 </table>
 <h3 id="_handle_key_press_2">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base class, adds ENTER listener that runs the button's command</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>
@@ -852,18 +830,15 @@
 </tbody>
 </table>
 <h3 id="perform_command">perform_command</h3>
-<pre><code class="python">def perform_command(self)
+<pre><code class="language-python">def perform_command(self) -&gt; None
 </code></pre>
-
 <h3 id="_draw_2">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override of base class draw function</p>
 <h2 id="internalfiledialogpopuppy_cuipopupsmessagepopup">InternalFileDialogPopup(py_cui.popups.MessagePopup)</h2>
-<pre><code class="python">class InternalFileDialogPopup(py_cui.popups.MessagePopup)
+<pre><code class="language-python">class InternalFileDialogPopup(py_cui.popups.MessagePopup)
 </code></pre>
-
 <p>A helper class for abstracting a message popup tied to a parent popup</p>
 <h4 id="attributes_5">Attributes</h4>
 <table>
@@ -898,19 +873,16 @@
 </tbody>
 </table>
 <h3 id="init_5"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, parent, *args)
+<pre><code class="language-python">def __init__(self, parent, *args)
 </code></pre>
-
 <p>Initializer for Internal form Popup</p>
 <h3 id="_handle_key_press_3">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base class, close in parent instead of root</p>
 <h2 id="filedialogpopuppy_cuipopupspopup">FileDialogPopup(py_cui.popups.Popup)</h2>
-<pre><code class="python">class FileDialogPopup(py_cui.popups.Popup)
+<pre><code class="language-python">class FileDialogPopup(py_cui.popups.Popup)
 </code></pre>
-
 <p>Main implementation class of a FileDialog poup.</p>
 <h4 id="attributes_6">Attributes</h4>
 <table>
@@ -1007,18 +979,15 @@
 </tbody>
 </table>
 <h3 id="init_6"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, root, callback, initial_dir, dialog_type, ascii_icons, limit_extensions, color, renderer, logger)
+<pre><code class="language-python">def __init__(self, root, callback, initial_dir, dialog_type, ascii_icons, limit_extensions, color, renderer, logger)
 </code></pre>
-
 <p>Initalizer for the FileDialogPopup</p>
 <h3 id="_submit">_submit</h3>
-<pre><code class="python">def _submit(self, output)
+<pre><code class="language-python">def _submit(self, output: str) -&gt; None
 </code></pre>
-
 <h3 id="display_warning">display_warning</h3>
-<pre><code class="python">def display_warning(self, message)
+<pre><code class="language-python">def display_warning(self, message: str) -&gt; None
 </code></pre>
-
 <p>Helper function for showing internal popup warning message</p>
 <h4 id="parameters_4">Parameters</h4>
 <table>
@@ -1038,13 +1007,11 @@
 </tbody>
 </table>
 <h3 id="output_valid">output_valid</h3>
-<pre><code class="python">def output_valid(self, output)
+<pre><code class="language-python">def output_valid(self, output) -&gt; Tuple[bool,Optional[str]]
 </code></pre>
-
 <h3 id="get_absolute_start_pos_3">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base class, computes position based on root dimensions</p>
 <h4 id="returns_9">Returns</h4>
 <table>
@@ -1064,9 +1031,8 @@
 </tbody>
 </table>
 <h3 id="get_absolute_stop_pos_3">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Override of base class, computes position based on root dimensions</p>
 <h4 id="returns_10">Returns</h4>
 <table>
@@ -1086,15 +1052,13 @@
 </tbody>
 </table>
 <h3 id="update_height_width_1">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
+<pre><code class="language-python">def update_height_width(self) -&gt; None
 </code></pre>
-
 <p>Override of base class function</p>
 <p>Also updates all form field elements in the form</p>
 <h3 id="_handle_key_press_4">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed:int) -&gt; None
 </code></pre>
-
 <p>Override of base class. Here, we handle tabs, enters, and escapes</p>
 <p>All other key presses are passed to the currently selected field element</p>
 <h4 id="parameters_5">Parameters</h4>
@@ -1115,9 +1079,8 @@
 </tbody>
 </table>
 <h3 id="_handle_mouse_press_1">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int) -&gt; None
 </code></pre>
-
 <p>Override of base class function</p>
 <p>Simply enters the appropriate field when mouse is pressed on it</p>
 <h4 id="parameters_6">Parameters</h4>
@@ -1138,9 +1101,8 @@
 </tbody>
 </table>
 <h3 id="_draw_3">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override of base class.</p>
 <p>Here, we only draw a border, and then the individual form elements</p>
               

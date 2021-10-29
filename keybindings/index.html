@@ -199,7 +199,7 @@
 <p>For all keybindings, you must pass a <code>py_cui</code> key and a function with no arguments. This function will be fired when the key bound to it is detected. The function may also be a class funciton, with <code>self.FUNCTION</code> being passed into the add keybinding function. Make sure to take a look at the examples for more uses of keybindings.</p>
 <p><strong>Overview Mode</strong></p>
 <p>To add a keybinding to overview mode, you need to add it to the <code>PyCUI</code> object itself. For example, if I wanted to add a binding for the <code>c</code> key to clear all text fields in my <code>cui</code>:</p>
-<pre><code class="Python"># import the library
+<pre><code class="language-Python"># import the library
 import py_cui
 
 # Create the PyCUI and add a text field
@@ -216,11 +216,10 @@ root.add_key_command(py_cui.keys.KEY_C_LOWER, clear_text_field)
 # Start the CUI
 root.start()
 </code></pre>
-
 <p><strong>Focus Mode</strong></p>
 <p>Adding keybindings to focus mode is done at a widget by widget basis. When a widget is added to the <code>PyCUI</code>, the returned object is used to add a key command. Once again, make sure to check default key bindings that should only be overridden if the user specifically desires to replace their functionality.</p>
 <p>For example, in a menu widget, if we wish to set the window title to the selected menu item with the <code>t</code> key, we could write the following:</p>
-<pre><code class="Python"># import the library
+<pre><code class="language-Python"># import the library
 import py_cui
 
 # Create the CUI object
@@ -241,7 +240,6 @@ menu.add_key_command(py_cui.keys.KEY_T_LOWER, set_title_from_menu)
 # start the CUI
 root.start()
 </code></pre>
-
 <h3 id="supported-keys">Supported Keys</h3>
 <p>There are many supported keys in <code>py_cui</code>. These include alpha-numeric keys (in both uppercase and lowercase), as well as those keys with <code>Ctrl</code> and <code>Alt</code> modifiers. These can be accessed with (using the letter x as an example):</p>
 <ul>

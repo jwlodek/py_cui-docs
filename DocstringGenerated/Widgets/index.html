@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "widgets";
-    var mkdocs_page_input_path = "DocstringGenerated\\Widgets.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Widgets.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -176,7 +176,7 @@
             <div class="section">
               
                 <h1 id="widgets">widgets</h1>
-<p>Module contatining all core widget classes for py_cui.</p>
+<p>Module containing all core widget classes for py_cui.</p>
 <p>Widgets are the basic building blocks of a user interface made with py_cui.
 This module contains classes for:</p>
 <ul>
@@ -236,9 +236,8 @@ file and extending the base Widget class, or if appropriate one of the other cor
 </tbody>
 </table>
 <h2 id="widgetpy_cuiuiuielement">Widget(py_cui.ui.UIElement)</h2>
-<pre><code class="python">class Widget(py_cui.ui.UIElement)
+<pre><code class="language-python">class Widget(py_cui.ui.UIElement)
 </code></pre>
-
 <p>Top Level Widget Base Class</p>
 <p>Extended by all widgets. Contains base classes for handling key presses, drawing,
 and setting status bar text.</p>
@@ -298,6 +297,10 @@ and setting status bar text.</p>
 <td>Maps a keycode to a function that will be executed when in focus mode</td>
 </tr>
 <tr>
+<td>add_mouse_command</td>
+<td>Maps a keycode to a function that will be executed when in focus mode</td>
+</tr>
+<tr>
 <td>update_key_command</td>
 <td>Maps a keycode to a function that will be executed when in focus mode, if key is already mapped</td>
 </tr>
@@ -334,6 +337,10 @@ and setting status bar text.</p>
 <td>Checks if a particular row + column is inside the widget area</td>
 </tr>
 <tr>
+<td>_handle_mouse_press</td>
+<td>Base class function that handles all assigned mouse presses.</td>
+</tr>
+<tr>
 <td>_handle_key_press</td>
 <td>Base class function that handles all assigned key presses.</td>
 </tr>
@@ -344,16 +351,14 @@ and setting status bar text.</p>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, selectable = True)
+<pre><code class="language-python">def __init__(self, id, title: str, grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, logger, selectable: bool = True)
 </code></pre>
-
 <p>Initializer for base widget class</p>
-<p>Calss UIElement superclass initialzier, and then assigns widget to grid, along with row/column info
+<p>Class UIElement superclass initializer, and then assigns widget to grid, along with row/column info
 and color rules and key commands</p>
 <h3 id="add_key_command">add_key_command</h3>
-<pre><code class="python">def add_key_command(self, key, command)
+<pre><code class="language-python">def add_key_command(self, key: int, command: Callable[[],Any]) -&gt; Any
 </code></pre>
-
 <p>Maps a keycode to a function that will be executed when in focus mode</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -377,12 +382,54 @@ and color rules and key commands</p>
 </tr>
 </tbody>
 </table>
-<h3 id="update_key_command">update_key_command</h3>
-<pre><code class="python">def update_key_command(self, key, command)
+<h3 id="add_mouse_command">add_mouse_command</h3>
+<pre><code class="language-python">def add_mouse_command(self, mouse_event: int, command: Callable[[],Any]) -&gt; None
 </code></pre>
-
-<p>Maps a keycode to a function that will be executed when in focus mode, if key is already mapped</p>
+<p>Maps a keycode to a function that will be executed when in focus mode</p>
 <h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>py_cui.keys.MOUSE_EVENT</td>
+<td>Mouse event code from py_cui.keys</td>
+</tr>
+<tr>
+<td>command</td>
+<td>Callable</td>
+<td>a non-argument function or lambda function to execute if in focus mode and key is pressed</td>
+</tr>
+</tbody>
+</table>
+<h4 id="raises">Raises</h4>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unknown</td>
+<td>PyCUIError</td>
+<td>If input mouse event code is not valid</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_key_command">update_key_command</h3>
+<pre><code class="language-python">def update_key_command(self, key: int, command: Callable[[],Any]) -&gt; Any
+</code></pre>
+<p>Maps a keycode to a function that will be executed when in focus mode, if key is already mapped</p>
+<h4 id="parameters_2">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -405,11 +452,10 @@ and color rules and key commands</p>
 </tbody>
 </table>
 <h3 id="add_text_color_rule">add_text_color_rule</h3>
-<pre><code class="python">def add_text_color_rule(self, regex, color, rule_type, match_type='line', region=[0,1], include_whitespace=False, selected_color=None)
+<pre><code class="language-python">def add_text_color_rule(self, regex: str, color: int, rule_type: str, match_type: str='line', region: List[int]=[0,1], include_whitespace: bool=False, selected_color=None) -&gt; None
 </code></pre>
-
 <p>Forces renderer to draw text using given color if text_condition_function returns True</p>
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_3">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -452,9 +498,8 @@ and color rules and key commands</p>
 </tbody>
 </table>
 <h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets the absolute position of the widget in characters. Override of base class function</p>
 <h4 id="returns">Returns</h4>
 <table>
@@ -474,9 +519,8 @@ and color rules and key commands</p>
 </tbody>
 </table>
 <h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets the absolute dimensions of the widget in characters. Override of base class function</p>
 <h4 id="returns_1">Returns</h4>
 <table>
@@ -496,9 +540,8 @@ and color rules and key commands</p>
 </tbody>
 </table>
 <h3 id="get_grid_cell">get_grid_cell</h3>
-<pre><code class="python">def get_grid_cell(self)
+<pre><code class="language-python">def get_grid_cell(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets widget row, column in grid</p>
 <h4 id="returns_2">Returns</h4>
 <table>
@@ -518,9 +561,8 @@ and color rules and key commands</p>
 </tbody>
 </table>
 <h3 id="get_grid_cell_spans">get_grid_cell_spans</h3>
-<pre><code class="python">def get_grid_cell_spans(self)
+<pre><code class="language-python">def get_grid_cell_spans(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets widget row span, column span in grid</p>
 <h4 id="returns_3">Returns</h4>
 <table>
@@ -540,17 +582,15 @@ and color rules and key commands</p>
 </tbody>
 </table>
 <h3 id="set_selectable">set_selectable</h3>
-<pre><code class="python">def set_selectable(self, selectable)
+<pre><code class="language-python">def set_selectable(self, selectable: bool) -&gt; None
 </code></pre>
-
 <p>Setter for widget selectablility</p>
 <h2 id="paramters">Paramters</h2>
 <p>selectable : bool
 Widget selectable if true, otherwise not</p>
 <h3 id="is_selectable">is_selectable</h3>
-<pre><code class="python">def is_selectable(self)
+<pre><code class="language-python">def is_selectable(self) -&gt; bool
 </code></pre>
-
 <p>Checks if the widget is selectable</p>
 <h4 id="returns_4">Returns</h4>
 <table>
@@ -570,11 +610,10 @@ Widget selectable if true, otherwise not</p>
 </tbody>
 </table>
 <h3 id="_is_row_col_inside">_is_row_col_inside</h3>
-<pre><code class="python">def _is_row_col_inside(self, row, col)
+<pre><code class="language-python">def _is_row_col_inside(self, row: int, col: int) -&gt; bool
 </code></pre>
-
 <p>Checks if a particular row + column is inside the widget area</p>
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -608,14 +647,36 @@ Widget selectable if true, otherwise not</p>
 </tr>
 </tbody>
 </table>
-<h3 id="_handle_key_press">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<h3 id="_handle_mouse_press">_handle_mouse_press</h3>
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int)
 </code></pre>
-
+<p>Base class function that handles all assigned mouse presses.</p>
+<p>When overwriting this function, make sure to add a super()._handle_mouse_press(x, y, mouse_event) call,
+as this is required for user defined key command support</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>key code of key pressed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_key_press">_handle_key_press</h3>
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
+</code></pre>
 <p>Base class function that handles all assigned key presses.</p>
 <p>When overwriting this function, make sure to add a super()._handle_key_press(key_pressed) call,
 as this is required for user defined key command support</p>
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -633,16 +694,14 @@ as this is required for user defined key command support</p>
 </tbody>
 </table>
 <h3 id="_draw">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Base class draw class that checks if renderer is valid.</p>
 <p>Should be called with super()._draw() in overrides.
 Also intializes color rules, so if not called color rules will not be applied</p>
 <h2 id="labelwidget">Label(Widget)</h2>
-<pre><code class="python">class Label(Widget)
+<pre><code class="language-python">class Label(Widget)
 </code></pre>
-
 <p>The most basic subclass of Widget.</p>
 <p>Simply displays one centered row of text. Has no unique attributes or methods</p>
 <h4 id="attributes_1">Attributes</h4>
@@ -682,25 +741,21 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="init_1"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady, logger)
+<pre><code class="language-python">def __init__(self, id, title: str,  grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, logger)
 </code></pre>
-
 <p>Initalizer for Label widget</p>
 <h3 id="toggle_border">toggle_border</h3>
-<pre><code class="python">def toggle_border(self)
+<pre><code class="language-python">def toggle_border(self) -&gt; None
 </code></pre>
-
 <p>Function that gives option to draw border around label</p>
 <h3 id="_draw_1">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override base draw class.</p>
 <p>Center text and draw it</p>
 <h2 id="blocklabelwidget">BlockLabel(Widget)</h2>
-<pre><code class="python">class BlockLabel(Widget)
+<pre><code class="language-python">class BlockLabel(Widget)
 </code></pre>
-
 <p>A Variation of the label widget that renders a block of text.</p>
 <h4 id="attributes_2">Attributes</h4>
 <table>
@@ -748,16 +803,14 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="init_2"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title,  grid, row, column, row_span, column_span, padx, pady, center, logger)
+<pre><code class="language-python">def __init__(self, id, title: str,  grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, center, logger)
 </code></pre>
-
 <p>Initializer for blocklabel widget</p>
 <h3 id="set_title">set_title</h3>
-<pre><code class="python">def set_title(self, title)
+<pre><code class="language-python">def set_title(self, title: str) -&gt; None
 </code></pre>
-
 <p>Override of base class, splits title into lines for rendering line by line.</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -775,20 +828,17 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="toggle_border_1">toggle_border</h3>
-<pre><code class="python">def toggle_border(self)
+<pre><code class="language-python">def toggle_border(self) -&gt; None
 </code></pre>
-
 <p>Function that gives option to draw border around label</p>
 <h3 id="_draw_2">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override base draw class.</p>
 <p>Center text and draw it</p>
 <h2 id="scrollmenuwidget-py_cuiuimenuimplementation">ScrollMenu(Widget, py_cui.ui.MenuImplementation)</h2>
-<pre><code class="python">class ScrollMenu(Widget, py_cui.ui.MenuImplementation)
+<pre><code class="language-python">class ScrollMenu(Widget, py_cui.ui.MenuImplementation)
 </code></pre>
-
 <p>A scroll menu widget.</p>
 <h4 id="methods_3">Methods</h4>
 <table>
@@ -814,16 +864,14 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="init_3"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger)
+<pre><code class="language-python">def __init__(self, id, title: str, grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, logger: 'py_cui.debug.PyCUILogger')
 </code></pre>
-
 <p>Initializer for scroll menu. calls superclass initializers and sets help text</p>
-<h3 id="_handle_mouse_press">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<h3 id="_handle_mouse_press_1">_handle_mouse_press</h3>
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int)
 </code></pre>
-
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -841,12 +889,11 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="_handle_key_press_1">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override base class function.</p>
 <p>UP_ARROW scrolls up, DOWN_ARROW scrolls down.</p>
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -864,14 +911,12 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="_draw_3">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Overrides base class draw function</p>
 <h2 id="checkboxmenuwidget-py_cuiuicheckboxmenuimplementation">CheckBoxMenu(Widget, py_cui.ui.CheckBoxMenuImplementation)</h2>
-<pre><code class="python">class CheckBoxMenu(Widget, py_cui.ui.CheckBoxMenuImplementation)
+<pre><code class="language-python">class CheckBoxMenu(Widget, py_cui.ui.CheckBoxMenuImplementation)
 </code></pre>
-
 <p>Extension of ScrollMenu that allows for multiple items to be selected at once.</p>
 <h4 id="attributes_3">Attributes</h4>
 <table>
@@ -919,16 +964,14 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="init_4"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, checked_char)
+<pre><code class="language-python">def __init__(self, id, title: str, grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, logger, checked_char: str)
 </code></pre>
-
 <p>Initializer for CheckBoxMenu Widget</p>
-<h3 id="_handle_mouse_press_1">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<h3 id="_handle_mouse_press_2">_handle_mouse_press</h3>
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int) -&gt; None
 </code></pre>
-
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -946,13 +989,12 @@ Also intializes color rules, so if not called color rules will not be applied</p
 </tbody>
 </table>
 <h3 id="_handle_key_press_2">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of key presses.</p>
 <p>First, run the superclass function, scrolling should still work.
 Adds Enter command to toggle selection</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -970,14 +1012,12 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="_draw_4">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Overrides base class draw function</p>
 <h2 id="buttonwidget">Button(Widget)</h2>
-<pre><code class="python">class Button(Widget)
+<pre><code class="language-python">class Button(Widget)
 </code></pre>
-
 <p>Basic button widget.</p>
 <p>Allows for running a command function on Enter</p>
 <h4 id="attributes_4">Attributes</h4>
@@ -1017,16 +1057,14 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="init_5"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, command)
+<pre><code class="language-python">def __init__(self, id, title: str, grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, logger, command: Optional[Callable[[],Any]])
 </code></pre>
-
 <p>Initializer for Button Widget</p>
 <h3 id="_handle_key_press_3">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base class, adds ENTER listener that runs the button's command</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1044,14 +1082,12 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="_draw_5">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override of base class draw function</p>
 <h2 id="textboxwidget-py_cuiuitextboximplementation">TextBox(Widget, py_cui.ui.TextBoxImplementation)</h2>
-<pre><code class="python">class TextBox(Widget, py_cui.ui.TextBoxImplementation)
+<pre><code class="language-python">class TextBox(Widget, py_cui.ui.TextBoxImplementation)
 </code></pre>
-
 <p>Widget for entering small single lines of text</p>
 <h4 id="methods_6">Methods</h4>
 <table>
@@ -1081,21 +1117,18 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="init_6"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, initial_text, password)
+<pre><code class="language-python">def __init__(self, id, title: str, grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, logger, initial_text: str, password: bool)
 </code></pre>
-
 <p>Initializer for TextBox widget. Uses TextBoxImplementation as base</p>
 <h3 id="update_height_width">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
+<pre><code class="language-python">def update_height_width(self) -&gt; None
 </code></pre>
-
 <p>Need to update all cursor positions on resize</p>
-<h3 id="_handle_mouse_press_2">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<h3 id="_handle_mouse_press_3">_handle_mouse_press</h3>
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int) -&gt; None
 </code></pre>
-
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_13">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1113,11 +1146,10 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="_handle_key_press_4">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base handle key press function</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_14">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1135,14 +1167,12 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="_draw_6">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override of base draw function</p>
 <h2 id="scrolltextblockwidget-py_cuiuitextblockimplementation">ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)</h2>
-<pre><code class="python">class ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)
+<pre><code class="language-python">class ScrollTextBlock(Widget, py_cui.ui.TextBlockImplementation)
 </code></pre>
-
 <p>Widget for editing large multi-line blocks of text</p>
 <h4 id="methods_7">Methods</h4>
 <table>
@@ -1172,21 +1202,18 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="init_7"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span, padx, pady, logger, initial_text)
+<pre><code class="language-python">def __init__(self, id, title: str, grid: 'py_cui.grid.Grid', row: int, column: int, row_span: int, column_span: int, padx: int, pady: int, logger, initial_text: str)
 </code></pre>
-
 <p>Initializer for TextBlock Widget. Uses TextBlockImplementation as base</p>
 <h3 id="update_height_width_1">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
+<pre><code class="language-python">def update_height_width(self) -&gt; None
 </code></pre>
-
 <p>Function that updates the position of the text and cursor on resize</p>
-<h3 id="_handle_mouse_press_3">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<h3 id="_handle_mouse_press_4">_handle_mouse_press</h3>
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int) -&gt; None
 </code></pre>
-
 <p>Override of base class function, handles mouse press in menu</p>
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_15">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1204,11 +1231,10 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="_handle_key_press_5">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Override of base class handle key press function</p>
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_16">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1226,9 +1252,8 @@ Adds Enter command to toggle selection</p>
 </tbody>
 </table>
 <h3 id="_draw_7">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override of base class draw function</p>
               
             </div>

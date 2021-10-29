@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Grid";
-    var mkdocs_page_input_path = "DocstringGenerated\\Grid.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Grid.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -212,9 +212,8 @@
 </tbody>
 </table>
 <h2 id="grid_1">Grid</h2>
-<pre><code class="python">class Grid
+<pre><code class="language-python">class Grid
 </code></pre>
-
 <p>Class representing the CUI grid</p>
 <h4 id="attributes">Attributes</h4>
 <table>
@@ -245,6 +244,11 @@
 <td>_row_height, _column_width</td>
 <td>int</td>
 <td>The number of characters in a single grid row, column</td>
+</tr>
+<tr>
+<td>_title_bar_offset</td>
+<td>int</td>
+<td>Title bar row offset. Defaults to 1. Set to 0 if title bar is hidden.</td>
 </tr>
 <tr>
 <td>_logger</td>
@@ -293,9 +297,8 @@
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, num_rows, num_columns, height, width, logger)
+<pre><code class="language-python">def __init__(self, num_rows: int, num_columns: int, height: int, width: int, logger: 'py_cui.debug.PyCUILogger')
 </code></pre>
-
 <p>Constructor for the Grid class</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -330,9 +333,8 @@
 </tbody>
 </table>
 <h3 id="get_dimensions">get_dimensions</h3>
-<pre><code class="python">def get_dimensions(self)
+<pre><code class="language-python">def get_dimensions(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets dimensions in rows/columns</p>
 <h4 id="returns">Returns</h4>
 <table>
@@ -357,9 +359,8 @@
 </tbody>
 </table>
 <h3 id="get_dimensions_absolute">get_dimensions_absolute</h3>
-<pre><code class="python">def get_dimensions_absolute(self)
+<pre><code class="language-python">def get_dimensions_absolute(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets dimensions of grid in terminal characters</p>
 <h4 id="returns_1">Returns</h4>
 <table>
@@ -384,9 +385,8 @@
 </tbody>
 </table>
 <h3 id="get_offsets">get_offsets</h3>
-<pre><code class="python">def get_offsets(self)
+<pre><code class="language-python">def get_offsets(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets leftover characters for x and y</p>
 <h4 id="returns_2">Returns</h4>
 <table>
@@ -411,9 +411,8 @@
 </tbody>
 </table>
 <h3 id="get_cell_dimensions">get_cell_dimensions</h3>
-<pre><code class="python">def get_cell_dimensions(self)
+<pre><code class="language-python">def get_cell_dimensions(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets size in characters of single (row, column) cell location</p>
 <h4 id="returns_3">Returns</h4>
 <table>
@@ -438,9 +437,8 @@
 </tbody>
 </table>
 <h3 id="set_num_rows">set_num_rows</h3>
-<pre><code class="python">def set_num_rows(self, num_rows)
+<pre><code class="language-python">def set_num_rows(self, num_rows: int) -&gt; None
 </code></pre>
-
 <p>Sets the grid row size</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
@@ -477,9 +475,8 @@
 </tbody>
 </table>
 <h3 id="set_num_cols">set_num_cols</h3>
-<pre><code class="python">def set_num_cols(self, num_columns)
+<pre><code class="language-python">def set_num_cols(self, num_columns: int) -&gt; None
 </code></pre>
-
 <p>Sets the grid column size</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
@@ -516,9 +513,8 @@
 </tbody>
 </table>
 <h3 id="update_grid_height_width">update_grid_height_width</h3>
-<pre><code class="python">def update_grid_height_width(self, height, width)
+<pre><code class="language-python">def update_grid_height_width(self, height: int, width: int)
 </code></pre>
-
 <p>Update grid height and width. Allows for on-the-fly size editing</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>

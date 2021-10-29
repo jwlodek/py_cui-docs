@@ -193,34 +193,28 @@
 <p>You may install <code>py_cui</code> via pip (use <code>pip3</code> if python 2 and 3 are installed side by side)</p>
 <pre><code>pip install py-cui
 </code></pre>
-
 <p>Make sure to run as root/sudo as required. Note that the library is titled <code>py_cui</code>, but the name of the pypi package is <code>py-cui</code>, though in most cases, installing with </p>
 <pre><code>pip install py_cui
 </code></pre>
-
 <p>should work OK.</p>
 <p>If you would like to use <code>py_cui</code> directly from source, clone this repository with:</p>
 <pre><code>git clone https://github.com/jwlodek/py_cui
 </code></pre>
-
 <p>Then build/install with <code>pip</code>:</p>
 <pre><code>cd py_cui
 pip install .
 </code></pre>
-
 <p>If you would like to try it out without installing, first make sure that <code>curses</code> is installed (<code>windows-curses</code> if on windows), and then copy one of the example files into the top directory. You may then simply run it with <code>python3</code>.</p>
 <h3 id="developer-installation">Developer Installation</h3>
 <p>Additional packages can be used by <code>py_cui</code> developers to help with debugging and other issues. For these, you may use pip:</p>
 <pre><code>pip install -r requirements_dev.txt
 </code></pre>
-
 <p>It is also recommended to use a virtual environment to develop <code>py_cui</code>:</p>
 <pre><code>mkdir venv
 cd venv
 python3 -m venv .
 source bin/activate
 </code></pre>
-
 <p>Development packages are as follows:</p>
 <table>
 <thead>
@@ -253,7 +247,6 @@ source bin/activate
 <pre><code>cd examples
 python3 todo_list_example.py
 </code></pre>
-
 <p>Feel free to take a look at the <code>Examples</code> section of this documentation for more details.</p>
               
             </div>

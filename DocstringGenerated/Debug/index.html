@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "debug";
-    var mkdocs_page_input_path = "DocstringGenerated\\Debug.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Debug.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -187,6 +187,14 @@
 </thead>
 <tbody>
 <tr>
+<td>LiveDebugImplementation(py_cui.ui.MenuImplementation)</td>
+<td>Implementation class for the live debug menu - builds off of the scroll menu implementation</td>
+</tr>
+<tr>
+<td>LiveDebugElement(py_cui.ui.UIElement, LiveDebugImplementation)</td>
+<td>UIElement class for the live debug utility. extends from base UIElement class and LiveDebugImplementation</td>
+</tr>
+<tr>
 <td>PyCUILogger(logging.Logger)</td>
 <td>Custom logger class for py_cui, extends the base logging.Logger Class</td>
 </tr>
@@ -212,9 +220,8 @@
 </tbody>
 </table>
 <h3 id="_enable_logging">_enable_logging</h3>
-<pre><code class="python">def _enable_logging(logger, replace_log_file=True, filename='py_cui_log.txt', logging_level=logging.DEBUG)
+<pre><code class="language-python">def _enable_logging(logger: 'PyCUILogger', replace_log_file: bool=True, filename: str='py_cui.log', logging_level=logging.DEBUG) 
 </code></pre>
-
 <p>Function that creates basic logging configuration for selected logger</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -266,9 +273,8 @@
 </tbody>
 </table>
 <h3 id="_initialize_logger">_initialize_logger</h3>
-<pre><code class="python">def _initialize_logger(py_cui_root, name=None, custom_logger=True)
+<pre><code class="language-python">def _initialize_logger(py_cui_root: 'py_cui.PyCUI', name: Optional[str]=None, custom_logger: bool=True) 
 </code></pre>
-
 <p>Function that retrieves an instance of either the default or custom py_cui logger.</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
@@ -314,12 +320,212 @@
 </tr>
 </tbody>
 </table>
-<h2 id="pycuiloggerlogginglogger">PyCUILogger(logging.Logger)</h2>
-<pre><code class="python">class PyCUILogger(logging.Logger)
+<h2 id="livedebugimplementationpy_cuiuimenuimplementation">LiveDebugImplementation(py_cui.ui.MenuImplementation)</h2>
+<pre><code class="language-python">class LiveDebugImplementation(py_cui.ui.MenuImplementation)
 </code></pre>
-
-<p>Custom logger class for py_cui, extends the base logging.Logger Class</p>
+<p>Implementation class for the live debug menu - builds off of the scroll menu implementation</p>
 <h4 id="attributes">Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>level</td>
+<td>int</td>
+<td>Debug level at which to display messages. Can be separate from the default logging level</td>
+</tr>
+<tr>
+<td>_buffer_size</td>
+<td>List[str]</td>
+<td>Number of log messages to keep buffered in the live debug window</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>print_to_buffer</td>
+<td>Override of default MenuImplementation add_item function</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init"><strong>init</strong></h3>
+<pre><code class="language-python">def __init__(self, parent_logger)
+</code></pre>
+<p>Initializer for LiveDebugImplementation</p>
+<h3 id="print_to_buffer">print_to_buffer</h3>
+<pre><code class="language-python">def print_to_buffer(self, msg: str, log_level) -&gt; None
+</code></pre>
+<p>Override of default MenuImplementation add_item function</p>
+<p>If items override the buffer pop the oldest log message</p>
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>str</td>
+<td>Log message to add</td>
+</tr>
+</tbody>
+</table>
+<h2 id="livedebugelementpy_cuiuiuielement-livedebugimplementation">LiveDebugElement(py_cui.ui.UIElement, LiveDebugImplementation)</h2>
+<pre><code class="language-python">class LiveDebugElement(py_cui.ui.UIElement, LiveDebugImplementation)
+</code></pre>
+<p>UIElement class for the live debug utility. extends from base UIElement class and LiveDebugImplementation</p>
+<h4 id="methods_1">Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_absolute_start_pos</td>
+<td>Override of base UI element class function. Sets start position relative to entire UI size</td>
+</tr>
+<tr>
+<td>get_absolute_stop_pos</td>
+<td>Override of base UI element class function. Sets stop position relative to entire UI size</td>
+</tr>
+<tr>
+<td>_handle_mouse_press</td>
+<td>Override of base class function, handles mouse press in menu</td>
+</tr>
+<tr>
+<td>_handle_key_press</td>
+<td>Override of base class function.</td>
+</tr>
+<tr>
+<td>_draw</td>
+<td>Overrides base class draw function. Mostly a copy of ScrollMenu widget - but reverse item list</td>
+</tr>
+</tbody>
+</table>
+<h3 id="init_1"><strong>init</strong></h3>
+<pre><code class="language-python">def __init__(self, parent_logger)
+</code></pre>
+<p>Initializer for LiveDebugElement class</p>
+<h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
+</code></pre>
+<p>Override of base UI element class function. Sets start position relative to entire UI size</p>
+<h4 id="returns_1">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_x, start_y</td>
+<td>int, int</td>
+<td>Start position x, y coords in terminal characters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
+</code></pre>
+<p>Override of base UI element class function. Sets stop position relative to entire UI size</p>
+<h4 id="returns_2">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_x, stop_y</td>
+<td>int, int</td>
+<td>Stop position x, y coords in terminal characters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_mouse_press">_handle_mouse_press</h3>
+<pre><code class="language-python">def _handle_mouse_press(self, x: int, y: int, mouse_event: int) -&gt; None
+</code></pre>
+<p>Override of base class function, handles mouse press in menu</p>
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x, y</td>
+<td>int</td>
+<td>Coordinates of mouse press</td>
+</tr>
+<tr>
+<td>mouse_event</td>
+<td>int</td>
+<td>Key code for py_cui mouse event</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_handle_key_press">_handle_key_press</h3>
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
+</code></pre>
+<p>Override of base class function.</p>
+<p>Essentially the same as the ScrollMenu widget _handle_key_press, with the exception that Esc breaks
+out of live debug mode.</p>
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key_pressed</td>
+<td>int</td>
+<td>The keycode of the pressed key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_draw">_draw</h3>
+<pre><code class="language-python">def _draw(self) -&gt; None
+</code></pre>
+<p>Overrides base class draw function. Mostly a copy of ScrollMenu widget - but reverse item list</p>
+<h2 id="pycuiloggerlogginglogger">PyCUILogger(logging.Logger)</h2>
+<pre><code class="language-python">class PyCUILogger(logging.Logger)
+</code></pre>
+<p>Custom logger class for py_cui, extends the base logging.Logger Class</p>
+<h4 id="attributes_1">Attributes</h4>
 <table>
 <thead>
 <tr>
@@ -341,7 +547,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="methods">Methods</h4>
+<h4 id="methods_2">Methods</h4>
 <table>
 <thead>
 <tr>
@@ -351,8 +557,20 @@
 </thead>
 <tbody>
 <tr>
+<td>is_live_debug_enabled</td>
+<td></td>
+</tr>
+<tr>
+<td>toggle_live_debug</td>
+<td></td>
+</tr>
+<tr>
+<td>draw_live_debug</td>
+<td>Function that draws the live debug UI element if applicable</td>
+</tr>
+<tr>
 <td>_assign_root_window</td>
-<td>Attaches logger to the root window for live debugging</td>
+<td>Function that assigns a PyCUI root object to the logger. Important for live-debug hooks</td>
 </tr>
 <tr>
 <td>_get_debug_text</td>
@@ -360,30 +578,29 @@
 </tr>
 <tr>
 <td>info</td>
-<td>Adds stacktrace info to log</td>
+<td>Override of base logger info function to add hooks for live debug mode</td>
 </tr>
 <tr>
 <td>debug</td>
-<td>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</td>
+<td>Override of base logger debug function to add hooks for live debug mode</td>
 </tr>
 <tr>
 <td>warn</td>
-<td>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</td>
+<td>Override of base logger warn function to add hooks for live debug mode</td>
 </tr>
 <tr>
 <td>error</td>
-<td>Function that displays error messages live in status bar for py_cui logging</td>
+<td>Override of base logger error function to add hooks for live debug mode</td>
 </tr>
 <tr>
-<td>toggle_live_debug</td>
-<td>Toggles live debugging mode</td>
+<td>critical</td>
+<td>Override of base logger critical function to add hooks for live debug mode</td>
 </tr>
 </tbody>
 </table>
-<h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, name)
+<h3 id="init_2"><strong>init</strong></h3>
+<pre><code class="language-python">def __init__(self, name)
 </code></pre>
-
 <p>Initializer for the PyCUILogger helper class</p>
 <h4 id="raises_1">Raises</h4>
 <table>
@@ -402,22 +619,80 @@
 </tr>
 </tbody>
 </table>
+<h3 id="is_live_debug_enabled">is_live_debug_enabled</h3>
+<pre><code class="language-python">def is_live_debug_enabled(self)
+</code></pre>
+<h3 id="toggle_live_debug">toggle_live_debug</h3>
+<pre><code class="language-python">def toggle_live_debug(self)
+</code></pre>
+<h3 id="draw_live_debug">draw_live_debug</h3>
+<pre><code class="language-python">def draw_live_debug(self)
+</code></pre>
+<p>Function that draws the live debug UI element if applicable</p>
 <h3 id="_assign_root_window">_assign_root_window</h3>
-<pre><code class="python">def _assign_root_window(self, py_cui_root)
+<pre><code class="language-python">def _assign_root_window(self, py_cui_root: 'py_cui.PyCUI') -&gt; None
 </code></pre>
-
-<p>Attaches logger to the root window for live debugging</p>
+<p>Function that assigns a PyCUI root object to the logger. Important for live-debug hooks</p>
+<h4 id="parameters_5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>py_cui_root</td>
+<td>PyCUI</td>
+<td>Root PyCUI object for the application</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_get_debug_text">_get_debug_text</h3>
-<pre><code class="python">def _get_debug_text(self, text)
+<pre><code class="language-python">def _get_debug_text(self, text: str) -&gt; str
 </code></pre>
-
 <p>Function that generates full debug text for the log</p>
+<h4 id="parameters_6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>Log message</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_3">Returns</h4>
+<table>
+<thead>
+<tr>
+<th>Return Variable</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>str</td>
+<td>Log message with function, file, and line num info</td>
+</tr>
+</tbody>
+</table>
 <h3 id="info">info</h3>
-<pre><code class="python">def info(self, text)
+<pre><code class="language-python">def info(self, msg: Any, *args, **kwargs) -&gt; None : # to overcome signature mismatch in erro
 </code></pre>
-
-<p>Adds stacktrace info to log</p>
-<h4 id="parameters_2">Parameters</h4>
+<p>Override of base logger info function to add hooks for live debug mode</p>
+<h4 id="parameters_7">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -435,11 +710,10 @@
 </tbody>
 </table>
 <h3 id="debug_1">debug</h3>
-<pre><code class="python">def debug(self, text)
+<pre><code class="language-python">def debug(self, msg: str, *args, **kwargs) -&gt; None
 </code></pre>
-
-<p>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</p>
-<h4 id="parameters_3">Parameters</h4>
+<p>Override of base logger debug function to add hooks for live debug mode</p>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -457,11 +731,10 @@
 </tbody>
 </table>
 <h3 id="warn">warn</h3>
-<pre><code class="python">def warn(self, text)
+<pre><code class="language-python">def warn(self, msg: str, *args, **kwargs) -&gt; None
 </code></pre>
-
-<p>Function that allows for live debugging of py_cui programs by displaying log messages in the satus bar</p>
-<h4 id="parameters_4">Parameters</h4>
+<p>Override of base logger warn function to add hooks for live debug mode</p>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -479,11 +752,10 @@
 </tbody>
 </table>
 <h3 id="error">error</h3>
-<pre><code class="python">def error(self, text)
+<pre><code class="language-python">def error(self, msg: str, *args, **kwargs) -&gt; None
 </code></pre>
-
-<p>Function that displays error messages live in status bar for py_cui logging</p>
-<h4 id="parameters_5">Parameters</h4>
+<p>Override of base logger error function to add hooks for live debug mode</p>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -500,11 +772,27 @@
 </tr>
 </tbody>
 </table>
-<h3 id="toggle_live_debug">toggle_live_debug</h3>
-<pre><code class="python">def toggle_live_debug(self, level=logging.ERROR)
+<h3 id="critical">critical</h3>
+<pre><code class="language-python">def critical(self, msg: str, *args, **kwargs) -&gt; None
 </code></pre>
-
-<p>Toggles live debugging mode</p>
+<p>Override of base logger critical function to add hooks for live debug mode</p>
+<h4 id="parameters_11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>str</td>
+<td>The log text ot display</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

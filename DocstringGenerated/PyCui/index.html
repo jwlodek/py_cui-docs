@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "PyCUI";
-    var mkdocs_page_input_path = "DocstringGenerated\\PyCui.md";
+    var mkdocs_page_input_path = "DocstringGenerated/PyCui.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -121,6 +121,27 @@
             <li><a class="toctree-l4" href="#fit_text">fit_text</a></li>
         
             <li><a class="toctree-l4" href="#pycui">PyCUI</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#use-curses-termsize-when-possible-to-fix-resize-bug-on-windows">Use curses termsize when possible to fix resize bug on windows.</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#returns_16">Returns</a></li>
+        
+            <li><a class="toctree-l4" href="#_draw_widgets">_draw_widgets</a></li>
+        
+            <li><a class="toctree-l4" href="#_draw_status_bars">_draw_status_bars</a></li>
+        
+            <li><a class="toctree-l4" href="#_display_window_warning">_display_window_warning</a></li>
+        
+            <li><a class="toctree-l4" href="#_handle_key_presses">_handle_key_presses</a></li>
+        
+            <li><a class="toctree-l4" href="#_draw">_draw</a></li>
+        
+            <li><a class="toctree-l4" href="#format">format</a></li>
         
         </ul>
     
@@ -230,9 +251,8 @@
 </tbody>
 </table>
 <h3 id="fit_text">fit_text</h3>
-<pre><code class="python">def fit_text(width, text, center=False)
+<pre><code class="language-python">def fit_text(width: int, text: str, center: bool = False) -&gt; str
 </code></pre>
-
 <p>Fits text to screen size</p>
 <p>Helper function to fit text within a given width. Used to fix issue with status/title bar text
 being too long</p>
@@ -281,9 +301,8 @@ being too long</p>
 </tbody>
 </table>
 <h2 id="pycui">PyCUI</h2>
-<pre><code class="python">class PyCUI
+<pre><code class="language-python">class PyCUI
 </code></pre>
-
 <p>Base CUI class</p>
 <p>Main user interface class for py_cui. To create a user interface, you must
 first create an instance of this class, and then add cells + widgets to it.</p>
@@ -364,6 +383,10 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 <tr>
 <td>set_widget_cycle_key</td>
 <td>Assigns a key for automatically cycling through widgets in both focus and overview modes</td>
+</tr>
+<tr>
+<td>set_toggle_live_debug_key</td>
+<td></td>
 </tr>
 <tr>
 <td>enable_logging</td>
@@ -448,6 +471,10 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 <tr>
 <td>add_slider</td>
 <td>Function that adds a new label to the CUI grid</td>
+</tr>
+<tr>
+<td>forget_widget</td>
+<td>Function that is used to destroy or "forget" widgets. Forgotten widgets will no longer be drawn</td>
 </tr>
 <tr>
 <td>get_element_at_position</td>
@@ -543,11 +570,7 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 <tr>
 <td>_refresh_height_width</td>
-<td>Function that updates the height and width of the CUI based on terminal window size</td>
-</tr>
-<tr>
-<td>get_absolute_size</td>
-<td>Returns dimensions of CUI</td>
+<td>Function that updates the height and width of the CUI based on terminal window size."""</td>
 </tr>
 <tr>
 <td>_draw_widgets</td>
@@ -576,14 +599,12 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, num_rows, num_cols, auto_focus_buttons=True
+<pre><code class="language-python">def __init__(self, num_rows: int, num_cols: int, auto_focus_buttons: bool=True
 </code></pre>
-
-<p>Constructor for PyCUI class</p>
+<p>Initializer for PyCUI class</p>
 <h3 id="set_refresh_timeout">set_refresh_timeout</h3>
-<pre><code class="python">def set_refresh_timeout(self, timeout)
+<pre><code class="language-python">def set_refresh_timeout(self, timeout: int)
 </code></pre>
-
 <p>Sets the CUI auto-refresh timeout to a number of seconds.</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
@@ -603,9 +624,8 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="set_on_draw_update_func">set_on_draw_update_func</h3>
-<pre><code class="python">def set_on_draw_update_func(self, update_function)
+<pre><code class="language-python">def set_on_draw_update_func(self, update_function: Callable[[],Any])
 </code></pre>
-
 <p>Adds a function that is fired during each draw call of the CUI</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
@@ -625,9 +645,8 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="set_widget_cycle_key">set_widget_cycle_key</h3>
-<pre><code class="python">def set_widget_cycle_key(self, forward_cycle_key=None, reverse_cycle_key=None)
+<pre><code class="language-python">def set_widget_cycle_key(self, forward_cycle_key: int=None, reverse_cycle_key: int=None) -&gt; None
 </code></pre>
-
 <p>Assigns a key for automatically cycling through widgets in both focus and overview modes</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>
@@ -646,10 +665,12 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="enable_logging">enable_logging</h3>
-<pre><code class="python">def enable_logging(self, log_file_path='py_cui_log.txt', logging_level = logging.DEBUG)
+<h3 id="set_toggle_live_debug_key">set_toggle_live_debug_key</h3>
+<pre><code class="language-python">def set_toggle_live_debug_key(self, toggle_debug_key: int) -&gt; None
 </code></pre>
-
+<h3 id="enable_logging">enable_logging</h3>
+<pre><code class="language-python">def enable_logging(self, log_file_path: str='py_cui.log', logging_level = logging.DEBUG, live_debug_key: int = py_cui.keys.KEY_CTRL_D) -&gt; None
+</code></pre>
 <p>Function enables logging for py_cui library</p>
 <h4 id="parameters_4">Parameters</h4>
 <table>
@@ -674,9 +695,8 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="apply_widget_set">apply_widget_set</h3>
-<pre><code class="python">def apply_widget_set(self, new_widget_set)
+<pre><code class="language-python">def apply_widget_set(self, new_widget_set: py_cui.widget_set.WidgetSet) -&gt; None
 </code></pre>
-
 <p>Function that replaces all widgets in a py_cui with those of a different widget set</p>
 <h4 id="parameters_5">Parameters</h4>
 <table>
@@ -713,9 +733,8 @@ first create an instance of this class, and then add cells + widgets to it.</p>
 </tbody>
 </table>
 <h3 id="create_new_widget_set">create_new_widget_set</h3>
-<pre><code class="python">def create_new_widget_set(self, num_rows, num_cols)
+<pre><code class="language-python">def create_new_widget_set(self, num_rows: int, num_cols: int) -&gt; 'py_cui.widget_set.WidgetSet'
 </code></pre>
-
 <p>Function that is used to create additional widget sets</p>
 <p>Use this function instead of directly creating widget set object instances, to allow
 for logging support.</p>
@@ -759,20 +778,17 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="start">start</h3>
-<pre><code class="python">def start(self)
+<pre><code class="language-python">def start(self) -&gt; None
 </code></pre>
-
 <p>Function that starts the CUI</p>
 <h3 id="stop">stop</h3>
-<pre><code class="python">def stop(self)
+<pre><code class="language-python">def stop(self) -&gt; None
 </code></pre>
-
 <p>Function that stops the CUI, and fires the callback function.</p>
 <p>Callback must be a no arg method</p>
 <h3 id="run_on_exit">run_on_exit</h3>
-<pre><code class="python">def run_on_exit(self, command)
+<pre><code class="language-python">def run_on_exit(self, command: Callable[[],Any])
 </code></pre>
-
 <p>Sets callback function on CUI exit. Must be a no-argument function or lambda function</p>
 <h4 id="parameters_7">Parameters</h4>
 <table>
@@ -792,9 +808,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="set_title">set_title</h3>
-<pre><code class="python">def set_title(self, title)
+<pre><code class="language-python">def set_title(self, title: str) -&gt; None
 </code></pre>
-
 <p>Sets the title bar text</p>
 <h4 id="parameters_8">Parameters</h4>
 <table>
@@ -814,9 +829,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="set_status_bar_text">set_status_bar_text</h3>
-<pre><code class="python">def set_status_bar_text(self, text)
+<pre><code class="language-python">def set_status_bar_text(self, text: str) -&gt; None
 </code></pre>
-
 <p>Sets the status bar text when in overview mode</p>
 <h4 id="parameters_9">Parameters</h4>
 <table>
@@ -836,24 +850,20 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_initialize_colors">_initialize_colors</h3>
-<pre><code class="python">def _initialize_colors(self)
+<pre><code class="language-python">def _initialize_colors(self) -&gt; None
 </code></pre>
-
 <p>Function for initialzing curses colors. Called when CUI is first created.</p>
 <h3 id="_initialize_widget_renderer">_initialize_widget_renderer</h3>
-<pre><code class="python">def _initialize_widget_renderer(self)
+<pre><code class="language-python">def _initialize_widget_renderer(self) -&gt; None
 </code></pre>
-
 <p>Function that creates the renderer object that will draw each widget</p>
 <h3 id="toggle_unicode_borders">toggle_unicode_borders</h3>
-<pre><code class="python">def toggle_unicode_borders(self)
+<pre><code class="language-python">def toggle_unicode_borders(self) -&gt; None
 </code></pre>
-
 <p>Function for toggling unicode based border rendering</p>
 <h3 id="set_widget_border_characters">set_widget_border_characters</h3>
-<pre><code class="python">def set_widget_border_characters(self, upper_left_corner, upper_right_corner, lower_left_corner, lower_right_corner, horizontal, vertical)
+<pre><code class="language-python">def set_widget_border_characters(self, upper_left_corner: str, upper_right_corner: str, lower_left_corner: str, lower_right_corner: str, horizontal: str, vertical: str) -&gt; None
 </code></pre>
-
 <p>Function that can be used to set arbitrary border characters for drawing widget borders by renderer.</p>
 <h4 id="parameters_10">Parameters</h4>
 <table>
@@ -898,9 +908,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="get_widgets">get_widgets</h3>
-<pre><code class="python">def get_widgets(self)
+<pre><code class="language-python">def get_widgets(self) -&gt; Dict[int,Optional['py_cui.widgets.Widget']]
 </code></pre>
-
 <p>Function that gets current set of widgets</p>
 <h4 id="returns_2">Returns</h4>
 <table>
@@ -914,15 +923,14 @@ for logging support.</p>
 <tbody>
 <tr>
 <td>widgets</td>
-<td>dict of str -&gt; widget</td>
+<td>dict of int -&gt; widget</td>
 <td>dictionary mapping widget IDs to object instances</td>
 </tr>
 </tbody>
 </table>
 <h3 id="add_scroll_menu">add_scroll_menu</h3>
-<pre><code class="python">def add_scroll_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0) -&gt; py_cui.widgets.ScrollMenu
+<pre><code class="language-python">def add_scroll_menu(self, title: str, row: int, column: int, row_span: int=1, column_span: int=1, padx: int=1, pady: int=0) -&gt; 'py_cui.widgets.ScrollMenu'
 </code></pre>
-
 <p>Function that adds a new scroll menu to the CUI grid</p>
 <h4 id="parameters_11">Parameters</h4>
 <table>
@@ -989,9 +997,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_checkbox_menu">add_checkbox_menu</h3>
-<pre><code class="python">def add_checkbox_menu(self, title, row, column, row_span=1, column_span=1, padx=1, pady=0, checked_char='X') -&gt; py_cui.widgets.CheckBoxMenu
+<pre><code class="language-python">def add_checkbox_menu(self, title: str, row: int, column: int, row_span: int=1, column_span: int=1, padx: int=1, pady: int=0, checked_char: str='X') -&gt; 'py_cui.widgets.CheckBoxMenu'
 </code></pre>
-
 <p>Function that adds a new checkbox menu to the CUI grid</p>
 <h4 id="parameters_12">Parameters</h4>
 <table>
@@ -1063,9 +1070,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_text_box">add_text_box</h3>
-<pre><code class="python">def add_text_box(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '', password = False) -&gt; py_cui.widgets.TextBox
+<pre><code class="language-python">def add_text_box(self, title: str, row: int, column: int, row_span: int = 1, column_span: int = 1, padx: int = 1, pady: int = 0, initial_text: str = '', password: bool = False) -&gt; 'py_cui.widgets.TextBox'
 </code></pre>
-
 <p>Function that adds a new text box to the CUI grid</p>
 <h4 id="parameters_13">Parameters</h4>
 <table>
@@ -1142,9 +1148,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_text_block">add_text_block</h3>
-<pre><code class="python">def add_text_block(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, initial_text = '') -&gt; py_cui.widgets.ScrollTextBlock
+<pre><code class="language-python">def add_text_block(self, title: str, row: int, column: int, row_span: int = 1, column_span: int = 1, padx: int = 1, pady: int = 0, initial_text: str = '') -&gt; 'py_cui.widgets.ScrollTextBlock'
 </code></pre>
-
 <p>Function that adds a new text block to the CUI grid</p>
 <h4 id="parameters_14">Parameters</h4>
 <table>
@@ -1216,9 +1221,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_label">add_label</h3>
-<pre><code class="python">def add_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0) -&gt; py_cui.widgets.Label
+<pre><code class="language-python">def add_label(self, title: str, row: int, column: int, row_span: int = 1, column_span: int = 1, padx: int = 1, pady: int = 0) -&gt; 'py_cui.widgets.Label'
 </code></pre>
-
 <p>Function that adds a new label to the CUI grid</p>
 <h4 id="parameters_15">Parameters</h4>
 <table>
@@ -1285,9 +1289,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_block_label">add_block_label</h3>
-<pre><code class="python">def add_block_label(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, center=True) -&gt; py_cui.widgets.BlockLabel
+<pre><code class="language-python">def add_block_label(self, title: str, row: int, column: int, row_span: int = 1, column_span: int = 1, padx: int = 1, pady: int = 0, center: bool=True) -&gt; 'py_cui.widgets.BlockLabel'
 </code></pre>
-
 <p>Function that adds a new block label to the CUI grid</p>
 <h4 id="parameters_16">Parameters</h4>
 <table>
@@ -1359,9 +1362,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_button">add_button</h3>
-<pre><code class="python">def add_button(self, title, row, column, row_span = 1, column_span = 1, padx = 1, pady = 0, command=None) -&gt; py_cui.widgets.Button
+<pre><code class="language-python">def add_button(self, title: str, row: int, column: int, row_span: int = 1, column_span: int = 1, padx: int = 1, pady: int = 0, command: Callable[[],Any]=None) -&gt; 'py_cui.widgets.Button'
 </code></pre>
-
 <p>Function that adds a new button to the CUI grid</p>
 <h4 id="parameters_17">Parameters</h4>
 <table>
@@ -1433,9 +1435,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_slider">add_slider</h3>
-<pre><code class="python">def add_slider(self, title, row, column, row_span=1
+<pre><code class="language-python">def add_slider(self, title: str, row: int, column: int, row_span: int=1
 </code></pre>
-
 <p>Function that adds a new label to the CUI grid</p>
 <h4 id="parameters_18">Parameters</h4>
 <table>
@@ -1521,12 +1522,54 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="get_element_at_position">get_element_at_position</h3>
-<pre><code class="python">def get_element_at_position(self, x, y)
+<h3 id="forget_widget">forget_widget</h3>
+<pre><code class="language-python">def forget_widget(self, widget : 'py_cui.widgets.Widget') -&gt; None
 </code></pre>
-
-<p>Returns containing widget for character position</p>
+<p>Function that is used to destroy or "forget" widgets. Forgotten widgets will no longer be drawn</p>
 <h4 id="parameters_19">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>widget</td>
+<td>py_cui.widgets.Widget</td>
+<td>Widget to remove from the UI</td>
+</tr>
+</tbody>
+</table>
+<h4 id="raises_1">Raises</h4>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unknown</td>
+<td>TypeError</td>
+<td>If input parameter is not of the py_cui widget type</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>KeyError</td>
+<td>If input widget does not exist in the current UI or has already been removed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get_element_at_position">get_element_at_position</h3>
+<pre><code class="language-python">def get_element_at_position(self, x: int, y: int) -&gt; Optional['py_cui.ui.UIElement']
+</code></pre>
+<p>Returns containing widget for character position</p>
+<h4 id="parameters_20">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1566,11 +1609,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_get_horizontal_neighbors">_get_horizontal_neighbors</h3>
-<pre><code class="python">def _get_horizontal_neighbors(self, widget, direction)
+<pre><code class="language-python">def _get_horizontal_neighbors(self, widget: 'py_cui.widgets.Widget', direction: int) -&gt; Optional[List[int]]
 </code></pre>
-
 <p>Gets all horizontal (left, right) neighbor widgets</p>
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_21">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1610,11 +1652,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_get_vertical_neighbors">_get_vertical_neighbors</h3>
-<pre><code class="python">def _get_vertical_neighbors(self, widget, direction)
+<pre><code class="language-python">def _get_vertical_neighbors(self, widget: 'py_cui.widgets.Widget', direction: int) -&gt; Optional[List[int]]
 </code></pre>
-
 <p>Gets all vertical (up, down) neighbor widgets</p>
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_22">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1654,12 +1695,11 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_check_if_neighbor_exists">_check_if_neighbor_exists</h3>
-<pre><code class="python">def _check_if_neighbor_exists(self, direction)
+<pre><code class="language-python">def _check_if_neighbor_exists(self, direction: int) -&gt; Optional[int]
 </code></pre>
-
 <p>Function that checks if widget has neighbor in specified cell.</p>
 <p>Used for navigating CUI, as arrow keys find the immediate neighbor</p>
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_23">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1688,15 +1728,14 @@ for logging support.</p>
 <tbody>
 <tr>
 <td>widget_id</td>
-<td>str</td>
+<td>int</td>
 <td>The widget neighbor ID if found, None otherwise</td>
 </tr>
 </tbody>
 </table>
 <h3 id="get_selected_widget">get_selected_widget</h3>
-<pre><code class="python">def get_selected_widget(self)
+<pre><code class="language-python">def get_selected_widget(self) -&gt; Optional['py_cui.widgets.Widget']
 </code></pre>
-
 <p>Function that gets currently selected widget</p>
 <h4 id="returns_15">Returns</h4>
 <table>
@@ -1716,11 +1755,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="set_selected_widget">set_selected_widget</h3>
-<pre><code class="python">def set_selected_widget(self, widget_id)
+<pre><code class="language-python">def set_selected_widget(self, widget_id: int) -&gt; None
 </code></pre>
-
 <p>Function that sets the selected widget for the CUI</p>
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_24">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1732,23 +1770,21 @@ for logging support.</p>
 <tbody>
 <tr>
 <td>widget_id</td>
-<td>str</td>
+<td>int</td>
 <td>the id of the widget to select</td>
 </tr>
 </tbody>
 </table>
 <h3 id="lose_focus">lose_focus</h3>
-<pre><code class="python">def lose_focus(self)
+<pre><code class="language-python">def lose_focus(self) -&gt; None
 </code></pre>
-
 <p>Function that forces py_cui out of focus mode.</p>
 <p>After popup is called, focus is lost</p>
 <h3 id="move_focus">move_focus</h3>
-<pre><code class="python">def move_focus(self, widget, auto_press_buttons=True)
+<pre><code class="language-python">def move_focus(self, widget: 'py_cui.widgets.Widget', auto_press_buttons: bool=True) -&gt; None
 </code></pre>
-
 <p>Moves focus mode to different widget</p>
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_25">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1766,11 +1802,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_cycle_widgets">_cycle_widgets</h3>
-<pre><code class="python">def _cycle_widgets(self, reverse=False)
+<pre><code class="language-python">def _cycle_widgets(self, reverse: bool=False) -&gt; None
 </code></pre>
-
 <p>Function that is fired if cycle key is pressed to move to next widget</p>
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_26">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1788,11 +1823,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="add_key_command">add_key_command</h3>
-<pre><code class="python">def add_key_command(self, key, command)
+<pre><code class="language-python">def add_key_command(self, key: int, command: Callable[[],Any]) -&gt; None
 </code></pre>
-
 <p>Function that adds a keybinding to the CUI when in overview mode</p>
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_27">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1815,11 +1849,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_message_popup">show_message_popup</h3>
-<pre><code class="python">def show_message_popup(self, title, text)
+<pre><code class="language-python">def show_message_popup(self, title: str, text: str, color: int = WHITE_ON_BLACK) -&gt; None
 </code></pre>
-
 <p>Shows a message popup</p>
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_28">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1839,14 +1872,18 @@ for logging support.</p>
 <td>str</td>
 <td>Message text</td>
 </tr>
+<tr>
+<td>color</td>
+<td>int</td>
+<td>Popup color with format FOREGOUND_ON_BACKGROUND. See colors module. Default: WHITE_ON_BLACK.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="show_warning_popup">show_warning_popup</h3>
-<pre><code class="python">def show_warning_popup(self, title, text)
+<pre><code class="language-python">def show_warning_popup(self, title: str, text: str) -&gt; None
 </code></pre>
-
 <p>Shows a warning popup</p>
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_29">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1869,11 +1906,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_error_popup">show_error_popup</h3>
-<pre><code class="python">def show_error_popup(self, title, text)
+<pre><code class="language-python">def show_error_popup(self, title: str, text: str) -&gt; None
 </code></pre>
-
 <p>Shows an error popup</p>
-<h4 id="parameters_29">Parameters</h4>
+<h4 id="parameters_30">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1896,12 +1932,11 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_yes_no_popup">show_yes_no_popup</h3>
-<pre><code class="python">def show_yes_no_popup(self, title, command)
+<pre><code class="language-python">def show_yes_no_popup(self, title: str, command: Callable[[bool], Any])
 </code></pre>
-
 <p>Shows a yes/no popup.</p>
 <p>The 'command' parameter must be a function with a single boolean parameter</p>
-<h4 id="parameters_30">Parameters</h4>
+<h4 id="parameters_31">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1924,12 +1959,11 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_text_box_popup">show_text_box_popup</h3>
-<pre><code class="python">def show_text_box_popup(self, title, command, password=False)
+<pre><code class="language-python">def show_text_box_popup(self, title: str, command: Callable[[str], Any], password: bool=False)
 </code></pre>
-
 <p>Shows a textbox popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_31">Parameters</h4>
+<h4 id="parameters_32">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1957,12 +1991,11 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_menu_popup">show_menu_popup</h3>
-<pre><code class="python">def show_menu_popup(self, title, menu_items, command, run_command_if_none=False)
+<pre><code class="language-python">def show_menu_popup(self, title: str, menu_items: List[str], command: Callable[[str], Any], run_command_if_none: bool=False)
 </code></pre>
-
 <p>Shows a menu popup.</p>
 <p>The 'command' parameter must be a function with a single string parameter</p>
-<h4 id="parameters_32">Parameters</h4>
+<h4 id="parameters_33">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1995,11 +2028,10 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_loading_icon_popup">show_loading_icon_popup</h3>
-<pre><code class="python">def show_loading_icon_popup(self, title, message, callback=None)
+<pre><code class="language-python">def show_loading_icon_popup(self, title: str, message: str, callback: Callable[[],Any]=None)
 </code></pre>
-
 <p>Shows a loading icon popup</p>
-<h4 id="parameters_33">Parameters</h4>
+<h4 id="parameters_34">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2027,12 +2059,11 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_loading_bar_popup">show_loading_bar_popup</h3>
-<pre><code class="python">def show_loading_bar_popup(self, title, num_items, callback=None)
+<pre><code class="language-python">def show_loading_bar_popup(self, title: str, num_items: List[int], callback: Callable[[],Any]=None) -&gt; None
 </code></pre>
-
 <p>Shows loading bar popup.</p>
 <p>Use 'increment_loading_bar' to show progress</p>
-<h4 id="parameters_34">Parameters</h4>
+<h4 id="parameters_35">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2060,52 +2091,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="show_form_popup">show_form_popup</h3>
-<pre><code class="python">def show_form_popup(self, title, fields, passwd_fields=[], required=[], callback=None)
+<pre><code class="language-python">def show_form_popup(self, title: str, fields: List[str], passwd_fields: List[str]=[], required: List[str]=[], callback: Callable[[],Any]=None) -&gt; None
 </code></pre>
-
-<p>Shows form popup.</p>
-<p>Used for inputting several fields worth of values</p>
-<h4 id="parameters_35">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>title</td>
-<td>str</td>
-<td>Message title</td>
-</tr>
-<tr>
-<td>fields</td>
-<td>List[str]</td>
-<td>Names of each individual field</td>
-</tr>
-<tr>
-<td>passwd_fields</td>
-<td>List[str]</td>
-<td>Field names that should have characters hidden</td>
-</tr>
-<tr>
-<td>required</td>
-<td>List[str]</td>
-<td>Fields that are required before submission</td>
-</tr>
-<tr>
-<td>callback=None</td>
-<td>Function</td>
-<td>If not none, fired after loading is completed. Must be a no-arg function</td>
-</tr>
-</tbody>
-</table>
-<h3 id="show_filedialog_popup">show_filedialog_popup</h3>
-<pre><code class="python">def show_filedialog_popup(self, popup_type='openfile', initial_dir='.', callback=None, ascii_icons=True, limit_extensions=[])
-</code></pre>
-
 <p>Shows form popup.</p>
 <p>Used for inputting several fields worth of values</p>
 <h4 id="parameters_36">Parameters</h4>
@@ -2145,27 +2132,11 @@ for logging support.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="increment_loading_bar">increment_loading_bar</h3>
-<pre><code class="python">def increment_loading_bar(self)
+<h3 id="show_filedialog_popup">show_filedialog_popup</h3>
+<pre><code class="language-python">def show_filedialog_popup(self, popup_type: str='openfile', initial_dir: str ='.', callback: Callable[[],Any]=None, ascii_icons: bool=True, limit_extensions: List[str]=[]) -&gt; None
 </code></pre>
-
-<p>Increments progress bar if loading bar popup is open</p>
-<h3 id="stop_loading_popup">stop_loading_popup</h3>
-<pre><code class="python">def stop_loading_popup(self)
-</code></pre>
-
-<p>Leaves loading state, and closes popup.</p>
-<p>Must be called by user to escape loading.</p>
-<h3 id="close_popup">close_popup</h3>
-<pre><code class="python">def close_popup(self)
-</code></pre>
-
-<p>Closes the popup, and resets focus</p>
-<h3 id="_refresh_height_width">_refresh_height_width</h3>
-<pre><code class="python">def _refresh_height_width(self, height, width)
-</code></pre>
-
-<p>Function that updates the height and width of the CUI based on terminal window size</p>
+<p>Shows form popup.</p>
+<p>Used for inputting several fields worth of values</p>
 <h4 id="parameters_37">Parameters</h4>
 <table>
 <thead>
@@ -2177,22 +2148,75 @@ for logging support.</p>
 </thead>
 <tbody>
 <tr>
-<td>height</td>
-<td>int</td>
-<td>Window height in terminal characters</td>
+<td>popup_type</td>
+<td>str</td>
+<td>Type of filedialog popup - either openfile, opendir, or saveas</td>
 </tr>
 <tr>
-<td>width</td>
-<td>int</td>
-<td>Window width in terminal characters</td>
+<td>initial_dir</td>
+<td>os.PathLike</td>
+<td>Path to directory in which to open the file dialog, default "."</td>
+</tr>
+<tr>
+<td>callback=None</td>
+<td>Callable</td>
+<td>If not none, fired after loading is completed. Must be a no-arg function, default=None</td>
+</tr>
+<tr>
+<td>ascii_icons</td>
+<td>bool</td>
+<td>Compatibility option - use ascii icons instead of unicode file/folder icons, default True</td>
+</tr>
+<tr>
+<td>limit_extensions</td>
+<td>List[str]</td>
+<td>Only show files with extensions in this list if not empty. Default, []</td>
 </tr>
 </tbody>
 </table>
-<h3 id="get_absolute_size">get_absolute_size</h3>
-<pre><code class="python">def get_absolute_size(self)
+<h3 id="increment_loading_bar">increment_loading_bar</h3>
+<pre><code class="language-python">def increment_loading_bar(self) -&gt; None
 </code></pre>
-
-<p>Returns dimensions of CUI</p>
+<p>Increments progress bar if loading bar popup is open</p>
+<h3 id="stop_loading_popup">stop_loading_popup</h3>
+<pre><code class="language-python">def stop_loading_popup(self) -&gt; None
+</code></pre>
+<p>Leaves loading state, and closes popup.</p>
+<p>Must be called by user to escape loading.</p>
+<h3 id="close_popup">close_popup</h3>
+<pre><code class="language-python">def close_popup(self) -&gt; None
+</code></pre>
+<p>Closes the popup, and resets focus</p>
+<h3 id="_refresh_height_width">_refresh_height_width</h3>
+<pre><code class="language-python">def _refresh_height_width(self) -&gt; None
+</code></pre>
+<p>Function that updates the height and width of the CUI based on terminal window size."""</p>
+<p>if self._simulated_terminal is None:
+if self._stdscr is None:
+term_size = shutil.get_terminal_size()
+height  = term_size.lines
+width   = term_size.columns
+else:</p>
+<h1 id="use-curses-termsize-when-possible-to-fix-resize-bug-on-windows">Use curses termsize when possible to fix resize bug on windows.</h1>
+<p>height, width = self._stdscr.getmaxyx()
+else:
+height  = self._simulated_terminal[0]
+width   = self._simulated_terminal[1]</p>
+<p>height  = height - self.title_bar.get_height() - self.status_bar.get_height() - 2</p>
+<p>self._logger.debug(f'Resizing CUI to new dimensions {height} by {width}')</p>
+<p>self._height = height
+self._width  = width
+self._grid.update_grid_height_width(self._height, self._width)
+for widget_id in self.get_widgets().keys():
+widget = self.get_widgets()[widget_id] #using temp variable, for mypy
+if widget is not None:
+widget.update_height_width()
+if self._popup is not None:
+self._popup.update_height_width()
+if self._logger._live_debug_element is not None:
+self._logger._live_debug_element.update_height_width()</p>
+<p>def get_absolute_size(self) -&gt; Tuple[int,int]:
+"""Returns dimensions of CUI</p>
 <h4 id="returns_16">Returns</h4>
 <table>
 <thead>
@@ -2211,14 +2235,12 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_draw_widgets">_draw_widgets</h3>
-<pre><code class="python">def _draw_widgets(self)
+<pre><code class="language-python">def _draw_widgets(self) -&gt; None
 </code></pre>
-
 <p>Function that draws all of the widgets to the screen</p>
 <h3 id="_draw_status_bars">_draw_status_bars</h3>
-<pre><code class="python">def _draw_status_bars(self, stdscr, height, width)
+<pre><code class="language-python">def _draw_status_bars(self, stdscr, height: int, width: int) -&gt; None
 </code></pre>
-
 <p>Draws status bar and title bar</p>
 <h4 id="parameters_38">Parameters</h4>
 <table>
@@ -2248,9 +2270,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_display_window_warning">_display_window_warning</h3>
-<pre><code class="python">def _display_window_warning(self, stdscr, error_info)
+<pre><code class="language-python">def _display_window_warning(self, stdscr, error_info: str) -&gt; None
 </code></pre>
-
 <p>Function that prints some basic error info if there is an error with the CUI</p>
 <h4 id="parameters_39">Parameters</h4>
 <table>
@@ -2275,9 +2296,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_handle_key_presses">_handle_key_presses</h3>
-<pre><code class="python">def _handle_key_presses(self, key_pressed)
+<pre><code class="language-python">def _handle_key_presses(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Function that handles all main loop key presses.</p>
 <h4 id="parameters_40">Parameters</h4>
 <table>
@@ -2297,9 +2317,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="_draw">_draw</h3>
-<pre><code class="python">def _draw(self, stdscr)
+<pre><code class="language-python">def _draw(self, stdscr) -&gt; None
 </code></pre>
-
 <p>Main CUI draw loop called by start()</p>
 <h4 id="parameters_41">Parameters</h4>
 <table>
@@ -2319,9 +2338,8 @@ for logging support.</p>
 </tbody>
 </table>
 <h3 id="format"><strong>format</strong></h3>
-<pre><code class="python">def __format__(self, fmt)
+<pre><code class="language-python">def __format__(self, fmt)
 </code></pre>
-
 <p>Override of base format function. Prints list of current widgets.</p>
 <h4 id="parameters_42">Parameters</h4>
 <table>

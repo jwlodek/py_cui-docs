@@ -203,20 +203,19 @@
 <p>This page contains information regarding all popups supported by <code>py_cui</code>. Please see the <code>popups_example.py</code> in the <code>examples/</code> directory in the repository. In general, <code>py_cui</code> popups are handled by using callback functions. A popup is opened with a special <code>show</code> method, and then upon some user action a callback function is fired, with some specified input parameters.</p>
 <h3 id="messagewarningerror-popup">Message/Warning/Error Popup</h3>
 <p><strong>Spawn Command</strong></p>
-<pre><code>show_message_popup(title, text)
+<pre><code>show_message_popup(title, text, color = WHITE_ON_BLACK)
 show_warning_popup(title, text)
 show_error_popup(title, text)
 </code></pre>
-
 <p><strong>Usage</strong></p>
-<p>Used to show a simple message, with a different color depending on warning level.</p>
+<p><code>show_message_popup</code> takes an optional <code>color</code> argument which defaults to standard WHITE_ON_BLACK.
+<code>show_warning_popup</code> and <code>show_error_popup</code> are shorthand for respectively yellow and red colors.</p>
 <p><strong>Keys</strong></p>
 <p>Exit from the popup with <code>KEY_ENTER</code>, <code>KEY_ESCAPE</code>, or <code>KEY_SPACE</code>.</p>
 <h3 id="yesno-popup">Yes/No Popup</h3>
 <p><strong>Spawn Command</strong></p>
 <pre><code>show_yes_no_popup(self, title, command)
 </code></pre>
-
 <p><strong>Usage</strong></p>
 <p>Ask user yes/no question. The <code>command</code> parameter passed to the spawn function must be a function that takes a single boolean parameter.</p>
 <p><strong>Keys</strong></p>
@@ -226,24 +225,20 @@ show_error_popup(title, text)
 <pre><code>show_loading_icon_popup(title, message)
 show_loading_bar_popup(title, num_items)
 </code></pre>
-
 <p><strong>Usage</strong>
 The loading popups must be used in conjunction with some sort of async/threading. First, spawn the popup and then start a thread performing the long operation. At the end of the long operation, call:</p>
 <pre><code>stop_loading_popup()
 </code></pre>
-
 <p>Which will escape the loading popup.
 When using the loading bar popup, increment yout item counter with:</p>
 <pre><code>increment_loading_bar()
 </code></pre>
-
 <p><strong>Keys</strong></p>
 <p>None</p>
 <h3 id="textbox-popup">TextBox Popup</h3>
 <p><strong>Spawn Command</strong></p>
 <pre><code>show_text_box_popup(title, command)
 </code></pre>
-
 <p><strong>Usage</strong></p>
 <p>Spawn a text box, and on <code>KEY_ENTER</code> pressed, the command function is triggered with the text from the popup as the parameter.</p>
 <p><strong>Keys</strong></p>
@@ -252,7 +247,6 @@ When using the loading bar popup, increment yout item counter with:</p>
 <p><strong>Spawn Command</strong></p>
 <pre><code>show_menu_popup(title, menu_items, command, run_command_if_none=False)
 </code></pre>
-
 <p><strong>Usage</strong></p>
 <p>Use as an overall menu system for your application. Gives user option to select from list. Fires the command with the selected menu item as a parameter on <code>KEY_ENTER</code></p>
 <p><strong>Keys</strong></p>

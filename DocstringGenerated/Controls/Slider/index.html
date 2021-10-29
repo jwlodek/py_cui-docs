@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "slider";
-    var mkdocs_page_input_path = "DocstringGenerated\\Controls\\Slider.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Controls/Slider.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -200,9 +200,8 @@
 </tbody>
 </table>
 <h2 id="sliderimplementationpy_cuiuiuiimplementation">SliderImplementation(py_cui.ui.UIImplementation)</h2>
-<pre><code class="python">class SliderImplementation(py_cui.ui.UIImplementation)
+<pre><code class="language-python">class SliderImplementation(py_cui.ui.UIImplementation)
 </code></pre>
-
 <h4 id="methods">Methods</h4>
 <table>
 <thead>
@@ -231,13 +230,11 @@
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, min_val, max_val, init_val, step, logger)
+<pre><code class="language-python">def __init__(self, min_val: int, max_val: int, init_val: int, step: int, logger)
 </code></pre>
-
 <h3 id="set_bar_char">set_bar_char</h3>
-<pre><code class="python">def set_bar_char(self, char)
+<pre><code class="language-python">def set_bar_char(self, char: str) -&gt; None
 </code></pre>
-
 <p>Updates the character used to represent the slider bar.</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -257,9 +254,8 @@
 </tbody>
 </table>
 <h3 id="update_slider_value">update_slider_value</h3>
-<pre><code class="python">def update_slider_value(self, offset: int) -&gt; float
+<pre><code class="language-python">def update_slider_value(self, offset: int) -&gt; float
 </code></pre>
-
 <p>Steps up or down the value in offset fashion.</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
@@ -296,9 +292,8 @@
 </tbody>
 </table>
 <h3 id="get_slider_value">get_slider_value</h3>
-<pre><code class="python">def get_slider_value(self)
+<pre><code class="language-python">def get_slider_value(self) -&gt; float
 </code></pre>
-
 <p>Returns current slider value.</p>
 <h4 id="returns_1">Returns</h4>
 <table>
@@ -318,9 +313,8 @@
 </tbody>
 </table>
 <h3 id="set_slider_step">set_slider_step</h3>
-<pre><code class="python">def set_slider_step(self, step)
+<pre><code class="language-python">def set_slider_step(self, step: int) -&gt; None
 </code></pre>
-
 <p>Changes the step value.</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
@@ -340,9 +334,8 @@
 </tbody>
 </table>
 <h2 id="sliderwidgetpy_cuiwidgetswidget-sliderimplementation">SliderWidget(py_cui.widgets.Widget, SliderImplementation)</h2>
-<pre><code class="python">class SliderWidget(py_cui.widgets.Widget, SliderImplementation)
+<pre><code class="language-python">class SliderWidget(py_cui.widgets.Widget, SliderImplementation)
 </code></pre>
-
 <p>Widget for a Slider</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>
@@ -428,43 +421,35 @@
 </tbody>
 </table>
 <h3 id="init_1"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, grid, row, column, row_span, column_span
+<pre><code class="language-python">def __init__(self, id, title, grid, row, column, row_span, column_span
 </code></pre>
-
 <h3 id="toggle_title">toggle_title</h3>
-<pre><code class="python">def toggle_title(self)
+<pre><code class="language-python">def toggle_title(self) -&gt; None
 </code></pre>
-
 <p>Toggles visibility of the widget's name.</p>
 <h3 id="toggle_border">toggle_border</h3>
-<pre><code class="python">def toggle_border(self)
+<pre><code class="language-python">def toggle_border(self) -&gt; None
 </code></pre>
-
 <p>Toggles visibility of the widget's border.</p>
 <h3 id="toggle_value">toggle_value</h3>
-<pre><code class="python">def toggle_value(self)
+<pre><code class="language-python">def toggle_value(self) -&gt; None
 </code></pre>
-
 <p>Toggles visibility of the widget's current value in integer.</p>
 <h3 id="align_to_top">align_to_top</h3>
-<pre><code class="python">def align_to_top(self)
+<pre><code class="language-python">def align_to_top(self) -&gt; None
 </code></pre>
-
 <p>Aligns widget height to top.</p>
 <h3 id="align_to_middle">align_to_middle</h3>
-<pre><code class="python">def align_to_middle(self)
+<pre><code class="language-python">def align_to_middle(self) -&gt; None
 </code></pre>
-
 <p>Aligns widget height to middle. default configuration.</p>
 <h3 id="align_to_bottom">align_to_bottom</h3>
-<pre><code class="python">def align_to_bottom(self)
+<pre><code class="language-python">def align_to_bottom(self) -&gt; None
 </code></pre>
-
 <p>Aligns widget height to bottom.</p>
 <h3 id="_custom_draw_with_border">_custom_draw_with_border</h3>
-<pre><code class="python">def _custom_draw_with_border(self, start_y: int, content: str)
+<pre><code class="language-python">def _custom_draw_with_border(self, start_y: int, content: str) -&gt; None
 </code></pre>
-
 <p>Custom method made from renderer.draw_border to support alignment for bordered variants.</p>
 <h4 id="parameters_4">Parameters</h4>
 <table>
@@ -489,9 +474,8 @@
 </tbody>
 </table>
 <h3 id="_generate_bar">_generate_bar</h3>
-<pre><code class="python">def _generate_bar(self, width: int) -&gt; str
+<pre><code class="language-python">def _generate_bar(self, width: int) -&gt; str
 </code></pre>
-
 <p>Internal implementation to generate progression bar.</p>
 <h4 id="parameters_5">Parameters</h4>
 <table>
@@ -528,14 +512,12 @@
 </tbody>
 </table>
 <h3 id="_draw">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self) -&gt; None
 </code></pre>
-
 <p>Override of base class draw function.</p>
 <h3 id="_handle_key_press">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>LEFT_ARROW decreases value, RIGHT_ARROW increases.</p>
 <h4 id="parameters_6">Parameters</h4>
 <table>
@@ -555,7 +537,7 @@
 </tbody>
 </table>
 <h2 id="sliderpopuppy_cuipopupspopup-sliderimplementation">SliderPopup(py_cui.popups.Popup, SliderImplementation)</h2>
-<pre><code class="python">class SliderPopup(py_cui.popups.Popup, SliderImplementation)
+<pre><code class="language-python">class SliderPopup(py_cui.popups.Popup, SliderImplementation)
 </code></pre>
               
             </div>

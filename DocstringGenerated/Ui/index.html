@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "UI";
-    var mkdocs_page_input_path = "DocstringGenerated\\Ui.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Ui.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -132,6 +132,52 @@
         
             <li><a class="toctree-l4" href="#menuimplementationuiimplementation">MenuImplementation(UIImplementation)</a></li>
         
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#identify-num-of-args-from-callable-this-allows-for-user-to-create-commands-that-take-in-x-y">Identify num of args from callable. This allows for user to create commands that take in x, y</a></li>
+    
+
+    <li class="toctree-l3"><a href="#coords-of-the-mouse-press-as-input">coords of the mouse press as input</a></li>
+    
+
+    <li class="toctree-l3"><a href="#depending-on-the-number-of-parameters-for-the-self_on_selection_change-pass-in-the-x-and-y">Depending on the number of parameters for the self._on_selection_change, pass in the x and y</a></li>
+    
+
+    <li class="toctree-l3"><a href="#values-or-do-nothing">values, or do nothing</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#returns_20">Returns</a></li>
+        
+            <li><a class="toctree-l4" href="#set_selected_item_index">set_selected_item_index</a></li>
+        
+            <li><a class="toctree-l4" href="#_scroll_up">_scroll_up</a></li>
+        
+            <li><a class="toctree-l4" href="#_scroll_down">_scroll_down</a></li>
+        
+            <li><a class="toctree-l4" href="#_jump_up">_jump_up</a></li>
+        
+            <li><a class="toctree-l4" href="#_jump_down">_jump_down</a></li>
+        
+            <li><a class="toctree-l4" href="#_jump_to_top">_jump_to_top</a></li>
+        
+            <li><a class="toctree-l4" href="#_jump_to_bottom">_jump_to_bottom</a></li>
+        
+            <li><a class="toctree-l4" href="#add_item">add_item</a></li>
+        
+            <li><a class="toctree-l4" href="#add_item_list">add_item_list</a></li>
+        
+            <li><a class="toctree-l4" href="#remove_selected_item">remove_selected_item</a></li>
+        
+            <li><a class="toctree-l4" href="#remove_item">remove_item</a></li>
+        
+            <li><a class="toctree-l4" href="#get_item_list">get_item_list</a></li>
+        
+            <li><a class="toctree-l4" href="#get_1">get</a></li>
+        
+            <li><a class="toctree-l4" href="#set_selected_item">set_selected_item</a></li>
+        
             <li><a class="toctree-l4" href="#checkboxmenuimplementationmenuimplementation">CheckBoxMenuImplementation(MenuImplementation)</a></li>
         
             <li><a class="toctree-l4" href="#textblockimplementationuiimplementation">TextBlockImplementation(UIImplementation)</a></li>
@@ -242,9 +288,8 @@
 </tbody>
 </table>
 <h2 id="uielement">UIElement</h2>
-<pre><code class="python">class UIElement
+<pre><code class="language-python">class UIElement
 </code></pre>
-
 <p>Base class for all UI elements. Extended by base widget and popup classes.</p>
 <p>Interfaces between UIImplementation subclasses and CUI engine. For example,
 a widget is a subclass of a UIElement. Then a TextBox widget would be a subclass
@@ -438,10 +483,6 @@ class contains all links to the CUI engine.</p>
 <td>Must be implemented by subclass. Used to handle keypresses</td>
 </tr>
 <tr>
-<td>add_mouse_press_handler</td>
-<td>Sets a mouse press handler function</td>
-</tr>
-<tr>
 <td>_handle_mouse_press</td>
 <td>Can be implemented by subclass. Used to handle mouse presses</td>
 </tr>
@@ -460,24 +501,20 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, id, title, renderer, logger)
+<pre><code class="language-python">def __init__(self, id, title, renderer, logger)
 </code></pre>
-
 <p>Initializer for UIElement base class</p>
 <h3 id="get_absolute_start_pos">get_absolute_start_pos</h3>
-<pre><code class="python">def get_absolute_start_pos(self)
+<pre><code class="language-python">def get_absolute_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Must be implemented by subclass, computes the absolute coords of upper-left corner</p>
 <h3 id="get_absolute_stop_pos">get_absolute_stop_pos</h3>
-<pre><code class="python">def get_absolute_stop_pos(self)
+<pre><code class="language-python">def get_absolute_stop_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Must be implemented by subclass, computes the absolute coords of bottom-right corner</p>
 <h3 id="get_absolute_dimensions">get_absolute_dimensions</h3>
-<pre><code class="python">def get_absolute_dimensions(self)
+<pre><code class="language-python">def get_absolute_dimensions(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets dimensions of element in terminal characters</p>
 <h4 id="returns">Returns</h4>
 <table>
@@ -497,15 +534,13 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="update_height_width">update_height_width</h3>
-<pre><code class="python">def update_height_width(self)
+<pre><code class="language-python">def update_height_width(self) -&gt; None
 </code></pre>
-
 <p>Function that refreshes position and dimensons on resize.</p>
 <p>If necessary, make sure required widget attributes updated here as well.</p>
 <h3 id="get_viewport_height">get_viewport_height</h3>
-<pre><code class="python">def get_viewport_height(self)
+<pre><code class="language-python">def get_viewport_height(self) -&gt; int
 </code></pre>
-
 <p>Gets the height of the element viewport (height minus padding and borders)</p>
 <h4 id="returns_1">Returns</h4>
 <table>
@@ -525,9 +560,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_id">get_id</h3>
-<pre><code class="python">def get_id(self)
+<pre><code class="language-python">def get_id(self) -&gt; int
 </code></pre>
-
 <p>Gets the element ID</p>
 <h4 id="returns_2">Returns</h4>
 <table>
@@ -547,9 +581,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_title">get_title</h3>
-<pre><code class="python">def get_title(self)
+<pre><code class="language-python">def get_title(self) -&gt; str
 </code></pre>
-
 <p>Getter for ui element title</p>
 <h4 id="returns_3">Returns</h4>
 <table>
@@ -569,9 +602,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_padding">get_padding</h3>
-<pre><code class="python">def get_padding(self)
+<pre><code class="language-python">def get_padding(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets ui element padding on in characters</p>
 <h4 id="returns_4">Returns</h4>
 <table>
@@ -591,9 +623,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_start_position">get_start_position</h3>
-<pre><code class="python">def get_start_position(self)
+<pre><code class="language-python">def get_start_position(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets coords of upper left corner</p>
 <h4 id="returns_5">Returns</h4>
 <table>
@@ -613,9 +644,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_stop_position">get_stop_position</h3>
-<pre><code class="python">def get_stop_position(self)
+<pre><code class="language-python">def get_stop_position(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets coords of lower right corner</p>
 <h4 id="returns_6">Returns</h4>
 <table>
@@ -635,9 +665,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_color">get_color</h3>
-<pre><code class="python">def get_color(self)
+<pre><code class="language-python">def get_color(self) -&gt; int
 </code></pre>
-
 <p>Gets current element color</p>
 <h4 id="returns_7">Returns</h4>
 <table>
@@ -657,9 +686,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_border_color">get_border_color</h3>
-<pre><code class="python">def get_border_color(self)
+<pre><code class="language-python">def get_border_color(self) -&gt; int
 </code></pre>
-
 <p>Gets current element border color</p>
 <h4 id="returns_8">Returns</h4>
 <table>
@@ -679,9 +707,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_selected_color">get_selected_color</h3>
-<pre><code class="python">def get_selected_color(self)
+<pre><code class="language-python">def get_selected_color(self) -&gt; int
 </code></pre>
-
 <p>Gets current selected item color</p>
 <h4 id="returns_9">Returns</h4>
 <table>
@@ -701,9 +728,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="is_selected">is_selected</h3>
-<pre><code class="python">def is_selected(self)
+<pre><code class="language-python">def is_selected(self) -&gt; bool
 </code></pre>
-
 <p>Get selected status</p>
 <h4 id="returns_10">Returns</h4>
 <table>
@@ -723,9 +749,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_renderer">get_renderer</h3>
-<pre><code class="python">def get_renderer(self)
+<pre><code class="language-python">def get_renderer(self) -&gt; 'py_cui.renderer.Renderer'
 </code></pre>
-
 <p>Gets reference to renderer object</p>
 <h4 id="returns_11">Returns</h4>
 <table>
@@ -745,9 +770,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="get_help_text">get_help_text</h3>
-<pre><code class="python">def get_help_text(self)
+<pre><code class="language-python">def get_help_text(self) -&gt; str
 </code></pre>
-
 <p>Returns current help text</p>
 <h4 id="returns_12">Returns</h4>
 <table>
@@ -767,9 +791,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_title">set_title</h3>
-<pre><code class="python">def set_title(self, title)
+<pre><code class="language-python">def set_title(self, title: str)
 </code></pre>
-
 <p>Function that sets the widget title.</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -789,9 +812,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_color">set_color</h3>
-<pre><code class="python">def set_color(self, color)
+<pre><code class="language-python">def set_color(self, color: int) -&gt; None
 </code></pre>
-
 <p>Sets element default color</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
@@ -811,9 +833,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_border_color">set_border_color</h3>
-<pre><code class="python">def set_border_color(self, color)
+<pre><code class="language-python">def set_border_color(self, color: int) -&gt; None
 </code></pre>
-
 <p>Sets element border color</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
@@ -833,9 +854,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_focus_border_color">set_focus_border_color</h3>
-<pre><code class="python">def set_focus_border_color(self, color)
+<pre><code class="language-python">def set_focus_border_color(self, color: int) -&gt; None
 </code></pre>
-
 <p>Sets element border color if the current element</p>
 <p>is focused</p>
 <h4 id="parameters_3">Parameters</h4>
@@ -856,9 +876,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_selected_color">set_selected_color</h3>
-<pre><code class="python">def set_selected_color(self, color)
+<pre><code class="language-python">def set_selected_color(self, color: int) -&gt; None
 </code></pre>
-
 <p>Sets element sected color</p>
 <h4 id="parameters_4">Parameters</h4>
 <table>
@@ -878,9 +897,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_selected">set_selected</h3>
-<pre><code class="python">def set_selected(self, selected)
+<pre><code class="language-python">def set_selected(self, selected: bool) -&gt; None
 </code></pre>
-
 <p>Marks the UI element as selected or not selected</p>
 <h4 id="parameters_5">Parameters</h4>
 <table>
@@ -900,9 +918,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_help_text">set_help_text</h3>
-<pre><code class="python">def set_help_text(self, help_text)
+<pre><code class="language-python">def set_help_text(self, help_text: str) -&gt; None
 </code></pre>
-
 <p>Sets status bar help text</p>
 <h4 id="parameters_6">Parameters</h4>
 <table>
@@ -922,9 +939,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="set_focus_text">set_focus_text</h3>
-<pre><code class="python">def set_focus_text(self, focus_text)
+<pre><code class="language-python">def set_focus_text(self, focus_text: str) -&gt; None
 </code></pre>
-
 <p>Sets status bar focus text. Legacy function, overridden by set_focus_text</p>
 <h4 id="parameters_7">Parameters</h4>
 <table>
@@ -944,38 +960,14 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="_handle_key_press">_handle_key_press</h3>
-<pre><code class="python">def _handle_key_press(self, key_pressed)
+<pre><code class="language-python">def _handle_key_press(self, key_pressed)
 </code></pre>
-
 <p>Must be implemented by subclass. Used to handle keypresses</p>
-<h3 id="add_mouse_press_handler">add_mouse_press_handler</h3>
-<pre><code class="python">def add_mouse_press_handler(self, mouse_press_handler_func)
-</code></pre>
-
-<p>Sets a mouse press handler function</p>
-<h4 id="parameters_8">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Doc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mouse_press_handler_func</td>
-<td>function / lambda function</td>
-<td>Function that takes 2 parameters: x and y of a mouse press. Executes when mouse pressed and element is selected</td>
-</tr>
-</tbody>
-</table>
 <h3 id="_handle_mouse_press">_handle_mouse_press</h3>
-<pre><code class="python">def _handle_mouse_press(self, x, y)
+<pre><code class="language-python">def _handle_mouse_press(self, x, y, mouse_event)
 </code></pre>
-
 <p>Can be implemented by subclass. Used to handle mouse presses</p>
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_8">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -993,17 +985,15 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="_draw">_draw</h3>
-<pre><code class="python">def _draw(self)
+<pre><code class="language-python">def _draw(self)
 </code></pre>
-
 <p>Must be implemented by subclasses. Uses renderer to draw element to terminal</p>
 <h3 id="_assign_renderer">_assign_renderer</h3>
-<pre><code class="python">def _assign_renderer(self, renderer)
+<pre><code class="language-python">def _assign_renderer(self, renderer: 'py_cui.renderer.Renderer', quiet: bool=False) 
 </code></pre>
-
 <p>Function that assigns a renderer object to the element</p>
 <p>(Meant for internal usage only)</p>
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_9">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1038,11 +1028,10 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h3 id="_contains_position">_contains_position</h3>
-<pre><code class="python">def _contains_position(self, x, y)
+<pre><code class="language-python">def _contains_position(self, x: int, y: int) -&gt; bool
 </code></pre>
-
 <p>Checks if character position is within element.</p>
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_10">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1082,9 +1071,8 @@ class contains all links to the CUI engine.</p>
 </tbody>
 </table>
 <h2 id="uiimplementation">UIImplementation</h2>
-<pre><code class="python">class UIImplementation
+<pre><code class="language-python">class UIImplementation
 </code></pre>
-
 <p>Base class for ui implementations.</p>
 <p>Should be extended for creating logic common accross ui elements.
 For example, a textbox needs the same logic for a widget or popup.
@@ -1107,13 +1095,11 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="init_1"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, logger)
+<pre><code class="language-python">def __init__(self, logger)
 </code></pre>
-
 <h2 id="textboximplementationuiimplementation">TextBoxImplementation(UIImplementation)</h2>
-<pre><code class="python">class TextBoxImplementation(UIImplementation)
+<pre><code class="language-python">class TextBoxImplementation(UIImplementation)
 </code></pre>
-
 <p>UI implementation for a single-row textbox input</p>
 <h4 id="attributes_2">Attributes</h4>
 <table>
@@ -1234,14 +1220,12 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="init_2"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, initial_text, password, logger)
+<pre><code class="language-python">def __init__(self, initial_text: str, password: bool , logger)
 </code></pre>
-
 <p>Initializer for the TextBoxImplementation base class</p>
 <h3 id="get_initial_cursor_pos">get_initial_cursor_pos</h3>
-<pre><code class="python">def get_initial_cursor_pos(self)
+<pre><code class="language-python">def get_initial_cursor_pos(self) -&gt; int
 </code></pre>
-
 <p>Gets initial cursor position</p>
 <h4 id="returns_14">Returns</h4>
 <table>
@@ -1261,9 +1245,8 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="get_cursor_text_pos">get_cursor_text_pos</h3>
-<pre><code class="python">def get_cursor_text_pos(self)
+<pre><code class="language-python">def get_cursor_text_pos(self) -&gt; int
 </code></pre>
-
 <p>Gets current position of cursor relative to text</p>
 <h4 id="returns_15">Returns</h4>
 <table>
@@ -1283,9 +1266,8 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="get_cursor_limits">get_cursor_limits</h3>
-<pre><code class="python">def get_cursor_limits(self)
+<pre><code class="language-python">def get_cursor_limits(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets cursor extreme points in terminal position</p>
 <h4 id="returns_16">Returns</h4>
 <table>
@@ -1305,9 +1287,8 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="get_cursor_position">get_cursor_position</h3>
-<pre><code class="python">def get_cursor_position(self)
+<pre><code class="language-python">def get_cursor_position(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Returns current cursor poition</p>
 <h4 id="returns_17">Returns</h4>
 <table>
@@ -1327,9 +1308,8 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="get_viewport_width">get_viewport_width</h3>
-<pre><code class="python">def get_viewport_width(self)
+<pre><code class="language-python">def get_viewport_width(self) -&gt; int
 </code></pre>
-
 <p>Gets the width of the textbox viewport</p>
 <h4 id="returns_18">Returns</h4>
 <table>
@@ -1349,11 +1329,10 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="set_text">set_text</h3>
-<pre><code class="python">def set_text(self, text)
+<pre><code class="language-python">def set_text(self, text: str)
 </code></pre>
-
 <p>Sets the value of the text. Overwrites existing text</p>
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_11">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1371,9 +1350,8 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="get">get</h3>
-<pre><code class="python">def get(self)
+<pre><code class="language-python">def get(self) -&gt; str
 </code></pre>
-
 <p>Gets value of the text in the textbox</p>
 <h4 id="returns_19">Returns</h4>
 <table>
@@ -1393,26 +1371,22 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="clear">clear</h3>
-<pre><code class="python">def clear(self)
+<pre><code class="language-python">def clear(self) -&gt; None
 </code></pre>
-
 <p>Clears the text in the textbox</p>
 <h3 id="_move_left">_move_left</h3>
-<pre><code class="python">def _move_left(self)
+<pre><code class="language-python">def _move_left(self) -&gt; None
 </code></pre>
-
 <p>Shifts the cursor the the left. Internal use only</p>
 <h3 id="_move_right">_move_right</h3>
-<pre><code class="python">def _move_right(self)
+<pre><code class="language-python">def _move_right(self) -&gt; None
 </code></pre>
-
 <p>Shifts the cursor the the right. Internal use only</p>
 <h3 id="_insert_char">_insert_char</h3>
-<pre><code class="python">def _insert_char(self, key_pressed)
+<pre><code class="language-python">def _insert_char(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Inserts char at cursor position. Internal use only</p>
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_12">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -1430,29 +1404,24 @@ This base class is only used to initialize the logger</p>
 </tbody>
 </table>
 <h3 id="_jump_to_start">_jump_to_start</h3>
-<pre><code class="python">def _jump_to_start(self)
+<pre><code class="language-python">def _jump_to_start(self) -&gt; None
 </code></pre>
-
 <p>Jumps to the start of the textbox. Internal use only</p>
 <h3 id="_jump_to_end">_jump_to_end</h3>
-<pre><code class="python">def _jump_to_end(self)
+<pre><code class="language-python">def _jump_to_end(self) -&gt; None
 </code></pre>
-
 <p>Jumps to the end to the textbox. Internal use only</p>
 <h3 id="_erase_char">_erase_char</h3>
-<pre><code class="python">def _erase_char(self)
+<pre><code class="language-python">def _erase_char(self) -&gt; None
 </code></pre>
-
 <p>Erases character at textbox cursor. Internal Use only</p>
 <h3 id="_delete_char">_delete_char</h3>
-<pre><code class="python">def _delete_char(self)
+<pre><code class="language-python">def _delete_char(self) -&gt; None
 </code></pre>
-
 <p>Deletes character to right of texbox cursor. Internal use only</p>
 <h2 id="menuimplementationuiimplementation">MenuImplementation(UIImplementation)</h2>
-<pre><code class="python">class MenuImplementation(UIImplementation)
+<pre><code class="language-python">class MenuImplementation(UIImplementation)
 </code></pre>
-
 <p>A scrollable menu UI element</p>
 <p>Allows for creating a scrollable list of items of which one is selectable.
 Analogous to a RadioButton</p>
@@ -1497,8 +1466,12 @@ Analogous to a RadioButton</p>
 <td>Clears all items from the Scroll Menu</td>
 </tr>
 <tr>
-<td>get_selected_item_index</td>
-<td>Gets the currently selected item</td>
+<td>set_on_selection_change_event</td>
+<td>Function that sets the function fired when menu selection changes.</td>
+</tr>
+<tr>
+<td>_process_selection_change_event</td>
+<td>Function that executes on-selection change event either with the current menu item, or with no-args"""</td>
 </tr>
 <tr>
 <td>set_selected_item_index</td>
@@ -1559,20 +1532,75 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="init_3"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, logger)
+<pre><code class="language-python">def __init__(self, logger)
 </code></pre>
-
 <p>Initializer for MenuImplementation base class</p>
 <h3 id="clear_1">clear</h3>
-<pre><code class="python">def clear(self)
+<pre><code class="language-python">def clear(self) -&gt; None
 </code></pre>
-
 <p>Clears all items from the Scroll Menu</p>
-<h3 id="get_selected_item_index">get_selected_item_index</h3>
-<pre><code class="python">def get_selected_item_index(self)
+<h3 id="set_on_selection_change_event">set_on_selection_change_event</h3>
+<pre><code class="language-python">def set_on_selection_change_event(self, on_selection_change_event: Callable[[Any],Any])
 </code></pre>
-
-<p>Gets the currently selected item</p>
+<p>Function that sets the function fired when menu selection changes.</p>
+<p>Event function must take 0 or 1 parameters. If 1 parameter, the new selcted item will be passed in.</p>
+<h4 id="parameters_13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>on_selection_change_event</td>
+<td>Callable</td>
+<td>Callable function that takes in as an argument the newly selected element</td>
+</tr>
+</tbody>
+</table>
+<h4 id="raises_1">Raises</h4>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unknown</td>
+<td>TypeError</td>
+<td>Raises a type error if event function is not callable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_process_selection_change_event">_process_selection_change_event</h3>
+<pre><code class="language-python">def _process_selection_change_event(self)
+</code></pre>
+<p>Function that executes on-selection change event either with the current menu item, or with no-args"""</p>
+<h1 id="identify-num-of-args-from-callable-this-allows-for-user-to-create-commands-that-take-in-x-y">Identify num of args from callable. This allows for user to create commands that take in x, y</h1>
+<h1 id="coords-of-the-mouse-press-as-input">coords of the mouse press as input</h1>
+<p>num_args = 0
+try:
+num_args = len(inspect.signature(self._on_selection_change).parameters)
+except ValueError:
+self._logger.error('Failed to get on_selection_change signature!')
+except TypeError:
+self._logger.error('Type of object not supported for signature identification!')</p>
+<h1 id="depending-on-the-number-of-parameters-for-the-self_on_selection_change-pass-in-the-x-and-y">Depending on the number of parameters for the self._on_selection_change, pass in the x and y</h1>
+<h1 id="values-or-do-nothing">values, or do nothing</h1>
+<p>if num_args == 1:
+self._on_selection_change(self.get())
+elif num_args == 0:
+self._on_selection_change()
+else:
+raise ValueError('On selection change event must accept either 0 or 1 parameters!')</p>
+<p>def get_selected_item_index(self) -&gt; int:
+"""Gets the currently selected item</p>
 <h4 id="returns_20">Returns</h4>
 <table>
 <thead>
@@ -1591,9 +1619,8 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="set_selected_item_index">set_selected_item_index</h3>
-<pre><code class="python">def set_selected_item_index(self, selected_item_index)
+<pre><code class="language-python">def set_selected_item_index(self, selected_item_index: int) -&gt; None
 </code></pre>
-
 <p>Sets the currently selected item</p>
 <h4 id="parameters_14">Parameters</h4>
 <table>
@@ -1613,14 +1640,12 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="_scroll_up">_scroll_up</h3>
-<pre><code class="python">def _scroll_up(self)
+<pre><code class="language-python">def _scroll_up(self) -&gt; None
 </code></pre>
-
 <p>Function that scrolls the view up in the scroll menu</p>
 <h3 id="_scroll_down">_scroll_down</h3>
-<pre><code class="python">def _scroll_down(self, viewport_height)
+<pre><code class="language-python">def _scroll_down(self, viewport_height: int) -&gt; None
 </code></pre>
-
 <p>Function that scrolls the view down in the scroll menu</p>
 <p>TODO: Viewport height should be calculated internally, and not rely on a parameter.</p>
 <h4 id="parameters_15">Parameters</h4>
@@ -1641,14 +1666,12 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="_jump_up">_jump_up</h3>
-<pre><code class="python">def _jump_up(self)
+<pre><code class="language-python">def _jump_up(self) -&gt; None
 </code></pre>
-
 <p>Function for jumping up menu several spots at a time</p>
 <h3 id="_jump_down">_jump_down</h3>
-<pre><code class="python">def _jump_down(self, viewport_height)
+<pre><code class="language-python">def _jump_down(self, viewport_height: int) -&gt; None
 </code></pre>
-
 <p>Function for jumping down the menu several spots at a time</p>
 <h4 id="parameters_16">Parameters</h4>
 <table>
@@ -1668,14 +1691,12 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="_jump_to_top">_jump_to_top</h3>
-<pre><code class="python">def _jump_to_top(self)
+<pre><code class="language-python">def _jump_to_top(self) -&gt; None
 </code></pre>
-
 <p>Function that jumps to the top of the menu</p>
 <h3 id="_jump_to_bottom">_jump_to_bottom</h3>
-<pre><code class="python">def _jump_to_bottom(self, viewport_height)
+<pre><code class="language-python">def _jump_to_bottom(self, viewport_height: int) -&gt; None
 </code></pre>
-
 <p>Function that jumps to the bottom of the menu</p>
 <h4 id="parameters_17">Parameters</h4>
 <table>
@@ -1695,9 +1716,8 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="add_item">add_item</h3>
-<pre><code class="python">def add_item(self, item)
+<pre><code class="language-python">def add_item(self, item: Any) -&gt; None
 </code></pre>
-
 <p>Adds an item to the menu.</p>
 <h4 id="parameters_18">Parameters</h4>
 <table>
@@ -1717,9 +1737,8 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="add_item_list">add_item_list</h3>
-<pre><code class="python">def add_item_list(self, item_list)
+<pre><code class="language-python">def add_item_list(self, item_list: List[Any]) -&gt; None
 </code></pre>
-
 <p>Adds a list of items to the scroll menu.</p>
 <h4 id="parameters_19">Parameters</h4>
 <table>
@@ -1739,14 +1758,12 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="remove_selected_item">remove_selected_item</h3>
-<pre><code class="python">def remove_selected_item(self)
+<pre><code class="language-python">def remove_selected_item(self) -&gt; None
 </code></pre>
-
 <p>Function that removes the selected item from the scroll menu.</p>
 <h3 id="remove_item">remove_item</h3>
-<pre><code class="python">def remove_item(self, item)
+<pre><code class="language-python">def remove_item(self, item: Any) -&gt; None
 </code></pre>
-
 <p>Function that removes a specific item from the menu</p>
 <h4 id="parameters_20">Parameters</h4>
 <table>
@@ -1766,9 +1783,8 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="get_item_list">get_item_list</h3>
-<pre><code class="python">def get_item_list(self)
+<pre><code class="language-python">def get_item_list(self) -&gt; List[Any]
 </code></pre>
-
 <p>Function that gets list of items in a scroll menu</p>
 <h4 id="returns_21">Returns</h4>
 <table>
@@ -1788,9 +1804,8 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="get_1">get</h3>
-<pre><code class="python">def get(self)
+<pre><code class="language-python">def get(self) -&gt; Optional[Any]
 </code></pre>
-
 <p>Function that gets the selected item from the scroll menu</p>
 <h4 id="returns_22">Returns</h4>
 <table>
@@ -1810,9 +1825,8 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="set_selected_item">set_selected_item</h3>
-<pre><code class="python">def set_selected_item(self, selected_item)
+<pre><code class="language-python">def set_selected_item(self, selected_item: Any)
 </code></pre>
-
 <p>Function that replaces the currently selected item with a new item</p>
 <h4 id="parameters_21">Parameters</h4>
 <table>
@@ -1832,9 +1846,8 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h2 id="checkboxmenuimplementationmenuimplementation">CheckBoxMenuImplementation(MenuImplementation)</h2>
-<pre><code class="python">class CheckBoxMenuImplementation(MenuImplementation)
+<pre><code class="language-python">class CheckBoxMenuImplementation(MenuImplementation)
 </code></pre>
-
 <p>Class representing checkbox menu ui implementation</p>
 <h4 id="attributes_4">Attributes</h4>
 <table>
@@ -1880,20 +1893,26 @@ Analogous to a RadioButton</p>
 <td>Removes item from item list and selected item dict</td>
 </tr>
 <tr>
+<td>toggle_item_checked</td>
+<td>Function that marks an item as selected</td>
+</tr>
+<tr>
 <td>mark_item_as_checked</td>
+<td>Function that marks an item as selected</td>
+</tr>
+<tr>
+<td>mark_item_as_not_checked</td>
 <td>Function that marks an item as selected</td>
 </tr>
 </tbody>
 </table>
 <h3 id="init_4"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, logger, checked_char)
+<pre><code class="language-python">def __init__(self, logger, checked_char)
 </code></pre>
-
 <p>Initializer for the checkbox menu implementation</p>
 <h3 id="add_item_1">add_item</h3>
-<pre><code class="python">def add_item(self, item)
+<pre><code class="language-python">def add_item(self, item: Any) -&gt; None
 </code></pre>
-
 <p>Extends base class function, item is added and marked as unchecked to start</p>
 <h4 id="parameters_22">Parameters</h4>
 <table>
@@ -1913,14 +1932,12 @@ Analogous to a RadioButton</p>
 </tbody>
 </table>
 <h3 id="remove_selected_item_1">remove_selected_item</h3>
-<pre><code class="python">def remove_selected_item(self)
+<pre><code class="language-python">def remove_selected_item(self) -&gt; None
 </code></pre>
-
 <p>Removes selected item from item list and selected item dictionary</p>
 <h3 id="remove_item_1">remove_item</h3>
-<pre><code class="python">def remove_item(self, item)
+<pre><code class="language-python">def remove_item(self, item) -&gt; None
 </code></pre>
-
 <p>Removes item from item list and selected item dict</p>
 <h4 id="parameters_23">Parameters</h4>
 <table>
@@ -1939,10 +1956,9 @@ Analogous to a RadioButton</p>
 </tr>
 </tbody>
 </table>
-<h3 id="mark_item_as_checked">mark_item_as_checked</h3>
-<pre><code class="python">def mark_item_as_checked(self, item)
+<h3 id="toggle_item_checked">toggle_item_checked</h3>
+<pre><code class="language-python">def toggle_item_checked(self, item: Any)
 </code></pre>
-
 <p>Function that marks an item as selected</p>
 <h4 id="parameters_24">Parameters</h4>
 <table>
@@ -1957,14 +1973,55 @@ Analogous to a RadioButton</p>
 <tr>
 <td>item</td>
 <td>object</td>
-<td>Mark item as checked</td>
+<td>Toggle item checked state</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mark_item_as_checked">mark_item_as_checked</h3>
+<pre><code class="language-python">def mark_item_as_checked(self, item: Any) -&gt; None
+</code></pre>
+<p>Function that marks an item as selected</p>
+<h4 id="parameters_25">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item</td>
+<td>object</td>
+<td>Toggle item checked state</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mark_item_as_not_checked">mark_item_as_not_checked</h3>
+<pre><code class="language-python">def mark_item_as_not_checked(self, item) -&gt; None
+</code></pre>
+<p>Function that marks an item as selected</p>
+<h4 id="parameters_26">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item</td>
+<td>object</td>
+<td>Item to uncheck</td>
 </tr>
 </tbody>
 </table>
 <h2 id="textblockimplementationuiimplementation">TextBlockImplementation(UIImplementation)</h2>
-<pre><code class="python">class TextBlockImplementation(UIImplementation)
+<pre><code class="language-python">class TextBlockImplementation(UIImplementation)
 </code></pre>
-
 <p>Base class for TextBlockImplementation</p>
 <p>Contains all logic required for a textblock ui element to function.
 Currently only implemented in widget form, though popup form is possible.</p>
@@ -2115,15 +2172,13 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="init_5"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, initial_text, logger)
+<pre><code class="language-python">def __init__(self, initial_text: str, logger)
 </code></pre>
-
 <p>Initializer for TextBlockImplementation base class</p>
 <p>Zeros attributes, and parses initial text</p>
 <h3 id="get_viewport_start_pos">get_viewport_start_pos</h3>
-<pre><code class="python">def get_viewport_start_pos(self)
+<pre><code class="language-python">def get_viewport_start_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets upper left corner position of viewport</p>
 <h4 id="returns_23">Returns</h4>
 <table>
@@ -2143,9 +2198,8 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="get_viewport_dims">get_viewport_dims</h3>
-<pre><code class="python">def get_viewport_dims(self)
+<pre><code class="language-python">def get_viewport_dims(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets viewport dimensions in characters</p>
 <h4 id="returns_24">Returns</h4>
 <table>
@@ -2165,9 +2219,8 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="get_cursor_text_pos_1">get_cursor_text_pos</h3>
-<pre><code class="python">def get_cursor_text_pos(self)
+<pre><code class="language-python">def get_cursor_text_pos(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets cursor postion relative to text</p>
 <h4 id="returns_25">Returns</h4>
 <table>
@@ -2187,9 +2240,8 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="get_abs_cursor_position">get_abs_cursor_position</h3>
-<pre><code class="python">def get_abs_cursor_position(self)
+<pre><code class="language-python">def get_abs_cursor_position(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets absolute cursor position in terminal characters</p>
 <h4 id="returns_26">Returns</h4>
 <table>
@@ -2209,9 +2261,8 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="get_cursor_limits_vertical">get_cursor_limits_vertical</h3>
-<pre><code class="python">def get_cursor_limits_vertical(self)
+<pre><code class="language-python">def get_cursor_limits_vertical(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets limits for cursor in vertical direction</p>
 <h4 id="returns_27">Returns</h4>
 <table>
@@ -2231,9 +2282,8 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="get_cursor_limits_horizontal">get_cursor_limits_horizontal</h3>
-<pre><code class="python">def get_cursor_limits_horizontal(self)
+<pre><code class="language-python">def get_cursor_limits_horizontal(self) -&gt; Tuple[int,int]
 </code></pre>
-
 <p>Gets limits for cursor in horizontal direction</p>
 <h4 id="returns_28">Returns</h4>
 <table>
@@ -2253,9 +2303,8 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="get_2">get</h3>
-<pre><code class="python">def get(self)
+<pre><code class="language-python">def get(self) -&gt; str
 </code></pre>
-
 <p>Gets all of the text in the textblock and returns it</p>
 <h4 id="returns_29">Returns</h4>
 <table>
@@ -2275,11 +2324,10 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="write">write</h3>
-<pre><code class="python">def write(self, text)
+<pre><code class="language-python">def write(self, text: str) -&gt; None
 </code></pre>
-
 <p>Function used for writing text to the text block</p>
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_27">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2297,14 +2345,12 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="clear_2">clear</h3>
-<pre><code class="python">def clear(self)
+<pre><code class="language-python">def clear(self) -&gt; None
 </code></pre>
-
 <p>Function that clears the text block</p>
 <h3 id="get_current_line">get_current_line</h3>
-<pre><code class="python">def get_current_line(self)
+<pre><code class="language-python">def get_current_line(self) -&gt; str
 </code></pre>
-
 <p>Returns the line on which the cursor currently resides</p>
 <h4 id="returns_30">Returns</h4>
 <table>
@@ -2324,12 +2370,11 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="set_text_1">set_text</h3>
-<pre><code class="python">def set_text(self, text)
+<pre><code class="language-python">def set_text(self, text: str) -&gt; None
 </code></pre>
-
 <p>Function that sets the text for the textblock.</p>
 <p>Note that this will overwrite any existing text</p>
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_28">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2347,12 +2392,11 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="set_text_line">set_text_line</h3>
-<pre><code class="python">def set_text_line(self, text)
+<pre><code class="language-python">def set_text_line(self, text: str) -&gt; None
 </code></pre>
-
 <p>Function that sets the current line's text.</p>
 <p>Meant only for internal use</p>
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_29">Parameters</h4>
 <table>
 <thead>
 <tr>
@@ -2370,56 +2414,46 @@ Currently only implemented in widget form, though popup form is possible.</p>
 </tbody>
 </table>
 <h3 id="_move_left_1">_move_left</h3>
-<pre><code class="python">def _move_left(self)
+<pre><code class="language-python">def _move_left(self) -&gt; None
 </code></pre>
-
 <p>Function that moves the cursor/text position one location to the left</p>
 <h3 id="_move_right_1">_move_right</h3>
-<pre><code class="python">def _move_right(self)
+<pre><code class="language-python">def _move_right(self) -&gt; None
 </code></pre>
-
 <p>Function that moves the cursor/text position one location to the right</p>
 <h3 id="_move_up">_move_up</h3>
-<pre><code class="python">def _move_up(self)
+<pre><code class="language-python">def _move_up(self) -&gt; None
 </code></pre>
-
 <p>Function that moves the cursor/text position one location up</p>
 <h3 id="_move_down">_move_down</h3>
-<pre><code class="python">def _move_down(self)
+<pre><code class="language-python">def _move_down(self) -&gt; None
 </code></pre>
-
 <p>Function that moves the cursor/text position one location down</p>
 <h3 id="_handle_newline">_handle_newline</h3>
-<pre><code class="python">def _handle_newline(self)
+<pre><code class="language-python">def _handle_newline(self) -&gt; None
 </code></pre>
-
 <p>Function that handles recieving newline characters in the text</p>
 <h3 id="_handle_backspace">_handle_backspace</h3>
-<pre><code class="python">def _handle_backspace(self)
+<pre><code class="language-python">def _handle_backspace(self) -&gt; None
 </code></pre>
-
 <p>Function that handles recieving backspace characters in the text</p>
 <h3 id="_handle_home">_handle_home</h3>
-<pre><code class="python">def _handle_home(self)
+<pre><code class="language-python">def _handle_home(self) -&gt; None
 </code></pre>
-
 <p>Function that handles recieving a home keypress</p>
 <h3 id="_handle_end">_handle_end</h3>
-<pre><code class="python">def _handle_end(self)
+<pre><code class="language-python">def _handle_end(self) -&gt; None
 </code></pre>
-
 <p>Function that handles recieving an end keypress</p>
 <h3 id="_handle_delete">_handle_delete</h3>
-<pre><code class="python">def _handle_delete(self)
+<pre><code class="language-python">def _handle_delete(self) -&gt; None
 </code></pre>
-
 <p>Function that handles recieving a delete keypress</p>
 <h3 id="_insert_char_1">_insert_char</h3>
-<pre><code class="python">def _insert_char(self, key_pressed)
+<pre><code class="language-python">def _insert_char(self, key_pressed: int) -&gt; None
 </code></pre>
-
 <p>Function that handles recieving a character</p>
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_30">Parameters</h4>
 <table>
 <thead>
 <tr>

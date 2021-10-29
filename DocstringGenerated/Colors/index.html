@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Colors";
-    var mkdocs_page_input_path = "DocstringGenerated\\Colors.md";
+    var mkdocs_page_input_path = "DocstringGenerated/Colors.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -211,9 +211,8 @@
 </tbody>
 </table>
 <h2 id="colorrule">ColorRule</h2>
-<pre><code class="python">class ColorRule
+<pre><code class="language-python">class ColorRule
 </code></pre>
-
 <p>Class representing a text color rendering rule</p>
 <h4 id="attributes">Attributes</h4>
 <table>
@@ -285,9 +284,8 @@
 </tbody>
 </table>
 <h3 id="init"><strong>init</strong></h3>
-<pre><code class="python">def __init__(self, regex, color, selected_color, rule_type, match_type, region, include_whitespace, logger)
+<pre><code class="language-python">def __init__(self, regex: str, color: int, selected_color: int, rule_type: str, match_type: str, region: List[int], include_whitespace: bool, logger)
 </code></pre>
-
 <p>Constructor for ColorRule object</p>
 <h4 id="parameters">Parameters</h4>
 <table>
@@ -337,9 +335,8 @@
 </tbody>
 </table>
 <h3 id="_check_match">_check_match</h3>
-<pre><code class="python">def _check_match(self, line)
+<pre><code class="language-python">def _check_match(self, line: str) -&gt; bool
 </code></pre>
-
 <p>Checks if the color rule matches a line</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
@@ -376,9 +373,8 @@
 </tbody>
 </table>
 <h3 id="_generate_fragments_regex">_generate_fragments_regex</h3>
-<pre><code class="python">def _generate_fragments_regex(self, widget, render_text, selected)
+<pre><code class="language-python">def _generate_fragments_regex(self, widget: Union['py_cui.widgets.Widget','py_cui.ui.UIElement'], render_text:str, selected) -&gt; List[List[Union[int,str]]]
 </code></pre>
-
 <p>Splits text into fragments based on regular expression</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
@@ -420,9 +416,8 @@
 </tbody>
 </table>
 <h3 id="_split_text_on_region">_split_text_on_region</h3>
-<pre><code class="python">def _split_text_on_region(self, widget, render_text, selected)
+<pre><code class="language-python">def _split_text_on_region(self, widget: Union['py_cui.widgets.Widget','py_cui.ui.UIElement'], render_text: str, selected) -&gt; List[List[Union[str,int]]]:   # renderer._generate_text_color_fragments passes a uielement and not a widge
 </code></pre>
-
 <p>Splits text into fragments based on region</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>
@@ -464,9 +459,8 @@
 </tbody>
 </table>
 <h3 id="generate_fragments">generate_fragments</h3>
-<pre><code class="python">def generate_fragments(self, widget, line, render_text, selected=False)
+<pre><code class="language-python">def generate_fragments(self, widget: Union['py_cui.widgets.Widget','py_cui.ui.UIElement'], line: str, render_text: str, selected=False) -&gt; Tuple[List[List[Union[str,int]]],bool]
 </code></pre>
-
 <p>Splits text into fragments if matched line to regex</p>
 <h4 id="parameters_4">Parameters</h4>
 <table>

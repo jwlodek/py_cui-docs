@@ -201,7 +201,7 @@
 <p>There are several examples of simple <code>py_cui</code> programs you can find in the <code>examples</code> directory of the github repository. In addition, a larger python module <code>pyautogit</code> was written with <code>py_cui</code>, and is available for download using <code>pip</code> or from github. In this section of the documentation we will explain the source code for some of the supplied examples in more detail.</p>
 <h3 id="hello-py_cui">Hello py_cui!</h3>
 <p>As is tradition with programming, we start with our Hello World example. Here we simply create a <code>PyCUI</code> object with a grid size of 3 x 3, and we add a Label into the center grid space. This is the most basic <code>py_cui</code> you can create.</p>
-<pre><code class="Python"># Import the lib
+<pre><code class="language-Python"># Import the lib
 import py_cui
 
 # create the CUI object. Will have a 3 by 3 grid with indexes from 0,0 to 2,2
@@ -213,10 +213,9 @@ root.add_label('Hello py_cui!!!', 1, 1)
 # Start/Render the CUI
 root.start()
 </code></pre>
-
 <h3 id="simple-todo-list">Simple Todo List</h3>
 <p>A simple usage of <code>py_cui</code> for creating a terminal todo list. We use keybindings to get control of each of our lists as well as our text entry</p>
-<pre><code class="Python">import py_cui
+<pre><code class="language-Python">import py_cui
 
 class SimpleTodoList:
 
@@ -242,7 +241,7 @@ class SimpleTodoList:
     def add_item(self):
         &quot;&quot;&quot; Add a todo item &quot;&quot;&quot;
 
-        self.todo_scroll_cell.add_item('{}'.format(self.new_todo_textbox.get()))
+        self.todo_scroll_cell.add_item(f'{self.new_todo_textbox.get()}')
         self.new_todo_textbox.clear()
 
     def mark_as_in_progress(self):
@@ -276,10 +275,9 @@ root.set_title('CUI TODO List')
 s = SimpleTodoList(root)
 root.start()
 </code></pre>
-
 <h3 id="popups-example">Popups Example</h3>
 <p>This example will demonstrate the usage for using all supported popups.</p>
-<pre><code class="Python"># imports
+<pre><code class="language-Python"># imports
 import py_cui
 import time
 import os
@@ -406,7 +404,6 @@ root.set_title('CUI Popups Example')
 s = PopupExample(root)
 root.start()
 </code></pre>
-
 <h3 id="other-examples">Other examples</h3>
 <p>Other examples are available in the <a href="https://github.com/jwlodek/py_cui/tree/master/examples"><code>examples</code></a> directory in the repository on github. For a larger example of a project using <code>py_cui</code>, see <a href="https://github.com/jwlodek/pyautogit">pyautogit</a>.</p>
               
